@@ -1,6 +1,6 @@
 # Ember-ui-components
 
-This README outlines the details of collaborating on this Ember addon.
+This ember-cli addon is a collection of common reusable user interface components.
 
 ## Installation
 
