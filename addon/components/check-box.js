@@ -2,21 +2,27 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/checkbox-slider';
+import layout from '../templates/components/check-box';
 
 const computed = Ember.computed;
 
 /**
-  # CheckboxSlider
+  # CheckBox
 
   ```
-  {{checkbox-slider checked=checkboxValue checkboxId="checkbox-id"}}
+  {{check-box checked=checkboxValue checkboxId="checkbox-id"}}
   ```
 
-  @class CheckboxSliderComponent
+  @class CheckBoxComponent
   @namespace Components
 */
 export default Ember.Component.extend({
+
+  /**
+    @property layout
+    @type {String}
+    @private
+  */
   layout: layout,
 
   /**
@@ -25,7 +31,7 @@ export default Ember.Component.extend({
     @private
     @default `['checkbox-slider']`
   */
-  classNames: ['checkbox-slider'],
+  classNames: ['check-box'],
 
   /**
     @property checked
