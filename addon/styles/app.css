@@ -1,22 +1,12 @@
 label {
   margin: 10px;
 }
+
 /*
   SelectBoxComponent
 */
 select.select-box {
   margin: 20px 0;
-}
-select.select-box.light {
-  font-size: 14px;
-  border: 1px solid rgb(89, 96, 134);
-  background: #F3F3F3;
-}
-select.select-box.dark {
-  font-size: 14px;
-  border: 1px solid rgb(89, 96, 134);
-  background: #333;
-  color: #D5D5D5
 }
 
 /*
@@ -33,9 +23,6 @@ select.select-box.dark {
   position: relative;
   border-radius: 50px;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
-}
-.checkbox-slider.light {
-  background: #F3F3F3;
 }
 .checkbox-slider:after {
   content: 'OFF';
@@ -79,7 +66,7 @@ select.select-box.dark {
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .checkbox-slider.light label {
-  background: #fcfff4;
+  background: #646563;
   background: -webkit-linear-gradient(top, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
   background: linear-gradient(to bottom, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
@@ -89,4 +76,18 @@ select.select-box.dark {
 }
 .checkbox-slider input[type=checkbox]:checked + label {
   left: 43px;
+}
+
+/*
+  Common styles
+*/
+.light {
+  border: 1px solid rgb(89, 96, 134);
+  background: #F3F3F3;
+  color: #000;
+}
+.dark {
+  border: 1px solid rgb(89, 96, 134);
+  background: #333;
+  color: #D5D5D5;
 }
