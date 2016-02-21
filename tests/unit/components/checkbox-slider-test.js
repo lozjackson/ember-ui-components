@@ -18,12 +18,13 @@ test('it renders', function(assert) {
 });
 
 test('classNames', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
   var component = this.subject();
   component.set('checkboxId', 1);
   this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'checkbox-slider');
+  assert.equal(component.get('classNames').length, 3);
+  assert.equal(component.get('classNames')[1], 'check-box');
+  assert.equal(component.get('classNames')[2], 'slider');
 });
 
 test('checked should be false', function(assert) {
