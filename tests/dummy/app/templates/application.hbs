@@ -2,7 +2,38 @@
 
 <h2>checkbox-slider</h2>
 
-{{checkbox-slider checked=checkboxSliderValue checkboxId="checkbox-slider"}}
-<label for="checkbox-slider">Checkbox Slider</label>
+{{checkbox-slider checked=checkboxSliderValue1 checkboxId="checkbox-slider"}}
+<label for="checkbox-slider">Checkbox Slider</label><br>
+
+{{checkbox-slider class="light" checked=checkboxSliderValue2 checkboxId="checkbox-slider2"}}
+<label for="checkbox-slider2">Checkbox Slider</label>
+
+<hr />
+
+<h2>select-box</h2>
+
+{{select-box
+  selected=selectBoxValue
+  options=selectBoxOptions
+  placeholder="Please select..."}}
+
+  <label>Selected: {{selectBoxValue}}</label><br>
+
+
+{{select-box
+  class="light"
+  selected=selectBoxValue2
+  options=selectBoxOptions2
+  placeholder="Please select..."}}
+
+  <label>Selected: {{selectBoxValue2}}</label><br>
+
+  {{select-box
+    class="dark"
+    selected=selectBoxValue3
+    options=selectBoxOptions2
+    placeholder="Please select..."}}
+
+    <label>Selected: {{selectBoxValue3}}</label>
 
 {{outlet}}

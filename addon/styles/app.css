@@ -2,6 +2,24 @@ label {
   margin: 10px;
 }
 /*
+  SelectBoxComponent
+*/
+select.select-box {
+  margin: 20px 0;
+}
+select.select-box.light {
+  font-size: 14px;
+  border: 1px solid rgb(89, 96, 134);
+  background: #F3F3F3;
+}
+select.select-box.dark {
+  font-size: 14px;
+  border: 1px solid rgb(89, 96, 134);
+  background: #333;
+  color: #D5D5D5
+}
+
+/*
   CheckboxSliderComponent
 */
 .checkbox-slider {
@@ -16,6 +34,9 @@ label {
   border-radius: 50px;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
+.checkbox-slider.light {
+  background: #F3F3F3;
+}
 .checkbox-slider:after {
   content: 'OFF';
   color: #000;
@@ -25,6 +46,10 @@ label {
   font: 12px/26px Arial, sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.checkbox-slider.light:after {
+  color: #888;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 .checkbox-slider:before {
   content: 'ON';
@@ -51,6 +76,12 @@ label {
   border-radius: 50px;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.checkbox-slider.light label {
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
+  background: linear-gradient(to bottom, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .checkbox-slider input[type=checkbox] {

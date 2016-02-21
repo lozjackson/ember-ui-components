@@ -1,0 +1,14 @@
+{{#if placeholder}}
+  <option disabled selected={{unless selected true}}>{{placeholder}}</option>
+{{/if}}
+{{#each options as |option|}}
+  {{#if option.value}}
+    <option value={{option.value}} selected={{is-equal selected option.value}}>
+      {{option.text}}
+    </option>
+  {{else}}
+    <option value={{option}} selected={{is-equal selected option}}>
+      {{option}}
+    </option>
+  {{/if}}
+{{/each}}
