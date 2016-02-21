@@ -15,6 +15,17 @@ import layout from '../templates/components/select-box';
     options=selectBoxOptions}}
   ```
 
+  The above will produce the same result as manually crafting a select element like below.
+  ```
+  <select onchange={{action (mut selectBoxValue) value="target.value"}}>
+    {{#each selectBoxOptions as |option|}}
+      <option value={{option}} selected={{is-equal selectBoxValue option}}>
+        {{option}}
+      </option>
+    {{/each}}
+  </select>
+  ```
+
   @class SelectBoxComponent
   @namespace Components
 */
