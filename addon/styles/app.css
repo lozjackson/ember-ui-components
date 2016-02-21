@@ -1,6 +1,9 @@
 label {
   margin: 10px;
 }
+select, input {
+  border-radius: 4px;
+}
 
 /*
   SelectBoxComponent
