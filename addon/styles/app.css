@@ -9,9 +9,9 @@ div.panel {
   margin-bottom: 20px;
   padding: 10px;
   background: #fff;
+  border: 1px solid #EEF1F5;
   border-radius: 4px;
   box-shadow: 4px 4px 4px #888888;
-  border: 1px solid #EEF1F5;
 }
 
 /*
