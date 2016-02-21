@@ -4,6 +4,15 @@ label {
 select, input {
   border-radius: 4px;
 }
+div.panel {
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px #888888;
+  border: 1px solid #EEF1F5;
+}
 
 /*
   SelectBoxComponent
@@ -93,4 +102,13 @@ select.select-box {
   border: 1px solid rgb(89, 96, 134);
   background: #333;
   color: #D5D5D5;
+}
+.top-border.yellow {
+  border-top: 4px solid rgb(236, 207, 101);
+}
+.top-border.green {
+  border-top: 4px solid rgb(123, 224, 123);
+}
+.top-border.red {
+  border-top: 4px solid rgb(251, 189, 189);
 }
