@@ -8,8 +8,8 @@ moduleForComponent('checkbox-slider', 'Integration | Component | checkbox slider
 test('it renders', function(assert) {
   assert.expect(4);
   this.render(hbs`{{checkbox-slider checkboxId="checkboxSlider1"}}`);
-  assert.equal(this.$('div.checkbox-slider').length, 1);
-  assert.equal(this.$('.checkbox-slider input[type=checkbox]').length, 1);
+  assert.equal(this.$('div.check-box.slider').length, 1);
+  assert.equal(this.$('.check-box.slider input[type=checkbox]').length, 1);
   assert.equal(this.$('#checkboxSlider1').length, 1);
   assert.equal(this.$('label[for=checkboxSlider1]').length, 1);
 });
@@ -18,7 +18,7 @@ test('checkbox visibility should be hidden', function(assert) {
   assert.expect(1);
 
   this.render(hbs`{{checkbox-slider checkboxId="checkboxSlider1"}}`);
-  assert.equal(this.$('.checkbox-slider input[type=checkbox]').css('visibility'), 'hidden');
+  assert.equal(this.$('.check-box.slider input[type=checkbox]').css('visibility'), 'hidden');
 });
 
 test('it toggles when you click the label', function(assert) {
@@ -27,29 +27,29 @@ test('it toggles when you click the label', function(assert) {
   this.render(hbs`{{checkbox-slider checked=checkboxValue checkboxId="checkbox-slider-id"}}`);
 
   assert.equal(this.$('#checkbox-slider-id').prop('checked'), false);
-  assert.equal(this.$('.checkbox-slider input[type=checkbox]:checked + label').length, 0, 'the css selector should not match any elements');
+  assert.equal(this.$('.check-box.slider input[type=checkbox]:checked + label').length, 0, 'the css selector should not match any elements');
 
   this.$('label[for=checkbox-slider-id]').click();
   assert.equal(this.$('#checkbox-slider-id').prop('checked'), true);
   assert.equal(this.get('checkboxValue'), true);
-  assert.equal(this.$('.checkbox-slider input[type=checkbox]:checked + label').length, 1, 'the css selector should match 1 element');
+  assert.equal(this.$('.check-box.slider input[type=checkbox]:checked + label').length, 1, 'the css selector should match 1 element');
 
   this.$('label[for=checkbox-slider-id]').click();
-  assert.equal(this.$('div.checkbox-slider input').prop('checked'), false);
+  assert.equal(this.$('div.check-box.slider input').prop('checked'), false);
   assert.equal(this.get('checkboxValue'), false);
-  assert.equal(this.$('.checkbox-slider input[type=checkbox]:checked + label').length, 0, 'the css selector should not match any elements');
+  assert.equal(this.$('.check-box.slider input[type=checkbox]:checked + label').length, 0, 'the css selector should not match any elements');
 });
 
 test('label is in the OFF position', function(assert) {
   assert.expect(1);
   this.set('checkboxValue', false);
   this.render(hbs`{{checkbox-slider checked=checkboxValue checkboxId="checkbox-slider-id"}}`);
-  assert.equal(this.$('.checkbox-slider label').css('left'), '3px');
+  assert.equal(this.$('.check-box.slider label').css('left'), '3px');
 });
 
 test('label is in the ON position', function(assert) {
   assert.expect(1);
   this.set('checkboxValue', true);
   this.render(hbs`{{checkbox-slider checked=checkboxValue checkboxId="checkbox-slider-id"}}`);
-  assert.equal(this.$('.checkbox-slider label').css('left'), '43px');
+  assert.equal(this.$('.check-box.slider label').css('left'), '43px');
 });

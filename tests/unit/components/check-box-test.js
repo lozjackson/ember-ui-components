@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('checkbox-slider', 'Unit | Component | checkbox slider', {
+moduleForComponent('check-box', 'Unit | Component | check box', {
   // needs: ['component:foo', 'helper:bar'],
   unit: true
 });
@@ -18,13 +18,12 @@ test('it renders', function(assert) {
 });
 
 test('classNames', function(assert) {
-  assert.expect(3);
+  assert.expect(2);
   var component = this.subject();
   component.set('checkboxId', 1);
   this.render();
-  assert.equal(component.get('classNames').length, 3);
+  assert.equal(component.get('classNames').length, 2);
   assert.equal(component.get('classNames')[1], 'check-box');
-  assert.equal(component.get('classNames')[2], 'slider');
 });
 
 test('checked should be false', function(assert) {

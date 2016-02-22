@@ -1,30 +1,49 @@
 <h1 id="title">ember-ui-components</h1>
 
-<h2>checkbox-slider</h2>
+<div class="panel">
 
-{{checkbox-slider checked=checkboxSliderValue1 checkboxId="checkbox-slider"}}
-<label for="checkbox-slider">Checkbox Slider</label><br>
+  <h2>check-box</h2>
 
-{{checkbox-slider class="light" checked=checkboxSliderValue2 checkboxId="checkbox-slider2"}}
-<label for="checkbox-slider2">Checkbox Slider</label>
+  {{check-box checked=checkboxValue1 checkboxId="check-box1"}}
+  <label for="check-box1">check-box</label><br>
 
-<hr />
+  {{checkbox-slider checked=checkboxValue2 checkboxId="check-box2"}}
+  <label for="check-box2">check-box slider</label><br>
 
-<h2>select-box</h2>
+  {{check-box class="slider dark" checked=checkboxValue3 checkboxId="check-box3"}}
+  <label for="check-box3">check-box slider dark</label><br>
 
-{{select-box
-  selected=selectBoxValue
-  options=selectBoxOptions
-  placeholder="Please select..."}}
+
+  {{check-box class="slider light" checked=checkboxValue4 checkboxId="check-box4"}}
+  <label for="check-box4">check-box slider light</label><br>
+
+  {{check-box class="toggle" checked=checkboxValue5 checkboxId="check-box5"}}
+  <label for="check-box5">check-box toggle</label><br>
+
+  {{check-box class="toggle green" checked=checkboxValue6 checkboxId="check-box6"}}
+  <label for="check-box6">check-box toggle green</label><br>
+
+  {{check-box class="toggle red" checked=checkboxValue7 checkboxId="check-box7"}}
+  <label for="check-box7">check-box toggle red</label>
+</div>
+
+<div class="panel">
+
+  <h2>select-box</h2>
+
+  {{select-box
+    selected=selectBoxValue
+    options=selectBoxOptions
+    placeholder="Please select..."}}
 
   <label>Selected: {{selectBoxValue}}</label><br>
 
 
-{{select-box
-  class="light"
-  selected=selectBoxValue2
-  options=selectBoxOptions2
-  placeholder="Please select..."}}
+  {{select-box
+    class="light"
+    selected=selectBoxValue2
+    options=selectBoxOptions2
+    placeholder="Please select..."}}
 
   <label>Selected: {{selectBoxValue2}}</label><br>
 
@@ -34,6 +53,6 @@
     options=selectBoxOptions2
     placeholder="Please select..."}}
 
-    <label>Selected: {{selectBoxValue3}}</label>
-
+  <label>Selected: {{selectBoxValue3}}</label>
+</div>
 {{outlet}}

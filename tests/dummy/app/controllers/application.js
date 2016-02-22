@@ -2,10 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  checkboxSliderValue1: true,
-
-  checkboxSliderValue2: false,
-
   selectBoxValue: null,
 
   selectBoxOptions: [
