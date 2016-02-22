@@ -1,1 +1,0 @@
-export { default } from 'ember-ui-components/components/checkbox-slider';
