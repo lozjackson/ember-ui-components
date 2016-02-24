@@ -4,27 +4,78 @@
 
   <h2>check-box</h2>
 
-  {{check-box checked=checkboxValue1 checkboxId="check-box1"}}
-  <label for="check-box1">check-box</label><br>
+  A basic checkbox can be created with the following code:
+  <pre><code>
+  &#123;&#123;check-box
+    checked=checkboxValue
+    checkboxId="check-box"&#125;&#125;
+  </code></pre>
 
-  {{checkbox-slider checked=checkboxValue2 checkboxId="check-box2"}}
-  <label for="check-box2">check-box slider</label><br>
+  <div>
+    {{check-box checked=checkboxValue1 checkboxId="check-box1"}}
+    <label for="check-box1">Basic check-box</label>
+  </div>
 
-  {{check-box class="slider dark" checked=checkboxValue3 checkboxId="check-box3"}}
-  <label for="check-box3">check-box slider dark</label><br>
+  <p>NOTE: `checkboxId` is a required property, without it the checkbox will not be displayed.</p>
+
+  <p>Various classes can be added to the check-box component to style it.</p>
 
 
-  {{check-box class="slider light" checked=checkboxValue4 checkboxId="check-box4"}}
-  <label for="check-box4">check-box slider light</label><br>
 
-  {{check-box class="toggle" checked=checkboxValue5 checkboxId="check-box5"}}
-  <label for="check-box5">check-box toggle</label><br>
 
-  {{check-box class="toggle green" checked=checkboxValue6 checkboxId="check-box6"}}
-  <label for="check-box6">check-box toggle green</label><br>
+  <div>
+    {{checkbox-slider checked=checkboxValue2 checkboxId="check-box2"}}
+    <label for="check-box2">check-box slider</label>
+  </div>
 
+  <pre><code>
+  &#123;&#123;check-box class="slider"&#125;&#125;
+  </code></pre>
+
+  <div>
+    {{check-box class="slider dark" checked=checkboxValue3 checkboxId="check-box3"}}
+    <label for="check-box3">check-box slider dark</label>
+  </div>
+
+  <pre><code>
+  &#123;&#123;check-box class="slider dark"&#125;&#125;
+  </code></pre>
+
+  <div>
+    {{check-box class="slider light" checked=checkboxValue4 checkboxId="check-box4"}}
+    <label for="check-box4">check-box slider light</label>
+  </div>
+
+  <pre><code>
+  &#123;&#123;check-box class="slider light"&#125;&#125;
+  </code></pre>
+
+  <div>
+    {{check-box class="toggle" checked=checkboxValue5 checkboxId="check-box5"}}
+    <label for="check-box5">check-box toggle</label>
+  </div>
+
+  <pre><code>
+  &#123;&#123;check-box class="toggle"&#125;&#125;
+  </code></pre>
+
+  <div>
+    {{check-box class="toggle green" checked=checkboxValue6 checkboxId="check-box6"}}
+    <label for="check-box6">check-box toggle green</label>
+  </div>
+
+  <pre><code>
+  &#123;&#123;check-box class="toggle green"&#125;&#125;
+  </code></pre>
+
+  <div>
   {{check-box class="toggle red" checked=checkboxValue7 checkboxId="check-box7"}}
   <label for="check-box7">check-box toggle red</label>
+  </div>
+
+  <pre><code>
+  &#123;&#123;check-box class="toggle red"&#125;&#125;
+  </code></pre>
 </div>
 
 <div class="panel">
@@ -60,25 +111,45 @@
 
   <h2>panel</h2>
 
+  <p>There is no `panel` component - just some css classes.</p>
+
+  <p>The `panel` class will create a basic panel.</p>
+
+  <pre><code>
+  &lt;div class="panel"&gt; ... &lt;/div&gt;
+  </code></pre>
+
+  <div class="panel">
+    <h2>This is a basic panel</h2>
+    <p>Class: `panel`</p>
+  </div>
 
   <div class="panel top-border green">
     <h2>This is a panel</h2>
     <p>This one has a green top-border</p>
+    <p>Classes: `panel`, `top-border`, `green`</p>
+    <pre><code>
+  &lt;div class="panel top-border green"&gt; ... &lt;/div&gt;
+    </code></pre>
   </div>
 
   <div class="panel top-border yellow">
     <h2>This is a panel</h2>
     <p>This one has a yellow top-border</p>
+    <p>Classes: `panel`, `top-border`, `yellow`</p>
+    <pre><code>
+  &lt;div class="panel top-border yellow"&gt; ... &lt;/div&gt;
+    </code></pre>
   </div>
 
   <div class="panel top-border red">
     <h2>This is a panel</h2>
     <p>This one has a red top-border</p>
+    <p>Classes: `panel`, `top-border`, `red`</p>
+    <pre><code>
+  &lt;div class="panel top-border red"&gt; ... &lt;/div&gt;
+    </code></pre>
   </div>
 
-  <div class="panel">
-    <h2>This is a panel</h2>
-    <p>This one has no top-border</p>
-  </div>
 </div>
 {{outlet}}
