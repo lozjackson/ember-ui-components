@@ -1,7 +1,53 @@
-<h2>CheckBoxComponent</h2>
+<h1>CheckBoxComponent</h1>
 
 <div class="panel">
-  <h3>Basic Checkbox</h3>
+
+  <h2>Description</h2>
+
+  <p>The CheckBoxComponent will create a checkbox element.</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;check-box
+  checked="checkbox value"
+  checkboxId="add a unique ID here"
+  class="add CSS classes here"&#125;&#125;</code></pre>
+  </div>
+
+  <h2>Parameters</h2>
+  <ul>
+    <li>
+      <h4>{Boolean} checked</h4>
+      <p>Optional.</p>
+      <p>
+        Sets the state of the checkbox, checked (true), or un-checked (false).
+      </p>
+    </li>
+    <li>
+      <h4>{String} checkboxId</h4>
+      <p>Optional.</p>
+      <p>
+        The checkbox element's `id` attribute will be given this value.  This
+        attribute is optional, but is required when using some of the built-in
+        CSS classes.
+      </p>
+    </li>
+    <li>
+      <h4>{String} class</h4>
+      <p>Optional.</p>
+      <p>
+        This is the `class` attribute of the checkbox element's container `div`.
+        There are some built-in CSS classes that can be applied, or you can set
+        your own CSS class names here and define the class' properties in your
+        stylesheet.
+      </p>
+    </li>
+  </ul>
+
+</div>
+
+
+<div class="panel">
+  <h2>Basic Checkbox</h2>
 
   <p>A basic check-box component can be created with the following code:</p>
 
@@ -36,7 +82,7 @@
 </div>
 <div class="panel">
 
-  <h3>checkboxId</h3>
+  <h2>checkboxId</h2>
   <p>
     If you provide a value for the `checkboxId` property then an extra `label`
     element will be rendered next to the `input` element.  This is used for styling
@@ -58,80 +104,22 @@
 </div>
 <div class="panel">
 
-  <h3>Block use</h3>
+  <h2>Classes</h2>
 
-  <p>
-    If you provide a template block to the component, the contents of the block
-    will be rendered into a `span` element next to the checkbox.
-  </p>
+  <p>Various classes can be added to the check-box component to style it. They
+    will be given the class name `check-box` by default.</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#check-box&#125;}
-  Basic check-box
-&#123;&#123;/check-box&#125;&#125;</code></pre>
-  </div>
+  <h3>slider</h3>
 
-  <div class="panel code">
-    <pre><code>&lt;div class="ember-view check-box"&gt;
-  &lt;input type="checkbox" class="ember-view ember-checkbox"&gt;
-  &lt;span&gt;
-    Basic check-box
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-  </div>
-
-  <div class="panel code">
-    {{#check-box}}
-      Basic check-box
-    {{/check-box}}
-  </div>
-
-  <p>
-    ...or, if you provide a `checkboxId` property the block will be rendered into
-    a `label` element instead - Doing this will allow the checkbox to be toggled
-    by clicking the label element.
-  </p>
-
-  <div class="panel code">
-    <pre><code>&#123;&#123;#check-box checkboxId="check-box-id"&#125;&#125;
-  Basic check-box with checkboxId and label
-&#123;&#123;/check-box&#125;&#125;</code></pre>
-  </div>
-
-  <div class="panel code">
-    <pre><code>&lt;div class="ember-view check-box"&gt;
-  &lt;input id="check-box" type="checkbox" class="ember-view ember-checkbox"&gt;
-  &lt;label for="check-box"&gt;&lt;/label&gt;
-  &lt;label for="check-box"&gt;
-    Basic check-box with checkboxId and label
-  &lt;/label&gt;
-&lt;/div&gt;</code></pre>
-  </div>
-
-
-
-  <div class="panel code">
-    {{#check-box checked=checkboxValue1 checkboxId="check-box-with-block"}}
-      Basic check-box with checkboxId and label
-    {{/check-box}}
-  </div>
-
-</div>
-<div class="panel">
-
-  <h3>Classes</h3>
-
-  <p>Various classes can be added to the check-box component to style it.</p>
-
-
+  <p></p>
   <div class="panel code">
     <pre><code>&#123;&#123;check-box class="slider"&#125;&#125;</code></pre>
   </div>
 
 
   <div>
-    {{checkbox-slider checked=checkboxValue2 checkboxId="check-box2"}}
-    <label for="check-box2">check-box slider</label>
+    {{check-box class="slider" checkboxId="check-box2"}}
+    <label for="check-box2">slider</label>
   </div>
 
 
@@ -140,8 +128,8 @@
   </div>
 
   <div>
-    {{check-box class="slider dark" checked=checkboxValue3 checkboxId="check-box3"}}
-    <label for="check-box3">check-box slider dark</label>
+    {{check-box class="slider dark" checkboxId="check-box3"}}
+    <label for="check-box3">slider dark</label>
   </div>
 
 
@@ -150,18 +138,19 @@
   </div>
 
   <div>
-    {{check-box class="slider light" checked=checkboxValue4 checkboxId="check-box4"}}
-    <label for="check-box4">check-box slider light</label>
+    {{check-box class="slider light" checkboxId="check-box4"}}
+    <label for="check-box4">slider light</label>
   </div>
 
+  <h3>toggle</h3>
 
   <div class="panel code">
     <pre><code>&#123;&#123;check-box class="toggle"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="toggle" checked=checkboxValue5 checkboxId="check-box5"}}
-    <label for="check-box5">check-box toggle</label>
+    {{check-box class="toggle" checkboxId="check-box5"}}
+    <label for="check-box5">toggle</label>
   </div>
 
 
@@ -170,8 +159,8 @@
   </div>
 
   <div>
-    {{check-box class="toggle green" checked=checkboxValue6 checkboxId="check-box6"}}
-    <label for="check-box6">check-box toggle green</label>
+    {{check-box class="toggle green" checkboxId="check-box6"}}
+    <label for="check-box6">toggle green</label>
   </div>
 
 
@@ -180,8 +169,8 @@
   </div>
 
   <div>
-    {{check-box class="toggle red" checked=checkboxValue7 checkboxId="check-box7"}}
-    <label for="check-box7">check-box toggle red</label>
+    {{check-box class="toggle red" checkboxId="check-box7"}}
+    <label for="check-box7">toggle red</label>
   </div>
 
 
