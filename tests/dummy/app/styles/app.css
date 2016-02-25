@@ -7,3 +7,12 @@ body {
 pre {
   white-space: pre-wrap;
 }
+h2 {
+  margin-top: 25px;
+}
+h3 {
+  margin-top: 40px;
+}
+p {
+  margin-top: 30px;
+}

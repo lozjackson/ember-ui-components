@@ -1,35 +1,174 @@
 <h1 id="title">ember-ui-components</h1>
 
-<div class="panel">
+<p>
+  This is an <a href="http://ember-cli.com/">Ember-cli</a> addon to be used
+  with <a href="http://emberjs.com/">Ember.js</a>, which is a Javascript application
+  framework.
+</p>
 
-  <h2>check-box</h2>
+<p>
+  ember-ui-components, is a collection of common user interface components and CSS
+  classes.
+</p>
 
-  A basic checkbox can be created with the following code:
+<h2>Components</h2>
+<ul>
+  <li>
+    <a href="#check-box-component">CheckBoxComponent</a>
+  </li>
+  <li>
+    <a href="#select-box-component">SelectBoxComponent</a>
+  </li>
+</ul>
+<h2>CSS Classes</h2>
+<ul>
+  <li>
+    <a href="#panel-class">panel</a>
+  </li>
+  <li>light</li>
+  <li>dark</li>
+  <li>shadow</li>
+  <li>rounded-corners</li>
+  <li>top-border.green</li>
+  <li>top-border.yellow</li>
+  <li>top-border.red</li>
+</ul>
+
+<div id="check-box-component" class="panel">
+
+  <h2>CheckBoxComponent</h2>
+
+  <p>A basic check-box component can be created with the following code:</p>
+
+  <div class="panel">
   <pre><code>
-  &#123;&#123;check-box
-    checked=checkboxValue
-    checkboxId="check-box"&#125;&#125;
+  &#123;&#123;check-box&#125;&#125;
+  </code></pre>
+  </div>
+
+  <p>...which will produce the following HTML:</p>
+  <div class="panel">
+  <pre><code>
+  &lt;div class="ember-view check-box"&gt;
+    &lt;input type="checkbox" class="ember-view ember-checkbox"&gt;
+  &lt;/div&gt;
+  </code></pre>
+  </div>
+  <p>...and will look like this:</p>
+
+  <div class="panel">
+    {{check-box}}
+  </div>
+
+  <p>The check-box component looks and behaves like a standard HTML checkbox element.</p>
+  <p>
+    To make the checkbox do something usefull, assign a property to the `checked`
+    attribute of the `check-box` component like this:
+  </p>
+
+  <div class="panel">
+  <pre><code>
+  &#123;&#123;check-box checked=checkboxValue&#125;&#125;
+  </code></pre>
+  </div>
+
+
+  <h3>checkboxId</h3>
+  <p>
+    If you provide a value for the `checkboxId` property then an extra `label`
+    element will be rendered next to the `input` element.  This is used for styling
+    the component and is required when using the provided CSS classes such as
+    `slider` and `toggle`
+  </p>
+
+  <pre><code>
+  &#123;&#123;check-box checkboxId="check-box-id"&#125;&#125;
+  </code></pre>
+
+  <pre><code>
+  &lt;div class="ember-view check-box"&gt;
+    &lt;input id="check-box-id" type="checkbox" class="ember-view ember-checkbox"&gt;
+    &lt;label for="check-box-id"&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  </code></pre>
+
+
+
+  <h3>Block use</h3>
+
+  <p>
+    If you provide a template block to the component, the contents of the block
+    will be rendered into a `span` element next to the checkbox.
+  </p>
+
+  <pre><code>
+  &#123;&#123;#check-box&#125;}
+    Basic check-box
+  &#123;&#123;/check-box&#125;&#125;
+  </code></pre>
+
+  <pre><code>
+  &lt;div class="ember-view check-box"&gt;
+    &lt;input type="checkbox" class="ember-view ember-checkbox"&gt;
+    &lt;span&gt;
+      Basic check-box
+    &lt;/span&gt;
+  &lt;/div&gt;
   </code></pre>
 
   <div>
-    {{check-box checked=checkboxValue1 checkboxId="check-box1"}}
-    <label for="check-box1">Basic check-box</label>
+    {{#check-box}}
+      Basic check-box
+    {{/check-box}}
   </div>
 
-  <p>NOTE: `checkboxId` is a required property, without it the checkbox will not be displayed.</p>
+  <p>
+    ...or, if you provide a `checkboxId` property the block will be rendered into
+    a `label` element instead - Doing this will allow the checkbox to be toggled
+    by clicking the label element.
+  </p>
+
+  <pre><code>
+  &#123;&#123;#check-box checkboxId="check-box-id"&#125;&#125;
+    Basic check-box with checkboxId and label
+  &#123;&#123;/check-box&#125;&#125;
+  </code></pre>
+
+  <pre><code>
+  &lt;div class="ember-view check-box"&gt;
+    &lt;input id="check-box" type="checkbox" class="ember-view ember-checkbox"&gt;
+    &lt;label for="check-box"&gt;&lt;/label&gt;
+    &lt;label for="check-box"&gt;
+      Basic check-box with checkboxId and label
+    &lt;/label&gt;
+  &lt;/div&gt;
+  </code></pre>
+
+
+
+  <div>
+    {{#check-box checked=checkboxValue1 checkboxId="check-box-with-block"}}
+      Basic check-box with checkboxId and label
+    {{/check-box}}
+  </div>
+
+  <h3>Classes</h3>
 
   <p>Various classes can be added to the check-box component to style it.</p>
 
 
-
+  <pre><code>
+  &#123;&#123;check-box class="slider"&#125;&#125;
+  </code></pre>
 
   <div>
     {{checkbox-slider checked=checkboxValue2 checkboxId="check-box2"}}
     <label for="check-box2">check-box slider</label>
   </div>
 
+
   <pre><code>
-  &#123;&#123;check-box class="slider"&#125;&#125;
+  &#123;&#123;check-box class="slider dark"&#125;&#125;
   </code></pre>
 
   <div>
@@ -37,8 +176,9 @@
     <label for="check-box3">check-box slider dark</label>
   </div>
 
+
   <pre><code>
-  &#123;&#123;check-box class="slider dark"&#125;&#125;
+  &#123;&#123;check-box class="slider light"&#125;&#125;
   </code></pre>
 
   <div>
@@ -46,8 +186,9 @@
     <label for="check-box4">check-box slider light</label>
   </div>
 
+
   <pre><code>
-  &#123;&#123;check-box class="slider light"&#125;&#125;
+  &#123;&#123;check-box class="toggle"&#125;&#125;
   </code></pre>
 
   <div>
@@ -55,8 +196,9 @@
     <label for="check-box5">check-box toggle</label>
   </div>
 
+
   <pre><code>
-  &#123;&#123;check-box class="toggle"&#125;&#125;
+  &#123;&#123;check-box class="toggle green"&#125;&#125;
   </code></pre>
 
   <div>
@@ -64,8 +206,9 @@
     <label for="check-box6">check-box toggle green</label>
   </div>
 
+
   <pre><code>
-  &#123;&#123;check-box class="toggle green"&#125;&#125;
+  &#123;&#123;check-box class="toggle red"&#125;&#125;
   </code></pre>
 
   <div>
@@ -73,14 +216,12 @@
   <label for="check-box7">check-box toggle red</label>
   </div>
 
-  <pre><code>
-  &#123;&#123;check-box class="toggle red"&#125;&#125;
-  </code></pre>
+
 </div>
 
-<div class="panel">
+<div id="select-box-component" class="panel">
 
-  <h2>select-box</h2>
+  <h2>SelectBoxComponent</h2>
 
   {{select-box
     selected=selectBoxValue
@@ -107,13 +248,13 @@
   <label>Selected: {{selectBoxValue3}}</label>
 </div>
 
-<div class="panel">
+<div id="panel-class" class="panel">
 
   <h2>panel</h2>
 
   <p>There is no `panel` component - just some css classes.</p>
 
-  <p>The `panel` class will create a basic panel.</p>
+  <p>The `panel` class, when added to a `div` element, will create a basic panel.</p>
 
   <pre><code>
   &lt;div class="panel"&gt; ... &lt;/div&gt;
