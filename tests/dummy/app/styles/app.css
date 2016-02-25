@@ -18,7 +18,11 @@ h3 {
 }
 div.panel.code {
   margin: 30px;
-  padding-left: 20px;
+  padding: 10px 20px;
   background: #F5F7F7;
   box-shadow: 0px 1px 2px #888888 inset;
+}
+div.panel.output {
+  margin: 30px;
+  background: #EDEFF1
 }

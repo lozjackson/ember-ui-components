@@ -1,3 +1,4 @@
+{{#link-to 'index'}}Back to index{{/link-to}}
 <h1>CheckBoxComponent</h1>
 
 <div class="panel">
@@ -10,7 +11,19 @@
     <pre><code>&#123;&#123;check-box
   checked="checkbox value"
   checkboxId="add a unique ID here"
-  class="add CSS classes here"&#125;&#125;</code></pre>
+  class="add CSS class names here"&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+    <div>
+      {{check-box}}
+    </div>
+    <div>
+      {{check-box class="slider light" checkboxId="demo1"}}
+    </div>
+    <div>
+      {{check-box class="toggle green" checkboxId="demo2"}}
+    </div>
   </div>
 
   <h2>Parameters</h2>
