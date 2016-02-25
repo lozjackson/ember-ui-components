@@ -1,5 +1,6 @@
 label {
   margin: 10px;
+  vertical-align: middle;
 }
 div.panel {
   margin: 10px;
@@ -32,11 +33,15 @@ select.select-box {
   display: inline-block;
   position: relative;
 }
-.check-box label {
+.check-box input + label {
   display: block;
   cursor: pointer;
   position: absolute;
   margin: 0;
+}
+.check-box span {
+  margin: 10px;
+  vertical-align: middle;
 }
 .check-box.slider,
 .check-box.toggle {
