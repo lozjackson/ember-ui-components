@@ -10,7 +10,7 @@ const computed = Ember.computed;
   # CheckBox
 
   ```
-  {{check-box checked=checkboxValue checkboxId="checkbox-id"}}
+  {{check-box checked=checkboxValue"}}
   ```
 
   @class CheckBoxComponent
@@ -43,7 +43,11 @@ export default Ember.Component.extend({
   /**
     ## Checkbox Id
 
-    This is the `id` attribute of the checkbox element.  This is required.
+    This is the `id` attribute of the checkbox element.  This is required for
+    `slider` and `toggle` checkbox classes.
+
+    When you provide the `checkboxId` attribute, a `label` element is rendered
+    next to the input element.
 
     @property checkboxId
     @type {String}
@@ -56,9 +60,11 @@ export default Ember.Component.extend({
     @type {String}
     @private
   */
-  _checkboxId: computed('checkboxId', function () {
-    let id = this.get('checkboxId');
-    Ember.warn(`'checkboxId' is a required attribute of the CheckboxSliderComponent.  Pass it into the component like this: {{checkbox-slider checkboxId="unique-id"}}`, id, {id: 'ember-debug.required-attribute'});
-    return id;
+  _checkboxId: computed('checkboxId', 'classNames.[]', function () {
+    let {checkboxId, classNames} = this.getProperties('checkboxId', 'classNames');
+    if (classNames && classNames.length && (classNames.indexOf('slider') !== -1 || classNames.indexOf('toggle')  !== -1 )) {
+      Ember.warn(`'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{check-box checkboxId="unique-id"}}`, checkboxId, {id: 'ember-debug.required-attribute'});
+    }
+    return checkboxId;
   })
 });

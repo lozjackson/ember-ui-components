@@ -5,13 +5,20 @@ moduleForComponent('check-box', 'Integration | Component | check box', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  assert.expect(4);
-  this.render(hbs`{{check-box checkboxId="checkboxSlider1"}}`);
+test('it renders - basic', function(assert) {
+  assert.expect(2);
+  this.render(hbs`{{check-box}}`);
   assert.equal(this.$('div.check-box').length, 1);
-  assert.equal(this.$('.check-box input[type=checkbox]').length, 1);
-  assert.equal(this.$('#checkboxSlider1').length, 1);
-  assert.equal(this.$('label[for=checkboxSlider1]').length, 1);
+  assert.equal(this.$('div.check-box input[type=checkbox]').length, 1);
+});
+
+test('it renders - slider', function(assert) {
+  assert.expect(4);
+  this.render(hbs`{{check-box class="slider" checkboxId="checkboxSlider1"}}`);
+  assert.equal(this.$('div.check-box.slider').length, 1, `there should 1 top level 'div' with class names 'check-box' and 'slider'`);
+  assert.equal(this.$('div.check-box input[type=checkbox]').length, 1, `'there should be 1 checkbox element'`);
+  assert.equal(this.$('#checkboxSlider1').length, 1, `'there' should be an element with an 'id' equal to 'checkboxId'`);
+  assert.equal(this.$('label[for=checkboxSlider1]').length, 1, `there should be a label element`);
 });
 
 test('checkbox visibility should not be hidden', function(assert) {

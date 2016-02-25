@@ -1,4 +1,16 @@
 {{#if _checkboxId}}
   {{input checked=checked id=_checkboxId type="checkbox"}}
   <label for={{_checkboxId}}></label>
+  {{#if hasBlock}}
+    <label for={{_checkboxId}}>
+      {{yield}}
+    </label>
+  {{/if}}
+{{else}}
+  {{input checked=checked type="checkbox"}}
+  {{#if hasBlock}}
+    <span>
+      {{yield}}
+    </span>
+  {{/if}}
 {{/if}}

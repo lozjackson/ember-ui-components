@@ -39,7 +39,7 @@ test('_checkboxId throws a warning if checkboxId is not set', function(assert) {
   let _warn = Ember.warn;
   assert.expect(3);
   Ember.warn = (desc, test) => {
-    assert.equal(desc, `'checkboxId' is a required attribute of the CheckboxSliderComponent.  Pass it into the component like this: {{checkbox-slider checkboxId="unique-id"}}`);
+    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{check-box checkboxId="unique-id"}}`);
     assert.equal(test, null);
   };
 
