@@ -1,0 +1,29 @@
+<h2>SelectBoxComponent</h2>
+
+<div class="panel">
+
+
+  {{select-box
+    selected=selectBoxValue
+    options=selectBoxOptions
+    placeholder="Please select..."}}
+
+  <label>Selected: {{selectBoxValue}}</label><br>
+
+
+  {{select-box
+    class="light"
+    selected=selectBoxValue2
+    options=selectBoxOptions2
+    placeholder="Please select..."}}
+
+  <label>Selected: {{selectBoxValue2}}</label><br>
+
+  {{select-box
+    class="dark"
+    selected=selectBoxValue3
+    options=selectBoxOptions2
+    placeholder="Please select..."}}
+
+  <label>Selected: {{selectBoxValue3}}</label>
+</div>

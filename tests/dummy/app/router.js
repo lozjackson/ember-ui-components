@@ -6,6 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('check-box-component');
+  this.route('select-box-component');
+  this.route('panel-class');
 });
 
 export default Router;
