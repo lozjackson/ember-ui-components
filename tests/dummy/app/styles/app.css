@@ -16,3 +16,7 @@ h3 {
 p {
   margin-top: 30px;
 }
+div.panel.code {
+  background: #F5F7F7;
+  box-shadow: 0px 1px 2px #888888 inset;
+}
