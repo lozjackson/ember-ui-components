@@ -21,6 +21,18 @@ test('it renders - slider', function(assert) {
   assert.equal(this.$('label[for=checkboxSlider1]').length, 1, `there should be a label element`);
 });
 
+test('disabled', function(assert) {
+  assert.expect(4);
+  this.set('disabled', false);
+  this.render(hbs`{{check-box disabled=disabled}}`);
+  assert.equal(this.$('div.check-box.disabled').length, 0);
+  assert.equal(this.$('div.check-box input[disabled]').length, 0);
+
+  this.set('disabled', true);
+  assert.equal(this.$('div.check-box.disabled').length, 1);
+  assert.equal(this.$('div.check-box input[disabled]').length, 1);
+});
+
 test('checkbox visibility should not be hidden', function(assert) {
   assert.expect(1);
 

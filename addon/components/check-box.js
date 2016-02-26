@@ -29,9 +29,17 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['checkbox-slider']`
+    @default `['check-box']`
   */
   classNames: ['check-box'],
+
+  /**
+    @property classNameBindins
+    @type {Array}
+    @private
+    @default `['disabled:disabled']`
+  */
+  classNameBindings: ['disabled:disabled'],
 
   /**
     @property checked
