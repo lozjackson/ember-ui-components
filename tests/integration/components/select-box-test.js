@@ -14,6 +14,15 @@ test('it renders', function(assert) {
   assert.equal(this.$('select.select-box').length, 1);
 });
 
+test('disabled', function(assert) {
+  assert.expect(2);
+  this.set('disabled', false);
+  this.render(hbs`{{select-box disabled=disabled}}`);
+  assert.equal(this.$('select.select-box[disabled]').length, 0);
+  this.set('disabled', true);
+  assert.equal(this.$('select.select-box[disabled]').length, 1);
+});
+
 test('options - pass in array of strings', function(assert) {
   assert.expect(1);
 

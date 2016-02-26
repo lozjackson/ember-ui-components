@@ -55,6 +55,14 @@ export default Ember.Component.extend({
   classNames: ['select-box'],
 
   /**
+    @property attributeBindings
+    @type {Array}
+    @private
+    @default `['disabled']`
+  */
+  attributeBindings: ['disabled'],
+
+  /**
     ## Selected
 
     The selected value.
