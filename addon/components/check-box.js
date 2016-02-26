@@ -41,6 +41,12 @@ export default Ember.Component.extend({
   checked: false,
 
   /**
+    @property disabled
+    @type {Boolean}
+  */
+  disabled: false,
+
+  /**
     ## Checkbox Id
 
     This is the `id` attribute of the checkbox element.  This is required for
