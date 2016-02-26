@@ -32,12 +32,21 @@ select.select-box {
 .check-box {
   display: inline-block;
   position: relative;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+.check-box.slider.disabled,
+.check-box.toggle.disabled {
+  opacity: 0.4;
 }
 .check-box input + label {
   display: block;
   cursor: pointer;
   position: absolute;
   margin: 0;
+}
+.check-box.disabled input + label {
+  cursor: default;
 }
 .check-box span {
   margin: 10px;
