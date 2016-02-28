@@ -181,6 +181,314 @@ select.select-box {
   left: 2rem;
 }
 
+
+
+
+
+
+
+
+
+/*
+  SlideMenuComponent
+*/
+.slide-menu nav {
+  position: fixed;
+  z-index: 200;
+  background: #4f6b81;
+  color: #ddd;
+  transition: transform 0.4s;
+}
+.slide-menu nav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.slide-menu button.close-button {
+  color: #fff;
+  background-color: #3184a1;
+  font-size: 14px;
+  border: none;
+  box-shadow: none;
+  border-radius: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.slide-menu button.close-button:focus {
+  outline: none;
+}
+body.menu-is-open {
+  overflow: hidden;
+}
+
+/*
+  slide-menu content-container
+*/
+.slide-menu > .content-container {
+  transition: transform .4s;
+}
+
+/*
+  slide-menu-mask
+*/
+.slide-menu-mask {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+}
+.slide-menu > input[type=checkbox].menu-toggle:checked ~ .slide-menu-mask {
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  transition: opacity 0.4s;
+}
+
+/*
+  menu-toggle button
+*/
+.slide-menu > input[type=checkbox].menu-toggle {
+  position: absolute;
+  opacity: 0;
+  z-index: 200;
+}
+.slide-menu > input[type=checkbox].menu-toggle ~ label {
+  position: absolute;
+  margin: 0;
+  top: 0px;
+  z-index: 200;
+  display: block;
+  font-size:3em;
+  color: #444;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+  transition: transform .4s;
+}
+
+
+
+/*
+ slide-menu left & right
+*/
+.slide-menu > nav {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+@media all and (min-width: 320px) {
+  .slide-menu > nav {
+    width: 250px;
+  }
+}
+.slide-menu.left > nav li.slide-menu-item,
+.slide-menu.right > nav li.slide-menu-item,
+.slide-menu > nav.left li.slide-menu-item,
+.slide-menu > nav.right li.slide-menu-item {
+  display: block;
+  text-align: center;
+  border-top: solid 1px #b5dbe9;
+  border-bottom: solid 1px #3184a1;
+}
+.slide-menu.left > nav li.slide-menu-item:first-child,
+.slide-menu.right > nav li.slide-menu-item:first-child,
+.slide-menu > nav.left li.slide-menu-item:first-child,
+.slide-menu > nav.right li.slide-menu-item:first-child {
+  border-top: none;
+}
+.slide-menu.left > nav li.slide-menu-item:last-child,
+.slide-menu.right > nav li.slide-menu-item:last-child,
+.slide-menu > nav.left li.slide-menu-item:last-child,
+.slide-menu > nav.right li.slide-menu-item:last-child {
+  border-bottom: none;
+}
+.slide-menu > nav li.slide-menu-item > div {
+  display: block;
+  padding: 12px 24px;
+  color: #fff;
+}
+.slide-menu > nav button.close-button {
+  display: block;
+  padding: 12px 24px;
+}
+.slide-menu.left > nav button.close-button,
+.slide-menu.right > nav button.close-button {
+  width: 100%;
+}
+
+/*
+  slide-menu left
+*/
+.slide-menu.left > nav,
+.slide-menu > nav.left {
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+@media all and (min-width: 320px) {
+  .slide-menu.left > nav,
+  .slide-menu > nav.left {
+    transform: translateX(-250px);
+  }
+}
+
+.slide-menu.left > input[type=checkbox].menu-toggle + label,
+.slide-menu > input[type=checkbox].menu-toggle.left + label {
+  left: 10px;
+}
+.slide-menu.left > input[type=checkbox].menu-toggle:checked + label,
+.slide-menu > input[type=checkbox].menu-toggle.left:checked + label  {
+  transform: translate3d(250px, 0, 0) rotate(90deg);
+}
+.slide-menu.left > input[type=checkbox].menu-toggle:checked ~ .content-container.push-content,
+.slide-menu > input[type=checkbox].menu-toggle.left:checked ~ .content-container.push-content {
+  transform: translate3d(250px, 0, 0);
+}
+.slide-menu.left > input[type=checkbox].menu-toggle:checked ~ nav,
+.slide-menu > input[type=checkbox].menu-toggle.left:checked ~ nav.left {
+  transform: translate3d(0, 0, 0);
+}
+
+/*
+  slide-menu right
+*/
+.slide-menu.right > nav,
+.slide-menu > nav.right {
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+@media all and (min-width: 320px) {
+  .slide-menu.right > nav,
+  .slide-menu > nav.right {
+    transform: translateX(250px);
+  }
+}
+
+.slide-menu.right > input[type=checkbox].menu-toggle + label,
+.slide-menu > input[type=checkbox].menu-toggle.right + label {
+  right: 10px;
+}
+.slide-menu.right > input[type=checkbox].menu-toggle:checked + label,
+.slide-menu > input[type=checkbox].menu-toggle.right:checked + label {
+  transform: translate3d(-250px, 0, 0) rotate(-90deg);
+}
+.slide-menu.right > input[type=checkbox].menu-toggle:checked ~ .content-container.push-content,
+.slide-menu > input[type=checkbox].menu-toggle.right:checked ~ .content-container.push-content {
+  transform: translate3d(-250px, 0, 0);
+}
+.slide-menu.right > input[type=checkbox].menu-toggle:checked ~ nav,
+.slide-menu > input[type=checkbox].menu-toggle.right:checked ~ nav.right {
+  transform: translate3d(0, 0, 0);
+}
+
+/*
+  slide-menu top & bottom
+*/
+.slide-menu.top nav,
+.slide-menu.bottom nav {
+  vertical-align: middle;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  overflow-x: scroll;
+}
+.slide-menu.top nav > ul,
+.slide-menu.bottom nav > ul {
+  display: inline-block;
+  text-align: center;
+}
+.slide-menu.top li.slide-menu-item,
+.slide-menu.bottom li.slide-menu-item {
+  display: inline-block;
+  line-height: 60px;
+}
+.slide-menu.top li.slide-menu-item > div,
+.slide-menu.bottom li.slide-menu-item > div {
+  display: block;
+  padding: 0 4px;
+  color: #fff;
+}
+.slide-menu.top button.close-button,
+.slide-menu.bottom button.close-button {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 0 24px;
+  height: 60px;
+  line-height: 60px;
+}
+
+/*
+  slide-menu top
+*/
+.slide-menu.top nav {
+  top: 0;
+  left: 0;
+  transform: translateY(-60px);
+}
+.slide-menu.top > input[type=checkbox].menu-toggle:checked + label,
+.slide-menu > input[type=checkbox].menu-toggle.top:checked + label  {
+  transform: translateY(60px) rotate(90deg);
+}
+.slide-menu.top > input[type=checkbox].menu-toggle:checked ~ .content-container.push-content,
+.slide-menu > input[type=checkbox].menu-toggle.top:checked ~ .content-container.push-content {
+  transform: translateY(60px);
+}
+.slide-menu.top > input[type=checkbox].menu-toggle:checked ~ nav,
+.slide-menu > input[type=checkbox].menu-toggle.top:checked ~ nav.top {
+  transform: translateY(0);
+}
+
+/*
+  slide-menu bottom
+*/
+.slide-menu.bottom nav {
+  bottom: 0;
+  left: 0;
+  transform: translateY(60px);
+}
+.slide-menu.bottom > input[type=checkbox].menu-toggle:checked + label,
+.slide-menu > input[type=checkbox].menu-toggle.bottom:checked + label  {
+  transform: translateY(-20px) translateX(-20px) rotate(-90deg);
+}
+.slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .content-container.push-content,
+.slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .content-container.push-content {
+  transform: translateY(-60px);
+}
+.slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ nav,
+.slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ nav.bottom {
+  transform: translateY(0);
+}
+
+/*
+  slide-menu - hide scroll bars
+*/
+.slide-menu nav::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+.slide-menu nav {
+  -ms-overflow-style: none;
+}
+
+/*.slide-menu nav.absolute {
+  position: absolute;
+}*/
+
+
+
+
+
+
 /*
   Common styles
 */
