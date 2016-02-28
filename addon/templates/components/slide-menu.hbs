@@ -1,0 +1,21 @@
+{{input id=menuButtonId type="checkbox" checked=menuOpen class="menu-toggle"}}
+{{#if showDefaultToggle}}
+  <label for={{menuButtonId}}>&equiv;</label>
+{{/if}}
+
+
+<div class="content-container {{if pushContent 'push-content'}}">
+  {{yield menuOpen}}
+</div>
+
+{{#if menuTemplate}}
+  {{partial menuTemplate}}
+{{else if menuTemplates}}
+  {{#each menuTemplates as |menuTemplate|}}
+    {{partial menuTemplate}}
+  {{/each}}
+{{/if}}
+
+{{#if maskContent}}
+  {{content-mask class="slide-menu-mask" action="closeMenu"}}
+{{/if}}
