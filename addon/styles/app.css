@@ -309,6 +309,7 @@ body.menu-is-open {
 .slide-menu > nav.right li.slide-menu-item:last-child {
   border-bottom: none;
 }
+.slide-menu > nav li.slide-menu-item > a,
 .slide-menu > nav li.slide-menu-item > div {
   display: block;
   padding: 12px 24px;
