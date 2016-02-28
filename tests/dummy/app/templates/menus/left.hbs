@@ -1,0 +1,25 @@
+<nav>
+  <button class="close-button" {{action 'closeMenu'}}>X Close</button>
+  <ul>
+    <li class="slide-menu-item" {{action 'closeMenu'}}>
+      {{#link-to 'index'}}
+        <div {{action 'closeMenu'}}>Home</div>
+      {{/link-to}}
+    </li>
+    <li class="slide-menu-item" {{action 'closeMenu'}}>
+      {{#link-to 'check-box-component'}}
+        CheckBoxComponent
+      {{/link-to}}
+    </li>
+    <li class="slide-menu-item" {{action 'closeMenu'}}>
+      {{#link-to 'select-box-component'}}
+        SelectBoxComponent
+      {{/link-to}}
+    </li>
+    <li class="slide-menu-item" {{action 'closeMenu'}}>
+      {{#link-to 'panel-class'}}
+        PanelClass
+      {{/link-to}}
+    </li>
+  </ul>
+</nav>
