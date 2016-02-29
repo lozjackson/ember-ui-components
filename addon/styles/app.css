@@ -206,8 +206,9 @@ select.select-box {
 }
 .slide-menu button.close-button {
   color: #fff;
-  background-color: #3184a1;
-  font-size: 14px;
+  text-align: left;
+  background-color: #4f6b81;
+  font-size: 1.1em;
   border: none;
   box-shadow: none;
   border-radius: none;
@@ -328,7 +329,7 @@ body.menu-is-open {
 }*/
 .slide-menu > nav button.close-button {
   display: block;
-  padding: 12px 24px;
+  padding: 15px;
 }
 .slide-menu.left > nav button.close-button,
 .slide-menu.right > nav button.close-button {
