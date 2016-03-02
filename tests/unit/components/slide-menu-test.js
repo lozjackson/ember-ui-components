@@ -105,6 +105,74 @@ test('staticTemplate should be false', function (assert) {
   assert.equal(component.get('staticTemplate'), false, `'staticTemplate' should be false`);
 });
 
+test('menuTemplatePath should be `menus` by default', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('menuTemplatePath'), 'menus', `'menuTemplatePath' should be 'menus'`);
+});
+
+test('maskIsActive should be false', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
+});
+
+test('maskIsActive should be true when menu is open', function (assert) {
+  assert.expect(3);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
+  run(() => component.set('menuOpen', true));
+  assert.equal(component.get('maskIsActive'), true, `'maskIsActive' should be true`);
+  run(() => component.set('menuOpen', false));
+  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
+});
+
+test('currentRouteName', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', Ember.Object.create({
+    currentRouteName: 'index',
+    hasTemplate() {
+      return false;
+    }
+  }));
+  this.render();
+  assert.equal(component.get('currentRouteName'), 'index', `'currentRouteName' should be 'index'`);
+});
+
+test('_menuTemplatesPath', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  component.set('menuTemplatePath', 'menus/');
+  this.render();
+  assert.equal(component.get('_menuTemplatePath'), 'menus/', `'_menuTemplatePath' should be 'menus/'`);
+});
+
+test('_menuTemplatesPath - menuTemplatePath null', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  component.set('menuTemplatePath', null);
+  this.render();
+  assert.equal(component.get('_menuTemplatePath'), '', `'_menuTemplatePath' should be ''`);
+});
+
+test('_menuTemplatesPath add / on the end if its not there already', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  component.set('menuTemplatePath', 'menus');
+  this.render();
+  assert.equal(component.get('_menuTemplatePath'), 'menus/', `'_menuTemplatePath' should be 'menus/'`);
+});
+
 test('_menuTemplate returns menuTemplate if it exists', function (assert) {
   assert.expect(2);
   var component = this.subject();
@@ -273,47 +341,6 @@ test('_menuTemplate - no templates found, staticTemplate false', function (asser
   });
   this.render();
   assert.equal(component.get('_menuTemplate'), null, `'_menuTemplate' should be null`);
-});
-
-test('maskIsActive should be false', function (assert) {
-  assert.expect(1);
-  var component = this.subject();
-  component.set('lookup', lookup);
-  this.render();
-  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
-});
-
-test('maskIsActive should be true when menu is open', function (assert) {
-  assert.expect(3);
-  var component = this.subject();
-  component.set('lookup', lookup);
-  this.render();
-  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
-  run(() => component.set('menuOpen', true));
-  assert.equal(component.get('maskIsActive'), true, `'maskIsActive' should be true`);
-  run(() => component.set('menuOpen', false));
-  assert.equal(component.get('maskIsActive'), false, `'maskIsActive' should be false`);
-});
-
-test('currentRouteName', function (assert) {
-  assert.expect(1);
-  var component = this.subject();
-  component.set('lookup', Ember.Object.create({
-    currentRouteName: 'index',
-    hasTemplate() {
-      return false;
-    }
-  }));
-  this.render();
-  assert.equal(component.get('currentRouteName'), 'index', `'currentRouteName' should be 'index'`);
-});
-
-test('menuButtonId', function (assert) {
-  assert.expect(1);
-  var component = this.subject();
-  component.set('lookup', lookup);
-  this.render();
-  assert.ok(component.get('menuButtonId').indexOf('slide-menu-button-') !== -1);
 });
 
 test('lookupTemplate returns true if lookup.hasTemplate is true', function (assert) {

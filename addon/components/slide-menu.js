@@ -7,8 +7,6 @@ import layout from '../templates/components/slide-menu';
 const computed = Ember.computed;
 const alias = computed.alias;
 
-let count = 0;
-
 /**
   @class SlideMenuComponent
   @namespace Components
@@ -88,17 +86,74 @@ export default Ember.Component.extend({
   staticTemplate: false,
 
   /**
+    @property menuTemplatePath
+    @type {String}
+    @default `menus`
+  */
+  menuTemplatePath: 'menus',
+
+  /**
+    Set the template name to use for the menu here.
+
+    For example, if you set the `menuTemplate` to `menus/application`, then it
+    will expect to find a template at `templates/menus/application.hbs`.
+
+    If you leave this property set to `null`, and set `staticTemplate` to false,
+    the default behaviour, then the template name will be set automatically.
+    It will first look for a menu template with the same name as the route, if
+    it doesn't find one, it looks up the route hierarchy until it gets to the
+    application level.  If no menu templates can be found it will throw an error.
+
     @property menuTemplate
     @type {String}
+    @default `null`
   */
   menuTemplate: null,
 
   /**
-    @property menuTemplates
+    By default this is not used.
+    To use this property, set `menuTemplate` to `null` and `staticTemplate` to
+    `true`, then fill this array with template names.
+
+    @property _menuTemplates
     @type {Array} Array of Strings
     @private
   */
-  menuTemplates: [],
+  _menuTemplates: [],
+
+  /**
+    Alias of `menuOpen`
+
+    @property maskIsActive
+    @type {Boolean}
+    @private
+  */
+  maskIsActive: alias('menuOpen'),
+
+  /**
+    Alias of `lookup.currentRouteName`
+    @property currentRouteName
+    @type {String}
+    @private
+  */
+  currentRouteName: alias('lookup.currentRouteName'),
+
+  /**
+    Computed Property
+    @property _menuTemplatePath
+    @type {String}
+    @private
+  */
+  _menuTemplatePath: computed('menuTemplatePath', function () {
+    let path = this.get('menuTemplatePath');
+    if (!path) { return ''; }
+
+    // add `/` on the end if it is not there already
+    if (path.charAt(path.length -1) !== '/') {
+      path = path + '/';
+    }
+    return path;
+  }),
 
   /**
     Computed Property
@@ -107,9 +162,14 @@ export default Ember.Component.extend({
     @type {String}
     @private
   */
-  _menuTemplate: computed('menuTemplate', 'currentRouteName', 'staticTemplate', function () {
+  _menuTemplate: computed('menuTemplate', 'currentRouteName', 'staticTemplate', '_menuTemplatePath', function () {
 
-    let { menuTemplate:template, currentRouteName, staticTemplate } = this.getProperties('menuTemplate', 'currentRouteName', 'staticTemplate');
+    let {
+      menuTemplate:template,
+      currentRouteName,
+      staticTemplate,
+      _menuTemplatePath
+    } = this.getProperties('menuTemplate', 'currentRouteName', 'staticTemplate', '_menuTemplatePath');
 
     if (template) {
 
@@ -132,14 +192,14 @@ export default Ember.Component.extend({
       // look for a route level menu
       if (currentRouteName) {
         if (currentRouteName.indexOf('.') === -1) {
-          template = 'menus/' + currentRouteName;
+          template = _menuTemplatePath + currentRouteName;
           if (this.lookupTemplate(template)) {
             return template;
           }
         } else {
           let route = currentRouteName.split('.');
           while (route.length) {
-            template = 'menus/' + route.join('/');
+            template = _menuTemplatePath + route.join('/');
             if (this.lookupTemplate(template)) {
               return template;
             }
@@ -149,7 +209,7 @@ export default Ember.Component.extend({
       }
 
       // look for an application menu
-      template = 'menus/application';
+      template = _menuTemplatePath + 'application';
       if (this.lookupTemplate(template)) {
         return template;
       }
@@ -158,34 +218,6 @@ export default Ember.Component.extend({
     // no menu templates could be found, throw an error, and return `null`.
     Ember.Logger.error(`Could not find menu template: '${template}'.  Create a template at 'templates/${template}.hbs' and put your menu template there.`);
     return null;
-  }),
-
-  /**
-    Alias of `menuOpen`
-
-    @property maskIsActive
-    @type {Boolean}
-    @private
-  */
-  maskIsActive: alias('menuOpen'),
-
-  /**
-    Alias of `lookup.currentRouteName`
-    @property currentRouteName
-    @type {String}
-    @private
-  */
-  currentRouteName: alias('lookup.currentRouteName'),
-
-  /**
-    Computed Property
-
-    @property menuButtonId
-    @type {String}
-    @private
-  */
-  menuButtonId: computed(function () {
-    return `slide-menu-button-${++count}`;
   }),
 
   /**

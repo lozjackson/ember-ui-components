@@ -1,8 +1,7 @@
-{{input id=menuButtonId type="checkbox" checked=menuOpen class="menu-toggle"}}
+{{input id=(concat elementId '-menu-button') type="checkbox" checked=menuOpen class="menu-toggle"}}
 {{#if showDefaultToggle}}
-  <label for={{menuButtonId}}>&equiv;</label>
+  <label for={{concat elementId '-menu-button'}}>&equiv;</label>
 {{/if}}
-
 
 <div class="content-container {{if pushContent 'push-content'}}">
   {{yield menuOpen}}
@@ -13,9 +12,11 @@
     {{partial _menuTemplate}}
   </nav>
 {{else if _menuTemplates}}
-  {{#each _menuTemplates as |menuTemplate|}}
-    {{partial menuTemplate}}
-  {{/each}}
+  <nav>
+    {{#each _menuTemplates as |menuTemplate|}}
+      {{partial menuTemplate}}
+    {{/each}}
+  </nav>
 {{/if}}
 
 {{#if maskContent}}
