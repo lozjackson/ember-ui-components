@@ -3,13 +3,15 @@ import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 
 moduleForComponent('slide-menu', 'Integration | Component | slide menu', {
-  integration: true
+  integration: true,
+  beforeEach: function () {
+    this.inject.service('lookup');
+  }
 });
 
 test('it renders', function(assert) {
   assert.expect(1);
-
-  this.render(hbs`{{slide-menu}}`);
+  this.render(hbs`{{slide-menu lookup=lookup}}`);
   assert.equal(this.$('div.slide-menu').length, 1);
 });
 

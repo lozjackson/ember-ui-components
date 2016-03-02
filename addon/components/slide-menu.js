@@ -1,3 +1,6 @@
+/**
+  @module ember-ui-components
+*/
 import Ember from 'ember';
 import layout from '../templates/components/slide-menu';
 
@@ -6,7 +9,18 @@ const alias = computed.alias;
 
 let count = 0;
 
+/**
+  @class SlideMenuComponent
+  @namespace Components
+*/
 export default Ember.Component.extend({
+
+  /**
+    Injected LookupService
+    @property lookup
+    @type {Object}
+  */
+  lookup: Ember.inject.service(),
 
   /**
     @property layout
@@ -67,6 +81,13 @@ export default Ember.Component.extend({
   showDefaultToggle: true,
 
   /**
+    @property staticTemplate
+    @type {Boolean}
+    @default `false`
+  */
+  staticTemplate: false,
+
+  /**
     @property menuTemplate
     @type {String}
   */
@@ -80,6 +101,66 @@ export default Ember.Component.extend({
   menuTemplates: [],
 
   /**
+    Computed Property
+
+    @property _menuTemplate
+    @type {String}
+    @private
+  */
+  _menuTemplate: computed('menuTemplate', 'currentRouteName', 'staticTemplate', function () {
+
+    let { menuTemplate:template, currentRouteName, staticTemplate } = this.getProperties('menuTemplate', 'currentRouteName', 'staticTemplate');
+
+    if (template) {
+
+      // if a template is specified,
+      // and it can be found, return the tamplate name.
+      if (this.lookupTemplate(template)) {
+        return template;
+      }
+
+    } else if (staticTemplate) {
+
+      // if staticTemplate is true then `menuTemplate` must not be null, throw an error
+      // no menu templates could be found, return `null`.
+      Ember.Logger.error('The value of `menuTemplate` cannot be null when using static templates.');
+      return null;
+
+    } else {
+      // `staticTemplate` false, and `menuTemplate` false
+
+      // look for a route level menu
+      if (currentRouteName) {
+        if (currentRouteName.indexOf('.') === -1) {
+          template = 'menus/' + currentRouteName;
+          if (this.lookupTemplate(template)) {
+            return template;
+          }
+        } else {
+          let route = currentRouteName.split('.');
+          while (route.length) {
+            template = 'menus/' + route.join('/');
+            if (this.lookupTemplate(template)) {
+              return template;
+            }
+            route.pop();
+          }
+        }
+      }
+
+      // look for an application menu
+      template = 'menus/application';
+      if (this.lookupTemplate(template)) {
+        return template;
+      }
+    }
+
+    // no menu templates could be found, throw an error, and return `null`.
+    Ember.Logger.error(`Could not find menu template: '${template}'.  Create a template at 'templates/${template}.hbs' and put your menu template there.`);
+    return null;
+  }),
+
+  /**
     Alias of `menuOpen`
 
     @property maskIsActive
@@ -87,6 +168,14 @@ export default Ember.Component.extend({
     @private
   */
   maskIsActive: alias('menuOpen'),
+
+  /**
+    Alias of `lookup.currentRouteName`
+    @property currentRouteName
+    @type {String}
+    @private
+  */
+  currentRouteName: alias('lookup.currentRouteName'),
 
   /**
     Computed Property
@@ -110,6 +199,18 @@ export default Ember.Component.extend({
       Ember.$('body').removeClass('menu-is-open');
     }
   }),
+
+  /**
+    @method lookupTemplate
+    @private
+    @param {String} templateName
+    @return {Boolean} True if the template exists
+  */
+  lookupTemplate(templateName) {
+    let lookup = this.get('lookup');
+    if (!lookup) { return; }
+    return lookup.hasTemplate(templateName);
+  },
 
   /**
     @method _closeMenu
