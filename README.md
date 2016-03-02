@@ -2,24 +2,10 @@
 
 This ember-cli addon is a collection of common reusable user interface components.
 
+## Demo
+
+http://lozjackson.github.io/ember-ui-components/
+
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+* `npm install` this repository
