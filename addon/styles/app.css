@@ -273,8 +273,8 @@ body.menu-is-open {
   transform: translate3d(0, 0, 0);
   transition: transform .4s;
 }
-.slide-menu > nav li.slide-menu-item > a,
-.slide-menu > nav li.slide-menu-item > div {
+
+.slide-menu nav .slide-menu-item {
   display: block;
   /*padding: 12px 24px;*/
   color: #fff;
@@ -285,11 +285,13 @@ body.menu-is-open {
   border-bottom: 1px solid #1e222b;
   box-shadow: inset 0px 1px 1px #8b9db3;
   text-align: left;
+  cursor: pointer;
 }
-.slide-menu > nav li.slide-menu-item > a:hover,
-.slide-menu > nav li.slide-menu-item > div:hover {
+
+.slide-menu nav .slide-menu-item:hover {
   background: linear-gradient(#3b3f48, #3c434d);
   box-shadow: inset 0px 1px 1px #475059;
+
 }
 
 
