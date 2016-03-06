@@ -1,0 +1,18 @@
+<h1>ContextMenuComponent</h1>
+
+{{#context-menu as |contextMenuParams|}}
+  <ul>
+    <li {{action "edit" bubbles=true}}>Edit</li>
+  </ul>
+  {{#if contextMenuParams.event.altKey}}
+    <hr />
+    <ul>
+      <li {{action "delete" bubbles=true}}>Delete</li>
+    </ul>
+  {{/if}}
+{{else}}
+  <div class="panel">
+    <p>Right-click inside the panel.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+{{/context-menu}}
