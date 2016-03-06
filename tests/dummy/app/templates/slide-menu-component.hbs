@@ -1,0 +1,217 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>SlideMenuComponent</h1>
+
+<div class="panel">
+
+  <h2>Description</h2>
+
+  <p>
+    The SlideMenuComponent will create a menu that starts off the screen and
+    slides into view when opened.
+  </p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#slide-menu
+  menuOpen=true|false
+  menuTemplate="template-name"
+  menuTemplatePath="template-path"
+  staticTemplate=true|false
+  menuPosition="left|right|top|bottom"
+  pushContent=true|false
+  maskContent=true|false
+  showDefaultToggle=true|false
+  as |menuOpen|
+  &#125;&#125;
+
+  // ... page content goes here ...
+
+&#123;&#123;/slide-menu&#125;&#125;</code></pre>
+  </div>
+
+  <p>
+    Check out the main menu for an example of this component - This demo application
+    uses it for navigation.  You can change some of the parameters below to see
+    how they affect the menu.
+  </p>
+
+  <ul>
+    <li>
+      {{check-box class="toggle" checkboxId="menuOpen" checked=application.menuOpen}}
+      <label for="menuOpen">menuOpen</label>
+    </li>
+    <li>
+      {{select-box selected=application.menuPosition options=menuPositions}}
+      menuPosition
+    </li>
+    <li>
+      {{check-box class="toggle" checkboxId="pushContent" checked=application.pushContent}}
+      <label for="pushContent">pushContent</label>
+    </li>
+    <li>
+      {{check-box class="toggle" checkboxId="maskContent" checked=application.maskContent}}
+      <label for="maskContent">maskContent</label>
+    </li>
+    <li>
+      {{check-box class="toggle" checkboxId="showDefaultToggle" checked=application.showDefaultToggle}}
+      <label for="showDefaultToggle">showDefaultToggle</label>
+    </li>
+  </ul>
+</div>
+<div class="panel">
+  <h2>Parameters</h2>
+  <ul>
+    <li>
+      <h4>{Boolean} menuOpen</h4>
+      <p>Optional. Default: False</p>
+      <p>
+        Set this property to true or false to open or close the menu.
+      </p>
+    </li>
+
+    <li>
+      <h4>{String} menuTemplate</h4>
+      <p>Optional.</p>
+      <p>
+        Set the template name to use for the menu here.
+      </p>
+      <p>
+        For example, if you set the `menuTemplate` to `menus/application`, then it
+        will expect to find a template at `templates/menus/application.hbs`.
+      </p>
+      <p>
+        If you leave this property set to `null`, and set `staticTemplate` to false,
+        the default behaviour, then the template name will be set automatically.
+        It will first look for a menu template with the same name as the route, if
+        it doesn't find one, it looks up the route hierarchy until it gets to the
+        application level.  If no menu templates can be found it will throw an error.
+      </p>
+    </li>
+
+    <li>
+      <h4>{String} menuTemplatePath</h4>
+      <p>Optional.  Default: `menus`</p>
+      <p>
+        This is the menu template path.  This is only used when `menuTemplate` is null.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} staticTemplate</h4>
+      <p>Optional.  Default: false</p>
+      <p>
+        If `staticTemplate` is true then the `menuTemplate` property will be required.
+        If `staticTemplate` is false, then the menu template will be dynamically
+        looked up if `menuTemplate` is not specified.
+      </p>
+    </li>
+
+    <li>
+      <h4>{String} menuPosition</h4>
+      <p>Optional.  Default: `left`</p>
+      <p>
+        This is the position of the menu on the window.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} pushContent</h4>
+      <p>Optional. Default: false</p>
+      <p>
+        If true the page content will slide with the menu.  If false the menu will
+        slide over the top of the page content.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} maskContent</h4>
+      <p>Optional. Default: true</p>
+      <p>
+        If true the page content will be masked while the menu is open.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} showDefaultToggle</h4>
+      <p>Optional.  Default: true</p>
+      <p>
+        If true then the default menu toggle button will be displayed.  If you want
+        to create your own menu toggle button, then set this parameter to false and
+        the default toggle button will not be displayed.
+      </p>
+    </li>
+  </ul>
+</div>
+<div class="panel">
+  <h2>Actions</h2>
+  <ul>
+    <li>
+      <h4>{Boolean} closeMenu</h4>
+      <p>
+        This action will close the menu.  This can be called from within the menu
+        template.
+      </p>
+    </li>
+  </ul>
+</div>
+<div class="panel">
+  <h2>Block Parameters</h2>
+  <p>The following parameters are available from within the block</p>
+  <ul>
+    <li>
+      <h4>{Boolean} menuOpen</h4>
+      <p>Optional. Default: False</p>
+      <p>
+        Set this property to true or false to open or close the menu.
+      </p>
+    </li>
+  </ul>
+
+</div>
+<div class="panel">
+  <h2>Menu Template</h2>
+  <p>
+    Create a template for the menu.  This should be located at `templates/menus/application.hbs`.
+    If you want to store your template somewhere else then specify the path as the `menuTemplate` property.
+  </p>
+
+  <p>
+    This is the template for the menu used by this application.
+  </p>
+
+  <div class="panel code">
+    <pre><code>
+
+    &lt;button class="close-button" &#123;&#123;action 'closeMenu'}}&gt;X&lt;/button&gt;
+    &lt;ul&gt;
+      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
+        &#123;&#123;#link-to 'index' class="slide-menu-item" &#125;&#125;
+          Home
+        &#123;&#123;/link-to}}
+      &lt;/li&gt;
+      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
+        &#123;&#123;#link-to 'check-box-component' class="slide-menu-item" &#125;&#125;
+          CheckBoxComponent
+        &#123;&#123;/link-to}}
+      &lt;/li&gt;
+      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
+        &#123;&#123;#link-to 'select-box-component' class="slide-menu-item" &#125;&#125;
+          SelectBoxComponent
+        &#123;&#123;/link-to}}
+      &lt;/li&gt;
+      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
+        &#123;&#123;#link-to 'slide-menu-component' class="slide-menu-item" &#125;&#125;
+          SlideMenuComponent
+        &#123;&#123;/link-to}}
+      &lt;/li&gt;
+      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
+        &#123;&#123;#link-to 'panel-class' class="slide-menu-item"}}
+          PanelClass
+        &#123;&#123;/link-to}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    </code></pre>
+  </div>
+</div>

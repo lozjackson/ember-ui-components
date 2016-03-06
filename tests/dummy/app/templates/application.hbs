@@ -1,1 +1,10 @@
-{{outlet}}
+{{#slide-menu
+  menuTemplate="menus/application"
+  menuOpen=menuOpen
+  menuPosition=menuPosition
+  pushContent=pushContent
+  maskContent=maskContent
+  showDefaultToggle=showDefaultToggle
+  as |menuOpen|}}
+  {{outlet}}
+{{/slide-menu}}

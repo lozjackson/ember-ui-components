@@ -1,4 +1,6 @@
-{{#link-to 'index'}}Back to index{{/link-to}}
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
 <h1>CheckBoxComponent</h1>
 
 <div class="panel">
@@ -26,7 +28,8 @@
       {{check-box class="toggle green" checkboxId="demo2"}}
     </div>
   </div>
-
+</div>
+<div class="panel">
   <h2>Parameters</h2>
   <ul>
 
@@ -202,3 +205,5 @@
 
 
 </div>
+
+{{outlet}}
