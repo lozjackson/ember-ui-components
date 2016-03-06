@@ -17,6 +17,7 @@ export default Ember.Component.extend({
     Injected LookupService
     @property lookup
     @type {Object}
+    @private
   */
   lookup: Ember.inject.service(),
 
@@ -44,6 +45,10 @@ export default Ember.Component.extend({
   classNameBindings: ['menuPosition'],
 
   /**
+    This is the position of the menu on the window.
+
+    Options are: left, right, top, or bottom
+
     @property menuPosition
     @type {String}
     @default `left`
@@ -51,6 +56,7 @@ export default Ember.Component.extend({
   menuPosition: 'left',
 
   /**
+    Set this property to true or false to open or close the menu.
     @property menuOpen
     @type {Boolean}
     @default `false`
@@ -58,6 +64,8 @@ export default Ember.Component.extend({
   menuOpen: false,
 
   /**
+    If true the page content will slide with the menu.  If false the menu will
+    slide over the top of the page content.
     @property pushContent
     @type {Boolean}
     @default `false`
@@ -65,6 +73,7 @@ export default Ember.Component.extend({
   pushContent: false,
 
   /**
+    If true the page content will be masked while the menu is open.
     @property maskContent
     @type {Boolean}
     @default `true`
@@ -72,6 +81,9 @@ export default Ember.Component.extend({
   maskContent: true,
 
   /**
+    If true then the default menu toggle button will be displayed.  If you want
+    to create your own menu toggle button, then set this parameter to false and
+    the default toggle button will not be displayed.
     @property showDefaultToggle
     @type {Boolean}
     @default `true`
@@ -79,6 +91,9 @@ export default Ember.Component.extend({
   showDefaultToggle: true,
 
   /**
+    If `staticTemplate` is true then the `menuTemplate` property will be required.
+    If `staticTemplate` is false, then the menu template will be dynamically
+    looked up if `menuTemplate` is not specified.
     @property staticTemplate
     @type {Boolean}
     @default `false`
@@ -86,6 +101,7 @@ export default Ember.Component.extend({
   staticTemplate: false,
 
   /**
+    This is the menu template path.  This is only used when `menuTemplate` is null.
     @property menuTemplatePath
     @type {String}
     @default `menus`
