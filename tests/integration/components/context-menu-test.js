@@ -47,3 +47,21 @@ test('menu opens', function(assert) {
   this.set('showContextMenu', false);
   assert.equal(this.$('.context-menu-container').length, 0);
 });
+
+test('context menu', function(assert) {
+  this.render(hbs`
+    {{#context-menu}}
+      context menu content
+    {{else}}
+      template block text
+    {{/context-menu}}
+  `);
+
+  this.$('.context-menu').contextmenu();
+  assert.equal(this.$('.context-menu-container').length, 1);
+  assert.equal(this.$('.content-mask').length, 1);
+
+  this.$('.content-mask').click();
+  assert.equal(this.$('.context-menu-container').length, 0);
+  assert.equal(this.$('.content-mask').length, 0);
+});
