@@ -192,14 +192,14 @@ select.select-box {
 /*
   SlideMenuComponent
 */
-.slide-menu nav {
+.slide-menu > nav {
   position: fixed;
   z-index: 200;
   background: #4f6b81;
   color: #ddd;
   transition: transform 0.4s;
 }
-.slide-menu nav ul {
+.slide-menu > nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -274,7 +274,7 @@ body.menu-is-open {
   transition: transform .4s;
 }
 
-.slide-menu nav .slide-menu-item {
+.slide-menu > nav .slide-menu-item {
   display: block;
   /*padding: 12px 24px;*/
   color: #fff;
@@ -288,7 +288,7 @@ body.menu-is-open {
   cursor: pointer;
 }
 
-.slide-menu nav .slide-menu-item:hover {
+.slide-menu > nav .slide-menu-item:hover {
   background: linear-gradient(#3b3f48, #3c434d);
   box-shadow: inset 0px 1px 1px #475059;
 
@@ -298,13 +298,13 @@ body.menu-is-open {
 /*
  slide-menu left & right
 */
-.slide-menu nav {
+.slide-menu > nav {
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
 @media all and (min-width: 320px) {
-  .slide-menu nav {
+  .slide-menu > nav {
     width: 250px;
   }
 }
@@ -329,28 +329,28 @@ body.menu-is-open {
 .slide-menu > nav.right li.slide-menu-item:last-child {
   border-bottom: none;
 }*/
-.slide-menu nav button.close-button {
+.slide-menu > nav button.close-button {
   display: block;
   padding: 15px;
 }
-.slide-menu.left nav button.close-button,
-.slide-menu.right nav button.close-button {
+.slide-menu.left > nav button.close-button,
+.slide-menu.right > nav button.close-button {
   width: 100%;
 }
 
 /*
   slide-menu left
 */
-.slide-menu.left nav,
-.slide-menu nav.left {
+.slide-menu.left > nav,
+.slide-menu > nav.left {
   top: 0;
   left: 0;
   transform: translateX(-100%);
 }
 
 @media all and (min-width: 320px) {
-  .slide-menu.left nav,
-  .slide-menu nav.left {
+  .slide-menu.left > nav,
+  .slide-menu > nav.left {
     transform: translateX(-250px);
   }
 }
@@ -375,16 +375,16 @@ body.menu-is-open {
 /*
   slide-menu right
 */
-.slide-menu.right nav,
-.slide-menu nav.right {
+.slide-menu.right > nav,
+.slide-menu > nav.right {
   top: 0;
   right: 0;
   transform: translateX(100%);
 }
 
 @media all and (min-width: 320px) {
-  .slide-menu.right nav,
-  .slide-menu nav.right {
+  .slide-menu.right > nav,
+  .slide-menu > nav.right {
     transform: translateX(250px);
   }
 }
@@ -409,8 +409,8 @@ body.menu-is-open {
 /*
   slide-menu top & bottom
 */
-.slide-menu.top nav,
-.slide-menu.bottom nav {
+.slide-menu.top > nav,
+.slide-menu.bottom > nav {
   vertical-align: middle;
   width: 100%;
   height: 60px;
@@ -420,21 +420,21 @@ body.menu-is-open {
   overflow-x: scroll;
   box-shadow: none;
 }
-.slide-menu.top nav ul,
-.slide-menu.bottom nav ul {
+.slide-menu.top > nav ul,
+.slide-menu.bottom > nav ul {
   display: inline-block;
   text-align: center;
   background: linear-gradient(#628297, #4f6b81);
 }
-.slide-menu.top nav ul > li,
-.slide-menu.bottom nav ul > li {
+.slide-menu.top > nav ul > li,
+.slide-menu.bottom > nav ul > li {
   display: inline-block;
   text-align: center;
   margin: 0;
   padding: 0;
 }
-.slide-menu.top nav .slide-menu-item,
-.slide-menu.bottom nav .slide-menu-item {
+.slide-menu.top > nav .slide-menu-item,
+.slide-menu.bottom > nav .slide-menu-item {
   display: inline-block;
   /*display: block;*/
   line-height: 60px;
@@ -460,7 +460,7 @@ body.menu-is-open {
 /*
   slide-menu top
 */
-.slide-menu.top nav {
+.slide-menu.top > nav {
   top: 0;
   left: 0;
   transform: translateY(-60px);
@@ -481,7 +481,7 @@ body.menu-is-open {
 /*
   slide-menu bottom
 */
-.slide-menu.bottom nav {
+.slide-menu.bottom > nav {
   bottom: 0;
   left: 0;
   transform: translateY(60px);
@@ -500,17 +500,21 @@ body.menu-is-open {
 }
 
 /*
-  slide-menu - hide scroll bars
+  hide scroll bars
 */
-.slide-menu nav::-webkit-scrollbar {
+.slide-menu > nav::-webkit-scrollbar,
+.context-menu nav.context-menu-container::-webkit-scrollbar,
+.context-menu li.sub-menu > span > div::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
-.slide-menu nav {
+.slide-menu > nav,
+.context-menu nav.context-menu-container,
+.context-menu li.sub-menu > span > div {
   -ms-overflow-style: none;
 }
 
-/*.slide-menu nav.absolute {
+/*.slide-menu > nav.absolute {
   position: absolute;
 }*/
 
@@ -520,15 +524,24 @@ body.menu-is-open {
   ContextMenuComponent
 */
 .context-menu-container {
-  z-index: 200;
+  /*z-index: 200;*/
+  /*max-height: calc(100% - 10px);*/
+  /*overflow-x: visible;*/
+  /*overflow-y: scroll;*/
+
 }
-.context-menu-container, .context-menu-container li > span.sub-menu > div {
+.context-menu-container {
+  /*width: 100%;*/
+  /*overflow-y: scroll;*/
+  /*max-height: calc(100% - 10px);*/
+}
+.context-menu-container, .context-menu-container li.sub-menu > span > div {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
 	padding: 0px;
-	position: absolute;
-	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 25px 0 rgba(0, 0, 0, 0.15);
+	position: fixed;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 	-moz-border-radius-topleft: 4px;
 	-moz-border-radius-topright: 4px;
 	-moz-border-radius-bottomright: 4px;
@@ -538,11 +551,19 @@ body.menu-is-open {
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
 	text-align: left;
-	font-size: 13px;
+  font-size: 13px;
 	cursor: default;
+  z-index: 200;
+  /*max-height: calc(100% - 10px);*/
 }
-.context-menu-container > ul > li > span.sub-menu {
-	float:right;
+.context-menu-container ul {
+  list-style: none;
+}
+/*.context-menu-container li.sub-menu > span > div {
+  position: fixed;
+}*/
+.context-menu-container li.sub-menu > span {
+	/*float:right;*/
 	margin-left:20px;
 }
 .context-menu-container ul {
@@ -568,24 +589,18 @@ body.menu-is-open {
 	width: 100%;
 	margin:0px;
 }
-.context-menu-container > ul > li > span.sub-menu > div {
-	display: none;
-}
-.context-menu-container > ul > li > span.sub-menu > div > ul > li {
+.context-menu-container li.sub-menu > span > div > ul > li {
 	color:#000000;
 }
-.context-menu-container > ul > li:hover > span.sub-menu > div {
-	display: inline-block;
-}
-.context-menu-container > ul > li > span.sub-menu > div > ul > li:hover {
+.context-menu-container li.sub-menu > span > div > ul > li:hover {
 	color:#ffffff;
 }
-.context-menu-container li > span.sub-menu > svg.svg-triangle polygon {
+.context-menu-container li.sub-menu > span > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.context-menu-container li:hover > span.sub-menu > svg.svg-triangle polygon {
+.context-menu-container li.sub-menu:hover > span > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;
@@ -596,7 +611,6 @@ body.menu-is-open {
 .context-menu-container li.context-menu-disabled:hover {
 	background: rgb(255,255,255);
 }
-
 
 
 
@@ -657,4 +671,7 @@ body.menu-is-open {
 }
 .rounded-corners {
   border-radius: 4px;
+}
+.no-outline:focus {
+  outline: none;
 }
