@@ -1,0 +1,33 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+
+moduleForComponent('menu-container', 'Integration | Component | menu container', {
+  integration: true
+});
+
+test('it renders', function(assert) {
+  // Set any properties with this.set('myProperty', 'value');
+  // Handle any actions with this.on('myAction', function(val) { ... });"
+
+  this.render(hbs`{{menu-container}}`);
+
+  assert.equal(this.$().text().trim(), '');
+
+  // Template block usage:"
+  this.render(hbs`
+    {{#menu-container}}
+      template block text
+    {{/menu-container}}
+  `);
+
+  assert.equal(this.$().text().trim(), 'template block text');
+});
+
+test('it has correct class names', function(assert) {
+  this.render(hbs`
+    {{#menu-container}}
+      menu container
+    {{/menu-container}}
+  `);
+  assert.equal(this.$('.menu-container').length, 1);
+});
