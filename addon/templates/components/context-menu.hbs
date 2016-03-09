@@ -1,8 +1,11 @@
 {{yield to="inverse"}}
 {{#if showContextMenu}}
-  {{#content-mask class="menu-overlay active" didInsertElement=setPosition action="closeContextMenu"}}
-  	<div class="context-menu-container">
-  		{{yield contextMenuParams}}
-  	</div>
+  {{#content-mask
+    class="menu-overlay active"
+    didInsertElement=didInsertContextMenu
+    action="closeContextMenu"}}
+  	<nav class="context-menu-container">
+      {{yield contextMenuParams}}
+  	</nav>
   {{/content-mask}}
 {{/if}}

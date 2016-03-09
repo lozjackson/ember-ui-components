@@ -3,7 +3,7 @@
 */
 import Ember from 'ember';
 import layout from '../templates/components/context-menu';
-import { getPosition } from 'ember-ui-components/lib/fn';
+import { getElement, setPosition } from 'ember-ui-components/lib/fn';
 
 /**
   @class ContextMenuComponent
@@ -25,6 +25,39 @@ export default Ember.Component.extend({
     @default `['context-menu']`
   */
   classNames: ['context-menu'],
+
+  /**
+    @property attributeBindings
+    @type {Array}
+    @private
+    @default `['tabindex']`
+  */
+  attributeBindings: ['tabindex'],
+
+  /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['hideOutline:no-outline']`
+  */
+  classNameBindings: ['hideOutline:no-outline'],
+
+  /**
+    @property tabindex
+    @type {Integer}
+    @default `1`
+  */
+  tabindex: 1,
+
+  /**
+    If this property is true the element will be given the `no-outline` css class
+    which will hide the outline that an element is given when it is focused.
+
+    @property hideOutline
+    @type {Boolean}
+    @default `true`
+  */
+  hideOutline: true,
 
   /**
     @property showContextMenu
@@ -60,15 +93,14 @@ export default Ember.Component.extend({
   },
 
   /**
-    @method setPosition
-    @private
+    This method is passed to the `didInsertElement` hook of the `{{content-mask}}`
+    component which wraps the `.context-menu-container` element.
+    @method didInsertContextMenu
   */
-  setPosition() {
-    let position = getPosition(window.event);
-    Ember.$('.context-menu-container').css({
-			'left':position.get('x'),
-			'top':position.get('y')
-		});
+  didInsertContextMenu() {
+    let element = getElement('.context-menu-container');
+    setPosition(element);
+    // checkOverflow(element);
   },
 
   /**
@@ -80,14 +112,34 @@ export default Ember.Component.extend({
   },
 
   /**
+    @event keyDown
+    @param {Object} event
+    @private
+  */
+  keyDown(event) {
+    if (this.get('showContextMenu')) {
+      switch(event.keyCode) {
+        case 13: // enter
+          this._closeContextMenu();
+          break;
+        case 27: // escape
+          this._closeContextMenu();
+          break;
+      }
+    }
+  },
+
+  /**
     @event contextMenu
     @param {Object} event
+    @private
     @return {Boolean} false
   */
   contextMenu(event) {
     event.preventDefault();
     this.set('contextMenuParams.event', event);
     this.set('showContextMenu', true);
+    this.$().focus(); // set focus so that keyUp/Down events can be recieved.
     return false;
   },
 
