@@ -2,9 +2,9 @@
 {{#if showContextMenu}}
   {{#content-mask
     class="menu-overlay active"
-    didInsertElement=didInsertContextMenu
+    didInsertMask=didInsertContextMenu
     action="closeContextMenu"}}
-  	<nav class="context-menu-container">
+  	<nav class="context-menu-container menu-container">
       {{yield contextMenuParams}}
   	</nav>
   {{/content-mask}}
