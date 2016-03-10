@@ -27,6 +27,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.baseURL = '/';
     ENV.locationType = 'auto';
+
+    ENV.contentSecurityPolicy = {
+      'style-src': "'self' 'unsafe-inline'"
+    };
   }
 
   if (environment === 'test') {
