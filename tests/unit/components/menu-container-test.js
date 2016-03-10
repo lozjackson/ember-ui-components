@@ -23,3 +23,21 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames').length, 2);
   assert.equal(component.get('classNames')[1], 'menu-container');
 });
+
+test('getParentMenu() method', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+
+  component.getParentMenu();
+
+  assert.equal(component.get('classNames')[1], 'menu-container');
+});
+
+test('didInsertElement', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('didInsertMenu', () => assert.ok(true));
+  this.render();
+  assert.ok(component);
+});

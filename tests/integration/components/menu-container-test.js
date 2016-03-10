@@ -31,3 +31,13 @@ test('it has correct class names', function(assert) {
   `);
   assert.equal(this.$('.menu-container').length, 1);
 });
+
+test('didInsertElement calls didInsertMenu', function(assert) {
+  assert.expect(1);
+  this.set('didInsertMenu', () => assert.ok(true));
+  this.render(hbs`
+    {{#menu-container didInsertMenu=didInsertMenu}}
+      menu container
+    {{/menu-container}}
+  `);
+});
