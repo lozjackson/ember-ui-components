@@ -5,7 +5,8 @@ const run = Ember.run;
 
 moduleForComponent('sub-menu', 'Unit | Component | sub menu', {
   needs: [
-    'component:menu-container'
+    'component:menu-container',
+    'component:svg-triangle'
   ],
   unit: true
 });
@@ -46,14 +47,6 @@ test('delay', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('delay'), 300);
-});
-
-test('didInsertMenu', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  component.didInsertMenu();
-  assert.ok(component);
 });
 
 test('mouseEnter', function(assert) {

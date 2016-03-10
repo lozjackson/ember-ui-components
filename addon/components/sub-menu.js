@@ -1,10 +1,16 @@
+/**
+  @module ember-ui-components
+*/
 import Ember from 'ember';
 import layout from '../templates/components/sub-menu';
-import { getElement, getDimensions, calculatePosition } from 'ember-ui-components/lib/fn';
 
 const run = Ember.run;
 
-export default Ember.Component.extend({
+/**
+  @class SubMenuComponent
+  @namespace Components
+*/
+export default Ember.Component.extend( {
 
   /**
     @property layout
@@ -54,20 +60,6 @@ export default Ember.Component.extend({
     @private
   */
   _event: null,
-
-  /**
-    @method didInsertMenu
-    @private
-  */
-  didInsertMenu() {
-    let element = this.$();
-    let el = getDimensions(element);
-    if (element) {
-      element.css({
-        'top': calculatePosition( element.position().top, el.height, window.innerHeight - 5)
-      });
-    }
-  },
 
   /**
     @event mouseEnter

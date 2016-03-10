@@ -1,11 +1,11 @@
-{{title}}
-<span>
-{{!svg-triangle direction="right" size="8"}}
+<span class="ellipsis">{{title}}</span>
+<div>
+  {{svg-triangle direction="right" size="8"}}
   {{#if showMenu}}
-    {{#menu-container didInsertElement=didInsertMenu}}
+    {{#menu-container}}
       {{#if hasBlock}}
         {{yield}}
       {{/if}}
     {{/menu-container}}
   {{/if}}
-</span>
+</div>
