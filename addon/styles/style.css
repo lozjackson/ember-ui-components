@@ -506,6 +506,7 @@ body.menu-is-open {
 	border-bottom-left-radius: 4px;
 	text-align: left;
   font-size: 13px;
+  font-family: sans-serif;
 	cursor: default;
   z-index: 200;
   white-space: nowrap;
