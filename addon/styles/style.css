@@ -276,7 +276,6 @@ body.menu-is-open {
 
 .slide-menu > nav .slide-menu-item {
   display: block;
-  /*padding: 12px 24px;*/
   color: #fff;
   text-decoration: none;
   font-size: 1.1em;
@@ -308,27 +307,6 @@ body.menu-is-open {
     width: 250px;
   }
 }
-/*.slide-menu.left > nav li.slide-menu-item,
-.slide-menu.right > nav li.slide-menu-item,
-.slide-menu > nav.left li.slide-menu-item,
-.slide-menu > nav.right li.slide-menu-item {
-  display: block;
-  text-align: center;
-  border-top: solid 1px #b5dbe9;
-  border-bottom: solid 1px #3184a1;
-}*/
-/*.slide-menu.left > nav li.slide-menu-item:first-child,
-.slide-menu.right > nav li.slide-menu-item:first-child,
-.slide-menu > nav.left li.slide-menu-item:first-child,
-.slide-menu > nav.right li.slide-menu-item:first-child {
-  border-top: none;
-}
-.slide-menu.left > nav li.slide-menu-item:last-child,
-.slide-menu.right > nav li.slide-menu-item:last-child,
-.slide-menu > nav.left li.slide-menu-item:last-child,
-.slide-menu > nav.right li.slide-menu-item:last-child {
-  border-bottom: none;
-}*/
 .slide-menu > nav button.close-button {
   display: block;
   padding: 15px;
@@ -436,18 +414,10 @@ body.menu-is-open {
 .slide-menu.top > nav .slide-menu-item,
 .slide-menu.bottom > nav .slide-menu-item {
   display: inline-block;
-  /*display: block;*/
   line-height: 60px;
   padding: 0 15px;
-  /*margin: 0;*/
   box-shadow: none;
 }
-/*.slide-menu.top li.slide-menu-item,
-.slide-menu.bottom li.slide-menu-item {
-  display: block;
-  padding: 0 4px;
-  color: #fff;
-}*/
 .slide-menu.top button.close-button,
 .slide-menu.bottom button.close-button {
   display: inline-block;
@@ -514,28 +484,12 @@ body.menu-is-open {
   -ms-overflow-style: none;
 }
 
-/*.slide-menu > nav.absolute {
-  position: absolute;
-}*/
-
 
 
 /*
   ContextMenuComponent
 */
-.context-menu-container {
-  /*z-index: 200;*/
-  /*max-height: calc(100% - 10px);*/
-  /*overflow-x: visible;*/
-  /*overflow-y: scroll;*/
-
-}
-.context-menu-container {
-  /*width: 100%;*/
-  /*overflow-y: scroll;*/
-  /*max-height: calc(100% - 10px);*/
-}
-.context-menu-container, .context-menu-container li.sub-menu > span > div {
+.context-menu-container, .context-menu-container li.sub-menu > div > div.menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
@@ -554,17 +508,13 @@ body.menu-is-open {
   font-size: 13px;
 	cursor: default;
   z-index: 200;
-  /*max-height: calc(100% - 10px);*/
+  white-space: nowrap;
 }
 .context-menu-container ul {
   list-style: none;
 }
-/*.context-menu-container li.sub-menu > span > div {
-  position: fixed;
-}*/
-.context-menu-container li.sub-menu > span {
-	/*float:right;*/
-	margin-left:20px;
+.context-menu-container li.sub-menu > div {
+	float:right;
 }
 .context-menu-container ul {
 	margin: 0px;
@@ -581,7 +531,7 @@ body.menu-is-open {
 	color:#ffffff;
 }
 
-.context-menu-container li > svg {
+.context-menu-container li > div > svg {
 	margin-left:10px;
 	margin-top:3px;
 }
@@ -589,18 +539,18 @@ body.menu-is-open {
 	width: 100%;
 	margin:0px;
 }
-.context-menu-container li.sub-menu > span > div > ul > li {
+.context-menu-container li.sub-menu > div > div.menu-container > ul > li {
 	color:#000000;
 }
-.context-menu-container li.sub-menu > span > div > ul > li:hover {
+.context-menu-container li.sub-menu > div > div.menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.context-menu-container li.sub-menu > span > svg.svg-triangle polygon {
+.context-menu-container li.sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.context-menu-container li.sub-menu:hover > span > svg.svg-triangle polygon {
+.context-menu-container li.sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;
@@ -669,9 +619,23 @@ body.menu-is-open {
 .top-border.red {
   border-top: 4px solid rgb(251, 189, 189);
 }
+.left-border.yellow {
+  border-left: 4px solid rgb(236, 207, 101);
+}
+.left-border.green {
+  border-left: 4px solid rgb(123, 224, 123);
+}
+.left-border.red {
+  border-left: 4px solid rgb(251, 189, 189);
+}
 .rounded-corners {
   border-radius: 4px;
 }
 .no-outline:focus {
   outline: none;
+}
+.ellipsis {
+	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
