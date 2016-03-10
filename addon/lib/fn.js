@@ -49,35 +49,13 @@ export function getMousePosition(event, page) {
 }
 
 /**
-  `element` should be a reference to an HTML element.  Either a string selector
-  that can be used with jQuery, or a jQuery selection object.
-
-  If `position` is not specified, then the current mouse position will be used.
-
-  `position` should be an Ember.Object with `x` and `y` properties.
-  Both `x` and `y` should be numbers
-
-  @method setPosition
+  @method getDimensions
   @param {String|Object} element
-  @param {Object} position
+  @return {Object}
 */
-export function setPosition(element, position) {
-  if (typeof element === 'string') {
-    element = getElement(element);
-  }
-  if (!position) {
-    position = getMousePosition(window.event);
-  }
-  let el = getDimensions(element);
-  element.css({
-    'left': calculatePosition( position.get('x') + 2, el.width, window.innerWidth - 7),
-    'top': calculatePosition( position.get('y'), el.height, window.innerHeight - 5)
-  });
-}
-
 export function getDimensions(element) {
   if (typeof element === 'string') {
-    element = getElement(element);
+    element = Ember.$(element);
   }
   let el = { width: 0, height: 0 };
   if (element.length) {
@@ -86,19 +64,6 @@ export function getDimensions(element) {
   }
   return el;
 }
-
-export function getElement(element) {
-    return Ember.$(element);
-}
-
-// export function checkOverflow(element, container) {
-//   if (typeof element === 'string') {
-//     element = getElement(element);
-//   }
-//   // if ()
-//   let dimensions = getDimensions(element);
-//
-// }
 
 export function calculatePosition(position, element, container) {
   return ((container - position) < element) ? container - element : position;
