@@ -20,3 +20,11 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames').length, 2);
   assert.equal(component.get('classNames')[1], 'content-mask');
 });
+
+test('didInsertElement', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('didInsertMask', () => assert.ok(true));
+  this.render();
+  assert.ok(component);
+});

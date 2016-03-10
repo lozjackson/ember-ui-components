@@ -24,6 +24,14 @@ export default Ember.Component.extend({
   */
   classNames: ['content-mask'],
 
+  didInsertElement() {
+    this._super(...arguments);
+    let didInsertMask = this.get('didInsertMask');
+    if (typeof didInsertMask === 'function') {
+      didInsertMask.call(this);
+    }
+  },
+
   /**
     @event click
   */
