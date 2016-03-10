@@ -26,3 +26,13 @@ test('click triggers sendAction', function(assert) {
   this.render(hbs`{{content-mask action="closeMenu"}}`);
   this.$('div.content-mask').click();
 });
+
+test('didInsertElement calls didInsertMask', function(assert) {
+  assert.expect(1);
+  this.set('didInsertMask', () => assert.ok(true));
+  this.render(hbs`
+    {{#content-mask didInsertMask=didInsertMask}}
+      content
+    {{/content-mask}}
+  `);
+});
