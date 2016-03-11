@@ -11,16 +11,16 @@ moduleForComponent('select-box', 'Integration | Component | select box', {
 test('it renders', function(assert) {
   assert.expect(1);
   this.render(hbs`{{select-box}}`);
-  assert.equal(this.$('select.select-box').length, 1);
+  assert.equal(this.$('select.euic-select-box').length, 1);
 });
 
 test('disabled', function(assert) {
   assert.expect(2);
   this.set('disabled', false);
   this.render(hbs`{{select-box disabled=disabled}}`);
-  assert.equal(this.$('select.select-box[disabled]').length, 0);
+  assert.equal(this.$('select.euic-select-box[disabled]').length, 0);
   this.set('disabled', true);
-  assert.equal(this.$('select.select-box[disabled]').length, 1);
+  assert.equal(this.$('select.euic-select-box[disabled]').length, 1);
 });
 
 test('options - pass in array of strings', function(assert) {
@@ -29,7 +29,7 @@ test('options - pass in array of strings', function(assert) {
   this.set('options', ['Active', 'Complete']);
   this.render(hbs`{{select-box options=options}}`);
 
-  assert.equal(this.$('select.select-box option').length, 2);
+  assert.equal(this.$('select.euic-select-box option').length, 2);
 });
 
 test('options - pass in Ember.Array of strings', function(assert) {
@@ -37,12 +37,12 @@ test('options - pass in Ember.Array of strings', function(assert) {
   this.set('options', options);
   this.render(hbs`{{select-box options=options}}`);
 
-  assert.equal(this.$('select.select-box option').length, 2);
+  assert.equal(this.$('select.euic-select-box option').length, 2);
 
   run(() => options.pushObject('Closed'));
-  assert.equal(this.$('select.select-box option').length, 3);
+  assert.equal(this.$('select.euic-select-box option').length, 3);
 
-  assert.equal(this.$('select.select-box option[value=Active]').length, 1);
+  assert.equal(this.$('select.euic-select-box option[value=Active]').length, 1);
 });
 
 test('options - pass in array of objects', function(assert) {
@@ -58,11 +58,11 @@ test('options - pass in array of objects', function(assert) {
   this.set('options', options);
   this.render(hbs`{{select-box options=options}}`);
 
-  assert.equal(this.$('select.select-box option').length, 2);
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 1);
+  assert.equal(this.$('select.euic-select-box option').length, 2);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 1);
   run(() => set(options[0], 'value', 'AnotherValue'));
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 0);
-  assert.equal(this.$('select.select-box option[value=AnotherValue]').length, 1);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 0);
+  assert.equal(this.$('select.euic-select-box option[value=AnotherValue]').length, 1);
 });
 
 test('options - pass in array of Ember.Objects', function(assert) {
@@ -79,11 +79,11 @@ test('options - pass in array of Ember.Objects', function(assert) {
   this.set('options', options);
   this.render(hbs`{{select-box options=options}}`);
 
-  assert.equal(this.$('select.select-box option').length, 2);
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 1);
+  assert.equal(this.$('select.euic-select-box option').length, 2);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 1);
   run(() => set(options[0], 'value', 'AnotherValue'));
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 0);
-  assert.equal(this.$('select.select-box option[value=AnotherValue]').length, 1);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 0);
+  assert.equal(this.$('select.euic-select-box option[value=AnotherValue]').length, 1);
 });
 
 test('options - pass in Ember.Array of Ember.Objects', function(assert) {
@@ -100,15 +100,15 @@ test('options - pass in Ember.Array of Ember.Objects', function(assert) {
   this.set('options', options);
   this.render(hbs`{{select-box options=options}}`);
 
-  assert.equal(this.$('select.select-box option').length, 2);
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 1);
+  assert.equal(this.$('select.euic-select-box option').length, 2);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 1);
   run(() => set(options[0], 'value', 'AnotherValue'));
-  assert.equal(this.$('select.select-box option[value=active-value]').length, 0);
-  assert.equal(this.$('select.select-box option[value=AnotherValue]').length, 1);
+  assert.equal(this.$('select.euic-select-box option[value=active-value]').length, 0);
+  assert.equal(this.$('select.euic-select-box option[value=AnotherValue]').length, 1);
   run(() => options.pushObject(Ember.Object.create({
     value: 'closed-value',
     text: 'Closed'
   })));
-  assert.equal(this.$('select.select-box option').length, 3);
-  assert.equal(this.$('select.select-box option[value=closed-value]').length, 1);
+  assert.equal(this.$('select.euic-select-box option').length, 3);
+  assert.equal(this.$('select.euic-select-box option[value=closed-value]').length, 1);
 });

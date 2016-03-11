@@ -27,7 +27,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'select-box');
+  assert.equal(component.get('classNames')[1], 'euic-select-box');
 });
 
 test('options should be empty array', function(assert) {

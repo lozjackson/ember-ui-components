@@ -14,14 +14,14 @@ div.panel {
 
 div.euic-check-box.slider,
 div.euic-check-box.toggle,
-select.select-box {
+select.euic-select-box {
   margin: 20px 0;
 }
 
 /*
   SelectBoxComponent
 */
-/*select.select-box {
+/*select.euic-select-box {
   margin: 20px 0;
   border-radius: 4px;
 }*/

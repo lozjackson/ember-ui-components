@@ -50,9 +50,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['select-box']`
+    @default `['euic-select-box']`
   */
-  classNames: ['select-box'],
+  classNames: ['euic-select-box'],
 
   /**
     @property attributeBindings
