@@ -474,13 +474,13 @@ body.menu-is-open {
 */
 .euic-slide-menu > nav::-webkit-scrollbar,
 .euic-context-menu nav.context-menu-container::-webkit-scrollbar,
-.euic-context-menu li.sub-menu > span > div::-webkit-scrollbar {
+.euic-context-menu li.euic-sub-menu > span > div::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
 .euic-slide-menu > nav,
 .euic-context-menu nav.context-menu-container,
-.euic-context-menu li.sub-menu > span > div {
+.euic-context-menu li.euic-sub-menu > span > div {
   -ms-overflow-style: none;
 }
 
@@ -489,7 +489,7 @@ body.menu-is-open {
 /*
   ContextMenuComponent
 */
-.context-menu-container, .context-menu-container li.sub-menu > div > div.euic-menu-container {
+.context-menu-container, .context-menu-container li.euic-sub-menu > div > div.euic-menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
@@ -514,7 +514,7 @@ body.menu-is-open {
 .context-menu-container ul {
   list-style: none;
 }
-.context-menu-container li.sub-menu > div {
+.context-menu-container li.euic-sub-menu > div {
 	float:right;
 }
 .context-menu-container ul {
@@ -540,18 +540,18 @@ body.menu-is-open {
 	width: 100%;
 	margin:0px;
 }
-.context-menu-container li.sub-menu > div > div.euic-menu-container > ul > li {
+.context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li {
 	color:#000000;
 }
-.context-menu-container li.sub-menu > div > div.euic-menu-container > ul > li:hover {
+.context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.context-menu-container li.sub-menu > div > svg.svg-triangle polygon {
+.context-menu-container li.euic-sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.context-menu-container li.sub-menu:hover > div > svg.svg-triangle polygon {
+.context-menu-container li.euic-sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;

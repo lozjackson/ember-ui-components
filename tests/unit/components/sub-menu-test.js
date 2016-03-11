@@ -32,7 +32,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'sub-menu');
+  assert.equal(component.get('classNames')[1], 'euic-sub-menu');
 });
 
 test('showMenu', function(assert) {

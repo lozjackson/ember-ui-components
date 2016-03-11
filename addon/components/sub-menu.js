@@ -31,9 +31,9 @@ export default Ember.Component.extend( {
     @property classNames
     @type {Array}
     @private
-    @default `['sub-menu']`
+    @default `['euic-sub-menu']`
   */
-  classNames: ['sub-menu'],
+  classNames: ['euic-sub-menu'],
 
   /**
     @property showMenu
