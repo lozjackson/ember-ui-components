@@ -23,7 +23,7 @@ test('classNames', function(assert) {
   component.set('checkboxId', 1);
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'check-box');
+  assert.equal(component.get('classNames')[1], 'euic-check-box');
 });
 
 test('checked should be false', function(assert) {

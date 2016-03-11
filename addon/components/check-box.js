@@ -29,9 +29,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['check-box']`
+    @default `['euic-check-box']`
   */
-  classNames: ['check-box'],
+  classNames: ['euic-check-box'],
 
   /**
     @property classNameBindins

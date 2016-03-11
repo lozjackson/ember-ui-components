@@ -12,8 +12,8 @@ div.panel {
   box-shadow: 0px 1px 2px #888888;
 }
 
-div.check-box.slider,
-div.check-box.toggle,
+div.euic-check-box.slider,
+div.euic-check-box.toggle,
 select.select-box {
   margin: 20px 0;
 }
@@ -29,46 +29,46 @@ select.select-box {
 /*
   CheckBoxComponent
 */
-.check-box {
+.euic-check-box {
   display: inline-block;
   position: relative;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-.check-box.slider.disabled,
-.check-box.toggle.disabled {
+.euic-check-box.slider.disabled,
+.euic-check-box.toggle.disabled {
   opacity: 0.4;
 }
-.check-box input + label {
+.euic-check-box input + label {
   display: block;
   cursor: pointer;
   position: absolute;
   margin: 0;
 }
-.check-box.disabled input + label {
+.euic-check-box.disabled input + label {
   cursor: default;
 }
-.check-box span {
+.euic-check-box span {
   margin: 10px;
   vertical-align: middle;
 }
-.check-box.slider,
-.check-box.toggle {
+.euic-check-box.slider,
+.euic-check-box.toggle {
   top: -3px;
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 }
-.check-box.slider input[type=checkbox],
-.check-box.toggle input[type=checkbox] {
+.euic-check-box.slider input[type=checkbox],
+.euic-check-box.toggle input[type=checkbox] {
   visibility: hidden;
 }
-.check-box.slider {
+.euic-check-box.slider {
   top: -3px;
   width: 80px;
   height: 26px;
   border-radius: 50px;
   /*box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);*/
 }
-.check-box.slider:after {
+.euic-check-box.slider:after {
   content: 'OFF';
   color: #888;
   position: absolute;
@@ -78,15 +78,15 @@ select.select-box {
   font-weight: bold;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
 }
-.check-box.slider.light:after {
+.euic-check-box.slider.light:after {
   color: #888;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
-.check-box.slider.dark:after {
+.euic-check-box.slider.dark:after {
   color: #000;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
 }
-.check-box.slider:before {
+.euic-check-box.slider:before {
   content: 'ON';
   color: #27ae60;
   position: absolute;
@@ -95,7 +95,7 @@ select.select-box {
   font: 12px/26px Arial, sans-serif;
   font-weight: bold;
 }
-.check-box.slider label {
+.euic-check-box.slider label {
   width: 34px;
   height: 20px;
   top: 3px;
@@ -109,22 +109,22 @@ select.select-box {
   transition: all 0.4s ease;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
-.check-box.slider.light label {
+.euic-check-box.slider.light label {
   background: #646563;
   background: -webkit-linear-gradient(top, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
   background: linear-gradient(to bottom, #BBBABA 0%, #B2B5B2 40%, #646563 100%);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
-.check-box.slider input[type=checkbox]:checked + label {
+.euic-check-box.slider input[type=checkbox]:checked + label {
   left: 43px;
 }
-.check-box.toggle {
+.euic-check-box.toggle {
   background: none;
   width: 3.5rem;
   height: 1.5rem;
   border-radius: 500rem;
 }
-.check-box.toggle label:before {
+.euic-check-box.toggle label:before {
   display: block;
   position: absolute;
   content: ''!important;
@@ -141,16 +141,16 @@ select.select-box {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
-.check-box.toggle input[type=checkbox]:checked + label:before {
+.euic-check-box.toggle input[type=checkbox]:checked + label:before {
   background: #2185d0;
 }
-.check-box.toggle.green input[type=checkbox]:checked + label:before {
+.euic-check-box.toggle.green input[type=checkbox]:checked + label:before {
   background: #11D232;
 }
-.check-box.toggle.red input[type=checkbox]:checked + label:before {
+.euic-check-box.toggle.red input[type=checkbox]:checked + label:before {
   background: #E61010;
 }
-.check-box.toggle label {
+.euic-check-box.toggle label {
   top:0px;
   left: 0px;
   z-index: 0;
@@ -162,7 +162,7 @@ select.select-box {
   -webkit-transition: none;
   transition: none;
 }
-.check-box.toggle label:after {
+.euic-check-box.toggle label:after {
   position: absolute;
   content:''!important;
   background: -webkit-linear-gradient(transparent,rgba(0,0,0,.05)) #fff;
@@ -177,7 +177,7 @@ select.select-box {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-.check-box.toggle input[type=checkbox]:checked + label:after {
+.euic-check-box.toggle input[type=checkbox]:checked + label:after {
   left: 2rem;
 }
 
