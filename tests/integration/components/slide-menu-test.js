@@ -24,7 +24,7 @@ test('it renders the content', function(assert) {
     {{/slide-menu}}
   `);
 
-  assert.equal(this.$('div.content-container').text().trim(), 'template block text');
+  assert.equal(this.$('div.euic-content-container').text().trim(), 'template block text');
 });
 
 test('menuPosition - default', function(assert) {
@@ -54,14 +54,14 @@ test('pushContent', function (assert) {
   assert.expect(4);
   this.set('pushContent', false);
   this.render(hbs`{{slide-menu pushContent=pushContent}}`);
-  assert.equal(this.$('div.content-container').length, 1);
-  assert.equal(this.$('div.content-container.push-content').length, 0);
+  assert.equal(this.$('div.euic-content-container').length, 1);
+  assert.equal(this.$('div.euic-content-container.push-content').length, 0);
 
   this.set('pushContent', true);
-  assert.equal(this.$('div.content-container.push-content').length, 1);
+  assert.equal(this.$('div.euic-content-container.push-content').length, 1);
 
   this.set('pushContent', false);
-  assert.equal(this.$('div.content-container.push-content').length, 0);
+  assert.equal(this.$('div.euic-content-container.push-content').length, 0);
 });
 
 test('maskContent', function (assert) {
