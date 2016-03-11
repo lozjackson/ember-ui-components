@@ -489,7 +489,7 @@ body.menu-is-open {
 /*
   ContextMenuComponent
 */
-.context-menu-container, .context-menu-container li.sub-menu > div > div.menu-container {
+.context-menu-container, .context-menu-container li.sub-menu > div > div.euic-menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
@@ -540,10 +540,10 @@ body.menu-is-open {
 	width: 100%;
 	margin:0px;
 }
-.context-menu-container li.sub-menu > div > div.menu-container > ul > li {
+.context-menu-container li.sub-menu > div > div.euic-menu-container > ul > li {
 	color:#000000;
 }
-.context-menu-container li.sub-menu > div > div.menu-container > ul > li:hover {
+.context-menu-container li.sub-menu > div > div.euic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
 .context-menu-container li.sub-menu > div > svg.svg-triangle polygon {

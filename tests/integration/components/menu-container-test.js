@@ -29,7 +29,7 @@ test('it has correct class names', function(assert) {
       menu container
     {{/menu-container}}
   `);
-  assert.equal(this.$('.menu-container').length, 1);
+  assert.equal(this.$('.euic-menu-container').length, 1);
 });
 
 test('didInsertElement calls didInsertMenu', function(assert) {

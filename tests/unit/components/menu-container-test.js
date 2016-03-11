@@ -21,7 +21,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'menu-container');
+  assert.equal(component.get('classNames')[1], 'euic-menu-container');
 });
 
 test('getParentMenu() method', function(assert) {
@@ -31,7 +31,7 @@ test('getParentMenu() method', function(assert) {
 
   component.getParentMenu();
 
-  assert.equal(component.get('classNames')[1], 'menu-container');
+  assert.equal(component.get('classNames')[1], 'euic-menu-container');
 });
 
 test('didInsertElement', function(assert) {

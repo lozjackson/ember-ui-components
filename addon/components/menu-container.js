@@ -22,9 +22,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['menu-container']`
+    @default `['euic-menu-container']`
   */
-  classNames: ['menu-container'],
+  classNames: ['euic-menu-container'],
 
   /**
     @method getParentMenu
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
     @return {Object}
   */
   getParentMenu() {
-    return this.$().parents('.menu-container');
+    return this.$().parents('.euic-menu-container');
   },
 
   /**
