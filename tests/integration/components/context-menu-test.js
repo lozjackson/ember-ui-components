@@ -24,7 +24,7 @@ test('it has correct class names', function(assert) {
       template block text
     {{/context-menu}}
   `);
-  assert.equal(this.$('.context-menu').length, 1);
+  assert.equal(this.$('.euic-context-menu').length, 1);
 });
 
 test('hideOutline', function(assert) {
@@ -36,10 +36,10 @@ test('hideOutline', function(assert) {
       template block text
     {{/context-menu}}
   `);
-  assert.equal(this.$('.context-menu.no-outline').length, 1);
+  assert.equal(this.$('.euic-context-menu.no-outline').length, 1);
   this.set('hideOutline', false);
-  assert.equal(this.$('.context-menu').length, 1);
-  assert.equal(this.$('.context-menu.no-outline').length, 0);
+  assert.equal(this.$('.euic-context-menu').length, 1);
+  assert.equal(this.$('.euic-context-menu.no-outline').length, 0);
 });
 
 test('tabindex', function(assert) {
@@ -50,7 +50,7 @@ test('tabindex', function(assert) {
       template block text
     {{/context-menu}}
   `);
-  assert.equal(this.$('.context-menu').attr('tabindex'), 1);
+  assert.equal(this.$('.euic-context-menu').attr('tabindex'), 1);
 });
 
 test('hideOutline', function(assert) {
@@ -62,9 +62,9 @@ test('hideOutline', function(assert) {
       template block text
     {{/context-menu}}
   `);
-  assert.equal(this.$('.context-menu').attr('tabindex'), 2);
+  assert.equal(this.$('.euic-context-menu').attr('tabindex'), 2);
   this.set('tabindex', 3);
-  assert.equal(this.$('.context-menu').attr('tabindex'), 3);
+  assert.equal(this.$('.euic-context-menu').attr('tabindex'), 3);
 });
 
 test('menu opens', function(assert) {
@@ -97,11 +97,11 @@ test('contextmenu', function(assert) {
     {{/context-menu}}
   `);
 
-  this.$('.context-menu').contextmenu();
+  this.$('.euic-context-menu').contextmenu();
   assert.equal(this.$('.context-menu-container').length, 1);
-  assert.equal(this.$('.content-mask').length, 1);
+  assert.equal(this.$('.euic-content-mask').length, 1);
 
-  this.$('.content-mask').click();
+  this.$('.euic-content-mask').click();
   assert.equal(this.$('.context-menu-container').length, 0);
-  assert.equal(this.$('.content-mask').length, 0);
+  assert.equal(this.$('.euic-content-mask').length, 0);
 });

@@ -20,9 +20,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['content-mask']`
+    @default `['euic-content-mask']`
   */
-  classNames: ['content-mask'],
+  classNames: ['euic-content-mask'],
 
   didInsertElement() {
     this._super(...arguments);

@@ -18,7 +18,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'content-mask');
+  assert.equal(component.get('classNames')[1], 'euic-content-mask');
 });
 
 test('didInsertElement', function(assert) {

@@ -473,14 +473,14 @@ body.menu-is-open {
   hide scroll bars
 */
 .slide-menu > nav::-webkit-scrollbar,
-.context-menu nav.context-menu-container::-webkit-scrollbar,
-.context-menu li.sub-menu > span > div::-webkit-scrollbar {
+.euic-context-menu nav.context-menu-container::-webkit-scrollbar,
+.euic-context-menu li.sub-menu > span > div::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
 .slide-menu > nav,
-.context-menu nav.context-menu-container,
-.context-menu li.sub-menu > span > div {
+.euic-context-menu nav.context-menu-container,
+.euic-context-menu li.sub-menu > span > div {
   -ms-overflow-style: none;
 }
 
@@ -570,7 +570,7 @@ body.menu-is-open {
 /*
   content-mask
 */
-.content-mask {
+.euic-content-mask {
   position: fixed;
   z-index: 100;
   top: 0;
@@ -582,13 +582,13 @@ body.menu-is-open {
   opacity: 0;
   transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
 }
-.content-mask.active {
+.euic-content-mask.active {
   width: 100%;
   height: 100%;
   opacity: 0.05;
   transition: opacity 0.4s;
 }
-.content-mask.menu-overlay {
+.euic-content-mask.euic-menu-overlay {
   background: none;
   opacity: inherit;
 }

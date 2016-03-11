@@ -9,7 +9,7 @@ test('it renders', function(assert) {
   assert.expect(2);
 
   this.render(hbs`{{content-mask}}`);
-  assert.equal(this.$('.content-mask').length, 1);
+  assert.equal(this.$('.euic-content-mask').length, 1);
 
   this.render(hbs`
     {{#content-mask}}
@@ -24,7 +24,7 @@ test('click triggers sendAction', function(assert) {
   assert.expect(1);
   this.on('closeMenu', () => assert.ok(true));
   this.render(hbs`{{content-mask action="closeMenu"}}`);
-  this.$('div.content-mask').click();
+  this.$('div.euic-content-mask').click();
 });
 
 test('didInsertElement calls didInsertMask', function(assert) {

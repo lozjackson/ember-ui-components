@@ -23,7 +23,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'context-menu');
+  assert.equal(component.get('classNames')[1], 'euic-context-menu');
 });
 
 test('attributeBindings', function(assert) {

@@ -55,9 +55,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['context-menu']`
+    @default `['euic-context-menu']`
   */
-  classNames: ['context-menu'],
+  classNames: ['euic-context-menu'],
 
   /**
     @property attributeBindings
