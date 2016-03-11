@@ -32,9 +32,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['slide-menu']`
+    @default `['euic-slide-menu']`
   */
-  classNames: ['slide-menu'],
+  classNames: ['euic-slide-menu'],
 
   /**
     @property classNameBindings

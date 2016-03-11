@@ -45,7 +45,7 @@ test('classNames', function(assert) {
   component.set('lookup', lookup);
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'slide-menu');
+  assert.equal(component.get('classNames')[1], 'euic-slide-menu');
 });
 
 test('classNameBindings', function(assert) {

@@ -12,7 +12,7 @@ moduleForComponent('slide-menu', 'Integration | Component | slide menu', {
 test('it renders', function(assert) {
   assert.expect(1);
   this.render(hbs`{{slide-menu lookup=lookup}}`);
-  assert.equal(this.$('div.slide-menu').length, 1);
+  assert.equal(this.$('div.euic-slide-menu').length, 1);
 });
 
 test('it renders the content', function(assert) {
@@ -30,7 +30,7 @@ test('it renders the content', function(assert) {
 test('menuPosition - default', function(assert) {
   assert.expect(1);
   this.render(hbs`{{slide-menu}}`);
-  assert.equal(this.$('div.slide-menu.left').length, 1);
+  assert.equal(this.$('div.euic-slide-menu.left').length, 1);
 });
 
 test('menuPosition left and right', function(assert) {
@@ -38,16 +38,16 @@ test('menuPosition left and right', function(assert) {
 
   this.set('menuPosition', 'left');
   this.render(hbs`{{slide-menu menuPosition=menuPosition}}`);
-  assert.equal(this.$('div.slide-menu.left').length, 1);
-  assert.equal(this.$('div.slide-menu.right').length, 0);
+  assert.equal(this.$('div.euic-slide-menu.left').length, 1);
+  assert.equal(this.$('div.euic-slide-menu.right').length, 0);
 
   this.set('menuPosition', 'right');
-  assert.equal(this.$('div.slide-menu.left').length, 0);
-  assert.equal(this.$('div.slide-menu.right').length, 1);
+  assert.equal(this.$('div.euic-slide-menu.left').length, 0);
+  assert.equal(this.$('div.euic-slide-menu.right').length, 1);
 
   this.set('menuPosition', 'left');
-  assert.equal(this.$('div.slide-menu.left').length, 1);
-  assert.equal(this.$('div.slide-menu.right').length, 0);
+  assert.equal(this.$('div.euic-slide-menu.left').length, 1);
+  assert.equal(this.$('div.euic-slide-menu.right').length, 0);
 });
 
 test('pushContent', function (assert) {
