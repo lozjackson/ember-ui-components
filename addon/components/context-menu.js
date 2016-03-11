@@ -127,11 +127,11 @@ export default Ember.Component.extend({
 
   /**
     This method is passed to the `didInsertElement` hook of the `{{content-mask}}`
-    component which wraps the `.context-menu-container` element.
+    component which wraps the `.euic-context-menu-container` element.
     @method didInsertContextMenu
   */
   didInsertContextMenu() {
-    let element = this.$('.context-menu-container');
+    let element = this.$('.euic-context-menu-container');
     setPosition(element);
   },
 

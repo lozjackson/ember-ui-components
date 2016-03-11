@@ -78,14 +78,14 @@ test('menu opens', function(assert) {
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
-  assert.equal(this.$('.context-menu-container').length, 0);
+  assert.equal(this.$('.euic-context-menu-container').length, 0);
 
   this.set('showContextMenu', true);
-  assert.equal(this.$('.context-menu-container').text().trim(), 'context menu content');
-  assert.equal(this.$('.context-menu-container').length, 1);
+  assert.equal(this.$('.euic-context-menu-container').text().trim(), 'context menu content');
+  assert.equal(this.$('.euic-context-menu-container').length, 1);
 
   this.set('showContextMenu', false);
-  assert.equal(this.$('.context-menu-container').length, 0);
+  assert.equal(this.$('.euic-context-menu-container').length, 0);
 });
 
 test('contextmenu', function(assert) {
@@ -98,10 +98,10 @@ test('contextmenu', function(assert) {
   `);
 
   this.$('.euic-context-menu').contextmenu();
-  assert.equal(this.$('.context-menu-container').length, 1);
+  assert.equal(this.$('.euic-context-menu-container').length, 1);
   assert.equal(this.$('.euic-content-mask').length, 1);
 
   this.$('.euic-content-mask').click();
-  assert.equal(this.$('.context-menu-container').length, 0);
+  assert.equal(this.$('.euic-context-menu-container').length, 0);
   assert.equal(this.$('.euic-content-mask').length, 0);
 });

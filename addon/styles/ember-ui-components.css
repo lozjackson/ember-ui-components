@@ -474,13 +474,13 @@ body.menu-is-open {
   hide scroll bars
 */
 .euic-slide-menu > nav::-webkit-scrollbar,
-.euic-context-menu nav.context-menu-container::-webkit-scrollbar,
+.euic-context-menu nav.euic-context-menu-container::-webkit-scrollbar,
 .euic-context-menu li.euic-sub-menu > span > div::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
 .euic-slide-menu > nav,
-.euic-context-menu nav.context-menu-container,
+.euic-context-menu nav.euic-context-menu-container,
 .euic-context-menu li.euic-sub-menu > span > div {
   -ms-overflow-style: none;
 }
@@ -490,7 +490,7 @@ body.menu-is-open {
 /*
   ContextMenuComponent
 */
-.context-menu-container, .context-menu-container li.euic-sub-menu > div > div.euic-menu-container {
+.euic-context-menu-container, .euic-context-menu-container li.euic-sub-menu > div > div.euic-menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
@@ -512,55 +512,55 @@ body.menu-is-open {
   z-index: 200;
   white-space: nowrap;
 }
-.context-menu-container ul {
+.euic-context-menu-container ul {
   list-style: none;
 }
-.context-menu-container li.euic-sub-menu > div {
+.euic-context-menu-container li.euic-sub-menu > div {
 	float:right;
 }
-.context-menu-container ul {
+.euic-context-menu-container ul {
 	margin: 0px;
 	margin-left:0px;
 	padding:4px 0px 4px 0px;
 }
-.context-menu-container li {
+.euic-context-menu-container li {
 	padding:3px 20px 3px 20px;
 	white-space: nowrap;
 	overflow: hidden;
 }
-.context-menu-container li:hover {
+.euic-context-menu-container li:hover {
 	background: #3A9FF4;
 	color:#ffffff;
 }
 
-.context-menu-container li > div > svg {
+.euic-context-menu-container li > div > svg {
 	margin-left:10px;
 	margin-top:3px;
 }
-.context-menu-container hr {
+.euic-context-menu-container hr {
 	width: 100%;
 	margin:0px;
 }
-.context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li {
+.euic-context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li {
 	color:#000000;
 }
-.context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li:hover {
+.euic-context-menu-container li.euic-sub-menu > div > div.euic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.context-menu-container li.euic-sub-menu > div > svg.svg-triangle polygon {
+.euic-context-menu-container li.euic-sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.context-menu-container li.euic-sub-menu:hover > div > svg.svg-triangle polygon {
+.euic-context-menu-container li.euic-sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;
 }
-.context-menu-container li.context-menu-disabled {
+.euic-context-menu-container li.context-menu-disabled {
 	color:#ccc;
 }
-.context-menu-container li.context-menu-disabled:hover {
+.euic-context-menu-container li.context-menu-disabled:hover {
 	background: rgb(255,255,255);
 }
 
