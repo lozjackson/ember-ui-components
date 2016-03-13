@@ -1,16 +1,16 @@
 <h1>ContextMenuComponent</h1>
 
-{{#context-menu as |contextMenuParams|}}
+{{#uic-context-menu as |contextMenuParams|}}
   <ul>
     <li {{action "edit"}}>Edit</li>
-    {{#sub-menu title="Sub Menu..."}}
+    {{#uic-sub-menu title="Sub Menu..."}}
       <ul>
         <li {{action "new"}}>New...</li>
         <li {{action "edit"}}>Do more stuff...</li>
         <li {{action "edit"}}>Do more stuff...</li>
         <li {{action "edit"}}>Do more stuff...</li>
       </ul>
-    {{/sub-menu}}
+    {{/uic-sub-menu}}
     <li {{action "edit"}}>Do more stuff...</li>
     <li {{action "edit"}}>Do more stuff...</li>
 
@@ -26,9 +26,9 @@
     <p>Right-click inside the panel.</p>
     <p>Try right-click while holding ALT</p>
   </div>
-{{/context-menu}}
+{{/uic-context-menu}}
 
-{{#context-menu as |contextMenuParams|}}
+{{#uic-context-menu as |contextMenuParams|}}
   <ul>
     <li {{action "edit" bubbles=true}}>Edit</li>
   </ul>
@@ -43,4 +43,4 @@
     <p>Right-click inside the panel.</p>
     <p>Try right-click while holding ALT</p>
   </div>
-{{/context-menu}}
+{{/uic-context-menu}}

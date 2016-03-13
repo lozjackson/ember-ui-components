@@ -1,0 +1,9 @@
+{{#if dialog.title}}
+  <h1>{{dialog.title}}</h1>
+{{/if}}
+{{#if dialog.body}}
+  <p>{{dialog.body}}</p>
+{{/if}}
+<div class="uic-modal-button-container">
+  <button class="uic-ok-button" {{action "ok"}}>OK</button>
+</div>

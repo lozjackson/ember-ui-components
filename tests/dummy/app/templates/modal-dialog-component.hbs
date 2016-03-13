@@ -1,0 +1,44 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ModalDialogComponent</h1>
+
+
+
+<div class="panel">
+
+  <h2>Alert</h2>
+
+  <div>
+    <button {{action "openAlert"}}>Click here</button>
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Confirm</h2>
+  <div>
+    <button {{action "openConfirm"}}>Click here</button>
+
+    Result of confirmation: {{result}}
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Dialog</h2>
+  <div>
+    <button {{action "openDialog"}}>Click here</button>
+    {{#if openDialog}}
+      {{#uic-modal-window title="Modal Window" modalClassNames="my-modal" closeModal="closeDialog"}}
+        <h2>Modal</h2>
+      {{/uic-modal-window}}
+    {{/if}}
+  </div>
+  <div>
+    <button {{action "openRoutedDialog"}}>Click here</button>
+  </div>
+</div>
+
+{{outlet}}

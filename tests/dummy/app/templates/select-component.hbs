@@ -1,0 +1,120 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>SelectComponent</h1>
+
+<div class="panel">
+
+  <h2>Description</h2>
+
+  <p>The SelectComponent will create a select element.</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;uic-select
+  selected="the selected item"
+  disabled="true or false"
+  options="the options to select from"
+  placeholder="Please select..."
+  class="add CSS class names here"&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+
+    {{uic-select
+      selected=selectBoxValue
+      options=selectBoxOptions
+      placeholder="Please select..."}}
+
+    <label>Selected: {{selectBoxValue}}</label><br>
+
+
+    {{uic-select
+      class="light"
+      selected=selectBoxValue2
+      options=selectBoxOptions2
+      placeholder="Please select..."}}
+
+    <label>Selected: {{selectBoxValue2}}</label><br>
+
+    {{uic-select
+      class="dark"
+      selected=selectBoxValue3
+      options=selectBoxOptions2
+      placeholder="Please select..."}}
+
+    <label>Selected: {{selectBoxValue3}}</label>
+  </div>
+</div>
+<div class="panel">
+  <h2>Parameters</h2>
+  <ul>
+    <li>
+      <h4>{String | Number} selected</h4>
+      <p>Optional.</p>
+      <p>
+        This is the value of the selected item.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} disabled</h4>
+      <p>Optional.</p>
+      <p>
+        Disables the `select` element.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Array} options</h4>
+      <p>Required.</p>
+      <p>
+        This should be an array and is used to populate the options of the select
+        element.  Each element of the array can be either a primitive value, like
+        a string or number, or it can be an object.  If you pass an object it
+        should have two properties - `value` and `text` - and they should both
+        be either a string or a number.
+      </p>
+      <p>When using primitive values like strings or numbers, the value of the
+        array element will be used for both the value and the text of the option
+        elements.</p>
+      <div class="panel code">
+        <pre><code>[
+  'Active',
+  'Complete'
+]</code></pre>
+        </div>
+      <p>...or using objects:</p>
+      <div class="panel code">
+        <pre><code>[
+  {
+    value: 1, // the value of the item
+    text: 'Active' // the text to display
+  },
+  {
+    value: 2, // the value of the item
+    text: 'Complete' // the text to display
+  }
+]</code></pre>
+        </div>
+    </li>
+    <li>
+      <h4>{String} placeholder</h4>
+      <p>Optional.</p>
+      <p>
+        If provided this will be used as the first option but will be disabled.
+      </p>
+    </li>
+    <li>
+      <h4>{String} class</h4>
+      <p>Optional.</p>
+      <p>
+        This is the `class` attribute of the select element.  There are some
+        built-in CSS classes that can be applied, or you can set your own CSS
+        class names here and define the class' properties in your stylesheet.
+      </p>
+    </li>
+  </ul>
+
+</div>

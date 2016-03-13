@@ -1,0 +1,26 @@
+<div class="uic-modal-container">
+  {{#uic-modal class=modalClassNames}}
+
+    <header class="uic-modal-header">
+      {{#if title}}
+        <h1 class="ellipsis">{{title}}</h1>
+      {{/if}}
+
+      {{#if showCloseButton}}
+        {{#if closeModal}}
+          <button class="close-button" {{action "closeModal"}}>x</button>
+        {{else}}
+          {{#link-to parentRouteName}}
+            <button class="close-button">x</button>
+          {{/link-to}}
+        {{/if}}
+      {{/if}}
+    </header>
+
+    <div>
+      {{yield}}
+    </div>
+
+  {{/uic-modal}}
+</div>
+{{uic-content-mask class="active"}}

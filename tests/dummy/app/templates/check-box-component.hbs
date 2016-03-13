@@ -10,7 +10,7 @@
   <p>The CheckBoxComponent will create a checkbox element.</p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box
+    <pre><code>&#123;&#123;uic-check-box
   checked="checkbox value"
   disabled="true or false"
   checkboxId="add a unique ID here"
@@ -19,13 +19,13 @@
 
   <div class="panel output">
     <div>
-      {{check-box}}
+      {{uic-check-box}}
     </div>
     <div>
-      {{check-box class="slider light" checkboxId="demo1"}}
+      {{uic-check-box class="slider light" checkboxId="demo1"}}
     </div>
     <div>
-      {{check-box class="toggle green" checkboxId="demo2"}}
+      {{uic-check-box class="toggle green" checkboxId="demo2"}}
     </div>
   </div>
 </div>
@@ -82,13 +82,13 @@
   <p>A basic check-box component can be created with the following code:</p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box&#125;&#125;</code></pre>
   </div>
 
   <p>...which will produce the following HTML:</p>
 
   <div class="panel code">
-    <pre><code>&lt;div class="ember-view euic-check-box"&gt;
+    <pre><code>&lt;div class="ember-view uic-check-box"&gt;
   &lt;input type="checkbox" class="ember-view ember-checkbox"&gt;
 &lt;/div&gt;</code></pre>
   </div>
@@ -96,7 +96,7 @@
   <p>...and will look like this:</p>
 
   <div class="panel code">
-    {{check-box}}
+    {{uic-check-box}}
   </div>
 
   <p>The check-box component looks and behaves like a standard HTML checkbox element.</p>
@@ -106,7 +106,7 @@
   </p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box checked=checkboxValue&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box checked=checkboxValue&#125;&#125;</code></pre>
   </div>
 
 </div>
@@ -121,7 +121,7 @@
   </p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box checkboxId="check-box-id"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box checkboxId="check-box-id"&#125;&#125;</code></pre>
   </div>
 
   <div class="panel code">
@@ -143,63 +143,63 @@
 
   <p></p>
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="slider"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="slider"&#125;&#125;</code></pre>
   </div>
 
 
   <div>
-    {{check-box class="slider" checkboxId="check-box2"}}
+    {{uic-check-box class="slider" checkboxId="check-box2"}}
     <label for="check-box2">slider</label>
   </div>
 
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="slider dark"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="slider dark"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="slider dark" checkboxId="check-box3"}}
+    {{uic-check-box class="slider dark" checkboxId="check-box3"}}
     <label for="check-box3">slider dark</label>
   </div>
 
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="slider light"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="slider light"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="slider light" checkboxId="check-box4"}}
+    {{uic-check-box class="slider light" checkboxId="check-box4"}}
     <label for="check-box4">slider light</label>
   </div>
 
   <h3>toggle</h3>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="toggle"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="toggle"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="toggle" checkboxId="check-box5"}}
+    {{uic-check-box class="toggle" checkboxId="check-box5"}}
     <label for="check-box5">toggle</label>
   </div>
 
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="toggle green"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="toggle green"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="toggle green" checkboxId="check-box6"}}
+    {{uic-check-box class="toggle green" checkboxId="check-box6"}}
     <label for="check-box6">toggle green</label>
   </div>
 
 
   <div class="panel code">
-    <pre><code>&#123;&#123;check-box class="toggle red"&#125;&#125;</code></pre>
+    <pre><code>&#123;&#123;uic-check-box class="toggle red"&#125;&#125;</code></pre>
   </div>
 
   <div>
-    {{check-box class="toggle red" checkboxId="check-box7"}}
+    {{uic-check-box class="toggle red" checkboxId="check-box7"}}
     <label for="check-box7">toggle red</label>
   </div>
 

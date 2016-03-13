@@ -1,0 +1,11 @@
+<div>
+  {{svg-triangle direction="right" size="8"}}
+  {{#if showMenu}}
+    {{#uic-menu-container}}
+      {{#if hasBlock}}
+        {{yield}}
+      {{/if}}
+    {{/uic-menu-container}}
+  {{/if}}
+</div>
+<span class="uic-sub-menu-title ellipsis">{{title}}</span>
