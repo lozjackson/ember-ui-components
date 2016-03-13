@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/slide-menu';
+import layout from '../templates/components/euic-slide-menu';
 
 const computed = Ember.computed;
 const alias = computed.alias;
@@ -13,6 +13,8 @@ const alias = computed.alias;
 */
 export default Ember.Component.extend({
 
+  layout,
+
   /**
     Injected LookupService
     @property lookup
@@ -20,13 +22,6 @@ export default Ember.Component.extend({
     @private
   */
   lookup: Ember.inject.service(),
-
-  /**
-    @property layout
-    @type {String}
-    @private
-  */
-  layout: layout,
 
   /**
     @property classNames

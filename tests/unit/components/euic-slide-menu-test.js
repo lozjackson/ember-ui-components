@@ -11,7 +11,7 @@ const lookup = Ember.Object.create({
 
 let _error;
 
-moduleForComponent('slide-menu', 'Unit | Component | slide menu', {
+moduleForComponent('euic-slide-menu', 'Unit | Component | euic slide menu', {
   needs: [
     'component:euic-content-mask',
     'template:menus.application',
