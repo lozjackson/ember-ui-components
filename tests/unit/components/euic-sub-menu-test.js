@@ -3,9 +3,9 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('sub-menu', 'Unit | Component | sub menu', {
+moduleForComponent('euic-sub-menu', 'Unit | Component | euic sub menu', {
   needs: [
-    'component:menu-container',
+    'component:euic-menu-container',
     'component:svg-triangle'
   ],
   unit: true

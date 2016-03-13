@@ -1,10 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
-// import Ember from 'ember';
 
-// const run = Ember.run;
-
-moduleForComponent('menu-container', 'Unit | Component | menu container', {
-  // needs: [],
+moduleForComponent('euic-menu-container', 'Unit | Component | euic menu container', {
   unit: true
 });
 

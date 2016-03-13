@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/sub-menu';
+import layout from '../templates/components/euic-sub-menu';
 
 const run = Ember.run;
 

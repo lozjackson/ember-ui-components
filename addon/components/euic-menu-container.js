@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/menu-container';
+import layout from '../templates/components/euic-menu-container';
 import { getDimensions, calculatePosition } from 'ember-ui-components/lib/fn';
 
 /**
@@ -11,11 +11,6 @@ import { getDimensions, calculatePosition } from 'ember-ui-components/lib/fn';
 */
 export default Ember.Component.extend({
 
-  /**
-    @property layout
-    @type {String}
-    @private
-  */
   layout,
 
   /**
