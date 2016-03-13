@@ -23,9 +23,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['uic-modal-dialog']`
+    @default `['uic-modal-dialog', 'no-outline']`
   */
-  classNames: ['uic-modal-dialog'],
+  classNames: ['uic-modal-dialog', 'no-outline'],
 
   /**
     @property attributeBindings

@@ -17,11 +17,12 @@ test('it renders', function(assert) {
 });
 
 test('classNames', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('classNames').length, 2);
+  assert.equal(component.get('classNames').length, 3);
   assert.equal(component.get('classNames')[1], 'uic-modal-dialog');
+  assert.equal(component.get('classNames')[2], 'no-outline');
 });
 
 test('attributeBindings', function(assert) {
