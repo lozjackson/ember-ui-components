@@ -1,7 +1,8 @@
 import { moduleForComponent, test } from 'ember-qunit';
 moduleForComponent('uic-modal-window', 'Unit | Component | uic modal window', {
   needs: [
-    'component:uic-content-mask'
+    'component:uic-content-mask',
+    'component:uic-modal'
   ],
   unit: true
 });
