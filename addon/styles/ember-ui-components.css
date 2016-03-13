@@ -516,8 +516,12 @@ select.uic-select {
 .uic-context-menu-container ul {
   list-style: none;
 }
+.uic-context-menu .uic-sub-menu-title {
+  margin-right: 15px;
+}
 .uic-context-menu-container li.uic-sub-menu > div {
-	float:right;
+  position: absolute;
+  right: 15px;
 }
 .uic-context-menu-container ul {
 	margin: 0px;
@@ -621,7 +625,6 @@ select.uic-select {
 	border-bottom-left-radius: 4px;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
 }
-
 .uic-modal-container {
   position: fixed;
   top: 0;
@@ -633,14 +636,12 @@ select.uic-select {
   justify-content: center;
   z-index: 301;
 }
-
 .uic-modal-button-container {
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .uic-modal-button-container button {
   height: 25px;
   width: 80px;
@@ -679,27 +680,6 @@ header.uic-modal-header button.close-button {
 	font-size: 16px;
   font-size: 1rem;
 }
-
-/*.modal div.body {
-	top: 30px;
-	bottom: 30px;
-}*/
-/*.modal div.footer {
-	height:30px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-}*/
-
-/*.modal div.footer.relative {
-	position: relative;
-}*/
-
-/*.modal div.footer button {
-	margin-top: 7px;
-}*/
 
 
 
