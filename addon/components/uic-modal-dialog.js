@@ -61,10 +61,14 @@ export default Ember.Component.extend({
 
   /**
     @event dialogOpenChanged
+    @private
   */
   dialogOpenChanged: Ember.observer('dialog.open', function() {
     if (this.get('dialog.open')) {
+      Ember.$('body').addClass('modal-dialog-is-open');
       Ember.$(this.get('element')).focus();
+    }else {
+      Ember.$('body').removeClass('modal-dialog-is-open');
     }
   }),
 
