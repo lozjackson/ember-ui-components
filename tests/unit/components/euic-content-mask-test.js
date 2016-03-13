@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('content-mask', 'Unit | Component | content mask', {
+moduleForComponent('euic-content-mask', 'Unit | Component | euic content mask', {
   // needs: [],
   unit: true
 });

@@ -1,11 +1,11 @@
 {{yield to="inverse"}}
 {{#if showContextMenu}}
-  {{#content-mask
+  {{#euic-content-mask
     class="euic-menu-overlay active"
     didInsertMask=didInsertContextMenu
     action="closeContextMenu"}}
   	<nav class="euic-context-menu-container euic-menu-container">
       {{yield contextMenuParams}}
   	</nav>
-  {{/content-mask}}
+  {{/euic-content-mask}}
 {{/if}}

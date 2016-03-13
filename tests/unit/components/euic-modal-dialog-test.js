@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 moduleForComponent('euic-modal-dialog', 'Unit | Component | euic modal dialog', {
   needs: [
-    'component:content-mask'
+    'component:euic-content-mask'
   ],
   unit: true
 });

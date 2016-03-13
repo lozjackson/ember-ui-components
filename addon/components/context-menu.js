@@ -126,7 +126,7 @@ export default Ember.Component.extend({
   },
 
   /**
-    This method is passed to the `didInsertElement` hook of the `{{content-mask}}`
+    This method is passed to the `didInsertElement` hook of the `{{euic-content-mask}}`
     component which wraps the `.euic-context-menu-container` element.
     @method didInsertContextMenu
   */

@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/content-mask';
+import layout from '../templates/components/euic-content-mask';
 
 /**
   @class ContentMaskComponent

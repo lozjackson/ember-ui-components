@@ -13,7 +13,7 @@ let _error;
 
 moduleForComponent('slide-menu', 'Unit | Component | slide menu', {
   needs: [
-    'component:content-mask',
+    'component:euic-content-mask',
     'template:menus.application',
     'template:menus.index',
     'template:menus.check-box-component.index'
