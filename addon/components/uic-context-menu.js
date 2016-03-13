@@ -5,6 +5,8 @@ import Ember from 'ember';
 import layout from '../templates/components/uic-context-menu';
 import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
 
+let _event;
+
 /*
   ## setPosition
 
@@ -28,7 +30,7 @@ function setPosition(element, position) {
     element = Ember.$(element);
   }
   if (!position) {
-    position = getMousePosition(window.event);
+    position = getMousePosition(window.event || _event);
   }
   let scrollBarWidth = (window.innerWidth - $(window).width());
   let el = getDimensions(element);
@@ -164,6 +166,7 @@ export default Ember.Component.extend({
   */
   contextMenu(event) {
     event.preventDefault();
+    _event = event;
     this.set('contextMenuParams.event', event);
     this.set('showContextMenu', true);
     this.$().focus(); // set focus so that keyUp/Down events can be recieved.
