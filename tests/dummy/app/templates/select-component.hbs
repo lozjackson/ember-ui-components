@@ -2,16 +2,16 @@
   {{#link-to 'index'}}Back to index{{/link-to}}
 </div>
 
-<h1>SelectBoxComponent</h1>
+<h1>SelectComponent</h1>
 
 <div class="panel">
 
   <h2>Description</h2>
 
-  <p>The SelectBoxComponent will create a select element.</p>
+  <p>The SelectComponent will create a select element.</p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;select-box
+    <pre><code>&#123;&#123;euic-select
   selected="the selected item"
   disabled="true or false"
   options="the options to select from"
@@ -22,7 +22,7 @@
   <div class="panel output">
 
 
-    {{select-box
+    {{euic-select
       selected=selectBoxValue
       options=selectBoxOptions
       placeholder="Please select..."}}
@@ -30,7 +30,7 @@
     <label>Selected: {{selectBoxValue}}</label><br>
 
 
-    {{select-box
+    {{euic-select
       class="light"
       selected=selectBoxValue2
       options=selectBoxOptions2
@@ -38,7 +38,7 @@
 
     <label>Selected: {{selectBoxValue2}}</label><br>
 
-    {{select-box
+    {{euic-select
       class="dark"
       selected=selectBoxValue3
       options=selectBoxOptions2
