@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('context-menu', 'Unit | Component | context menu', {
+moduleForComponent('euic-context-menu', 'Unit | Component | euic context menu', {
   needs: [
     'component:euic-content-mask'
   ],

@@ -1,28 +1,28 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('context-menu', 'Integration | Component | context menu', {
+moduleForComponent('euic-context-menu', 'Integration | Component | euic context menu', {
   integration: true
 });
 
 test('it renders', function(assert) {
   this.render(hbs`
-    {{#context-menu}}
+    {{#euic-context-menu}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
   assert.equal(this.$().text().trim(), 'template block text');
 });
 
 test('it has correct class names', function(assert) {
   this.render(hbs`
-    {{#context-menu}}
+    {{#euic-context-menu}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
   assert.equal(this.$('.euic-context-menu').length, 1);
 });
@@ -30,11 +30,11 @@ test('it has correct class names', function(assert) {
 test('hideOutline', function(assert) {
   this.set('hideOutline', true);
   this.render(hbs`
-    {{#context-menu hideOutline=hideOutline}}
+    {{#euic-context-menu hideOutline=hideOutline}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
   assert.equal(this.$('.euic-context-menu.no-outline').length, 1);
   this.set('hideOutline', false);
@@ -44,11 +44,11 @@ test('hideOutline', function(assert) {
 
 test('tabindex', function(assert) {
   this.render(hbs`
-    {{#context-menu}}
+    {{#euic-context-menu}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
   assert.equal(this.$('.euic-context-menu').attr('tabindex'), 1);
 });
@@ -56,11 +56,11 @@ test('tabindex', function(assert) {
 test('hideOutline', function(assert) {
   this.set('tabindex', 2);
   this.render(hbs`
-    {{#context-menu tabindex=tabindex}}
+    {{#euic-context-menu tabindex=tabindex}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
   assert.equal(this.$('.euic-context-menu').attr('tabindex'), 2);
   this.set('tabindex', 3);
@@ -70,11 +70,11 @@ test('hideOutline', function(assert) {
 test('menu opens', function(assert) {
   this.set('showContextMenu', false);
   this.render(hbs`
-    {{#context-menu showContextMenu=showContextMenu}}
+    {{#euic-context-menu showContextMenu=showContextMenu}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
@@ -90,11 +90,11 @@ test('menu opens', function(assert) {
 
 test('contextmenu', function(assert) {
   this.render(hbs`
-    {{#context-menu}}
+    {{#euic-context-menu}}
       context menu content
     {{else}}
       template block text
-    {{/context-menu}}
+    {{/euic-context-menu}}
   `);
 
   this.$('.euic-context-menu').contextmenu();

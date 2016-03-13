@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/context-menu';
+import layout from '../templates/components/euic-context-menu';
 import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
 
 /*
@@ -44,11 +44,6 @@ function setPosition(element, position) {
 */
 export default Ember.Component.extend({
 
-  /**
-    @property layout
-    @type {String}
-    @private
-  */
   layout,
 
   /**
