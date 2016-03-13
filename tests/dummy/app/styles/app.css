@@ -36,3 +36,8 @@ div.go-back-link {
 section.toc ul li {
   margin: 15px 0;
 }
+
+.my-modal {
+  width: 500px;
+  height: 500px;
+}

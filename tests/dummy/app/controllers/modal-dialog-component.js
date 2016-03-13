@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
 
   result: null,
 
+  openDialog: false,
+
   actions: {
     openConfirm() {
       this.get('dialog').confirm({
@@ -23,6 +25,19 @@ export default Ember.Controller.extend({
         title: 'An event has happened',
         body: 'You clicked a button!'
       });
+    },
+
+    openDialog() {
+      // this.transitionToRoute('modal-dialog-component.modal');
+      this.set('openDialog', true);
+    },
+
+    closeDialog() {
+      this.set('openDialog', false);
+    },
+
+    openRoutedDialog() {
+      this.transitionToRoute('modal-dialog-component.modal');
     }
   }
 });
