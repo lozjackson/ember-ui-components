@@ -1,0 +1,26 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ModalDialogComponent</h1>
+
+
+
+<div class="panel">
+
+  <h2>Alert</h2>
+
+  <div>
+    <button {{action "openAlert"}}>Click here</button>
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Confirm</h2>
+  <div>
+    <button {{action "openConfirm"}}>Click here</button>
+
+    Result of confirmation: {{result}}
+  </div>
+</div>
