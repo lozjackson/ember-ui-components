@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
-moduleForComponent('euic-modal-confirm', 'Unit | Component | euic modal confirm', {
+moduleForComponent('uic-modal-confirm', 'Unit | Component | uic modal confirm', {
   // needs: [],
   unit: true
 });
@@ -19,8 +19,8 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'euic-modal');
-  assert.equal(component.get('classNames')[2], 'euic-modal-confirm');
+  assert.equal(component.get('classNames')[1], 'uic-modal');
+  assert.equal(component.get('classNames')[2], 'uic-modal-confirm');
 
 });
 

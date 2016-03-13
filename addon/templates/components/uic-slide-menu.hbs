@@ -3,7 +3,7 @@
   <label for={{concat elementId '-menu-button'}}>&equiv;</label>
 {{/if}}
 
-<div class="euic-content-container {{if pushContent 'push-content'}}">
+<div class="uic-content-container {{if pushContent 'push-content'}}">
   {{yield menuOpen}}
 </div>
 
@@ -20,5 +20,5 @@
 {{/if}}
 
 {{#if maskContent}}
-  {{euic-content-mask class="slide-menu-mask" action="closeMenu"}}
+  {{uic-content-mask class="slide-menu-mask" action="closeMenu"}}
 {{/if}}

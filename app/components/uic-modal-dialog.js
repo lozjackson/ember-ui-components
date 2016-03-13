@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-modal-dialog';
+export { default } from 'ember-ui-components/components/uic-modal-dialog';

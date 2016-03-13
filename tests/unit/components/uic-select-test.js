@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('euic-select', 'Unit | Component | euic select', {
+moduleForComponent('uic-select', 'Unit | Component | uic select', {
   needs: [
     'helper:is-equal'
   ],
@@ -27,7 +27,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-select');
+  assert.equal(component.get('classNames')[1], 'uic-select');
 });
 
 test('options should be empty array', function(assert) {

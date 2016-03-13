@@ -1,8 +1,8 @@
 /**
   @module ember-ui-components
 */
-import ModalComponent from 'ember-ui-components/components/euic-modal';
-import layout from '../templates/components/euic-modal-confirm';
+import ModalComponent from 'ember-ui-components/components/uic-modal';
+import layout from '../templates/components/uic-modal-confirm';
 
 /**
   @class ModalConfirmComponent
@@ -17,9 +17,9 @@ export default ModalComponent.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-modal-confirm']`
+    @default `['uic-modal-confirm']`
   */
-  classNames: ['euic-modal-confirm'],
+  classNames: ['uic-modal-confirm'],
 
   /**
     @method _confirm

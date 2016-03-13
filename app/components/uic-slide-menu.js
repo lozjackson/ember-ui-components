@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-slide-menu';
+export { default } from 'ember-ui-components/components/uic-slide-menu';

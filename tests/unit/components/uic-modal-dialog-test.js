@@ -1,9 +1,9 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
-moduleForComponent('euic-modal-dialog', 'Unit | Component | euic modal dialog', {
+moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
-    'component:euic-content-mask'
+    'component:uic-content-mask'
   ],
   unit: true
 });
@@ -21,7 +21,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-modal-dialog');
+  assert.equal(component.get('classNames')[1], 'uic-modal-dialog');
 });
 
 test('attributeBindings', function(assert) {

@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('euic-content-mask', 'Unit | Component | euic content mask', {
+moduleForComponent('uic-content-mask', 'Unit | Component | uic content mask', {
   // needs: [],
   unit: true
 });
@@ -18,7 +18,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-content-mask');
+  assert.equal(component.get('classNames')[1], 'uic-content-mask');
 });
 
 test('didInsertElement', function(assert) {

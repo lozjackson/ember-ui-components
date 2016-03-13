@@ -32,7 +32,7 @@ test('alert() method', function(assert) {
   let msg = { title: 'foo', body: 'bar' };
   service.set('openModal', (m, type) => {
     assert.deepEqual(m, msg);
-    assert.equal(type, 'euic-modal-alert');
+    assert.equal(type, 'uic-modal-alert');
     return true;
   });
   assert.equal(service.alert(msg), true);
@@ -43,7 +43,7 @@ test('confirm() method', function(assert) {
   let msg = {title: 'foo', body: 'bar' };
   service.set('openModal', (m, type) => {
     assert.deepEqual(m, msg);
-    assert.equal(type, 'euic-modal-confirm');
+    assert.equal(type, 'uic-modal-confirm');
     return true;
   });
   assert.equal(service.confirm(msg), true);

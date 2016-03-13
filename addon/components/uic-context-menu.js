@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-context-menu';
+import layout from '../templates/components/uic-context-menu';
 import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
 
 /*
@@ -50,9 +50,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-context-menu']`
+    @default `['uic-context-menu']`
   */
-  classNames: ['euic-context-menu'],
+  classNames: ['uic-context-menu'],
 
   /**
     @property attributeBindings
@@ -121,12 +121,12 @@ export default Ember.Component.extend({
   },
 
   /**
-    This method is passed to the `didInsertElement` hook of the `{{euic-content-mask}}`
-    component which wraps the `.euic-context-menu-container` element.
+    This method is passed to the `didInsertElement` hook of the `{{uic-content-mask}}`
+    component which wraps the `.uic-context-menu-container` element.
     @method didInsertContextMenu
   */
   didInsertContextMenu() {
-    let element = this.$('.euic-context-menu-container');
+    let element = this.$('.uic-context-menu-container');
     setPosition(element);
   },
 

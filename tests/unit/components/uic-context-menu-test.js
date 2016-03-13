@@ -3,9 +3,9 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('euic-context-menu', 'Unit | Component | euic context menu', {
+moduleForComponent('uic-context-menu', 'Unit | Component | uic context menu', {
   needs: [
-    'component:euic-content-mask'
+    'component:uic-content-mask'
   ],
   unit: true
 });
@@ -23,7 +23,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-context-menu');
+  assert.equal(component.get('classNames')[1], 'uic-context-menu');
 });
 
 test('attributeBindings', function(assert) {

@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-select';
+import layout from '../templates/components/uic-select';
 
 /**
   # SelectComponent
@@ -10,7 +10,7 @@ import layout from '../templates/components/euic-select';
   Basic select element
 
   ```
-  {{euic-select
+  {{uic-select
     selected=selectBoxValue
     options=selectBoxOptions}}
   ```
@@ -50,9 +50,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-select']`
+    @default `['uic-select']`
   */
-  classNames: ['euic-select'],
+  classNames: ['uic-select'],
 
   /**
     @property attributeBindings

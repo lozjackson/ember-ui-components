@@ -3,9 +3,9 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('euic-sub-menu', 'Unit | Component | euic sub menu', {
+moduleForComponent('uic-sub-menu', 'Unit | Component | uic sub menu', {
   needs: [
-    'component:euic-menu-container',
+    'component:uic-menu-container',
     'component:svg-triangle'
   ],
   unit: true
@@ -32,7 +32,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-sub-menu');
+  assert.equal(component.get('classNames')[1], 'uic-sub-menu');
 });
 
 test('showMenu', function(assert) {

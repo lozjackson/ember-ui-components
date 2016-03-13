@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-check-box';
+export { default } from 'ember-ui-components/components/uic-check-box';

@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-check-box';
+import layout from '../templates/components/uic-check-box';
 
 const computed = Ember.computed;
 
@@ -10,7 +10,7 @@ const computed = Ember.computed;
   # CheckBoxComponent
 
   ```
-  {{euic-check-box checked=checkboxValue"}}
+  {{uic-check-box checked=checkboxValue"}}
   ```
 
   @class CheckBoxComponent
@@ -24,9 +24,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-check-box']`
+    @default `['uic-check-box']`
   */
-  classNames: ['euic-check-box'],
+  classNames: ['uic-check-box'],
 
   /**
     @property classNameBindins
@@ -72,7 +72,7 @@ export default Ember.Component.extend({
   _checkboxId: computed('checkboxId', 'classNames.[]', function () {
     let {checkboxId, classNames} = this.getProperties('checkboxId', 'classNames');
     if (classNames && classNames.length && (classNames.indexOf('slider') !== -1 || classNames.indexOf('toggle')  !== -1 )) {
-      Ember.warn(`'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{euic-check-box checkboxId="unique-id"}}`, checkboxId, {id: 'ember-debug.required-attribute'});
+      Ember.warn(`'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{uic-check-box checkboxId="unique-id"}}`, checkboxId, {id: 'ember-debug.required-attribute'});
     }
     return checkboxId;
   })

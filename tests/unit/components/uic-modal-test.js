@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('euic-modal', 'Unit | Component | euic modal', {
+moduleForComponent('uic-modal', 'Unit | Component | uic modal', {
   // needs: [],
   unit: true
 });
@@ -18,5 +18,5 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-modal');
+  assert.equal(component.get('classNames')[1], 'uic-modal');
 });

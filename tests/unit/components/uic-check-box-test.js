@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 const run = Ember.run;
 
-moduleForComponent('euic-check-box', 'Unit | Component | euic check box', {
+moduleForComponent('uic-check-box', 'Unit | Component | uic check box', {
   // needs: ['component:foo', 'helper:bar'],
   unit: true
 });
@@ -23,7 +23,7 @@ test('classNames', function(assert) {
   component.set('checkboxId', 1);
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-check-box');
+  assert.equal(component.get('classNames')[1], 'uic-check-box');
 });
 
 test('checked should be false', function(assert) {
@@ -38,7 +38,7 @@ test('if slider class exists _checkboxId throws a warning if checkboxId is not s
   let _warn = Ember.warn;
   assert.expect(3);
   Ember.warn = (desc, test) => {
-    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{euic-check-box checkboxId="unique-id"}}`);
+    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{uic-check-box checkboxId="unique-id"}}`);
     assert.equal(test, null);
   };
 
@@ -56,7 +56,7 @@ test('if toggle class exists _checkboxId throws a warning if checkboxId is not s
   let _warn = Ember.warn;
   assert.expect(3);
   Ember.warn = (desc, test) => {
-    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{euic-check-box checkboxId="unique-id"}}`);
+    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{uic-check-box checkboxId="unique-id"}}`);
     assert.equal(test, null);
   };
 

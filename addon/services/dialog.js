@@ -70,7 +70,7 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   alert(message) {
-    return this.openModal(message, 'euic-modal-alert');
+    return this.openModal(message, 'uic-modal-alert');
   },
 
   /**
@@ -79,7 +79,7 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   confirm(message) {
-    return this.openModal(message, 'euic-modal-confirm');
+    return this.openModal(message, 'uic-modal-confirm');
   },
 
   /**

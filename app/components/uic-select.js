@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-select';
+export { default } from 'ember-ui-components/components/uic-select';

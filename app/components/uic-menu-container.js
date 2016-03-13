@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-menu-container';
+export { default } from 'ember-ui-components/components/uic-menu-container';

@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
-moduleForComponent('euic-modal-alert', 'Unit | Component | euic modal alert', {
+moduleForComponent('uic-modal-alert', 'Unit | Component | uic modal alert', {
   // needs: [],
   unit: true
 });
@@ -19,8 +19,8 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'euic-modal');
-  assert.equal(component.get('classNames')[2], 'euic-modal-alert');
+  assert.equal(component.get('classNames')[1], 'uic-modal');
+  assert.equal(component.get('classNames')[2], 'uic-modal-alert');
 
 });
 

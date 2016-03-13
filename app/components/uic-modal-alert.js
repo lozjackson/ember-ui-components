@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-modal-alert';
+export { default } from 'ember-ui-components/components/uic-modal-alert';

@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('euic-menu-container', 'Unit | Component | euic menu container', {
+moduleForComponent('uic-menu-container', 'Unit | Component | uic menu container', {
   unit: true
 });
 
@@ -17,7 +17,7 @@ test('classNames', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-menu-container');
+  assert.equal(component.get('classNames')[1], 'uic-menu-container');
 });
 
 test('getParentMenu() method', function(assert) {
@@ -27,7 +27,7 @@ test('getParentMenu() method', function(assert) {
 
   component.getParentMenu();
 
-  assert.equal(component.get('classNames')[1], 'euic-menu-container');
+  assert.equal(component.get('classNames')[1], 'uic-menu-container');
 });
 
 test('didInsertElement', function(assert) {

@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-modal-confirm';
+export { default } from 'ember-ui-components/components/uic-modal-confirm';

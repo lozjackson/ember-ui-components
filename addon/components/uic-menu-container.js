@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-menu-container';
+import layout from '../templates/components/uic-menu-container';
 import { getDimensions, calculatePosition } from 'ember-ui-components/lib/fn';
 
 /**
@@ -17,9 +17,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-menu-container']`
+    @default `['uic-menu-container']`
   */
-  classNames: ['euic-menu-container'],
+  classNames: ['uic-menu-container'],
 
   /**
     @method getParentMenu
@@ -27,7 +27,7 @@ export default Ember.Component.extend({
     @return {Object}
   */
   getParentMenu() {
-    return this.$().parents('.euic-menu-container');
+    return this.$().parents('.uic-menu-container');
   },
 
   /**

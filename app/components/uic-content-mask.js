@@ -1,1 +1,1 @@
-export { default } from 'ember-ui-components/components/euic-content-mask';
+export { default } from 'ember-ui-components/components/uic-content-mask';

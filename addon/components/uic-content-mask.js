@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-content-mask';
+import layout from '../templates/components/uic-content-mask';
 
 /**
   @class ContentMaskComponent
@@ -20,9 +20,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-content-mask']`
+    @default `['uic-content-mask']`
   */
-  classNames: ['euic-content-mask'],
+  classNames: ['uic-content-mask'],
 
   didInsertElement() {
     this._super(...arguments);

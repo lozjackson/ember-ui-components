@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('euic-modal-dialog', 'Integration | Component | euic modal dialog', {
+moduleForComponent('uic-modal-dialog', 'Integration | Component | uic modal dialog', {
   integration: true
 });
 
@@ -9,7 +9,7 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });"
 
-  this.render(hbs`{{euic-modal-dialog}}`);
+  this.render(hbs`{{uic-modal-dialog}}`);
 
   assert.equal(this.$().text().trim(), '');
 });

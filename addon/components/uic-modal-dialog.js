@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-modal-dialog';
+import layout from '../templates/components/uic-modal-dialog';
 
 /**
   @class ModalDialogComponent
@@ -23,9 +23,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-modal-dialog']`
+    @default `['uic-modal-dialog']`
   */
-  classNames: ['euic-modal-dialog'],
+  classNames: ['uic-modal-dialog'],
 
   /**
     @property attributeBindings

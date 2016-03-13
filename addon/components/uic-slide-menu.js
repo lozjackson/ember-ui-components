@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-slide-menu';
+import layout from '../templates/components/uic-slide-menu';
 
 const computed = Ember.computed;
 const alias = computed.alias;
@@ -27,9 +27,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-slide-menu']`
+    @default `['uic-slide-menu']`
   */
-  classNames: ['euic-slide-menu'],
+  classNames: ['uic-slide-menu'],
 
   /**
     @property classNameBindings

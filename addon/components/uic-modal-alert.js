@@ -1,9 +1,9 @@
 /**
   @module ember-ui-components
 */
-import ModalComponent from 'ember-ui-components/components/euic-modal';
+import ModalComponent from 'ember-ui-components/components/uic-modal';
 import Ember from 'ember';
-import layout from '../templates/components/euic-modal-alert';
+import layout from '../templates/components/uic-modal-alert';
 
 /**
   @class ModalAlertComponent
@@ -18,9 +18,9 @@ export default ModalComponent.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-modal-alert']`
+    @default `['uic-modal-alert']`
   */
-  classNames: ['euic-modal-alert'],
+  classNames: ['uic-modal-alert'],
 
   /**
     @method _ok

@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-modal';
+import layout from '../templates/components/uic-modal';
 
 /**
   @class ModalComponent
@@ -22,7 +22,7 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['euic-modal']`
+    @default `['uic-modal']`
   */
-  classNames: ['euic-modal']
+  classNames: ['uic-modal']
 });

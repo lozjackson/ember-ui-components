@@ -2,7 +2,7 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import layout from '../templates/components/euic-sub-menu';
+import layout from '../templates/components/uic-sub-menu';
 
 const run = Ember.run;
 
@@ -31,9 +31,9 @@ export default Ember.Component.extend( {
     @property classNames
     @type {Array}
     @private
-    @default `['euic-sub-menu']`
+    @default `['uic-sub-menu']`
   */
-  classNames: ['euic-sub-menu'],
+  classNames: ['uic-sub-menu'],
 
   /**
     @property showMenu

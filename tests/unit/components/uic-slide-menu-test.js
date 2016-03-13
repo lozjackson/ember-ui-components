@@ -11,9 +11,9 @@ const lookup = Ember.Object.create({
 
 let _error;
 
-moduleForComponent('euic-slide-menu', 'Unit | Component | euic slide menu', {
+moduleForComponent('uic-slide-menu', 'Unit | Component | uic slide menu', {
   needs: [
-    'component:euic-content-mask',
+    'component:uic-content-mask',
     'template:menus.application',
     'template:menus.index',
     'template:menus.check-box-component.index'
@@ -45,7 +45,7 @@ test('classNames', function(assert) {
   component.set('lookup', lookup);
   this.render();
   assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'euic-slide-menu');
+  assert.equal(component.get('classNames')[1], 'uic-slide-menu');
 });
 
 test('classNameBindings', function(assert) {
