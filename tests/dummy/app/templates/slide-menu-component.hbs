@@ -182,36 +182,15 @@
   </p>
 
   <div class="panel code">
-    <pre><code>
-
-    &lt;button class="close-button" &#123;&#123;action 'closeMenu'}}&gt;X&lt;/button&gt;
-    &lt;ul&gt;
-      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
-        &#123;&#123;#link-to 'index' class="slide-menu-item" &#125;&#125;
-          Home
-        &#123;&#123;/link-to}}
-      &lt;/li&gt;
-      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
-        &#123;&#123;#link-to 'check-box-component' class="slide-menu-item" &#125;&#125;
-          CheckBoxComponent
-        &#123;&#123;/link-to}}
-      &lt;/li&gt;
-      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
-        &#123;&#123;#link-to 'select-component' class="slide-menu-item" &#125;&#125;
-          SelectComponent
-        &#123;&#123;/link-to}}
-      &lt;/li&gt;
-      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
-        &#123;&#123;#link-to 'slide-menu-component' class="slide-menu-item" &#125;&#125;
-          SlideMenuComponent
-        &#123;&#123;/link-to}}
-      &lt;/li&gt;
-      &lt;li &#123;&#123;action 'closeMenu'&#125;&#125;>
-        &#123;&#123;#link-to 'panel-class' class="slide-menu-item"}}
-          PanelClass
-        &#123;&#123;/link-to}}
-      &lt;/li&gt;
-    &lt;/ul&gt;
-    </code></pre>
+    <pre><code>&lt;button class="close-button" &#123;&#123;action 'closeMenu'}}&gt;X&lt;/button&gt;
+&lt;ul &#123;&#123;action 'closeMenu'&#125;&#125;
+  &#123;&#123;#link-to 'Home' 'index' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'CheckBoxComponent' 'check-box-component' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'SelectComponent' 'select-component' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'SlideMenuComponent' 'slide-menu-component' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'ContextMenuComponent' 'context-menu-component' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'ModalDialogComponent' 'modal-dialog-component' tagName="li"&#125;&#125;
+  &#123;&#123;#link-to 'PanelClass' 'panel-class' tagName="li"&#125;&#125;
+&lt;/ul&gt;</code></pre>
   </div>
 </div>
