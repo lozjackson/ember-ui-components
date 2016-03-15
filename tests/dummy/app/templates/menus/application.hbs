@@ -1,38 +1,10 @@
 <button class="close-button" {{action 'closeMenu'}}>X</button>
-<ul>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'index' class="slide-menu-item" }}
-      Home
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'check-box-component' class="slide-menu-item" }}
-      CheckBoxComponent
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'select-component' class="slide-menu-item" }}
-      SelectComponent
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'slide-menu-component' class="slide-menu-item" }}
-      SlideMenuComponent
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'context-menu-component' class="slide-menu-item" }}
-      ContextMenuComponent
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'modal-dialog-component' class="slide-menu-item" }}
-      ModalDialogComponent
-    {{/link-to}}
-  </li>
-  <li {{action 'closeMenu'}}>
-    {{#link-to 'panel-class' class="slide-menu-item"}}
-      PanelClass
-    {{/link-to}}
-  </li>
+<ul {{action 'closeMenu'}}>
+  {{link-to 'Home' 'index' tagName="li"}}
+  {{link-to 'CheckBoxComponent' 'check-box-component' tagName="li"}}
+  {{link-to 'SelectComponent' 'select-component' tagName="li"}}
+  {{link-to 'SlideMenuComponent' 'slide-menu-component' tagName="li"}}
+  {{link-to 'ContextMenuComponent' 'context-menu-component' tagName="li"}}
+  {{link-to 'ModalDialogComponent' 'modal-dialog-component' tagName="li"}}
+  {{link-to 'PanelClass' 'panel-class' tagName="li"}}
 </ul>

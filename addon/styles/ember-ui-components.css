@@ -276,7 +276,7 @@ select.uic-select {
   transition: transform .4s;
 }
 
-.uic-slide-menu > nav .slide-menu-item {
+.uic-slide-menu > nav li {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -289,8 +289,14 @@ select.uic-select {
   cursor: pointer;
 }
 
-.uic-slide-menu > nav .slide-menu-item:hover {
+.uic-slide-menu > nav li:hover {
   background: linear-gradient(#3b3f48, #3c434d);
+  box-shadow: inset 0px 1px 1px #475059;
+
+}
+
+.uic-slide-menu > nav li.active {
+  background: linear-gradient(rgba(59, 63, 72, 0.22), #3c434d);
   box-shadow: inset 0px 1px 1px #475059;
 
 }
