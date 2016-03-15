@@ -4,7 +4,8 @@
 import Ember from 'ember';
 import getOwner from 'ember-getowner-polyfill';
 
-const alias = Ember.computed.alias;
+const computed = Ember.computed;
+const alias = computed.alias;
 
 /**
   @class LookupService
@@ -25,6 +26,22 @@ export default Ember.Service.extend({
     @type {String}
   */
   currentRouteName: alias('application.currentRouteName'),
+
+  /**
+    @property parentRouteName
+    @type {String}
+  */
+  parentRouteName: computed('currentRouteName', function () {
+    let currentRouteName = this.get('currentRouteName');
+    if (typeof currentRouteName === 'string') {
+      let currentRoute = currentRouteName.split('.');
+      currentRoute.pop();
+      if (currentRoute.length) {
+        return currentRoute.join('.');
+      }
+    }
+    return 'index';
+  }),
 
   /**
     @method hasTemplate

@@ -51,17 +51,7 @@ export default Ember.Component.extend({
     @type {String}
     @private
   */
-  parentRouteName: computed('currentRouteName', function () {
-    let currentRouteName = this.get('currentRouteName');
-    if (typeof currentRouteName === 'string') {
-      let currentRoute = currentRouteName.split('.');
-      currentRoute.pop();
-      if (currentRoute.length) {
-        return currentRoute.join('.');
-      }
-    }
-    return 'index';
-  }),
+  parentRouteName: alias('lookup.parentRouteName'),
 
   /**
     @event didInsertElement

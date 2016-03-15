@@ -30,30 +30,13 @@ test('showCloseButton', function(assert) {
   assert.equal(component.get('showCloseButton'), true);
 });
 
-test('parentRouteName top-level route', function(assert) {
+test('parentRouteName', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('lookup', { currentRouteName: 'child-route' });
+  component.set('lookup', { parentRouteName: 'child-route' });
   this.render();
-  assert.equal(component.get('parentRouteName'), 'index');
+  assert.equal(component.get('parentRouteName'), 'child-route');
 });
-
-test('parentRouteName 1 nested route', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  component.set('lookup', { currentRouteName: 'parent-route.child-route' });
-  this.render();
-  assert.equal(component.get('parentRouteName'), 'parent-route');
-});
-
-test('parentRouteName 2 nested routes', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  component.set('lookup', { currentRouteName: 'top-level-route.parent-route.child-route' });
-  this.render();
-  assert.equal(component.get('parentRouteName'), 'top-level-route.parent-route');
-});
-
 
 test('_closeModal() method', function(assert) {
   assert.expect(1);
