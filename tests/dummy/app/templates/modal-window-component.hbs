@@ -1,0 +1,32 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ModalWindowComponent</h1>
+
+
+<div class="panel">
+
+  <h2>ModalWindow</h2>
+  <div>
+    <button {{action "toggle" "openDialog"}}>Click here</button>
+    {{#if openDialog}}
+      {{#uic-modal-window title="Modal Window" class="resizable" modalClassNames="my-modal" closeModal="closeDialog"}}
+        <h2>Modal</h2>
+        <div>
+          <button {{action "toggle" "openDialog"}}>Close</button>
+        </div>
+      {{/uic-modal-window}}
+    {{/if}}
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Routed ModalWindow</h2>
+  <div>
+    <button {{action "openRoutedDialog"}}>Click here</button>
+  </div>
+</div>
+
+{{outlet}}
