@@ -6,31 +6,63 @@
 
 <div class="panel">
   <h2>Description</h2>
-  <p>The `DialogService` can be used to display a dialog to the user.</p>
+  <p>
+    The `DialogService` can be used to display a dialog to the user.  There are
+    two built-in modal dialog types - alert and confirm.</p>
 </div>
 
 <div class="panel">
 
   <h2>Alert</h2>
 
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  body: 'You clicked a button!'
+});</code></pre>
+  </div>
+
   <div>
     <button {{action "openAlert"}}>Click here</button>
   </div>
+
 </div>
 
 <div class="panel">
 
   <h2>Confirm</h2>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').confirm({
+  title: 'Are you sure?',
+  body: 'Do you really want to do this?'
+}).then(() => {
+  // ... confirmed
+}, () => {
+  // ... canceled
+});</code></pre>
+  </div>
   <div>
     <button {{action "openConfirm"}}>Click here</button>
-
-    Result of confirmation: {{result}}
   </div>
+  <p>
+    Result of confirmation: {{result}}
+  </p>
 </div>
 
 <div class="panel">
 
   <h2>openModal</h2>
+
+  <p>The <code>openModal()</code> method can be used to open a custom modal component. </p>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').openModal({
+  title: 'Custom Modal',
+  body: 'My custom modal'
+}, 'my-custom-modal');</code></pre>
+  </div>
+
   <div>
     <button {{action "openDialog"}}>Click here</button>
   </div>
