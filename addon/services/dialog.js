@@ -4,6 +4,40 @@
 import Ember from 'ember';
 
 /**
+  # Dialog Service
+  
+  Use this service to open a modal dialog.
+  
+  ## Alert
+  
+  ```
+  dialog.alert('Something happened!');
+  ```
+  
+  ## Confirm
+  
+  ```
+  dialog.confirm('Are you sure?').then(() => {
+
+    // confirmed...
+
+  }, () => {
+
+    // canceled...
+
+  });
+  ```
+  
+  ## Open Modal
+  
+  The `alert` and `confirm` methods call `openModal` internally, passing in 
+  `uic-modal-alert` and `uic-modal-confirm` components respectivly.  You can 
+  manually call `openModal` and pass in a custom modal component.
+  
+  ```
+  dialog.openModal('Your message', 'modal-name');
+  ```
+  
   @class DialogService
   @namespace Services
 */
