@@ -4,6 +4,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-modal-dialog';
 
+const alias = Ember.computed.alias;
+
 /**
   @class ModalDialogComponent
   @namespace Components
@@ -26,6 +28,14 @@ export default Ember.Component.extend({
     @default `['uic-modal-dialog', 'no-outline']`
   */
   classNames: ['uic-modal-dialog', 'no-outline'],
+
+  /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['dialogOpen:uic-modal-container']`
+  */
+  classNameBindings: ['dialog.open:uic-modal-container'],
 
   /**
     @property attributeBindings
@@ -87,6 +97,12 @@ export default Ember.Component.extend({
           this._cancel();
           break;
       }
+    }
+  },
+
+  click(event) {
+    if (event.target === this.get('element')) {
+      this._cancel();
     }
   }
 });

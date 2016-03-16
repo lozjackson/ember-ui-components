@@ -25,6 +25,14 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[2], 'no-outline');
 });
 
+test('classNameBindings', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('classNameBindings').length, 1);
+  assert.equal(component.get('classNameBindings')[0], 'dialog.open:uic-modal-container');
+});
+
 test('attributeBindings', function(assert) {
   assert.expect(2);
   var component = this.subject();
@@ -39,7 +47,6 @@ test('tabindex', function(assert) {
   this.render();
   assert.equal(component.get('tabindex'), 1);
 });
-
 
 test('_confirm() method', function(assert) {
   assert.expect(1);
