@@ -35,6 +35,7 @@ div.go-back-link {
 }
 section.toc ul li {
   margin: 15px 0;
+  cursor: pointer;
 }
 
 .my-modal {
