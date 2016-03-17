@@ -4,7 +4,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-modal-dialog';
 
-const alias = Ember.computed.alias;
+const computed = Ember.computed;
+const alias = computed.alias;
 
 /**
   @class ModalDialogComponent
@@ -52,6 +53,16 @@ export default Ember.Component.extend({
     @default `1`
   */
   tabindex: 1,
+
+  /**
+    @property displayModal
+    @type {Boolean}
+    @readonly
+    @private
+  */
+  displayModal: computed('dialog.open', 'dialog.type', function () {
+    return (this.get('dialog.open') && typeof this.get('dialog.type') === 'string');
+  }),
 
   /**
     @method _confirm

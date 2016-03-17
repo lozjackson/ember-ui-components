@@ -1,9 +1,12 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+const run = Ember.run;
+
 moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
-    'component:uic-content-mask'
+    'component:uic-content-mask',
+    'component:uic-modal'
   ],
   unit: true
 });
@@ -46,6 +49,26 @@ test('tabindex', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('tabindex'), 1);
+});
+
+test('displayModal', function(assert) {
+  assert.expect(4);
+  var component = this.subject();
+  component.set('dialog', Ember.Object.create({
+    open: false,
+    type: null
+  }));
+  this.render();
+  assert.equal(component.get('displayModal'), false);
+
+  run(() => component.set('dialog.open', true));
+  assert.equal(component.get('displayModal'), false);
+
+  run(() => component.set('dialog.type', 'uic-modal'));
+  assert.equal(component.get('displayModal'), true);
+
+  run(() => component.set('dialog.open', false));
+  assert.equal(component.get('displayModal'), false);
 });
 
 test('_confirm() method', function(assert) {
