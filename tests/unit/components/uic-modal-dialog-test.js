@@ -1,9 +1,12 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
+const run = Ember.run;
+
 moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
-    'component:uic-content-mask'
+    'component:uic-content-mask',
+    'component:uic-modal'
   ],
   unit: true
 });
@@ -25,6 +28,14 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[2], 'no-outline');
 });
 
+test('classNameBindings', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('classNameBindings').length, 1);
+  assert.equal(component.get('classNameBindings')[0], 'dialog.open:uic-modal-container');
+});
+
 test('attributeBindings', function(assert) {
   assert.expect(2);
   var component = this.subject();
@@ -40,6 +51,25 @@ test('tabindex', function(assert) {
   assert.equal(component.get('tabindex'), 1);
 });
 
+test('displayModal', function(assert) {
+  assert.expect(4);
+  var component = this.subject();
+  component.set('dialog', Ember.Object.create({
+    open: false,
+    type: null
+  }));
+  this.render();
+  assert.equal(component.get('displayModal'), false);
+
+  run(() => component.set('dialog.open', true));
+  assert.equal(component.get('displayModal'), false);
+
+  run(() => component.set('dialog.type', 'uic-modal'));
+  assert.equal(component.get('displayModal'), true);
+
+  run(() => component.set('dialog.open', false));
+  assert.equal(component.get('displayModal'), false);
+});
 
 test('_confirm() method', function(assert) {
   assert.expect(1);

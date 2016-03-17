@@ -27,9 +27,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['uic-modal-window']`
+    @default `['uic-modal-window', 'uic-modal-container']`
   */
-  classNames: ['uic-modal-window'],
+  classNames: ['uic-modal-window', 'uic-modal-container'],
 
   /**
     @property showCloseButton

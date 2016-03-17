@@ -27,17 +27,9 @@
 
 <div class="panel">
 
-  <h2>Dialog</h2>
+  <h2>openModal</h2>
   <div>
     <button {{action "openDialog"}}>Click here</button>
-    {{#if openDialog}}
-      {{#uic-modal-window title="Modal Window" modalClassNames="my-modal" closeModal="closeDialog"}}
-        <h2>Modal</h2>
-      {{/uic-modal-window}}
-    {{/if}}
-  </div>
-  <div>
-    <button {{action "openRoutedDialog"}}>Click here</button>
   </div>
 </div>
 

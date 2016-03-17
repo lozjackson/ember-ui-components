@@ -24,5 +24,23 @@ export default Ember.Component.extend({
     @private
     @default `['uic-modal']`
   */
-  classNames: ['uic-modal']
+  classNames: ['uic-modal'],
+
+  /**
+    @method _closeModal
+    @private
+  */
+  _closeModal() {
+    this.get('dialog').closeModal();
+  },
+
+  actions: {
+
+    /**
+      @method closeModal
+    */
+    closeModal() {
+      this._closeModal();
+    }
+  }
 });

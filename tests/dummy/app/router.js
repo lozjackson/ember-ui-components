@@ -10,9 +10,11 @@ Router.map(function() {
   this.route('select-component');
   this.route('slide-menu-component');
   this.route('context-menu-component');
-  this.route('modal-dialog-component', function () {
+  this.route('modal-window-component', function () {
     this.route('modal');
   });
+  this.route('modal-dialog-component');
+  this.route('dialog-service');
   this.route('panel-class');
 });
 

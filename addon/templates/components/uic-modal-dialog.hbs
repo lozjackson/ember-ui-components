@@ -1,6 +1,3 @@
-{{#if dialog.open}}
-  <div class="uic-modal-container">
-    {{component dialog.type}}
-  </div>
-  {{uic-content-mask class="active"}}
+{{#if displayModal}}
+  {{component dialog.type}}
 {{/if}}

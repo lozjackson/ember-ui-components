@@ -26,6 +26,19 @@ test('openModal() method', function(assert) {
   assert.deepEqual(promise, service.get('deferred.promise'));
 });
 
+test('openModal() method - type should have a default', function(assert) {
+  let service = this.subject();
+  service.openModal();
+  assert.equal(service.get('type'), 'uic-modal');
+});
+
+test('closeModal() method', function(assert) {
+  assert.expect(1);
+  let service = this.subject();
+  service.set('reject', () => assert.ok(true));
+  service.closeModal();
+});
+
 test('alert() method', function(assert) {
   assert.expect(3);
   let service = this.subject();

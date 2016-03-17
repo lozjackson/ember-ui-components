@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
 
 moduleForComponent('uic-modal', 'Unit | Component | uic modal', {
   // needs: [],
@@ -19,4 +20,22 @@ test('classNames', function(assert) {
   this.render();
   assert.equal(component.get('classNames').length, 2);
   assert.equal(component.get('classNames')[1], 'uic-modal');
+});
+
+test('_closeModal method', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('dialog', Ember.Object.create({
+    closeModal: () => assert.ok(true)
+  }));
+  this.render();
+  component._closeModal();
+});
+
+test('closeModal action', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('_closeModal', () => assert.ok(true));
+  this.render();
+  component.send('closeModal');
 });

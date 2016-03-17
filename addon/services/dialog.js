@@ -4,6 +4,40 @@
 import Ember from 'ember';
 
 /**
+  # Dialog Service
+
+  Use this service to open a modal dialog.
+
+  ## Alert
+
+  ```
+  dialog.alert('Something happened!');
+  ```
+
+  ## Confirm
+
+  ```
+  dialog.confirm('Are you sure?').then(() => {
+
+    // confirmed...
+
+  }, () => {
+
+    // canceled...
+
+  });
+  ```
+
+  ## Open Modal
+
+  The `alert` and `confirm` methods call `openModal` internally, passing in
+  `uic-modal-alert` and `uic-modal-confirm` components respectivly.  You can
+  manually call `openModal` and pass in a custom modal component.
+
+  ```
+  dialog.openModal('Your message', 'modal-name');
+  ```
+
   @class DialogService
   @namespace Services
 */
@@ -43,17 +77,59 @@ export default Ember.Service.extend({
   deferred: null,
 
   /**
+    ## Open Modal
+
+    Use this method to open a modal dialog.  It takes two arguments.  A `message`
+    and a `type`.  The message can be a string, or an object describing the message.
+    The `type` is the component name to render.
+
+    An example passing in a message string:
+
+    ```
+    dialog.openModal('Something happened!', 'modal-name');
+    ```
+
+    An example passing in an message object:
+
+    ```
+    dialog.openModal({
+      title: 'Foo',
+      body: 'Bar'
+    }, 'modal-name');
+    ```
+
+    An example using the returned Promise:
+
+    ```
+    dialog.openModal({
+      title: 'Are you sure?',
+      body: 'Do you really want to do this?'
+    }, 'modal-name').then(() => {
+
+      // confirmed...
+
+    }, () => {
+
+      // canceled...
+
+    });
+    ```
+
     @method openModal
     @param {Object|String} message
     @param {String} type
-    @private
     @return {Object} Promise
   */
   openModal(message, type) {
     let deferred = Ember.RSVP.defer();
-    if (typeof message === 'string') {
+    if (typeof message === 'string' || typeof message === 'undefined') {
       message = { title: message, body: '' };
     }
+
+    if (!type) {
+      type = 'uic-modal';
+    }
+
     this.setProperties({
       title: message.title,
       body: message.body,
@@ -65,6 +141,35 @@ export default Ember.Service.extend({
   },
 
   /**
+    ## Close Modal
+
+    @method closeModal
+  */
+  closeModal() {
+    this.reject();
+  },
+
+  /**
+    ## Alert
+
+    Use this method to open an alert dialog.  It takes one argument - A `message`.
+    The message can be a string, or an object describing the message.
+
+    An example passing in a message string:
+
+    ```
+    dialog.alert('Something happened!');
+    ```
+
+    An example passing in a message object:
+
+    ```
+    dialog.alert({
+      title: 'An event has happened',
+      body: 'You clicked a button!'
+    });
+    ```
+
     @method alert
     @param {Object|String} message
     @return {Object} Promise
@@ -74,6 +179,40 @@ export default Ember.Service.extend({
   },
 
   /**
+    ## Confirm
+
+    Use this method to open an confirmation dialog.  It takes one argument - A
+    `message`.  The message can be a string, or an object describing the message.
+
+    An example passing in a message string:
+
+    ```
+    dialog.confirm('Are you sure?').then(() => {
+
+      // confirmed...
+
+    }, () => {
+
+      // canceled...
+
+    });
+    ```
+
+    ```
+    dialog.confirm({
+      title: 'Are you sure?',
+      body: 'Do you really want to do this?'
+    }).then(() => {
+
+      // confirmed...
+
+    }, () => {
+
+      // canceled...
+
+    });
+    ```
+
     @method confirm
     @param {Object|String} message
     @return {Object} Promise
