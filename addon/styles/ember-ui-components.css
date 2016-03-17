@@ -417,15 +417,18 @@ select.uic-select {
   display: inline-block;
   text-align: center;
   margin: 0;
-  padding: 0;
+  /*padding: 0;*/
+  line-height: 60px;
+  padding: 0 15px;
+  box-shadow: none;
 }
-.uic-slide-menu.top > nav .slide-menu-item,
+/*.uic-slide-menu.top > nav .slide-menu-item,
 .uic-slide-menu.bottom > nav .slide-menu-item {
   display: inline-block;
   line-height: 60px;
   padding: 0 15px;
   box-shadow: none;
-}
+}*/
 .uic-slide-menu.top > nav button.close-button,
 .uic-slide-menu.bottom > nav button.close-button {
   display: inline-block;
