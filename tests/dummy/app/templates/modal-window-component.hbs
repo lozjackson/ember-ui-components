@@ -11,7 +11,7 @@
   <div>
     <button {{action "toggle" "openDialog"}}>Click here</button>
     {{#if openDialog}}
-      {{#uic-modal-window title="Modal Window" class="resizable" modalClassNames="my-modal" closeModal="closeDialog"}}
+      {{#uic-modal-window title="Modal Window" modalClassNames="my-modal" closeModal="closeDialog"}}
         <h2>Modal</h2>
         <div>
           <button {{action "toggle" "openDialog"}}>Close</button>
