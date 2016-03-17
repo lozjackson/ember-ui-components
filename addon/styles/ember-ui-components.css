@@ -26,9 +26,37 @@ select.uic-select {
   margin: 20px 0;
 }
 
-
-
-
+/*
+  button
+*/
+button.uic-button {
+  padding: 5px 20px;
+  font-weight: 300;
+  font-size: 1rem;
+  background: #FFF;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+button.uic-button.blue {
+  color: #fff;
+  background: #388FFF;
+  border: 1px solid transparent;
+}
+button.uic-button.green {
+  color: #fff;
+  background: #11D232;
+  border: 1px solid transparent;
+}
+button.uic-button.yellow {
+  color: #000;
+  background: #FFD128;
+  border: 1px solid transparent;
+}
+button.uic-button.red {
+  color: #fff;
+  background: #FF0202;
+  border: 1px solid transparent;
+}
 
 
 
@@ -153,7 +181,8 @@ select.uic-select {
   background: #11D232;
 }
 .uic-check-box.toggle.red input[type=checkbox]:checked + label:before {
-  background: #E61010;
+  /*background: #E61010;*/
+  background: #FF0202;
 }
 .uic-check-box.toggle label {
   top:0px;
