@@ -651,7 +651,7 @@ button.uic-button.red {
 .uic-modal {
 	background-color: rgb(255,255,255);
 	padding: 1em;
-	border:1px solid black;
+	border:1px solid #DCDCDC;
 	position:relative;
 	-moz-border-radius-topleft: 4px;
 	-moz-border-radius-topright: 4px;
@@ -692,21 +692,33 @@ header.uic-modal-header {
   top: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 26px;
 }
 header.uic-modal-header h1 {
   text-align: left;
   font-size: 16px;
   font-size: 1rem;
-  margin: 5px;
+  margin: 10px;
   margin-right: 20px;
-  font-weight: normal;
+  /*font-weight: normal;*/
 }
-header.uic-modal-header button.close-button {
+header.uic-modal-header button.uic-close-button {
   position: absolute;
   top: 0;
   right: 0;
   margin: 5px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+header.uic-modal-header button.uic-close-button:hover {
+  border: 1px solid #DCDCDC;
+  background: #fff;
+  box-shadow: 0px 0px 1px #888888;
+}
+.uic-modal-body {
+  margin-top: 18px;
 }
 .uic-modal h1, .uic-modal p {
   text-align: center;

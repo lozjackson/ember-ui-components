@@ -8,16 +8,14 @@
 
     {{#if showCloseButton}}
       {{#if closeModal}}
-        <button class="close-button" {{action "closeModal"}}>x</button>
+        <button class="uic-close-button" {{action "closeModal"}}>&times;</button>
       {{else}}
-        {{#link-to parentRouteName}}
-          <button class="close-button">x</button>
-        {{/link-to}}
+        {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
       {{/if}}
     {{/if}}
   </header>
 
-  <div>
+  <div class="uic-modal-body">
     {{yield}}
   </div>
 
