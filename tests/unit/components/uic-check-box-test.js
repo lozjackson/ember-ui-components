@@ -34,53 +34,22 @@ test('checked should be false', function(assert) {
   assert.equal(component.get('checked'), false);
 });
 
-test('if slider class exists _checkboxId throws a warning if checkboxId is not set', function(assert) {
-  let _warn = Ember.warn;
-  assert.expect(3);
-  Ember.warn = (desc, test) => {
-    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{uic-check-box checkboxId="unique-id"}}`);
-    assert.equal(test, null);
-  };
-
+test('_checkboxId should have a default value if slider', function(assert) {
+  assert.expect(2);
   var component = this.subject();
-
   component.get('classNames').push('slider');
-
   this.render();
-  component.get('_checkboxId');
-  assert.ok(component);
-  Ember.warn = _warn;
+  assert.equal(typeof component.get('_checkboxId'), 'string');
+  assert.equal(component.get('_checkboxId').indexOf('uic-check-box-'), 0);
 });
 
-test('if toggle class exists _checkboxId throws a warning if checkboxId is not set', function(assert) {
-  let _warn = Ember.warn;
-  assert.expect(3);
-  Ember.warn = (desc, test) => {
-    assert.equal(desc, `'checkboxId' is a required attribute of the CheckBoxComponent when using the 'slider' or 'toggle' classes.  Pass it into the component like this: {{uic-check-box checkboxId="unique-id"}}`);
-    assert.equal(test, null);
-  };
-
+test('_checkboxId should have a default value if toggle', function(assert) {
+  assert.expect(2);
   var component = this.subject();
-
   component.get('classNames').push('toggle');
-
   this.render();
-  component.get('_checkboxId');
-  assert.ok(component);
-  Ember.warn = _warn;
-});
-
-test('if slider or toggle class does not exist _checkboxId should not throws a warning if checkboxId is not set', function(assert) {
-  let _warn = Ember.warn;
-  assert.expect(1);
-  Ember.warn = () => {
-    assert.ok(false, 'this warning should not happen');
-  };
-  var component = this.subject();
-  this.render();
-  component.get('_checkboxId');
-  assert.ok(component);
-  Ember.warn = _warn;
+  assert.equal(typeof component.get('_checkboxId'), 'string');
+  assert.equal(component.get('_checkboxId').indexOf('uic-check-box-'), 0);
 });
 
 test('_checkboxId', function(assert) {

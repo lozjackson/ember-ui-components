@@ -72,11 +72,13 @@ export default Ember.Service.extend({
   /**
     ## clickOutsideModal
 
+    Specify what should happen when the user clicks outside the modal dialog.
+
     Options
-    * null - do nothing
-    * Boolean - true calls the `_confirm` method on the ModalDialogComponent, false calls the `_cancel` method.
-    * string - if a method is found on the ModalDialogComponent, then call it.
-    * function - calls the passed in method
+    * Null - do nothing
+    * Boolean - `true` calls the `_confirm` method on the modal component, `false` calls the `_cancel` method.
+    * String - if a method is found on the modal component, then call it.
+    * Function - calls the passed in method
 
     @property clickOutsideModal
     @type {String|Function|Boolean|Null}

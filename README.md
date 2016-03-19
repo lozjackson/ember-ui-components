@@ -8,4 +8,4 @@ http://lozjackson.github.io/ember-ui-components/
 
 ## Installation
 
-* `npm install` this repository
+* `npm install ember-ui-components --save-dev`
