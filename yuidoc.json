@@ -1,0 +1,12 @@
+{
+  "name": "ember-ui-components",
+  "description": "A collection of common reusable user interface components",
+  "url": "https://github.com/lozjackson/ember-ui-components",
+  "options": {
+    "paths": [
+      "addon"
+    ],
+    "exclude": "vendor",
+    "outdir":   "docs"
+  }
+}
