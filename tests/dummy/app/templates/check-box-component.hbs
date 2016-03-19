@@ -25,7 +25,7 @@
       {{uic-check-box class="slider light"}}
     </div>
     <div>
-      {{uic-check-box class="toggle green" checkboxId="demo2"}}
+      {{uic-check-box class="toggle green"}}
     </div>
   </div>
 </div>
@@ -54,9 +54,7 @@
       <h4>{String} checkboxId</h4>
       <p>Optional.</p>
       <p>
-        The checkbox element's `id` attribute will be given this value.  This
-        attribute is optional, but is required when using some of the built-in
-        CSS classes.
+        The checkbox element's `id` attribute will be given this value.
       </p>
     </li>
 
@@ -114,10 +112,7 @@
 
   <h2>checkboxId</h2>
   <p>
-    If you provide a value for the `checkboxId` property then an extra `label`
-    element will be rendered next to the `input` element.  This is used for styling
-    the component and is required when using some of the provided CSS classes such
-    as `slider` and `toggle`
+    If you provide a value for the `checkboxId` property then that wil become the id of the checkbox element.
   </p>
 
   <div class="panel code">
