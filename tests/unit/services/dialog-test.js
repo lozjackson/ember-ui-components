@@ -55,9 +55,21 @@ test('confirm() method', function(assert) {
   let service = this.subject();
   let msg = {title: 'foo', body: 'bar' };
   service.set('openModal', (m, type) => {
-    // assert.deepEqual(m, msg);
     assert.equal(m.title, msg.title);
     assert.equal(m.body, msg.body);
+    assert.equal(m.clickOutsideModal, 'shake');
+    assert.equal(type, 'uic-modal-confirm');
+    return true;
+  });
+  assert.equal(service.confirm(msg), true);
+});
+
+test('confirm() method - message is string', function(assert) {
+  let service = this.subject();
+  let msg = 'foo';
+  service.set('openModal', (m, type) => {
+    assert.equal(m.title, msg);
+    assert.equal(m.body, '');
     assert.equal(m.clickOutsideModal, 'shake');
     assert.equal(type, 'uic-modal-confirm');
     return true;
@@ -96,6 +108,24 @@ test('reject() method', function(assert) {
     reject: () => assert.ok(true)
   });
   service.reject();
+});
+
+test('convertMessageToObject() method - object', function (assert) {
+  let service = this.subject();
+  let result = service.convertMessageToObject('foo');
+  assert.deepEqual(result, {title: 'foo', body: ''});
+});
+
+test('convertMessageToObject() method - string', function (assert) {
+  let service = this.subject();
+  let result = service.convertMessageToObject({title: 'foo', body: 'bar'});
+  assert.deepEqual(result, {title: 'foo', body: 'bar'});
+});
+
+test('convertMessageToObject() method - undefined', function (assert) {
+  let service = this.subject();
+  let result = service.convertMessageToObject();
+  assert.deepEqual(result, {title: undefined, body: ''});
 });
 
 test('reset() method', function(assert) {
