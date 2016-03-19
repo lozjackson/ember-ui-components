@@ -10,7 +10,7 @@ const computed = Ember.computed;
   # CheckBoxComponent
 
   ```
-  {{uic-check-box checked=checkboxValue"}}
+  {{uic-check-box checked=checkboxValue}}
   ```
 
   @class CheckBoxComponent
