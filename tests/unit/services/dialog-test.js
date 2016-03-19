@@ -55,7 +55,23 @@ test('confirm() method', function(assert) {
   let service = this.subject();
   let msg = {title: 'foo', body: 'bar' };
   service.set('openModal', (m, type) => {
-    assert.deepEqual(m, msg);
+    // assert.deepEqual(m, msg);
+    assert.equal(m.title, msg.title);
+    assert.equal(m.body, msg.body);
+    assert.equal(m.clickOutsideModal, 'shake');
+    assert.equal(type, 'uic-modal-confirm');
+    return true;
+  });
+  assert.equal(service.confirm(msg), true);
+});
+
+test('confirm() method, override clickOutsideModal', function(assert) {
+  let service = this.subject();
+  let msg = {title: 'foo', body: 'bar', clickOutsideModal: 'cancel' };
+  service.set('openModal', (m, type) => {
+    assert.equal(m.title, msg.title);
+    assert.equal(m.body, msg.body);
+    assert.equal(m.clickOutsideModal, 'cancel');
     assert.equal(type, 'uic-modal-confirm');
     return true;
   });

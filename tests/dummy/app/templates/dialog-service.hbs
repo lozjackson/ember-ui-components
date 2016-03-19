@@ -71,4 +71,46 @@
   </div>
 </div>
 
+<div class="panel">
+
+  <h2>clickOutsideModal</h2>
+
+
+  <h3>Options</h3>
+  <ul>
+    <li>null - do nothing</li>
+    <li>Boolean - <code>true</code> calls the <code>_confirm</code> method, <code>false</code> calls the <code>_cancel</code> method.</li>
+    <li>string - if a method is found on the component with the name of the string, then call it.</li>
+    <li>function - calls the passed in method</li>
+  </ul>
+  <p>
+    built-in methods include 'confirm', 'cancel', 'shake'.
+  </p>
+
+  <p>The <code>alert</code> dialog defaults to <code>null</code>.  The <code>confirm</code> dialog defaults to <code>'shake'</code>.  All other dialogs default to <code>false</code></p>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  clickOutsideModal: 'shake'
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "clickOutsideModal" 'shake'}}>Click here</button>
+  </div>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  clickOutsideModal: false
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "clickOutsideModal" false}}>Click here</button>
+  </div>
+
+</div>
+
 {{outlet}}
