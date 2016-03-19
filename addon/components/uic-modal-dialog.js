@@ -55,6 +55,37 @@ export default Ember.Component.extend({
   tabindex: 1,
 
   /**
+    ## clickOutsideModal
+
+    Options
+    * null - do nothing
+    * Boolean - true calls the `_confirm` method, false calls the `_cancel` method.
+    * string - if a method is found on the component, then call it.
+    * function - calls the method
+
+    built-in methods include 'confirm', 'cancel', 'shake'.
+
+    @property clickOutsideModal
+    @type {String|Function|Boolean|Null}
+    @default false
+  */
+  clickOutsideModal: false,
+
+  /**
+    Computed property.
+    @property _clickOutsideModal
+    @type {String|Function|Boolean}
+    @private
+  */
+  _clickOutsideModal: computed('dialog.clickOutsideModal', 'clickOutsideModal', function () {
+    let clickOutsideModal = this.get('dialog.clickOutsideModal');
+    if (Ember.typeOf(clickOutsideModal) === 'undefined') {
+      clickOutsideModal = this.get('clickOutsideModal');
+    }
+    return clickOutsideModal;
+  }),
+
+  /**
     @property displayModal
     @type {Boolean}
     @readonly
@@ -78,6 +109,40 @@ export default Ember.Component.extend({
   */
   _cancel() {
     this.get('dialog').reject();
+  },
+
+  /**
+    @method confirm
+  */
+  confirm() {
+    this._confirm();
+  },
+
+  /**
+    @method cancel
+  */
+  cancel() {
+    this._cancel();
+  },
+
+  /**
+    @method shake
+    @param {Object} element
+  */
+  shake(element) {
+    let interval = 50;
+    let distance = 10;
+    let times = 4;
+    if (!element) {
+      element = this.$('.uic-modal');
+    }
+    element.css('position', 'relative');
+    for(let i = 0, t = (times+1); i < t; i++) {
+      element.animate({
+        left:((i%2===0 ? distance : distance *-1))
+      }, interval);
+    }
+    element.animate({ left: 0 }, interval);
   },
 
   /**
@@ -111,9 +176,19 @@ export default Ember.Component.extend({
     }
   },
 
+  /**
+    @event click
+  */
   click(event) {
     if (event.target === this.get('element')) {
-      this._cancel();
+      let clickOutsideModal = this.get('_clickOutsideModal');
+      if (Ember.typeOf(clickOutsideModal) === 'boolean') {
+        this[ clickOutsideModal ? '_confirm' : '_cancel' ]();
+      } else if (Ember.typeOf(clickOutsideModal) === 'string' && Ember.typeOf(this[clickOutsideModal]) === 'function') {
+        this[clickOutsideModal]();
+      } else if (Ember.typeOf(clickOutsideModal) === 'function') {
+        clickOutsideModal();
+      }
     }
   }
 });

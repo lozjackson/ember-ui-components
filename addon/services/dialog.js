@@ -70,6 +70,21 @@ export default Ember.Service.extend({
   body: null,
 
   /**
+    ## clickOutsideModal
+
+    Options
+    * null - do nothing
+    * Boolean - true calls the `_confirm` method on the ModalDialogComponent, false calls the `_cancel` method.
+    * string - if a method is found on the ModalDialogComponent, then call it.
+    * function - calls the passed in method
+
+    @property clickOutsideModal
+    @type {String|Function|Boolean|Null}
+    @default undefined
+  */
+  clickOutsideModal: undefined,
+
+  /**
     @property deferred
     @type {Object}
     @private
@@ -130,9 +145,8 @@ export default Ember.Service.extend({
       type = 'uic-modal';
     }
 
+    this.setProperties(message);
     this.setProperties({
-      title: message.title,
-      body: message.body,
       type: type,
       open: true,
       deferred: deferred
@@ -175,6 +189,9 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   alert(message) {
+    if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
+      message.clickOutsideModal = null;
+    }
     return this.openModal(message, 'uic-modal-alert');
   },
 
@@ -218,6 +235,9 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   confirm(message) {
+    if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
+      message.clickOutsideModal = 'shake';
+    }
     return this.openModal(message, 'uic-modal-confirm');
   },
 
@@ -244,10 +264,13 @@ export default Ember.Service.extend({
     @private
   */
   reset() {
-    this.set('open', false);
-    this.set('type', null);
-    this.set('title', null);
-    this.set('body', null);
-    this.set('deferred', null);
+    this.setProperties({
+      title: null,
+      body: null,
+      open: false,
+      type: null,
+      clickOutsideModal: undefined,
+      deferred: null
+    });
   }
 });

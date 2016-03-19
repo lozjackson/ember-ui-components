@@ -29,6 +29,13 @@ export default Ember.Controller.extend({
         title: 'Custom Modal',
         body: 'My custom modal'
       }, 'my-custom-modal');
-    }
+    },
+
+    clickOutsideModal(mode) {
+      this.get('dialog').alert({
+        title: 'An event has happened',
+        clickOutsideModal: mode
+      });
+    },
   }
 });
