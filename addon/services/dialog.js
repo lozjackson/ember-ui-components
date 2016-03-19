@@ -137,8 +137,8 @@ export default Ember.Service.extend({
   */
   openModal(message, type) {
     let deferred = Ember.RSVP.defer();
-    if (typeof message === 'string' || typeof message === 'undefined') {
-      message = { title: message, body: '' };
+    if (Ember.typeOf(message) !== 'object') {
+      message = this.convertMessageToObject(message);
     }
 
     if (!type) {
@@ -189,6 +189,9 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   alert(message) {
+    if (Ember.typeOf(message) !== 'object') {
+      message = this.convertMessageToObject(message);
+    }
     if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
       message.clickOutsideModal = null;
     }
@@ -235,6 +238,9 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   confirm(message) {
+    if (Ember.typeOf(message) !== 'object') {
+      message = this.convertMessageToObject(message);
+    }
     if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
       message.clickOutsideModal = 'shake';
     }
@@ -257,6 +263,19 @@ export default Ember.Service.extend({
   reject() {
     this.get('deferred').reject();
     this.reset();
+  },
+
+  /**
+    @method convertMessageToObject
+    @param {String} message
+    @private
+    @return {Object}
+  */
+  convertMessageToObject(message) {
+    if (typeof message === 'string' || typeof message === 'undefined') {
+      message = { title: message, body: '' };
+    }
+    return message;
   },
 
   /**
