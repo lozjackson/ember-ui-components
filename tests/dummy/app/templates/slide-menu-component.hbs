@@ -23,6 +23,7 @@
   pushContent=true|false
   pushContentType="push-content|squeeze-content"
   maskContent=true|false
+  disableScroll=true|false
   showDefaultToggle=true|false
   as |menuOpen|
   &#125;&#125;
@@ -58,6 +59,10 @@
     <li>
       {{uic-check-box class="toggle" checkboxId="maskContent" checked=application.maskContent}}
       <label for="maskContent">maskContent</label>
+    </li>
+    <li>
+      {{uic-check-box class="toggle" checkboxId="disableScroll" checked=application.disableScroll}}
+      <label for="disableScroll">disableScroll</label>
     </li>
     <li>
       {{uic-check-box class="toggle" checkboxId="showDefaultToggle" checked=application.showDefaultToggle}}
@@ -131,10 +136,38 @@
     </li>
 
     <li>
+      <h4>{String} pushContentType</h4>
+      <p>Optional. Default: 'push-content'</p>
+      <p>
+        This property allows you to change the way the content is pushed when the
+        menu is opened.  The string value is used for the class name that is added
+        to the content container.  There are some built-in classes, but you could
+        easily add your own css classes.
+      </p>
+      <p>
+        Built in classes include:
+      </p>
+        <ul>
+          <li><code>push-content</code></li>
+          <li><code>squeeze-content</code></li>
+        </ul>
+
+    </li>
+
+    <li>
       <h4>{Boolean} maskContent</h4>
       <p>Optional. Default: true</p>
       <p>
         If true the page content will be masked while the menu is open.
+      </p>
+    </li>
+
+    <li>
+      <h4>{Boolean} disableScroll</h4>
+      <p>Optional. Default: true</p>
+      <p>
+        If true the <code>uic-disable-scroll</code> css class will be applied to
+        the <code>body</code> element while the menu is open.
       </p>
     </li>
 

@@ -8,5 +8,6 @@ export default Ember.Controller.extend({
   maskContent: true,
   showDefaultToggle: true,
   pushContentType: 'push-content',
+  disableScroll: true
 
 });
