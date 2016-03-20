@@ -68,6 +68,17 @@ export default Ember.Component.extend({
   pushContent: false,
 
   /**
+    Options:
+    * `push-content`
+    * `squeeze-content`
+    
+    @property pushContentType
+    @type {String}
+    @default `push-content`
+  */
+  pushContentType: 'push-content',
+
+  /**
     If true the page content will be masked while the menu is open.
     @property maskContent
     @type {Boolean}

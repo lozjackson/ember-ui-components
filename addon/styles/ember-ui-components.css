@@ -259,7 +259,7 @@ button.uic-button.red {
   slide-menu content-container
 */
 .uic-slide-menu > .uic-content-container {
-  transition: transform .4s;
+  transition: transform .4s, margin .4s;
 }
 
 /*
@@ -382,6 +382,10 @@ button.uic-button.red {
 .uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ .uic-content-container.push-content {
   transform: translate3d(250px, 0, 0);
 }
+.uic-slide-menu.left > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ .uic-content-container.squeeze-content {
+  margin-left: 250px;
+}
 .uic-slide-menu.left > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ nav.left {
   transform: translate3d(0, 0, 0);
@@ -415,6 +419,10 @@ button.uic-button.red {
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ .uic-content-container.push-content {
   transform: translate3d(-250px, 0, 0);
+}
+.uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ .uic-content-container.squeeze-content {
+  margin-right: 250px;
 }
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ nav.right {
@@ -483,6 +491,10 @@ button.uic-button.red {
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ .uic-content-container.push-content {
   transform: translateY(60px);
 }
+.uic-slide-menu.top > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ .uic-content-container.squeeze-content {
+  margin-top: 60px;
+}
 .uic-slide-menu.top > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ nav.top {
   transform: translateY(0);
@@ -503,6 +515,10 @@ button.uic-button.red {
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .uic-content-container.push-content {
   transform: translateY(-60px);
+}
+.uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .uic-content-container.squeeze-content {
+  margin-bottom: 60px;
 }
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ nav.bottom {

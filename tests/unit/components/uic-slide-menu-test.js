@@ -81,6 +81,14 @@ test('pushContent should be false', function (assert) {
   assert.equal(component.get('pushContent'), false, `'pushContent' should be false`);
 });
 
+test('pushContentType should have a default', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('pushContentType'), 'push-content', `'pushContentType' should be 'push-content'`);
+});
+
 test('maskContent should be true', function (assert) {
   assert.expect(1);
   var component = this.subject();
