@@ -295,7 +295,6 @@ button.uic-button.red {
 .uic-slide-menu > input[type=checkbox].menu-toggle ~ label {
   position: absolute;
   margin: 0;
-  /*top: 0px;*/
   z-index: 200;
   display: block;
   font-size:3em;
