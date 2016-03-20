@@ -97,6 +97,14 @@ test('maskContent should be true', function (assert) {
   assert.equal(component.get('maskContent'), true, `'maskContent' should be true`);
 });
 
+test('disableScroll should be true', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('disableScroll'), true, `'disableScroll' should be true`);
+});
+
 test('showDefaultToggle', function (assert) {
   assert.expect(1);
   var component = this.subject();

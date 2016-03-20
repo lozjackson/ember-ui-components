@@ -1,7 +1,7 @@
 
-body.menu-is-open,
 body.modal-dialog-is-open,
-body.modal-window-is-open {
+body.modal-window-is-open,
+.uic-disable-scroll {
   overflow: hidden;
 }
 
