@@ -7,3 +7,10 @@
 [FEATURE]  Add `disableScroll` option to `ModalDialogComponent` and `ModalWindowComponent`
 
 [FEATURE]  Add `disablePointerEvents` option to `ModalDialogComponent` and `ModalWindowComponent`
+
+
+
+
+### v0.0.1
+
+Initial release.
