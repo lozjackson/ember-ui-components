@@ -1,6 +1,6 @@
 {{input id=(concat elementId '-menu-button') type="checkbox" checked=menuOpen class="menu-toggle"}}
 {{#if showDefaultToggle}}
-  <label for={{concat elementId '-menu-button'}}>&equiv;</label>
+  <label for={{concat elementId '-menu-button'}} class={{menuToggleClass}}>&equiv;</label>
 {{/if}}
 
 <div class="uic-content-container {{if pushContent pushContentType}}">

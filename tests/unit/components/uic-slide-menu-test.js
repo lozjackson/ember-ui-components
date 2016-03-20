@@ -113,6 +113,14 @@ test('showDefaultToggle', function (assert) {
   assert.equal(component.get('showDefaultToggle'), true, `'showDefaultToggle' should be true`);
 });
 
+test('menuToggleClass', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('menuToggleClass'), 'uic-menu-toggle-fixed');
+});
+
 test('staticTemplate should be false', function (assert) {
   assert.expect(1);
   var component = this.subject();

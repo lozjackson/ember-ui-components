@@ -104,6 +104,13 @@ export default Ember.Component.extend({
   showDefaultToggle: true,
 
   /**
+    @property menuToggleClass
+    @type {String}
+    @default `uic-menu-toggle-fixed`
+  */
+  menuToggleClass: 'uic-menu-toggle-fixed',
+
+  /**
     If `staticTemplate` is true then the `menuTemplate` property will be required.
     If `staticTemplate` is false, then the menu template will be dynamically
     looked up if `menuTemplate` is not specified.

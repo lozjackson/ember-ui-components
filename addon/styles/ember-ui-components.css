@@ -288,14 +288,14 @@ button.uic-button.red {
   menu-toggle button
 */
 .uic-slide-menu > input[type=checkbox].menu-toggle {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   z-index: 200;
 }
 .uic-slide-menu > input[type=checkbox].menu-toggle ~ label {
   position: absolute;
   margin: 0;
-  top: 0px;
+  /*top: 0px;*/
   z-index: 200;
   display: block;
   font-size:3em;
@@ -303,6 +303,10 @@ button.uic-button.red {
   cursor: pointer;
   transform: translate3d(0, 0, 0);
   transition: transform .4s;
+}
+
+.uic-slide-menu > input[type=checkbox].menu-toggle ~ label.uic-menu-toggle-fixed {
+  position: fixed;
 }
 
 .uic-slide-menu > nav li {
@@ -372,6 +376,7 @@ button.uic-button.red {
 
 .uic-slide-menu.left > input[type=checkbox].menu-toggle + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.left + label {
+  top: 0px;
   left: 10px;
 }
 .uic-slide-menu.left > input[type=checkbox].menu-toggle:checked + label,
@@ -410,6 +415,7 @@ button.uic-button.red {
 
 .uic-slide-menu.right > input[type=checkbox].menu-toggle + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right + label {
+  top: 0px;
   right: 10px;
 }
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked + label,
@@ -483,6 +489,11 @@ button.uic-button.red {
   left: 0;
   transform: translateY(-60px);
 }
+.uic-slide-menu.top > input[type=checkbox].menu-toggle + label,
+.uic-slide-menu > input[type=checkbox].menu-toggle.top + label {
+  top: 0px;
+  left: 10px;
+}
 .uic-slide-menu.top > input[type=checkbox].menu-toggle:checked + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked + label  {
   transform: translateY(60px) rotate(90deg);
@@ -508,9 +519,14 @@ button.uic-button.red {
   left: 0;
   transform: translateY(60px);
 }
+.uic-slide-menu.bottom > input[type=checkbox].menu-toggle + label,
+.uic-slide-menu > input[type=checkbox].menu-toggle.bottom + label {
+  position: fixed;
+  bottom: 0;
+}
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked + label  {
-  transform: translateY(-20px) translateX(-20px) rotate(-90deg);
+  transform: translateY(-60px) rotate(90deg);
 }
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .uic-content-container.push-content {
