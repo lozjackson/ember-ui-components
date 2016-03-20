@@ -7,16 +7,50 @@
 <div class="panel">
   <h2>Description</h2>
   <p>
-    The `DialogService` can be used to display a dialog to the user.  There are
-    two built-in modal dialog types - alert and confirm.  When you open a dialog
-    using the provided methods, a promise is returned.  This promise can be
-    resolved, or rejected.
+    The <code>DialogService</code> can be used to display a dialog to the user.  There are
+    two built-in modal dialog types - <code>alert</code> and <code>confirm</code>.
   </p>
+
+  <h3>Basic use:</h3>
+
+  <p>
+    Place a {{#link-to 'modal-dialog-component'}}<code>ModalDialogComponent</code>{{/link-to}} in the <code>application</code> template.
+    Then use the <code>DialogService</code> to render a modal dialog.
+  </p>
+  <p>Inject the <code>DialogService</code> into any controllers or components that need it.</p>
+
+  <div class="panel code">
+    <pre><code>import Ember from 'ember';
+
+export default Ember.Component.extend({
+
+  dialog: Ember.inject.service(), // inject the dialog service
+
+  someMethod() {
+
+    this.get('dialog').alert('Something happened!');
+
+  }
+});</code></pre>
+  </div>
 </div>
 
 <div class="panel">
 
   <h2>Alert</h2>
+
+  <p>alert( message )</p>
+  <p>
+    <code>message</code> can be a <code>String</code> or an <code>Object</code>
+  </p>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert('Something happened!');</code></pre>
+  </div>
+
+  <div>
+    <button {{action 'alert' 'Something happened!'}}>Click here</button>
+  </div>
 
   <div class="panel code">
     <pre><code>this.get('dialog').alert({
@@ -34,6 +68,11 @@
 <div class="panel">
 
   <h2>Confirm</h2>
+
+  <p>confirm( message )</p>
+  <p>
+    <code>message</code> can be a <code>String</code> or an <code>Object</code>
+  </p>
 
   <div class="panel code">
     <pre><code>this.get('dialog').confirm({
@@ -56,6 +95,11 @@
 <div class="panel">
 
   <h2>openModal</h2>
+
+  <p>openModal( message, type )</p>
+  <p>
+    <code>message</code> can be a <code>String</code> or an <code>Object</code>
+  </p>
 
   <p>The <code>openModal()</code> method can be used to open a custom modal component. </p>
 

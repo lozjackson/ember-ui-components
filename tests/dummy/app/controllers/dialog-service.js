@@ -17,6 +17,10 @@ export default Ember.Controller.extend({
       });
     },
 
+    alert(message) {
+      this.get('dialog').alert(message);
+    },
+
     openAlert() {
       this.get('dialog').alert({
         title: 'An event has happened',
