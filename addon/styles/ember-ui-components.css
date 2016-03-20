@@ -638,10 +638,16 @@ button.uic-button.red {
 }
 
 
+.uic-modal-dialog .uic-content-mask.active,
+.uic-modal-window .uic-content-mask.active,
+.uic-disable-pointer-events {
+  pointer-events: none;
+}
 
-
-
-
+.uic-modal-window.uic-disable-pointer-events .uic-modal,
+.uic-modal-dialog.uic-disable-pointer-events .uic-modal {
+  pointer-events: all;
+}
 
 
 
