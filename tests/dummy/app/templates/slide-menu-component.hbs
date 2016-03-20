@@ -13,6 +13,16 @@
     slides into view when opened.
   </p>
 
+  <h3>Basic use:</h3>
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-slide-menu&#125;&#125;
+
+  // ... page content goes here ...
+
+&#123;&#123;/uic-slide-menu&#125;&#125;</code></pre>
+  </div>
+
+  <h3>Advanced use:</h3>
   <div class="panel code">
     <pre><code>&#123;&#123;#uic-slide-menu
   menuOpen=true|false
@@ -25,6 +35,7 @@
   maskContent=true|false
   disableScroll=true|false
   showDefaultToggle=true|false
+  menuToggleClass="add css class names here"
   as |menuOpen|
   &#125;&#125;
 
@@ -75,7 +86,7 @@
   <ul>
     <li>
       <h4>{Boolean} menuOpen</h4>
-      <p>Optional. Default: False</p>
+      <p>Optional. Default: <code>false</code></p>
       <p>
         Set this property to true or false to open or close the menu.
       </p>
@@ -102,7 +113,7 @@
 
     <li>
       <h4>{String} menuTemplatePath</h4>
-      <p>Optional.  Default: `menus`</p>
+      <p>Optional.  Default: <code>menus</code></p>
       <p>
         This is the menu template path.  This is only used when `menuTemplate` is null.
       </p>
@@ -110,7 +121,7 @@
 
     <li>
       <h4>{Boolean} staticTemplate</h4>
-      <p>Optional.  Default: false</p>
+      <p>Optional.  Default: <code>false</code></p>
       <p>
         If `staticTemplate` is true then the `menuTemplate` property will be required.
         If `staticTemplate` is false, then the menu template will be dynamically
@@ -120,7 +131,7 @@
 
     <li>
       <h4>{String} menuPosition</h4>
-      <p>Optional.  Default: `left`</p>
+      <p>Optional.  Default: <code>left</code></p>
       <p>
         This is the position of the menu on the window.
       </p>
@@ -128,7 +139,7 @@
 
     <li>
       <h4>{Boolean} pushContent</h4>
-      <p>Optional. Default: false</p>
+      <p>Optional. Default: <code>false</code></p>
       <p>
         If true the page content will slide with the menu.  If false the menu will
         slide over the top of the page content.
@@ -137,7 +148,7 @@
 
     <li>
       <h4>{String} pushContentType</h4>
-      <p>Optional. Default: 'push-content'</p>
+      <p>Optional. Default: <code>push-content</code></p>
       <p>
         This property allows you to change the way the content is pushed when the
         menu is opened.  The string value is used for the class name that is added
@@ -156,7 +167,7 @@
 
     <li>
       <h4>{Boolean} maskContent</h4>
-      <p>Optional. Default: true</p>
+      <p>Optional. Default: <code>true</code></p>
       <p>
         If true the page content will be masked while the menu is open.
       </p>
@@ -164,7 +175,7 @@
 
     <li>
       <h4>{Boolean} disableScroll</h4>
-      <p>Optional. Default: true</p>
+      <p>Optional. Default: <code>true</code></p>
       <p>
         If true the <code>uic-disable-scroll</code> css class will be applied to
         the <code>body</code> element while the menu is open.
@@ -173,11 +184,20 @@
 
     <li>
       <h4>{Boolean} showDefaultToggle</h4>
-      <p>Optional.  Default: true</p>
+      <p>Optional.  Default: <code>true</code></p>
       <p>
         If true then the default menu toggle button will be displayed.  If you want
         to create your own menu toggle button, then set this parameter to false and
         the default toggle button will not be displayed.
+      </p>
+    </li>
+
+    <li>
+      <h4>{String} menuToggleClass</h4>
+      <p>Optional.  Default: <code>uic-menu-toggle-fixed</code></p>
+      <p>
+        The menu toggle button class attribute.  By default this is set to
+        <code>uic-menu-toggle-fixed</code>.
       </p>
     </li>
   </ul>
