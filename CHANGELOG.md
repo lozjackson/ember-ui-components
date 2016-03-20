@@ -2,6 +2,8 @@
 
 ### v0.1.0
 
+[FEATURE] Add `menuToggleClass` property to `SlideMenuComponent`
+
 [FEATURE] Add `pushContentType` property to `SlideMenuComponent`
 
 [FEATURE] Add `squeeze-content` css class for the `SlideMenuComponent`
