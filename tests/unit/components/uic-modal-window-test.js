@@ -24,6 +24,14 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[2], 'uic-modal-container');
 });
 
+test('classNameBindings', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('classNameBindings').length, 1);
+  assert.equal(component.get('classNameBindings')[0], 'disablePointerEvents:uic-disable-pointer-events');
+});
+
 test('showCloseButton', function(assert) {
   assert.expect(1);
   var component = this.subject();
