@@ -21,6 +21,7 @@
   staticTemplate=true|false
   menuPosition="left|right|top|bottom"
   pushContent=true|false
+  pushContentType="push-content|squeeze-content"
   maskContent=true|false
   showDefaultToggle=true|false
   as |menuOpen|
@@ -49,6 +50,10 @@
     <li>
       {{uic-check-box class="toggle" checkboxId="pushContent" checked=application.pushContent}}
       <label for="pushContent">pushContent</label>
+    </li>
+    <li>
+      {{uic-select selected=application.pushContentType options=pushContentTypeOptions disabled=(unless application.pushContent true)}}
+      pushContentType
     </li>
     <li>
       {{uic-check-box class="toggle" checkboxId="maskContent" checked=application.maskContent}}
