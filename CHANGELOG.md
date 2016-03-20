@@ -2,11 +2,15 @@
 
 ### v0.1.0
 
-[FEATURE]  Add `maskContent` option to `ModalDialogComponent` and `ModalWindowComponent`
+[FEATURE] Add `pushContentType` property to `SlideMenuComponent`
 
-[FEATURE]  Add `disableScroll` option to `ModalDialogComponent` and `ModalWindowComponent`
+[FEATURE] Add `squeeze-content` css class for the `SlideMenuComponent`
 
-[FEATURE]  Add `disablePointerEvents` option to `ModalDialogComponent` and `ModalWindowComponent`
+[FEATURE] Add `maskContent` option to `ModalDialogComponent` and `ModalWindowComponent`
+
+[FEATURE] Add `disableScroll` option to `ModalDialogComponent`, `ModalWindowComponent` and `SlideMenuComponent`
+
+[FEATURE] Add `disablePointerEvents` option to `ModalDialogComponent` and `ModalWindowComponent`
 
 
 
