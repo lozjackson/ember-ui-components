@@ -31,11 +31,11 @@ export default Ember.Controller.extend({
       }, 'my-custom-modal');
     },
 
-    clickOutsideModal(mode) {
+    applyOption(option, value) {
       this.get('dialog').alert({
         title: 'An event has happened',
-        clickOutsideModal: mode
+        [option]: value
       });
-    },
+    }
   }
 });

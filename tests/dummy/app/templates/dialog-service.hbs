@@ -97,7 +97,7 @@
   </div>
 
   <div>
-    <button {{action "clickOutsideModal" 'shake'}}>Click here</button>
+    <button {{action "applyOption" "clickOutsideModal" 'shake'}}>Click here</button>
   </div>
 
   <div class="panel code">
@@ -108,8 +108,86 @@
   </div>
 
   <div>
-    <button {{action "clickOutsideModal" false}}>Click here</button>
+    <button {{action "applyOption" "clickOutsideModal" false}}>Click here</button>
   </div>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  clickOutsideModal: 'disable-pointer-events'
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "applyOption" "clickOutsideModal" 'disable-pointer-events'}}>Click here</button>
+  </div>
+
+</div>
+
+<div class="panel">
+
+  <h2>maskContent</h2>
+
+  <p>If <code>true</code> then an overlay will be applied to the content.</p>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  maskContent: true
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "applyOption" "maskContent" true}}>Click here</button>
+  </div>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  maskContent: false
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "applyOption" "maskContent" false}}>Click here</button>
+  </div>
+
+
+
+</div>
+
+<div class="panel">
+
+  <h2>disableScroll</h2>
+
+  <p>
+    If <code>true</code> then an the <code>modal-dialog-is-open</code> is applied
+    to the <code>body</code> element.
+  </p>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  disableScroll: true
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "applyOption" "disableScroll" true}}>Click here</button>
+  </div>
+
+  <div class="panel code">
+    <pre><code>this.get('dialog').alert({
+  title: 'An event has happened',
+  disableScroll: false
+});</code></pre>
+  </div>
+
+  <div>
+    <button {{action "applyOption" "disableScroll" false}}>Click here</button>
+  </div>
+
+
 
 </div>
 
