@@ -276,7 +276,10 @@ export default Ember.Service.extend({
     @private
   */
   resolve() {
-    this.get('deferred').resolve();
+    let deferred = this.get('deferred')
+    if (deferred) {
+      deferred.resolve();;
+    }
     this.reset();
   },
 
@@ -285,7 +288,10 @@ export default Ember.Service.extend({
     @private
   */
   reject() {
-    this.get('deferred').reject();
+    let deferred = this.get('deferred')
+    if (deferred) {
+      deferred.reject();
+    }
     this.reset();
   },
 
