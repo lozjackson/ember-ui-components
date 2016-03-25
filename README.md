@@ -25,4 +25,5 @@ http://lozjackson.github.io/ember-ui-components/
 
 ## CSS Classes
 
-* panel
+* Button
+* Panel
