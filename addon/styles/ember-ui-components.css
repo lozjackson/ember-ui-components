@@ -46,6 +46,11 @@ button.uic-ok-button:hover,
 button.uic-cancel-button:hover {
   box-shadow: 1px 1px 1px #888;
 }
+button.uic-button:active,
+button.uic-ok-button:active,
+button.uic-cancel-button:active {
+  color: #000;
+}
 button.uic-button.large {
   padding: 10px 30px;
   font-size: 1rem;
