@@ -9,12 +9,12 @@
 
   <h2>ModalWindow</h2>
   <div>
-    <button {{action "toggle" "openDialog"}}>Click here</button>
+    <button class="uic-button blue" {{action "toggle" "openDialog"}}>Click here</button>
     {{#if openDialog}}
       {{#uic-modal-window title="Modal Window" modalClassNames="my-modal" closeModal="closeDialog"}}
         <h2>Modal</h2>
         <div>
-          <button {{action "toggle" "openDialog"}}>Close</button>
+          <button class="uic-button" {{action "toggle" "openDialog"}}>Close</button>
         </div>
       {{/uic-modal-window}}
     {{/if}}
@@ -25,7 +25,7 @@
 
   <h2>Routed ModalWindow</h2>
   <div>
-    <button {{action "openRoutedDialog"}}>Click here</button>
+    <button class="uic-button blue" {{action "openRoutedDialog"}}>Click here</button>
   </div>
 </div>
 
