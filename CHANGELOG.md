@@ -1,8 +1,10 @@
 # Change Log
 
+[FEATURE] Update `uic-button` css class
+
 [FEATURE] Update `uic-modal` template
 
-[BUGFIX] Fix error when calling `dialog.closeModal` when the modal dialog is not open.
+[BUGFIX] Fix error when calling the `DialogService.closeModal()` method when the modal dialog is not open.
 
 
 
