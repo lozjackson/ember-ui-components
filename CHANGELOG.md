@@ -1,16 +1,5 @@
 # Change Log
 
-Change the default setting for `disableScroll` to `false` for `ModalDialogComponent` and `ModalWindowComponent`
-
-[FEATURE] Update `uic-button` css class
-
-[FEATURE] Update `uic-modal` template
-
-[BUGFIX] Fix error when calling the `DialogService.closeModal()` method when the modal dialog is not open.
-
-
-
-
 ### v0.1.0
 
 [FEATURE] Add `menuToggleClass` property to `SlideMenuComponent`
@@ -24,6 +13,14 @@ Change the default setting for `disableScroll` to `false` for `ModalDialogCompon
 [FEATURE] Add `disableScroll` option to `ModalDialogComponent`, `ModalWindowComponent` and `SlideMenuComponent`
 
 [FEATURE] Add `disablePointerEvents` option to `ModalDialogComponent` and `ModalWindowComponent`
+
+[FEATURE] Update `uic-button` css class
+
+[FEATURE] Update `uic-modal` template
+
+[BUGFIX] Fix error when calling the `DialogService.closeModal()` method when the modal dialog is not open.
+
+Update to Ember-cli 2.4.2
 
 
 
