@@ -68,12 +68,30 @@ export default Ember.Component.extend({
   pushContent: false,
 
   /**
+    Options:
+    * `push-content`
+    * `squeeze-content`
+
+    @property pushContentType
+    @type {String}
+    @default `push-content`
+  */
+  pushContentType: 'push-content',
+
+  /**
     If true the page content will be masked while the menu is open.
     @property maskContent
     @type {Boolean}
     @default `true`
   */
   maskContent: true,
+
+  /**
+    @property disableScroll
+    @type {Boolean}
+    @default `true`
+  */
+  disableScroll: true,
 
   /**
     If true then the default menu toggle button will be displayed.  If you want
@@ -84,6 +102,13 @@ export default Ember.Component.extend({
     @default `true`
   */
   showDefaultToggle: true,
+
+  /**
+    @property menuToggleClass
+    @type {String}
+    @default `uic-menu-toggle-fixed`
+  */
+  menuToggleClass: 'uic-menu-toggle-fixed',
 
   /**
     If `staticTemplate` is true then the `menuTemplate` property will be required.
@@ -237,9 +262,13 @@ export default Ember.Component.extend({
   */
   menuOpenChanged: Ember.observer('menuOpen', function() {
     if (this.get('menuOpen')) {
-      Ember.$('body').addClass('menu-is-open');
+      let classNames = ['menu-is-open'];
+      if (this.get('disableScroll')) {
+        classNames.push('uic-disable-scroll');
+      }
+      Ember.$('body').addClass(classNames.join(' '));
     } else {
-      Ember.$('body').removeClass('menu-is-open');
+      Ember.$('body').removeClass('menu-is-open uic-disable-scroll');
     }
   }),
 

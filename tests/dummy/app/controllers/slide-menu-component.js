@@ -4,5 +4,7 @@ export default Ember.Controller.extend({
 
   application: Ember.inject.controller(),
 
-  menuPositions: ['left', 'right', 'top', 'bottom']
+  menuPositions: ['left', 'right', 'top', 'bottom'],
+
+  pushContentTypeOptions: ['push-content', 'squeeze-content']
 });

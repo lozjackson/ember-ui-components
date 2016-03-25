@@ -64,6 +64,14 @@ test('pushContent', function (assert) {
   assert.equal(this.$('div.uic-content-container.push-content').length, 0);
 });
 
+test('pushContentType - squeeze-content', function (assert) {
+  assert.expect(2);
+  this.set('pushContent', true);
+  this.render(hbs`{{uic-slide-menu pushContent=pushContent pushContentType="squeeze-content"}}`);
+  assert.equal(this.$('div.uic-content-container.squeeze-content').length, 1);
+  assert.equal(this.$('div.uic-content-container.push-content').length, 0);
+});
+
 test('maskContent', function (assert) {
   assert.expect(3);
   this.set('maskContent', false);
@@ -101,4 +109,18 @@ test('menuOpenChanged', function (assert) {
 
   this.set('menuOpen', false);
   assert.equal(Ember.$('body.menu-is-open').length, 0);
+});
+
+test('disableScroll when menu is open', function (assert) {
+  assert.expect(3);
+  this.set('menuOpen', false);
+  this.set('disableScroll', true);
+  this.render(hbs`{{uic-slide-menu menuOpen=menuOpen disableScroll=disableScroll}}`);
+  assert.equal(Ember.$('body.uic-disable-scroll').length, 0);
+
+  this.set('menuOpen', true);
+  assert.equal(Ember.$('body.uic-disable-scroll').length, 1);
+
+  this.set('menuOpen', false);
+  assert.equal(Ember.$('body.uic-disable-scroll').length, 0);
 });

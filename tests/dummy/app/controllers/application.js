@@ -6,5 +6,8 @@ export default Ember.Controller.extend({
   menuPosition: "left",
   pushContent: true,
   maskContent: true,
-  showDefaultToggle: true
+  showDefaultToggle: true,
+  pushContentType: 'push-content',
+  disableScroll: true
+
 });

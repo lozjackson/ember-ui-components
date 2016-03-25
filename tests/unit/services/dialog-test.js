@@ -100,6 +100,14 @@ test('resolve() method', function(assert) {
   service.resolve();
 });
 
+test('resolve() method - defered null', function(assert) {
+  assert.expect(1);
+  let service = this.subject();
+  service.set('reset', () => assert.ok(true));
+  service.set('deferred', null);
+  service.resolve();
+});
+
 test('reject() method', function(assert) {
   assert.expect(2);
   let service = this.subject();
@@ -107,6 +115,14 @@ test('reject() method', function(assert) {
   service.set('deferred', {
     reject: () => assert.ok(true)
   });
+  service.reject();
+});
+
+test('reject() method - defered null', function(assert) {
+  assert.expect(1);
+  let service = this.subject();
+  service.set('reset', () => assert.ok(true));
+  service.set('deferred', null);
   service.reject();
 });
 

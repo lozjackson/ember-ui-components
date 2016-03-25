@@ -29,11 +29,12 @@ test('classNames', function(assert) {
 });
 
 test('classNameBindings', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('classNameBindings').length, 1);
+  assert.equal(component.get('classNameBindings').length, 2);
   assert.equal(component.get('classNameBindings')[0], 'dialog.open:uic-modal-container');
+  assert.equal(component.get('classNameBindings')[1], '_disablePointerEvents:uic-disable-pointer-events');
 });
 
 test('attributeBindings', function(assert) {
@@ -51,6 +52,30 @@ test('tabindex', function(assert) {
   assert.equal(component.get('tabindex'), 1);
 });
 
+test('maskContent', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('maskContent'), true);
+});
+
+test('_maskContent', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('_maskContent'), true);
+});
+
+test('_maskContent - dialog.maskContent has priority', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('dialog', Ember.Object.create({
+    maskContent: false
+  }));
+  this.render();
+  assert.equal(component.get('_maskContent'), false);
+});
+
 test('clickOutsideModal', function(assert) {
   assert.expect(1);
   var component = this.subject();
@@ -63,6 +88,56 @@ test('_clickOutsideModal', function(assert) {
   var component = this.subject();
   this.render();
   assert.equal(component.get('_clickOutsideModal'), false);
+});
+
+test('_disablePointerEvents', function (assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('clickOutsideModal', false);
+  this.render();
+  assert.equal(component.get('_disablePointerEvents'), false);
+  run(() => component.set('clickOutsideModal', 'disable-pointer-events'));
+  assert.equal(component.get('_disablePointerEvents'), true);
+});
+
+test('disableScroll', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('disableScroll'), false);
+});
+
+test('_disableScroll', function (assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('disableScroll', true);
+  this.render();
+  assert.equal(component.get('_disableScroll'), true);
+  run(() => component.set('disableScroll', false));
+  assert.equal(component.get('_disableScroll'), false);
+});
+
+test('_disableScroll - dialog.disableScroll has priority', function (assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('dialog', Ember.Object.create({
+    disableScroll: undefined
+  }));
+  component.set('disableScroll', true);
+  this.render();
+  assert.equal(component.get('_disableScroll'), true);
+  run(() => component.set('dialog.disableScroll', false));
+  assert.equal(component.get('_disableScroll'), false);
+});
+
+test('_disableScroll should be false if disablePointerEvents is true', function (assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('disableScroll', true);
+  this.render();
+  assert.equal(component.get('_disableScroll'), true);
+  run(() => component.set('clickOutsideModal', 'disable-pointer-events'));
+  assert.equal(component.get('_disableScroll'), false);
 });
 
 test('displayModal', function(assert) {

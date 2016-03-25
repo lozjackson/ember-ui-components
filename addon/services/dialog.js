@@ -70,19 +70,41 @@ export default Ember.Service.extend({
   body: null,
 
   /**
+    @property maskContent
+    @type {Boolean}
+    @default `undefined`
+  */
+  maskContent: undefined,
+
+  /**
+    @property disableScroll
+    @type {Boolean}
+    @default `undefined`
+  */
+  disableScroll: undefined,
+
+  /**
     ## clickOutsideModal
 
     Specify what should happen when the user clicks outside the modal dialog.
 
     Options
-    * Null - do nothing
-    * Boolean - `true` calls the `_confirm` method on the modal component, `false` calls the `_cancel` method.
-    * String - if a method is found on the modal component, then call it.
-    * Function - calls the passed in method
+
+    * `Null` - do nothing
+    * `Boolean` - `true` calls the `_confirm` method on the modal component, `false` calls the `_cancel` method.
+    * `String` - if a method is found on the modal component, then call it.
+    * `Function` - calls the passed in method
+
+    Keywords & built-in methods
+
+    * `confirm` calls the `_confirm` method
+    * `cancel` calls the `_cancel` method
+    * `shake` calls the `shake` method
+    * `disable-pointer-events` applies the `uic-disable-pointer-events` class to the modal container
 
     @property clickOutsideModal
     @type {String|Function|Boolean|Null}
-    @default undefined
+    @default `undefined`
   */
   clickOutsideModal: undefined,
 
@@ -254,7 +276,10 @@ export default Ember.Service.extend({
     @private
   */
   resolve() {
-    this.get('deferred').resolve();
+    let deferred = this.get('deferred')
+    if (deferred) {
+      deferred.resolve();;
+    }
     this.reset();
   },
 
@@ -263,7 +288,10 @@ export default Ember.Service.extend({
     @private
   */
   reject() {
-    this.get('deferred').reject();
+    let deferred = this.get('deferred')
+    if (deferred) {
+      deferred.reject();
+    }
     this.reset();
   },
 
@@ -290,6 +318,8 @@ export default Ember.Service.extend({
       body: null,
       open: false,
       type: null,
+      maskContent: undefined,
+      disableScroll: undefined,
       clickOutsideModal: undefined,
       deferred: null
     });

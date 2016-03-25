@@ -1,7 +1,7 @@
 
-body.menu-is-open,
 body.modal-dialog-is-open,
-body.modal-window-is-open {
+body.modal-window-is-open,
+.uic-disable-scroll {
   overflow: hidden;
 }
 
@@ -27,19 +27,46 @@ select.uic-select {
 }
 
 /*
-  button
+  uic-button
 */
-button.uic-button {
+button.uic-button,
+button.uic-ok-button,
+button.uic-cancel-button {
+  margin: 0;
   padding: 5px 20px;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: .9rem;
   background: #FFF;
-  border-radius: 4px;
-  border: 1px solid black;
+  border-radius: 2px;
+  border: 1px solid #CDCDCD;
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+button.uic-button:hover,
+button.uic-ok-button:hover,
+button.uic-cancel-button:hover {
+  box-shadow: 1px 1px 1px #888;
+}
+button.uic-button:active,
+button.uic-ok-button:active,
+button.uic-cancel-button:active {
+  color: #000;
+}
+button.uic-button.large {
+  padding: 10px 30px;
+  font-size: 1rem;
+}
+button.uic-button.small {
+  padding: 2px 10px;
+  font-size: .8rem;
+}
+button.uic-button.extra-small {
+  padding: 1px 5px;
+  font-size: .6rem;
 }
 button.uic-button.blue {
   color: #fff;
   background: #388FFF;
+  box-sizing: border-box;
   border: 1px solid transparent;
 }
 button.uic-button.green {
@@ -259,7 +286,7 @@ button.uic-button.red {
   slide-menu content-container
 */
 .uic-slide-menu > .uic-content-container {
-  transition: transform .4s;
+  transition: transform .4s, margin .4s;
 }
 
 /*
@@ -288,14 +315,13 @@ button.uic-button.red {
   menu-toggle button
 */
 .uic-slide-menu > input[type=checkbox].menu-toggle {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   z-index: 200;
 }
 .uic-slide-menu > input[type=checkbox].menu-toggle ~ label {
   position: absolute;
   margin: 0;
-  top: 0px;
   z-index: 200;
   display: block;
   font-size:3em;
@@ -303,6 +329,10 @@ button.uic-button.red {
   cursor: pointer;
   transform: translate3d(0, 0, 0);
   transition: transform .4s;
+}
+
+.uic-slide-menu > input[type=checkbox].menu-toggle ~ label.uic-menu-toggle-fixed {
+  position: fixed;
 }
 
 .uic-slide-menu > nav li {
@@ -372,6 +402,7 @@ button.uic-button.red {
 
 .uic-slide-menu.left > input[type=checkbox].menu-toggle + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.left + label {
+  top: 0px;
   left: 10px;
 }
 .uic-slide-menu.left > input[type=checkbox].menu-toggle:checked + label,
@@ -381,6 +412,10 @@ button.uic-button.red {
 .uic-slide-menu.left > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ .uic-content-container.push-content {
   transform: translate3d(250px, 0, 0);
+}
+.uic-slide-menu.left > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ .uic-content-container.squeeze-content {
+  margin-left: 250px;
 }
 .uic-slide-menu.left > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.left:checked ~ nav.left {
@@ -406,6 +441,7 @@ button.uic-button.red {
 
 .uic-slide-menu.right > input[type=checkbox].menu-toggle + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right + label {
+  top: 0px;
   right: 10px;
 }
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked + label,
@@ -415,6 +451,10 @@ button.uic-button.red {
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ .uic-content-container.push-content {
   transform: translate3d(-250px, 0, 0);
+}
+.uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ .uic-content-container.squeeze-content {
+  margin-right: 250px;
 }
 .uic-slide-menu.right > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.right:checked ~ nav.right {
@@ -475,6 +515,11 @@ button.uic-button.red {
   left: 0;
   transform: translateY(-60px);
 }
+.uic-slide-menu.top > input[type=checkbox].menu-toggle + label,
+.uic-slide-menu > input[type=checkbox].menu-toggle.top + label {
+  top: 0px;
+  left: 10px;
+}
 .uic-slide-menu.top > input[type=checkbox].menu-toggle:checked + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked + label  {
   transform: translateY(60px) rotate(90deg);
@@ -482,6 +527,10 @@ button.uic-button.red {
 .uic-slide-menu.top > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ .uic-content-container.push-content {
   transform: translateY(60px);
+}
+.uic-slide-menu.top > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ .uic-content-container.squeeze-content {
+  margin-top: 60px;
 }
 .uic-slide-menu.top > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.top:checked ~ nav.top {
@@ -496,13 +545,22 @@ button.uic-button.red {
   left: 0;
   transform: translateY(60px);
 }
+.uic-slide-menu.bottom > input[type=checkbox].menu-toggle + label,
+.uic-slide-menu > input[type=checkbox].menu-toggle.bottom + label {
+  position: fixed;
+  bottom: 0;
+}
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked + label,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked + label  {
-  transform: translateY(-20px) translateX(-20px) rotate(-90deg);
+  transform: translateY(-60px) rotate(90deg);
 }
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.push-content,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .uic-content-container.push-content {
   transform: translateY(-60px);
+}
+.uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ .uic-content-container.squeeze-content,
+.uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ .uic-content-container.squeeze-content {
+  margin-bottom: 60px;
 }
 .uic-slide-menu.bottom > input[type=checkbox].menu-toggle:checked ~ nav,
 .uic-slide-menu > input[type=checkbox].menu-toggle.bottom:checked ~ nav.bottom {
@@ -638,10 +696,16 @@ button.uic-button.red {
 }
 
 
+.uic-modal-dialog .uic-content-mask.active,
+.uic-modal-window .uic-content-mask.active,
+.uic-disable-pointer-events {
+  pointer-events: none;
+}
 
-
-
-
+.uic-modal-window.uic-disable-pointer-events .uic-modal,
+.uic-modal-dialog.uic-disable-pointer-events .uic-modal {
+  pointer-events: all;
+}
 
 
 
@@ -683,8 +747,8 @@ button.uic-button.red {
   justify-content: center;
 }
 .uic-modal-button-container button {
-  height: 25px;
-  width: 80px;
+  /*height: 25px;*/
+  min-width: 80px;
   margin: 10px;
 }
 header.uic-modal-header {
@@ -709,7 +773,7 @@ header.uic-modal-header button.uic-close-button {
   margin: 5px;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 1rem;
 }
 header.uic-modal-header button.uic-close-button:hover {

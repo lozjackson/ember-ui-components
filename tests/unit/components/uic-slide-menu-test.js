@@ -81,6 +81,14 @@ test('pushContent should be false', function (assert) {
   assert.equal(component.get('pushContent'), false, `'pushContent' should be false`);
 });
 
+test('pushContentType should have a default', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('pushContentType'), 'push-content', `'pushContentType' should be 'push-content'`);
+});
+
 test('maskContent should be true', function (assert) {
   assert.expect(1);
   var component = this.subject();
@@ -89,12 +97,28 @@ test('maskContent should be true', function (assert) {
   assert.equal(component.get('maskContent'), true, `'maskContent' should be true`);
 });
 
+test('disableScroll should be true', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('disableScroll'), true, `'disableScroll' should be true`);
+});
+
 test('showDefaultToggle', function (assert) {
   assert.expect(1);
   var component = this.subject();
   component.set('lookup', lookup);
   this.render();
   assert.equal(component.get('showDefaultToggle'), true, `'showDefaultToggle' should be true`);
+});
+
+test('menuToggleClass', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+  assert.equal(component.get('menuToggleClass'), 'uic-menu-toggle-fixed');
 });
 
 test('staticTemplate should be false', function (assert) {

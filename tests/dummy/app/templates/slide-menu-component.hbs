@@ -13,6 +13,23 @@
     slides into view when opened.
   </p>
 
+  <h3>Basic use:</h3>
+
+  <p>
+    Place the <code>SlideMenuComponent</code> in the <code>application</code> template.
+    Place the page content inside the slide menu.
+  </p>
+  <div class="panel code">
+    <pre><code>// application.hbs
+
+&#123;&#123;#uic-slide-menu&#125;&#125;
+
+  // ... page content goes here ...
+
+&#123;&#123;/uic-slide-menu&#125;&#125;</code></pre>
+  </div>
+
+  <h3>Advanced use:</h3>
   <div class="panel code">
     <pre><code>&#123;&#123;#uic-slide-menu
   menuOpen=true|false
@@ -21,8 +38,11 @@
   staticTemplate=true|false
   menuPosition="left|right|top|bottom"
   pushContent=true|false
+  pushContentType="push-content|squeeze-content"
   maskContent=true|false
+  disableScroll=true|false
   showDefaultToggle=true|false
+  menuToggleClass="add css class names here"
   as |menuOpen|
   &#125;&#125;
 
@@ -51,8 +71,16 @@
       <label for="pushContent">pushContent</label>
     </li>
     <li>
+      {{uic-select selected=application.pushContentType options=pushContentTypeOptions disabled=(unless application.pushContent true)}}
+      pushContentType
+    </li>
+    <li>
       {{uic-check-box class="toggle" checkboxId="maskContent" checked=application.maskContent}}
       <label for="maskContent">maskContent</label>
+    </li>
+    <li>
+      {{uic-check-box class="toggle" checkboxId="disableScroll" checked=application.disableScroll}}
+      <label for="disableScroll">disableScroll</label>
     </li>
     <li>
       {{uic-check-box class="toggle" checkboxId="showDefaultToggle" checked=application.showDefaultToggle}}
@@ -65,7 +93,7 @@
   <ul>
     <li>
       <h4>{Boolean} menuOpen</h4>
-      <p>Optional. Default: False</p>
+      <p>Optional. Default: <code>false</code></p>
       <p>
         Set this property to true or false to open or close the menu.
       </p>
@@ -92,7 +120,7 @@
 
     <li>
       <h4>{String} menuTemplatePath</h4>
-      <p>Optional.  Default: `menus`</p>
+      <p>Optional.  Default: <code>menus</code></p>
       <p>
         This is the menu template path.  This is only used when `menuTemplate` is null.
       </p>
@@ -100,7 +128,7 @@
 
     <li>
       <h4>{Boolean} staticTemplate</h4>
-      <p>Optional.  Default: false</p>
+      <p>Optional.  Default: <code>false</code></p>
       <p>
         If `staticTemplate` is true then the `menuTemplate` property will be required.
         If `staticTemplate` is false, then the menu template will be dynamically
@@ -110,7 +138,7 @@
 
     <li>
       <h4>{String} menuPosition</h4>
-      <p>Optional.  Default: `left`</p>
+      <p>Optional.  Default: <code>left</code></p>
       <p>
         This is the position of the menu on the window.
       </p>
@@ -118,7 +146,7 @@
 
     <li>
       <h4>{Boolean} pushContent</h4>
-      <p>Optional. Default: false</p>
+      <p>Optional. Default: <code>false</code></p>
       <p>
         If true the page content will slide with the menu.  If false the menu will
         slide over the top of the page content.
@@ -126,20 +154,57 @@
     </li>
 
     <li>
+      <h4>{String} pushContentType</h4>
+      <p>Optional. Default: <code>push-content</code></p>
+      <p>
+        This property allows you to change the way the content is pushed when the
+        menu is opened.  The string value is used for the class name that is added
+        to the content container.  There are some built-in classes, but you could
+        easily add your own css classes.
+      </p>
+      <p>
+        Built in classes include:
+      </p>
+        <ul>
+          <li><code>push-content</code></li>
+          <li><code>squeeze-content</code></li>
+        </ul>
+
+    </li>
+
+    <li>
       <h4>{Boolean} maskContent</h4>
-      <p>Optional. Default: true</p>
+      <p>Optional. Default: <code>true</code></p>
       <p>
         If true the page content will be masked while the menu is open.
       </p>
     </li>
 
     <li>
+      <h4>{Boolean} disableScroll</h4>
+      <p>Optional. Default: <code>true</code></p>
+      <p>
+        If true the <code>uic-disable-scroll</code> css class will be applied to
+        the <code>body</code> element while the menu is open.
+      </p>
+    </li>
+
+    <li>
       <h4>{Boolean} showDefaultToggle</h4>
-      <p>Optional.  Default: true</p>
+      <p>Optional.  Default: <code>true</code></p>
       <p>
         If true then the default menu toggle button will be displayed.  If you want
         to create your own menu toggle button, then set this parameter to false and
         the default toggle button will not be displayed.
+      </p>
+    </li>
+
+    <li>
+      <h4>{String} menuToggleClass</h4>
+      <p>Optional.  Default: <code>uic-menu-toggle-fixed</code></p>
+      <p>
+        The menu toggle button class attribute.  By default this is set to
+        <code>uic-menu-toggle-fixed</code>.
       </p>
     </li>
   </ul>
@@ -184,13 +249,15 @@
   <div class="panel code">
     <pre><code>&lt;button class="close-button" &#123;&#123;action 'closeMenu'}}&gt;X&lt;/button&gt;
 &lt;ul &#123;&#123;action 'closeMenu'&#125;&#125;
-  &#123;&#123;#link-to 'Home' 'index' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'CheckBoxComponent' 'check-box-component' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'SelectComponent' 'select-component' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'SlideMenuComponent' 'slide-menu-component' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'ContextMenuComponent' 'context-menu-component' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'ModalDialogComponent' 'modal-dialog-component' tagName="li"&#125;&#125;
-  &#123;&#123;#link-to 'PanelClass' 'panel-class' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'Home' 'index' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'CheckBoxComponent' 'check-box-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'SelectComponent' 'select-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'SlideMenuComponent' 'slide-menu-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'ContextMenuComponent' 'context-menu-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'ModalWindowComponent' 'modal-window-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'ModalDialogComponent' 'modal-dialog-component' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'DialogService' 'dialog-service' tagName="li"&#125;&#125;
+  &#123;&#123;link-to 'PanelClass' 'panel-class' tagName="li"&#125;&#125;
 &lt;/ul&gt;</code></pre>
   </div>
 </div>

@@ -1,3 +1,6 @@
 {{#if displayModal}}
+  {{#if _maskContent}}
+    {{uic-content-mask class="active"}}
+  {{/if}}
   {{component dialog.type}}
 {{/if}}

@@ -17,6 +17,10 @@ export default Ember.Controller.extend({
       });
     },
 
+    alert(message) {
+      this.get('dialog').alert(message);
+    },
+
     openAlert() {
       this.get('dialog').alert({
         title: 'An event has happened',
@@ -31,11 +35,11 @@ export default Ember.Controller.extend({
       }, 'my-custom-modal');
     },
 
-    clickOutsideModal(mode) {
+    applyOption(option, value) {
       this.get('dialog').alert({
         title: 'An event has happened',
-        clickOutsideModal: mode
+        [option]: value
       });
-    },
+    }
   }
 });

@@ -32,11 +32,40 @@ export default Ember.Component.extend({
   classNames: ['uic-modal-window', 'uic-modal-container'],
 
   /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['disablePointerEvents:uic-disable-pointer-events']`
+  */
+  classNameBindings: ['disablePointerEvents:uic-disable-pointer-events'],
+
+  /**
     @property showCloseButton
     @type {Boolean}
     @default `true`
   */
   showCloseButton: true,
+
+  /**
+    @property maskContent
+    @type {Boolean}
+    @default `true`
+  */
+  maskContent: true,
+
+  /**
+    @property disableScroll
+    @type {Boolean}
+    @default `false`
+  */
+  disableScroll: false,
+
+  /**
+    @property disablePointerEvents
+    @type {Boolean}
+    @default 'false'
+  */
+  disablePointerEvents: false,
 
   /**
     Alias of `lookup.currentRouteName`
@@ -59,7 +88,9 @@ export default Ember.Component.extend({
   */
   didInsertElement() {
     this._super(...arguments);
-    Ember.$('body').addClass('modal-window-is-open');
+    if (this.get('disableScroll')) {
+      Ember.$('body').addClass('modal-window-is-open');
+    }
   },
 
   /**

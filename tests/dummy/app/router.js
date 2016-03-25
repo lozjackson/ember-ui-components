@@ -15,6 +15,7 @@ Router.map(function() {
   });
   this.route('modal-dialog-component');
   this.route('dialog-service');
+  this.route('button-class');
   this.route('panel-class');
 });
 

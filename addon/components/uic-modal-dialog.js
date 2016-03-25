@@ -34,9 +34,9 @@ export default Ember.Component.extend({
     @property classNameBindings
     @type {Array}
     @private
-    @default `['dialogOpen:uic-modal-container']`
+    @default `['dialogOpen:uic-modal-container', '_disablePointerEvents:uic-disable-pointer-events']`
   */
-  classNameBindings: ['dialog.open:uic-modal-container'],
+  classNameBindings: ['dialog.open:uic-modal-container', '_disablePointerEvents:uic-disable-pointer-events'],
 
   /**
     @property attributeBindings
@@ -55,15 +55,44 @@ export default Ember.Component.extend({
   tabindex: 1,
 
   /**
+    @property maskContent
+    @type {Boolean}
+    @default `true`
+  */
+  maskContent: true,
+
+  /**
+    Computed property
+    @property _maskContent
+    @type {Boolean}
+    @private
+  */
+  _maskContent: computed('dialog.maskContent', 'maskContent', function () {
+    let maskContent = this.get('dialog.maskContent');
+    if (Ember.typeOf(maskContent) === 'undefined') {
+      maskContent = this.get('maskContent');
+    }
+    return maskContent;
+  }),
+
+  /**
     ## clickOutsideModal
 
-    Options
-    * null - do nothing
-    * Boolean - true calls the `_confirm` method, false calls the `_cancel` method.
-    * string - if a method is found on the component, then call it.
-    * function - calls the method
+    Specify what should happen when the user clicks outside the modal dialog.
 
-    built-in methods include 'confirm', 'cancel', 'shake'.
+    Options
+
+    * `Null` - do nothing
+    * `Boolean` - `true` calls the `_confirm` method, `false` calls the `_cancel` method.
+    * `String` - if a method is found on the component, then call it.
+    * `Function` - calls the method
+
+    Keywords & built-in methods
+
+    * `confirm` calls the `_confirm` method
+    * `cancel` calls the `_cancel` method
+    * `shake` calls the `shake` method
+    * `disable-pointer-events` applies the `uic-disable-pointer-events` class to the modal container
 
     @property clickOutsideModal
     @type {String|Function|Boolean|Null}
@@ -83,6 +112,38 @@ export default Ember.Component.extend({
       clickOutsideModal = this.get('clickOutsideModal');
     }
     return clickOutsideModal;
+  }),
+
+  /**
+    To disable pointer events set the `clickOutsideModal` property to the string `disable-pointer-events`.
+
+    @property _disablePointerEvents
+    @type {Boolean}
+    @private
+  */
+  _disablePointerEvents: computed('_clickOutsideModal', function () {
+    let _clickOutsideModal = this.get('_clickOutsideModal');
+    return Ember.typeOf(_clickOutsideModal) === 'string' && _clickOutsideModal === 'disable-pointer-events';
+  }),
+
+  /**
+    @property disableScroll
+    @type {Boolean}
+    @default `false`
+  */
+  disableScroll: false,
+
+  /**
+    @property _disableScroll
+    @type {Boolean}
+    @private
+  */
+  _disableScroll: computed('dialog.disableScroll', 'disableScroll', '_disablePointerEvents', function () {
+    let disableScroll = this.get('dialog.disableScroll');
+    if (Ember.typeOf(disableScroll) === 'undefined') {
+      disableScroll = this.get('disableScroll');
+    }
+    return disableScroll && !this.get('_disablePointerEvents');
   }),
 
   /**
@@ -149,10 +210,12 @@ export default Ember.Component.extend({
     @event dialogOpenChanged
     @private
   */
-  dialogOpenChanged: Ember.observer('dialog.open', function() {
+  dialogOpenChanged: Ember.observer('dialog.open', '_disableScroll', function() {
     if (this.get('dialog.open')) {
-      Ember.$('body').addClass('modal-dialog-is-open');
       Ember.$(this.get('element')).focus();
+      if (this.get('_disableScroll')) {
+        Ember.$('body').addClass('modal-dialog-is-open');
+      }
     }else {
       Ember.$('body').removeClass('modal-dialog-is-open');
     }
