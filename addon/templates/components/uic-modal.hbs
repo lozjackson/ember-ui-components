@@ -1,1 +1,7 @@
-{{yield}}
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  <h2>{{dialog.title}}</h2>
+  <p>{{dialog.body}}</p>
+  <button {{action 'closeModal'}}>Close</button>
+{{/if}}
