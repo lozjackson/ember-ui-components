@@ -1,5 +1,12 @@
 # Change Log
 
+[FEATURE] Update `uic-modal` template
+
+[BUGFIX] Fix error when calling `dialog.closeModal` when the modal dialog is not open.
+
+
+
+
 ### v0.1.0
 
 [FEATURE] Add `menuToggleClass` property to `SlideMenuComponent`
