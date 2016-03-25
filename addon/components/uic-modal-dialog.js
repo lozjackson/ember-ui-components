@@ -129,9 +129,9 @@ export default Ember.Component.extend({
   /**
     @property disableScroll
     @type {Boolean}
-    @default `true`
+    @default `false`
   */
-  disableScroll: true,
+  disableScroll: false,
 
   /**
     @property _disableScroll

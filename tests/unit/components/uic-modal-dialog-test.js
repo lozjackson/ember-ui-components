@@ -104,7 +104,7 @@ test('disableScroll', function (assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('disableScroll'), true);
+  assert.equal(component.get('disableScroll'), false);
 });
 
 test('_disableScroll', function (assert) {

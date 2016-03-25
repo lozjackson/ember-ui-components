@@ -1,5 +1,7 @@
 # Change Log
 
+Change the default setting for `disableScroll` to `false` for `ModalDialogComponent` and `ModalWindowComponent`
+
 [FEATURE] Update `uic-button` css class
 
 [FEATURE] Update `uic-modal` template

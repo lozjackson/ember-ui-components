@@ -32,6 +32,13 @@ test('classNameBindings', function(assert) {
   assert.equal(component.get('classNameBindings')[0], 'disablePointerEvents:uic-disable-pointer-events');
 });
 
+test('disableScroll', function (assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('disableScroll'), false);
+});
+
 test('showCloseButton', function(assert) {
   assert.expect(1);
   var component = this.subject();
