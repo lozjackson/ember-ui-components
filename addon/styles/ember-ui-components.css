@@ -585,23 +585,18 @@ button.uic-button.red {
 
 
 /*
-  ContextMenuComponent
+  ContextMenuComponent & DropdownComponent
 */
-.uic-context-menu-container, .uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container {
+.uic-context-menu-container, .uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container,
+.uic-dropdown-container, .uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
 	padding: 0px;
 	position: fixed;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	border-top-left-radius:4px;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius:4px;
 	text-align: left;
   font-size: 13px;
   font-family: sans-serif;
@@ -609,64 +604,101 @@ button.uic-button.red {
   z-index: 200;
   white-space: nowrap;
 }
-.uic-context-menu-container ul {
-  list-style: none;
-}
-.uic-context-menu .uic-sub-menu-title {
+/*.uic-context-menu-container ul,
+.uic-dropdown-container ul {
+
+}*/
+.uic-context-menu .uic-sub-menu-title,
+.uic-dropdown .uic-sub-menu-title {
   margin-right: 15px;
 }
-.uic-context-menu-container li.uic-sub-menu > div {
+.uic-context-menu-container li.uic-sub-menu > div,
+.uic-dropdown-container li.uic-sub-menu > div {
   position: absolute;
   right: 15px;
 }
-.uic-context-menu-container ul {
+.uic-context-menu-container ul,
+.uic-dropdown-container ul {
 	margin: 0px;
 	margin-left:0px;
 	padding:4px 0px 4px 0px;
+  list-style: none;
 }
-.uic-context-menu-container li {
+.uic-context-menu-container li,
+.uic-dropdown-container li {
 	padding:3px 20px 3px 20px;
 	white-space: nowrap;
 	overflow: hidden;
 }
-.uic-context-menu-container li:hover {
+.uic-context-menu-container li:hover,
+.uic-dropdown-container li:hover {
 	background: #3A9FF4;
 	color:#ffffff;
 }
 
-.uic-context-menu-container li > div > svg {
+.uic-context-menu-container li > div > svg,
+.uic-dropdown-container li > div > svg {
 	margin-left:10px;
 	margin-top:3px;
 }
-.uic-context-menu-container hr {
+.uic-context-menu-container hr,
+.uic-dropdown-container hr {
 	width: 100%;
 	margin:0px;
 }
-.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li {
+.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li,
+.uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container > ul > li {
 	color:#000000;
 }
-.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li:hover {
+.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li:hover,
+.uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.uic-context-menu-container li.uic-sub-menu > div > svg.svg-triangle polygon {
+.uic-context-menu-container li.uic-sub-menu > div > svg.svg-triangle polygon,
+.uic-dropdown-container li.uic-sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.uic-context-menu-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
+.uic-context-menu-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon,
+.uic-dropdown-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;
 }
-.uic-context-menu-container li.context-menu-disabled {
+.uic-context-menu-container li.context-menu-disabled,
+.uic-dropdown-container li.disabled {
 	color:#ccc;
 }
-.uic-context-menu-container li.context-menu-disabled:hover {
+.uic-context-menu-container li.context-menu-disabled:hover,
+.uic-dropdown-container li.disabled:hover {
 	background: rgb(255,255,255);
+}
+.uic-context-menu-container > div,
+.uic-dropdown-container > div {
+  margin: 10px;
 }
 
 
-
+/*
+  dropdown
+*/
+.uic-dropdown {
+  display: inline-block;
+  position: relative;
+}
+.uic-dropdown-container, .uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container {
+	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	-moz-border-radius: 2px;
+	border-radius:2px;
+  position: absolute;
+}
+.uic-dropdown.left .uic-dropdown-container {
+  left: 0;
+}
+.uic-dropdown.right .uic-dropdown-container {
+  right: 0;
+}
 
 
 /*
