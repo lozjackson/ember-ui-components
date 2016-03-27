@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('select-component');
   this.route('slide-menu-component');
   this.route('context-menu-component');
+  this.route('dropdown-component');
   this.route('modal-window-component', function () {
     this.route('modal');
   });

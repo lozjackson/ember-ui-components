@@ -1,0 +1,191 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+<h1>DropdownComponent</h1>
+
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-dropdown&#125;&#125;</code></h2>
+
+  <h2>Description</h2>
+
+  <p>The DropdownComponent...</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
+  // drop down content
+&#123;&#123;else&#125;&#125;
+  // trigger content
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+      <ul>
+        <li {{action "edit"}}>Edit</li>
+        <li>Do Something</li>
+        <li class="disabled">This item is disabled</li>
+        <li>One other thing...</li>
+      </ul>
+      <hr>
+      <ul>
+        <li {{action "edit"}}>Delete</li>
+      </ul>
+    {{else}}
+      <button class="uic-button">Click</button>
+    {{/uic-dropdown}}
+
+  </div>
+</div>
+<div class="panel">
+  <h2>Parameters</h2>
+  <ul>
+
+    <li>
+      <h4>{Boolean} showDropdown</h4>
+      <p>
+        Sets the state of the dropdown, open (true), or closed (false).
+      </p>
+    </li>
+
+  </ul>
+
+</div>
+
+<div class="panel">
+
+  <h2>Examples</h2>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
+  &lt;ul>
+    &lt;li &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/li>
+  &lt;/ul>
+&#123;&#123;else&#125;&#125;
+  &lt;button class="uic-button">Click&lt;/button>
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+      <ul>
+        <li {{action "edit"}}>Edit</li>
+      </ul>
+    {{else}}
+      <button class="uic-button">Click</button>
+    {{/uic-dropdown}}
+
+  </div>
+
+  <p>Submenu:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
+  &lt;ul>
+    &lt;li &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/li>
+    &#123;&#123;#uic-sub-menu title="The sub-menu"&#125;&#125;
+      &lt;ul>
+        &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do Something&lt;/li>
+      &lt;/ul>
+    &#123;&#123;/uic-sub-menu&#125;&#125;
+  &lt;/ul>
+&#123;&#123;else&#125;&#125;
+  &lt;button class="uic-button">Click&lt;/button>
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+      <ul>
+        <li {{action "edit"}}>Edit</li>
+        {{#uic-sub-menu title="The sub-menu"}}
+          <ul>
+            <li {{action "doSomething"}}>Do Something</li>
+          </ul>
+        {{/uic-sub-menu}}
+      </ul>
+    {{else}}
+      <button class="uic-button">Click</button>
+    {{/uic-dropdown}}
+
+  </div>
+
+  <p>Align to the right edge:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown class="right"&#125;&#125;
+  &lt;ul>
+    &lt;li &#123;&#123;action "edit"&#125;&#125;>Some action...&lt;/li>
+  &lt;/ul>
+&#123;&#123;else&#125;&#125;
+  &lt;button class="uic-button">Click&lt;/button>
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown class="right"}}
+      <ul>
+        <li {{action "edit"}}>Some action...</li>
+      </ul>
+    {{else}}
+      <button class="uic-button">Click</button>
+    {{/uic-dropdown}}
+
+  </div>
+
+  <p>You can place any HTML content within the dropdown</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown class="right"&#125;&#125;
+  &lt;div>
+    &lt;h3>Information&lt;/h3>
+    &lt;p>Some random content...&lt;/p>
+    &lt;button class="uic-button">Take some action...&lt;/button>
+  &lt;/div>
+&#123;&#123;else&#125;&#125;
+  &lt;button class="uic-button">Click&lt;/button>
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+      <div>
+        <h3>Information</h3>
+        <p>Some random content...</p>
+        <button class="uic-button">Take some action...</button>
+      </div>
+    {{else}}
+      <button class="uic-button">Click</button>
+    {{/uic-dropdown}}
+
+  </div>
+
+  <p>You can also use any HTML content as the trigger for the dropdown</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown class="right"&#125;&#125;
+  &lt;div>
+    Drop down content...
+  &lt;/div>
+&#123;&#123;else&#125;&#125;
+  Some text..
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+      <div>
+        Drop down content...
+      </div>
+    {{else}}
+      Some text..
+    {{/uic-dropdown}}
+
+  </div>
+</div>
