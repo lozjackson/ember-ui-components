@@ -16,5 +16,5 @@ test('classNames', function(assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-dropdown-container']);
+  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-dropdown-container', 'uic-menu-container']);
 });

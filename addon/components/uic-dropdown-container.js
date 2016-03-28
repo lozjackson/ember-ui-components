@@ -17,14 +17,14 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @property classNames
     @type {Array}
     @private
-    @default `['uic-dropdown-container']`
+    @default `['uic-dropdown-container', 'uic-menu-container']`
   */
-  classNames: ['uic-dropdown-container'],
+  classNames: ['uic-dropdown-container', 'uic-menu-container'],
 
   /**
     @event handleClickOutside
   */
   handleClickOutside() {
     this.sendAction();
-  },
+  }
 });

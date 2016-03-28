@@ -25,5 +25,5 @@ test('it renders', function(assert) {
 
 test('it has correct tagName and classNames', function(assert) {
   this.render(hbs`{{uic-dropdown-container}}`);
-  assert.equal(this.$('div.uic-dropdown-container').length, 1);
+  assert.equal(this.$('div.uic-dropdown-container.uic-menu-container').length, 1);
 });
