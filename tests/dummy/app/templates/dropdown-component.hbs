@@ -96,7 +96,23 @@
 &#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
   </div>
 
+
   <div class="panel output">
+
+    <div style="float:right">
+        {{#uic-dropdown}}
+          <ul>
+            <li {{action "edit"}}>Edit</li>
+            {{#uic-sub-menu title="The sub-menu"}}
+              <ul>
+                <li {{action "doSomething"}}>Do Something</li>
+              </ul>
+            {{/uic-sub-menu}}
+          </ul>
+        {{else}}
+          {{#uic-button}}Click{{/uic-button}}
+        {{/uic-dropdown}}
+    </div>
 
     {{#uic-dropdown}}
       <ul>
