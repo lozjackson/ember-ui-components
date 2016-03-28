@@ -10,11 +10,30 @@
 
   <h2>Description</h2>
 
-  <p>The <code>uic-button</code> component creates a button element.</p>
+  <p>
+    The <code>uic-button</code> component creates a button element and gives it
+    the css class name <code>{{#link-to 'button-class'}}uic-button{{/link-to}}</code>.
+  </p>
+
+  <h3>Basic use:</h3>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button&#125;&#125;
+    <pre><code>&#123;&#123;uic-button
+  text="My Button"
+  action="doSomething"&#125;&#125;</code></pre>
+  </div>
+
+
+  <h3>Advanced use:</h3>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-button
+  action="doSomething"
+  disabled="true or false"
+  class="add css class names here"&#125;&#125;
+
   My Button
+
 &#123;&#123;/uic-button&#125;&#125;</code></pre>
   </div>
 
@@ -22,18 +41,6 @@
     {{#uic-button}}
       My Button
     {{/uic-button}}
-  </div>
-
-  <p>A button element is rendered and given the class name <code>{{#link-to 'button-class'}}uic-button{{/link-to}}</code></p>
-
-  <p>You can also specify the button text inline.</p>
-
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-button text="My Button"&#125;&#125;</code></pre>
-  </div>
-
-  <div class="panel output">
-    {{uic-button text="My Button"}}
   </div>
 
 </div>
