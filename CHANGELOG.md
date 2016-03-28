@@ -1,5 +1,16 @@
 # Change Log
 
+### v0.2.0
+
+* [FEATURE] Add `ButtonComponent`
+
+* [FEATURE] Add `DropdownComponent`
+
+* [FEATURE] Add `ClickOutsideMixin`
+
+
+
+
 ### v0.1.0 2016-03-25
 
 * [FEATURE] Add `menuToggleClass` property to `SlideMenuComponent`
