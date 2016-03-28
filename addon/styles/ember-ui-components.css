@@ -46,6 +46,11 @@ button.uic-ok-button:hover,
 button.uic-cancel-button:hover {
   box-shadow: 1px 1px 1px #888;
 }
+button.uic-button[disabled]:hover,
+button.uic-ok-button[disabled]:hover,
+button.uic-cancel-button[disabled]:hover {
+  box-shadow: none;
+}
 button.uic-button:active,
 button.uic-ok-button:active,
 button.uic-cancel-button:active {
@@ -69,20 +74,36 @@ button.uic-button.blue {
   box-sizing: border-box;
   border: 1px solid transparent;
 }
+button.uic-button[disabled].blue {
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(56, 143, 255, 0.3);
+}
 button.uic-button.green {
   color: #fff;
   background: #11D232;
   border: 1px solid transparent;
+}
+button.uic-button[disabled].green {
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(17, 210, 50, 0.3);
 }
 button.uic-button.yellow {
   color: #000;
   background: #FFD128;
   border: 1px solid transparent;
 }
+button.uic-button[disabled].yellow {
+  color: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 209, 40, 0.5);
+}
 button.uic-button.red {
   color: #fff;
   background: #FF0202;
   border: 1px solid transparent;
+}
+button.uic-button[disabled].red{
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 2, 2, 0.5);
 }
 
 
