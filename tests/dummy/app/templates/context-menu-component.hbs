@@ -4,47 +4,51 @@
 
 <h1>ContextMenuComponent</h1>
 
-{{#uic-context-menu as |contextMenuParams|}}
-  <ul>
-    <li {{action "edit"}}>Edit</li>
-    {{#uic-sub-menu title="Sub Menu..."}}
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-context-menu&#125;&#125;</code></h2>
+  {{#uic-context-menu as |contextMenuParams|}}
+    <ul>
+      <li {{action "edit"}}>Edit</li>
+      {{#uic-sub-menu title="Sub Menu..."}}
+        <ul>
+          <li {{action "new"}}>New...</li>
+          <li {{action "edit"}}>Do more stuff...</li>
+          <li {{action "edit"}}>Do more stuff...</li>
+          <li {{action "edit"}}>Do more stuff...</li>
+        </ul>
+      {{/uic-sub-menu}}
+      <li {{action "edit"}}>Do more stuff...</li>
+      <li {{action "edit"}}>Do more stuff...</li>
+
+    </ul>
+    {{#if contextMenuParams.event.altKey}}
+      <hr />
       <ul>
-        <li {{action "new"}}>New...</li>
-        <li {{action "edit"}}>Do more stuff...</li>
-        <li {{action "edit"}}>Do more stuff...</li>
-        <li {{action "edit"}}>Do more stuff...</li>
+        <li {{action "delete"}}>Delete</li>
       </ul>
-    {{/uic-sub-menu}}
-    <li {{action "edit"}}>Do more stuff...</li>
-    <li {{action "edit"}}>Do more stuff...</li>
+    {{/if}}
+  {{else}}
+    <div class="panel">
+      <p>Right-click inside the panel.</p>
+      <p>Try right-click while holding ALT</p>
+    </div>
+  {{/uic-context-menu}}
 
-  </ul>
-  {{#if contextMenuParams.event.altKey}}
-    <hr />
+  {{#uic-context-menu as |contextMenuParams|}}
     <ul>
-      <li {{action "delete"}}>Delete</li>
+      <li {{action "edit" bubbles=true}}>Edit</li>
     </ul>
-  {{/if}}
-{{else}}
-  <div class="panel">
-    <p>Right-click inside the panel.</p>
-    <p>Try right-click while holding ALT</p>
-  </div>
-{{/uic-context-menu}}
-
-{{#uic-context-menu as |contextMenuParams|}}
-  <ul>
-    <li {{action "edit" bubbles=true}}>Edit</li>
-  </ul>
-  {{#if contextMenuParams.event.altKey}}
-    <hr />
-    <ul>
-      <li {{action "delete"}}>Delete</li>
-    </ul>
-  {{/if}}
-{{else}}
-  <div class="panel">
-    <p>Right-click inside the panel.</p>
-    <p>Try right-click while holding ALT</p>
-  </div>
-{{/uic-context-menu}}
+    {{#if contextMenuParams.event.altKey}}
+      <hr />
+      <ul>
+        <li {{action "delete"}}>Delete</li>
+      </ul>
+    {{/if}}
+  {{else}}
+    <div class="panel">
+      <p>Right-click inside the panel.</p>
+      <p>Try right-click while holding ALT</p>
+    </div>
+  {{/uic-context-menu}}
+</div>
