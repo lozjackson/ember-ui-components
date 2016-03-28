@@ -14,8 +14,10 @@ http://lozjackson.github.io/ember-ui-components/
 
 * CheckBox
 * Select
+* Button
 * SlideMenu
 * ContextMenu
+* Dropdown
 * ModalWindow
 * ModalDialog
 
