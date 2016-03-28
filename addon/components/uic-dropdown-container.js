@@ -22,7 +22,16 @@ export default Ember.Component.extend(ClickOutsideMixin, {
   classNames: ['uic-dropdown-container', 'uic-menu-container'],
 
   /**
-    @event handleClickOutside
+    Alias of `element.parentElement`
+    @property targetElement
+    @type {Object}
+    @private
+  */
+  targetElement: Ember.computed.alias('element.parentElement'),
+
+  /**
+    @method handleClickOutside
+    @private
   */
   handleClickOutside() {
     this.sendAction();
