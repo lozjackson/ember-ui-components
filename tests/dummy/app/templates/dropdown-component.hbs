@@ -33,7 +33,7 @@
         <li {{action "edit"}}>Delete</li>
       </ul>
     {{else}}
-      <button class="uic-button">Click</button>
+      {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}
 
   </div>
@@ -74,7 +74,7 @@
         <li {{action "edit"}}>Edit</li>
       </ul>
     {{else}}
-      <button class="uic-button">Click</button>
+      {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}
 
   </div>
@@ -92,7 +92,7 @@
     &#123;&#123;/uic-sub-menu&#125;&#125;
   &lt;/ul>
 &#123;&#123;else&#125;&#125;
-  &lt;button class="uic-button">Click&lt;/button>
+  &#123;&#123;#uic-button&#125;&#125;Click&#123;&#123;/uic-button&#125;&#125;
 &#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
   </div>
 
@@ -108,7 +108,7 @@
         {{/uic-sub-menu}}
       </ul>
     {{else}}
-      <button class="uic-button">Click</button>
+      {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}
 
   </div>
@@ -121,7 +121,7 @@
     &lt;li &#123;&#123;action "edit"&#125;&#125;>Some action...&lt;/li>
   &lt;/ul>
 &#123;&#123;else&#125;&#125;
-  &lt;button class="uic-button">Click&lt;/button>
+  &#123;&#123;#uic-button&#125;&#125;Click&#123;&#123;/uic-button&#125;&#125;
 &#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
   </div>
 
@@ -132,7 +132,7 @@
         <li {{action "edit"}}>Some action...</li>
       </ul>
     {{else}}
-      <button class="uic-button">Click</button>
+      {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}
 
   </div>
@@ -144,10 +144,10 @@
   &lt;div>
     &lt;h3>Information&lt;/h3>
     &lt;p>Some random content...&lt;/p>
-    &lt;button class="uic-button">Take some action...&lt;/button>
+    &#123;&#123;#uic-button&#125;&#125;Take some action...&#123;&#123;/uic-button&#125;&#125;
   &lt;/div>
 &#123;&#123;else&#125;&#125;
-  &lt;button class="uic-button">Click&lt;/button>
+  &#123;&#123;#uic-button&#125;&#125;Click&#123;&#123;/uic-button&#125;&#125;
 &#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
   </div>
 
@@ -157,10 +157,10 @@
       <div>
         <h3>Information</h3>
         <p>Some random content...</p>
-        <button class="uic-button">Take some action...</button>
+        {{#uic-button}}Take some action...{{/uic-button}}
       </div>
     {{else}}
-      <button class="uic-button">Click</button>
+      {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}
 
   </div>

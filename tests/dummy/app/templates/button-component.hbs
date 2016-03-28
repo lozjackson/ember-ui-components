@@ -1,0 +1,112 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ButtonComponent</h1>
+
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-button&#125;&#125;</code></h2>
+
+  <h2>Description</h2>
+
+  <p>The <code>uic-button</code> component creates a button element.</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-button&#125;&#125;
+  My Button
+&#123;&#123;/uic-button&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+    {{#uic-button}}
+      My Button
+    {{/uic-button}}
+  </div>
+
+  <p>A button element is rendered and given the class name <code>{{#link-to 'button-class'}}uic-button{{/link-to}}</code></p>
+
+  <p>You can also specify the button text inline.</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;uic-button text="My Button"&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+    {{uic-button text="My Button"}}
+  </div>
+
+</div>
+
+<div class="panel">
+
+  <h2>Action</h2>
+
+  <p>Pass an action to the button component:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-button action="doSomething"&#125;&#125;
+  My Button
+&#123;&#123;/uic-button&#125;&#125;</code></pre>
+  </div>
+
+  <p>Handle the action in your controller/component:</p>
+
+  <div class="panel code">
+    <pre><code>import Ember from 'ember';
+
+export default Ember.Controller.extend({
+  actions: {
+
+    doSomething() {
+      // ...
+    }
+
+  }
+});</code></pre>
+</div>
+
+  <div class="panel output">
+    {{#uic-button action="doSomething"}}
+      My Button
+    {{/uic-button}}
+  </div>
+
+
+</div>
+
+<div class="panel">
+
+  <h2>Styles</h2>
+  <p>On top of the base style there are a few other styles that can be used...</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-button&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;                // default
+&#123;&#123;#uic-button class="blue"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;   // blue
+&#123;&#123;#uic-button class="green"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;  // green
+&#123;&#123;#uic-button class="yellow"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125; // yellow
+&#123;&#123;#uic-button class="red"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;    // red</code></pre>
+  </div>
+
+  <div class="panel output">
+    {{#uic-button}}My Button{{/uic-button}}
+    {{#uic-button class="blue"}}My Button{{/uic-button}}
+    {{#uic-button class="green"}}My Button{{/uic-button}}
+    {{#uic-button class="yellow"}}My Button{{/uic-button}}
+    {{#uic-button class="red"}}My Button{{/uic-button}}
+  </div>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-button class="large"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;       // large
+&#123;&#123;#uic-button&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;                     // default
+&#123;&#123;#uic-button class="small"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;       // small
+&#123;&#123;#uic-button class="extra-small"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125; // extra-small</code></pre>
+  </div>
+
+  <div class="panel output">
+    {{#uic-button class="large"}}My Button{{/uic-button}}
+    {{#uic-button}}My Button{{/uic-button}}
+    {{#uic-button class="small"}}My Button{{/uic-button}}
+    {{#uic-button class="extra-small"}}My Button{{/uic-button}}
+  </div>
+</div>
