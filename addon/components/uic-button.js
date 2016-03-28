@@ -28,6 +28,21 @@ export default Ember.Component.extend({
   classNames: ['uic-button'],
 
   /**
+    @property attributeBindings
+    @type {Array}
+    @private
+    @default `['disabled']`
+  */
+  attributeBindings: ['disabled'],
+
+  /**
+    @property disabled
+    @type {Boolean}
+    @default `false`
+  */
+  disabled: false,
+
+  /**
     @event click
     @private
   */

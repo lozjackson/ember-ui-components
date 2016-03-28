@@ -47,5 +47,15 @@ test('click', function(assert) {
     {{/uic-button}}
   `);
   this.$('button.uic-button').click();
-  // assert.equal(this.$('button.uic-button').length, 1);
+});
+
+test('disabled', function(assert) {
+  assert.expect(1);
+  this.on('doSomething', () => assert.ok(true));
+  this.render(hbs`
+    {{#uic-button disabled="true"}}
+      template block text
+    {{/uic-button}}
+  `);
+  assert.equal(this.$('button.uic-button[disabled]').length, 1);
 });
