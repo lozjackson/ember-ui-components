@@ -67,10 +67,10 @@ export default Ember.Mixin.create({
         this.handleClickOutside(event);
       }
     };
-    Ember.run.next(() => {
+    Ember.run.later(this, () => {
       _window.on(`click.${elementId}`, handler);
       _window.on(`touchend.${elementId}`, handler);
-    });
+    }, 300);
   },
 
   /**
