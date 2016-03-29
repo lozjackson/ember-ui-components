@@ -3,42 +3,6 @@
 */
 import Ember from 'ember';
 import layout from '../templates/components/uic-context-menu';
-import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
-
-let _event;
-
-/*
-  ## setPosition
-
-  Set the left/top css properties of an element.
-
-  `element` should be a reference to an HTML element.  Either a string selector
-  that can be used with jQuery, or a jQuery selection object.
-
-  If `position` is not specified, then the current mouse position will be used.
-
-  `position` should be an Ember.Object with `x` and `y` properties.
-  Both `x` and `y` should be numbers
-
-  method setPosition
-  param {String|Object} element
-  param {Object} position
-*/
-function setPosition(element, position) {
-  let margin = 5;
-  if (typeof element === 'string') {
-    element = Ember.$(element);
-  }
-  if (!position) {
-    position = getMousePosition(window.event || _event);
-  }
-  let scrollBarWidth = (window.innerWidth - $(window).width());
-  let el = getDimensions(element);
-  element.css({
-    'left': calculatePosition( position.get('x') + 2, el.width, window.innerWidth - ( margin + scrollBarWidth)),
-    'top': calculatePosition( position.get('y'), el.height, window.innerHeight - margin)
-  });
-}
 
 /**
   @class ContextMenuComponent
@@ -123,16 +87,6 @@ export default Ember.Component.extend({
   },
 
   /**
-    This method is passed to the `didInsertElement` hook of the `{{uic-content-mask}}`
-    component which wraps the `.uic-context-menu-container` element.
-    @method didInsertContextMenu
-  */
-  didInsertContextMenu() {
-    let element = this.$('.uic-context-menu-container');
-    setPosition(element);
-  },
-
-  /**
     @method _closeContextMenu
     @private
   */
@@ -166,7 +120,9 @@ export default Ember.Component.extend({
   */
   contextMenu(event) {
     event.preventDefault();
-    _event = event;
+    if (!window.event) {
+      window._event = event;
+    }
     this.set('contextMenuParams.event', event);
     this.set('showContextMenu', true);
     this.$().focus(); // set focus so that keyUp/Down events can be recieved.

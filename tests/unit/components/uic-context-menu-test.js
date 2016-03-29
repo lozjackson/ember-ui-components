@@ -5,7 +5,7 @@ const run = Ember.run;
 
 moduleForComponent('uic-context-menu', 'Unit | Component | uic context menu', {
   needs: [
-    'component:uic-content-mask'
+    'component:uic-context-menu-container'
   ],
   unit: true
 });

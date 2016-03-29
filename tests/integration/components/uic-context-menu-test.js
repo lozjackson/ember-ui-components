@@ -99,9 +99,4 @@ test('contextmenu', function(assert) {
 
   this.$('.uic-context-menu').contextmenu();
   assert.equal(this.$('.uic-context-menu-container').length, 1);
-  assert.equal(this.$('.uic-content-mask').length, 1);
-
-  this.$('.uic-content-mask').click();
-  assert.equal(this.$('.uic-context-menu-container').length, 0);
-  assert.equal(this.$('.uic-content-mask').length, 0);
 });
