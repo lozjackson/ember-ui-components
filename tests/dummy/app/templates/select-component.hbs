@@ -6,15 +6,27 @@
 
 <div class="panel">
 
+  <h2><code>&#123;&#123;uic-select&#125;&#125;</code></h2>
+
   <h2>Description</h2>
 
   <p>The SelectComponent will create a select element.</p>
 
+  <h3>Basic use:</h3>
+
   <div class="panel code">
     <pre><code>&#123;&#123;uic-select
   selected="the selected item"
-  disabled="true or false"
+  options="the options to select from"&#125;&#125;</code></pre>
+  </div>
+
+  <h3>Advanced use:</h3>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;uic-select
+  selected="the selected item"
   options="the options to select from"
+  disabled="true or false"
   placeholder="Please select..."
   class="add CSS class names here"&#125;&#125;</code></pre>
   </div>

@@ -42,19 +42,23 @@ export default Ember.Component.extend({
     let rect;
     let parent = this.getParentMenu();
     let css = {
-      'top': calculatePosition( element.position().top, el.height, window.innerHeight - 5)
+      top: calculatePosition( element.position().top, el.height, window.innerHeight - 5)
     };
 
     if (element) {
       rect = element[0].getBoundingClientRect();
       if (rect.right > windowWidth && parent.offset()) {
-        css.left = parent.offset().left - el.width
+        css.left = (element.css('position') === 'fixed') ? (parent.offset().left - el.width) + 15 : (el.width + parent.width() - 45) * -1;
       }
 
       element.css(css);
     }
   },
 
+  /**
+    @event didInsertElement
+    @private
+  */
   didInsertElement() {
     this._super(...arguments);
     this.didInsertMenu();

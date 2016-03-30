@@ -1,7 +1,7 @@
 {
   "name": "ember-ui-components",
-  "version": "0.1.0",
-  "description": "A collection of common reusable user interface components",
+  "version": "0.2.0",
+  "description": "A collection of common user interface components",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -45,7 +45,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
     "ember-cli-htmlbars": "^1.0.1",
-    "ember-svg-shapes": "0.0.2"
+    "ember-svg-shapes": "^0.1.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
