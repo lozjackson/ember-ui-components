@@ -26,19 +26,101 @@ select.uic-select {
 }
 
 /*
+  ButtonGroup
+*/
+.uic-button-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.uic-button-group + .uic-button-group,
+.uic-button-group + .uic-button,
+.uic-button + .uic-button-group {
+  margin-left: 5px;
+}
+.uic-button-group button.uic-button {
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.uic-button-group > .uic-dropdown > button.uic-button {
+  padding: 5px 12px;
+}
+.uic-button-group button.uic-button:hover {
+  box-shadow: none;
+  box-shadow: inset 0px 0px 1px #888;
+  /*background: #eee;*/
+}
+.uic-button-group button.uic-button:active {
+  box-shadow: inset 0px 0px 2px #888;
+  background: #bbb;
+  color: #fff;
+}
+.uic-button-group button.uic-button:focus {
+  box-shadow: inset 0px 0px 2px #888;
+  background: #eee;
+  color: #000;
+  outline: none;
+}
+.uic-button-group button.uic-button.selected {
+  box-shadow: inset 0px 0px 2px #888;
+  background: #bbb;
+  color: #fff;
+  outline: none;
+}
+.uic-button-group > button.uic-button:first-child {
+  margin-left: 0;
+}
+.uic-button-group button.uic-button+button.uic-button,
+.uic-button-group button.uic-button+.uic-button-group,
+.uic-button-group .uic-button-group+button.uic-button,
+.uic-button-group .uic-button-group+.uic-button-group,
+.uic-button-group .uic-dropdown+button.uic-button,
+.uic-button-group button.uic-button+.uic-dropdown {
+  margin-left: -1px;
+}
+.uic-button-group > button.uic-button,
+.uic-button-group > .uic-dropdown {
+  position: relative;
+  float: left;
+}
+.uic-button-group > button.uic-button:first-child:not(:last-child),
+.uic-button-group > .uic-dropdown:not(:last-child) > button.uic-button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.uic-button-group > button.uic-button:not(:first-child):not(:last-child):not(.uic-dropdown) {
+    border-radius: 0;
+}
+.uic-button-group > button.uic-button:last-child:not(:first-child),
+.uic-button-group > .uic-dropdown:not(:first-child) > button.uic-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+
+/*
   uic-button
 */
 button.uic-button,
 button.uic-ok-button,
 button.uic-cancel-button {
+  display: inline-block;
   margin: 0;
   padding: 5px 20px;
   font-weight: 300;
   font-size: .9rem;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
   background: #FFF;
   border-radius: 2px;
   border: 1px solid #CDCDCD;
   transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 button.uic-button:hover,
 button.uic-ok-button:hover,
@@ -104,6 +186,14 @@ button.uic-button[disabled].red{
   color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 2, 2, 0.5);
 }
+
+
+
+
+
+
+
+
 
 
 
