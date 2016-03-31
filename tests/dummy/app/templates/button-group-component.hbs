@@ -1,0 +1,140 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ButtonGroupComponent</h1>
+
+<div class="panel">
+
+  <h2><code>.uic-button-group</code></h2>
+
+  <h2>Description</h2>
+
+  <p>
+    The <code>uic-button-group</code> class creates a button group that can be
+    used to visually groups together a collection of buttons.
+  </p>
+
+  <div class="panel code">
+    <pre><code>&lt;div class="uic-button-group">
+  // ... uic-button ...
+&lt;/div></code></pre>
+  </div>
+
+  <p>Inside the button group you can place <code>uic-button</code> elements/components,
+    or <code>uic-dropdown</code> components.</p>
+
+  <div class="panel code">
+    <pre><code>&lt;div class="uic-button-group">
+  &#123;&#123;#uic-button&#125;&#125;One&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Two&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Three&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Four&#123;&#123;/uic-button&#125;&#125;
+&lt;/div></code></pre>
+  </div>
+
+  <div class="panel output">
+    <div class="uic-button-group">
+      {{#uic-button}}One{{/uic-button}}
+      {{#uic-button}}Two{{/uic-button}}
+      {{#uic-button}}Three{{/uic-button}}
+      {{#uic-button}}Four{{/uic-button}}
+    </div>
+  </div>
+
+  <div class="panel code">
+    <pre><code>&lt;div class="uic-button-group">
+  &#123;&#123;#uic-button&#125;&#125;One&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Two&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Three&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Four&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;#uic-dropdown&#125;&#125;
+    &lt;ul>
+      &lt;li>Edit&lt;/li>
+      &lt;li>More...&lt;/li>
+    &lt;/ul>
+  &#123;&#123;else&#125;&#125;
+    &#123;&#123;#uic-button&#125;&#125;
+      &#123;&#123;svg-triangle direction="down" fill="#999"&#125;&#125;
+    &#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;/uic-dropdown}}
+&lt;/div></code></pre>
+  </div>
+
+  <div class="panel output">
+    <div class="uic-button-group">
+      {{#uic-button}}One{{/uic-button}}
+      {{#uic-button}}Two{{/uic-button}}
+      {{#uic-button}}Three{{/uic-button}}
+      {{#uic-button}}Four{{/uic-button}}
+      {{#uic-dropdown}}
+        <ul>
+          <li>Edit</li>
+          <li>More...</li>
+        </ul>
+      {{else}}
+        {{#uic-button}}
+          {{svg-triangle direction="down" fill="#999"}}
+        {{/uic-button}}
+      {{/uic-dropdown}}
+    </div>
+  </div>
+
+</div>
+
+<div class="panel">
+
+  <div class="uic-button-group">
+    {{#uic-button}}One{{/uic-button}}
+  </div>
+  <div class="uic-button-group">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-dropdown  class="uic-dropdown-toggle"}}
+      <ul>
+        <li {{action "edit"}}>Edit</li>
+        <li {{action "edit"}}>More...</li>
+      </ul>
+    {{else}}
+      {{#uic-button}}
+        {{svg-triangle direction="down" fill="#999"}}
+      {{/uic-button}}
+    {{/uic-dropdown}}
+  </div>
+  <div class="uic-button-group">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+  </div>
+  <div class="uic-button-group">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+    {{#uic-button}}Three{{/uic-button}}
+  </div>
+  <div class="uic-button-group">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+    {{#uic-button}}Three{{/uic-button}}
+    {{#uic-button}}Four{{/uic-button}}
+  </div>
+
+</div>
+<div class="panel">
+
+  <div class="uic-button-group blue">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+  </div>
+  <div class="uic-button-group green">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+  </div>
+  <div class="uic-button-group yellow">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+  </div>
+
+  <div class="uic-button-group red">
+    {{#uic-button}}One{{/uic-button}}
+    {{#uic-button}}Two{{/uic-button}}
+  </div>
+
+</div>
