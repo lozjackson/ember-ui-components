@@ -182,16 +182,49 @@ button.uic-button[disabled].red,
 }
 .uic-button-group > button.uic-button:first-child:not(:last-child),
 .uic-button-group > .uic-dropdown:not(:last-child) > button.uic-button {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .uic-button-group > button.uic-button:not(:first-child):not(:last-child):not(.uic-dropdown) {
-    border-radius: 0;
+  border-radius: 0;
 }
 .uic-button-group > button.uic-button:last-child:not(:first-child),
 .uic-button-group > .uic-dropdown:not(:first-child) > button.uic-button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*
+  button-group
+  large
+*/
+.uic-button-group.large button.uic-button {
+  padding: 8px 25px;
+  font-size: 1rem;
+}
+.uic-button-group.large > .uic-dropdown > button.uic-button {
+  padding: 8px 15px;
+  font-size: 1rem;
+}
+
+/*
+  button-group
+  small
+*/
+.uic-button-group.small button.uic-button,
+.uic-button-group.small > .uic-dropdown > button.uic-button {
+  padding: 3px 10px;
+  font-size: 0.8rem;
+}
+
+/*
+  button-group
+  extra-small
+*/
+.uic-button-group.extra-small button.uic-button,
+.uic-button-group.extra-small > .uic-dropdown > button.uic-button {
+  padding: 1px 8px;
+  font-size: 0.75rem;
 }
 
 /*
@@ -218,6 +251,7 @@ button.uic-button[disabled].red,
   background: #216AC7;
   color: #fff;
 }
+
 /*
   button-group
   green
