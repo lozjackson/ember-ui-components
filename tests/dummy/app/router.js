@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('check-box-component');
   this.route('select-component');
   this.route('button-component');
+  this.route('button-group-component');
   this.route('slide-menu-component');
   this.route('context-menu-component');
   this.route('dropdown-component');
@@ -18,6 +19,7 @@ Router.map(function() {
   this.route('modal-dialog-component');
   this.route('dialog-service');
   this.route('button-class');
+  this.route('button-group-class');
   this.route('panel-class');
 });
 
