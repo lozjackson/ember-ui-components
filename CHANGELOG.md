@@ -1,5 +1,12 @@
 # Change Log
 
+* [FEATURE] Add `ButtonGroupComponent` Component
+
+* [FEATURE] Add `selected` property to `ButtonComponent`
+
+
+
+
 ### v0.2.0 2016-03-30
 
 * [FEATURE] Add `ButtonComponent`
