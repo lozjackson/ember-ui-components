@@ -22,3 +22,13 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'template block text');
 });
+
+test('it has correct tagName and classNames', function(assert) {
+  this.render(hbs`
+    {{#uic-button-group}}
+      template block text
+    {{/uic-button-group}}
+  `);
+
+  assert.equal(this.$('div.uic-button-group').length, 1);
+});
