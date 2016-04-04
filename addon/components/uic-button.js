@@ -28,6 +28,14 @@ export default Ember.Component.extend({
   classNames: ['uic-button'],
 
   /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['selected:selected']`
+  */
+  classNameBindings: ['selected:selected'],
+
+  /**
     @property attributeBindings
     @type {Array}
     @private

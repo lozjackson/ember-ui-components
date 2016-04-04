@@ -19,6 +19,14 @@ test('classNames', function(assert) {
   assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-button']);
 });
 
+test('classNameBindings', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.deepEqual(component.get('classNameBindings'), ['selected:selected']);
+});
+
+
 test('attributeBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();

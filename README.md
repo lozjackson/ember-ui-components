@@ -15,6 +15,7 @@ http://lozjackson.github.io/ember-ui-components/
 * CheckBox
 * Select
 * Button
+* ButtonGroup
 * SlideMenu
 * ContextMenu
 * Dropdown
@@ -28,4 +29,5 @@ http://lozjackson.github.io/ember-ui-components/
 ## CSS Classes
 
 * Button
+* ButtonGroup
 * Panel
