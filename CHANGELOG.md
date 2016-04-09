@@ -1,5 +1,10 @@
 # Change Log
 
+* [FEATURE] Add `AutoClose` property to `DropdownComponent` and `DropdownContainerComponent`
+
+
+
+
 ### v0.3.0 2016-04-04
 
 * [FEATURE] Add `ButtonGroupComponent`
