@@ -31,6 +31,13 @@ test('showDropdown', function(assert) {
   assert.equal(component.get('showDropdown'), false);
 });
 
+test('autoClose', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('autoClose'), true);
+});
+
 test('_hideDropdown() method', function(assert) {
   assert.expect(1);
   var component = this.subject();
