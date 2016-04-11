@@ -1,5 +1,7 @@
 # Change Log
 
+* [FEATURE] Add `CloseButtonComponent`
+
 * [FEATURE] Add `AutoClose` property to `DropdownComponent` and `DropdownContainerComponent`
 
 
