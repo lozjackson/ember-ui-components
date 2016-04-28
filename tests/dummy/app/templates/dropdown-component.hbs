@@ -48,9 +48,47 @@
         Sets the state of the dropdown, open (true), or closed (false).
       </p>
     </li>
+    <li>
+      <h4>{Boolean} autoClose</h4>
+      <p>
+        If <code>true</code> then the dropdown will close when clicked.  If <code>false</code> then it will stay open.
+      </p>
+      <p>The default is <code>true</code></p>
+    </li>
 
   </ul>
 
+</div>
+
+<div class="panel">
+
+  <h2>AutoClose</h2>
+
+  <p>Default: <code>true</code></p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown autoClose=false&#125;&#125;
+  &lt;div>
+    &lt;p>Clicking here will not close the dropdown...&lt;/p>
+    &#123;&#123;#uic-button&#125;&#125;Action...&#123;&#123;/uic-button&#125;&#125;
+  &lt;/div>
+  &#123;&#123;else&#125;&#125;
+    &#123;&#123;#uic-button&#125;&#125;Click&#123;&#123;/uic-button&#125;&#125;
+  &#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown autoClose=false}}
+      <div>
+        <p>Clicking here will not close the dropdown...</p>
+        {{#uic-button}}Action...{{/uic-button}}
+      </div>
+    {{else}}
+      {{#uic-button}}Click{{/uic-button}}
+    {{/uic-dropdown}}
+
+  </div>
 </div>
 
 <div class="panel">
@@ -156,7 +194,7 @@
   <p>You can place any HTML content within the dropdown</p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;#uic-dropdown class="right"&#125;&#125;
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
   &lt;div>
     &lt;h3>Information&lt;/h3>
     &lt;p>Some random content...&lt;/p>
@@ -184,7 +222,7 @@
   <p>You can also use any HTML content as the trigger for the dropdown</p>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;#uic-dropdown class="right"&#125;&#125;
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
   &lt;div>
     Drop down content...
   &lt;/div>

@@ -11,6 +11,7 @@ import layout from '../templates/components/uic-dropdown-container';
   @uses Mixins.ClickOutsideMixin
 */
 export default Ember.Component.extend(ClickOutsideMixin, {
+
   layout,
 
   /**
@@ -20,6 +21,19 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @default `['uic-dropdown-container', 'uic-menu-container']`
   */
   classNames: ['uic-dropdown-container', 'uic-menu-container'],
+
+  /**
+    ## AutoClose
+
+    If this property is `false` then the default will be prevented - The default
+    is that the click will bubble up to the `DropdownComponent` and will close
+    the dropdown.
+
+    @property autoClose
+    @type {Boolean}
+    @default `true`
+  */
+  autoClose: true,
 
   /**
     Alias of `element.parentElement`
@@ -35,5 +49,18 @@ export default Ember.Component.extend(ClickOutsideMixin, {
   */
   handleClickOutside() {
     this.sendAction();
+  },
+
+  /**
+    @event click
+    @param {Object} event
+    @private
+    @return {Boolean}
+  */
+  click(event) {
+    if (!this.get('autoClose')) {
+      event.preventDefault();
+      return false;
+    }
   }
 });

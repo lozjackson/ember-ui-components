@@ -10,7 +10,7 @@
 
     {{#if showCloseButton}}
       {{#if closeModal}}
-        <button class="uic-close-button" {{action "closeModal"}}>&times;</button>
+        {{uic-close-button action="closeModal"}}
       {{else}}
         {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
       {{/if}}

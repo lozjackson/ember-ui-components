@@ -27,6 +27,13 @@ export default Ember.Component.extend({
   showDropdown: false,
 
   /**
+    @property autoClose
+    @type {Boolean}
+    @default `true`
+  */
+  autoClose: true,
+
+  /**
     @method _hideDropdown
     @private
   */
