@@ -5,6 +5,12 @@ import Ember from 'ember';
 import layout from '../templates/components/uic-button';
 
 /**
+  # ButtonComponent
+
+  ```
+  {{uic-button action="actionName"}}
+  ```
+
   @class ButtonComponent
   @namespace Components
 */

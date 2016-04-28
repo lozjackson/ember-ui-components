@@ -1,12 +1,18 @@
 /**
-  @module arms
+  @module ember-ui-components
 */
 import Ember from 'ember';
 import layout from '../templates/components/uic-close-button';
 
 /**
+  # CloseButtonComponent
+
+  ```
+  {{uic-close-button action="actionName"}}
+  ```
+
   @class CloseButtonComponent
-  @namespace Arms
+  @namespace Components
 */
 export default Ember.Component.extend({
   layout,
