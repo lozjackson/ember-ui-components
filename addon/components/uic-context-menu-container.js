@@ -17,9 +17,9 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @property tagName
     @type {String}
     @private
-    @default 'nav'
+    @default 'menu'
   */
-  tagName: 'nav',
+  tagName: 'menu',
 
   /**
     @property classNames

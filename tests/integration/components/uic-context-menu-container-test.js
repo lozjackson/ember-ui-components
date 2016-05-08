@@ -29,5 +29,5 @@ test('it has correct tagName and classNames', function(assert) {
       template block text
     {{/uic-context-menu-container}}
   `);
-  assert.equal(this.$('nav.uic-context-menu-container.uic-menu-container').length, 1);
+  assert.equal(this.$('menu.uic-context-menu-container.uic-menu-container').length, 1);
 });
