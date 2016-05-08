@@ -1,5 +1,7 @@
 # Change Log
 
+* Change the default `tagName` for `SubMenuComponent` to `menuitem`.
+
 ### v0.2.0
 
 * [FEATURE] Add `ButtonComponent`

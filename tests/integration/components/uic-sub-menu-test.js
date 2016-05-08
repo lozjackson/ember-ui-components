@@ -25,5 +25,5 @@ test('it renders', function(assert) {
 
 test('has correct tag and class', function(assert) {
   this.render(hbs`{{uic-sub-menu}}`);
-  assert.equal(this.$('li.uic-sub-menu').length, 1);
+  assert.equal(this.$('menuitem.uic-sub-menu').length, 1);
 });
