@@ -2,7 +2,11 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
+import openContextMenu from 'ember-ui-components/helpers/open-context-menu';
 import layout from '../templates/components/uic-context-menu';
+
+const { computed } = Ember;
+const { alias } = computed;
 
 /**
   @class ContextMenuComponent
@@ -11,6 +15,8 @@ import layout from '../templates/components/uic-context-menu';
 export default Ember.Component.extend({
 
   layout,
+
+  contextMenuService: Ember.inject.service('context-menu'),
 
   /**
     @property classNames
@@ -56,42 +62,24 @@ export default Ember.Component.extend({
   /**
     @property showContextMenu
     @type {Boolean}
-    @default false
   */
-  showContextMenu: false,
+  showContextMenu: computed('contextMenuService.menu', 'elementId', function () {
+    return this.get('contextMenuService.menu') === this.get('elementId');
+  }),
 
   /**
     @property contextMenuParams
     @type {Object}
     @private
   */
-  contextMenuParams: null,
-
-  /**
-    @method init
-    @private
-  */
-  init() {
-    this._super(...arguments);
-    this.initContextMenuParams();
-  },
-
-  /**
-    @method initContextMenuParams
-    @private
-  */
-  initContextMenuParams() {
-    this.set('contextMenuParams', Ember.Object.create({
-      event: null
-    }));
-  },
+  contextMenuParams: alias('contextMenuService.contextMenuParams'),
 
   /**
     @method _closeContextMenu
     @private
   */
   _closeContextMenu() {
-    this.set('showContextMenu', false);
+    this.get('contextMenuService').close();
   },
 
   /**
@@ -120,12 +108,7 @@ export default Ember.Component.extend({
   */
   contextMenu(event) {
     event.preventDefault();
-    if (!window.event) {
-      window._event = event;
-    }
-    this.set('contextMenuParams.event', event);
-    this.set('showContextMenu', true);
-    this.$().focus(); // set focus so that keyUp/Down events can be recieved.
+    this.get('contextMenuService').open(this.get('elementId'), event);
     return false;
   },
 
