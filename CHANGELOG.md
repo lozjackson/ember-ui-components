@@ -1,8 +1,16 @@
 # Change Log
 
-* Change the default `tagName` for `ContextMenuContainerComponent` to `menu`.
+* [FEATURE] Add `OpenContextMenuHelper`
+
+* [FEATURE] Add `ContextMenuService`.
 
 * Change the default `tagName` for `SubMenuComponent` to `menuitem`.
+
+* Add `ContextMenuContainerComponent`.
+
+* Update `ContextMenuComponent`
+
+
 
 ### v0.2.0
 
