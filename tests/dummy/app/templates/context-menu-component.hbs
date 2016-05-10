@@ -7,10 +7,10 @@
 <div class="panel">
 
   <h2><code>&#123;&#123;uic-context-menu&#125;&#125;</code></h2>
-  {{#uic-context-menu as |contextMenuParams|}}
+  {{#uic-context-menu tagName="div" as |contextMenuParams|}}
     <ul>
       <li {{action "edit"}}>Edit</li>
-      {{#uic-sub-menu title="Sub Menu..."}}
+      {{#uic-sub-menu title="Sub Menu..." tagName="li"}}
         <ul>
           <li {{action "new"}}>New...</li>
           <li {{action "edit"}}>Do more stuff...</li>
@@ -18,7 +18,7 @@
           <li {{action "edit"}}>Do more stuff...</li>
         </ul>
       {{/uic-sub-menu}}
-      <li {{action "edit"}}>Do more stuff...</li>
+      <li {{action "edit"}} disabled>Disabled...</li>
       <li {{action "edit"}}>Do more stuff...</li>
 
     </ul>
@@ -27,6 +27,30 @@
       <ul>
         <li {{action "delete"}}>Delete</li>
       </ul>
+    {{/if}}
+  {{else}}
+    <div class="panel">
+      <p>Right-click inside the panel.</p>
+      <p>Try right-click while holding ALT</p>
+    </div>
+  {{/uic-context-menu}}
+
+  {{#uic-context-menu tagName="div" as |contextMenuParams|}}
+
+      <menuitem {{action "edit"}}>Edit</menuitem>
+      {{#uic-sub-menu title="Sub Menu..." tagName="li"}}
+        <menuitem {{action "new"}}>New...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+      {{/uic-sub-menu}}
+      <menuitem {{action "edit"}} disabled>Disabled...</menuitem>
+      <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+
+
+    {{#if contextMenuParams.event.altKey}}
+      <hr />
+      <menuitem {{action "delete"}}>Delete</menuitem>
     {{/if}}
   {{else}}
     <div class="panel">
@@ -51,4 +75,64 @@
       <p>Try right-click while holding ALT</p>
     </div>
   {{/uic-context-menu}}
+
+  <div class="panel" {{action (open-context-menu "c-menu") on="contextMenu"}}>
+    <p>Html5 Context Menu.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+
+  <div class="panel" oncontextmenu={{open-context-menu "a-menu"}}>
+    <p>Html5 Context Menu.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+
+{{value}}
+
+  <div class="panel" oncontextmenu={{open-context-menu "b-menu"}}>
+    <p>Html5 Context Menu.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+
+  <div class="panel" oncontextmenu={{open-context-menu "c-menu"}}>
+    <p>Html5 Context Menu.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+
 </div>
+
+
+
+{{#uic-context-menu id="a-menu"}}
+  <menuitem {{action "doSomething"}}>Do something</menuitem>
+  <hr />
+  {{#uic-sub-menu title="Sub Menu..."}}
+    <ul>
+      <li {{action "new"}}>New...</li>
+      <li {{action "edit"}}>Do more stuff...</li>
+      <li disabled>Disabled...</li>
+      <li {{action "edit"}}>Do more stuff...</li>
+    </ul>
+  {{/uic-sub-menu}}
+  <menuitem {{action "doSomethingElse"}}>Do something else</menuitem>
+{{/uic-context-menu}}
+
+{{#uic-context-menu id="b-menu" as |contextMenuParams|}}
+  <menuitem {{action "doSomething"}}>Do something</menuitem>
+  <hr />
+  {{#uic-sub-menu title="Sub Menu..."}}
+    <menuitem {{action "new"}}>New...</menuitem>
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+    <menuitem {{action "edit"}} disabled>Disabled...</menuitem>
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+  {{/uic-sub-menu}}
+  <menuitem {{action "doSomethingElse"}}>Do something else</menuitem>
+  {{#if contextMenuParams.event.altKey}}
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+  {{/if}}
+{{/uic-context-menu}}
+
+{{#uic-context-menu id="c-menu"}}
+  <ul>
+    <li {{action "edit" bubbles=true}}>Edit</li>
+  </ul>
+{{/uic-context-menu}}
