@@ -93,12 +93,15 @@
 
 <div class="panel">
 
-  <h2>Examples</h2>
+  <h2>Menu items</h2>
+
+  <p>You can create menu items using lists:</p>
 
   <div class="panel code">
     <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
   &lt;ul>
-    &lt;li &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/li>
+    &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/li>
+    &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/li>
   &lt;/ul>
 &#123;&#123;else&#125;&#125;
   &lt;button class="uic-button">Click&lt;/button>
@@ -109,7 +112,8 @@
 
     {{#uic-dropdown}}
       <ul>
-        <li {{action "edit"}}>Edit</li>
+        <li {{action "doSomething"}}>Do something...</li>
+        <li {{action "doSomething"}}>Do something...</li>
       </ul>
     {{else}}
       {{#uic-button}}Click{{/uic-button}}
@@ -117,13 +121,40 @@
 
   </div>
 
+  <p>or you can use <code>menuitem</code> elements:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
+  &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/menuitem>
+  &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/menuitem>
+&#123;&#123;else&#125;&#125;
+  &lt;button class="uic-button">Click&lt;/button>
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-dropdown}}
+        <menuitem {{action "doSomething"}}>Do something...</menuitem>
+        <menuitem {{action "doSomething"}}>Do something...</menuitem>
+    {{else}}
+      {{#uic-button}}Click{{/uic-button}}
+    {{/uic-dropdown}}
+
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Examples</h2>
+
   <p>Submenu:</p>
 
   <div class="panel code">
     <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
   &lt;ul>
     &lt;li &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/li>
-    &#123;&#123;#uic-sub-menu title="The sub-menu"&#125;&#125;
+    &#123;&#123;#uic-sub-menu title="The sub-menu" tagName="li"&#125;&#125;
       &lt;ul>
         &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do Something&lt;/li>
       &lt;/ul>
@@ -141,7 +172,7 @@
         {{#uic-dropdown}}
           <ul>
             <li {{action "edit"}}>Edit</li>
-            {{#uic-sub-menu title="The sub-menu"}}
+            {{#uic-sub-menu title="The sub-menu" tagName="li"}}
               <ul>
                 <li {{action "doSomething"}}>Do Something</li>
               </ul>
@@ -155,10 +186,47 @@
     {{#uic-dropdown}}
       <ul>
         <li {{action "edit"}}>Edit</li>
-        {{#uic-sub-menu title="The sub-menu"}}
+        {{#uic-sub-menu title="The sub-menu" tagName="li"}}
           <ul>
             <li {{action "doSomething"}}>Do Something</li>
           </ul>
+        {{/uic-sub-menu}}
+      </ul>
+    {{else}}
+      {{#uic-button}}Click{{/uic-button}}
+    {{/uic-dropdown}}
+
+  </div>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-dropdown&#125;&#125;
+  &lt;menuitem &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/menuitem>
+  &#123;&#123;#uic-sub-menu title="The sub-menu"&#125;&#125;
+    &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do Something&lt;/menuitem>
+  &#123;&#123;/uic-sub-menu&#125;&#125;
+&#123;&#123;else&#125;&#125;
+  &#123;&#123;#uic-button&#125;&#125;Click&#123;&#123;/uic-button&#125;&#125;
+&#123;&#123;/uic-dropdown&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    <div style="float:right">
+        {{#uic-dropdown}}
+            <menuitem {{action "edit"}}>Edit</menuitem>
+            {{#uic-sub-menu title="The sub-menu"}}
+              <menuitem {{action "doSomething"}}>Do Something</menuitem>
+            {{/uic-sub-menu}}
+        {{else}}
+          {{#uic-button}}Click{{/uic-button}}
+        {{/uic-dropdown}}
+    </div>
+
+    {{#uic-dropdown}}
+      <ul>
+        <li {{action "edit"}}>Edit</li>
+        {{#uic-sub-menu title="The sub-menu" tagName="li"}}
+          <menuitem {{action "doSomething"}}>Do Something</menuitem>
         {{/uic-sub-menu}}
       </ul>
     {{else}}
@@ -185,6 +253,12 @@
       <ul>
         <li {{action "edit"}}>Some action...</li>
       </ul>
+    {{else}}
+      {{#uic-button}}Click{{/uic-button}}
+    {{/uic-dropdown}}
+
+    {{#uic-dropdown class="right"}}
+      <menuitem {{action "edit"}}>Some action...</menuitem>
     {{else}}
       {{#uic-button}}Click{{/uic-button}}
     {{/uic-dropdown}}

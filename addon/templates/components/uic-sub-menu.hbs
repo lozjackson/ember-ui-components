@@ -1,7 +1,7 @@
 <div>
   {{svg-triangle direction="right" size="8"}}
   {{#if showMenu}}
-    {{#uic-menu-container}}
+    {{#uic-menu-container tagName="menu"}}
       {{#if hasBlock}}
         {{yield}}
       {{/if}}

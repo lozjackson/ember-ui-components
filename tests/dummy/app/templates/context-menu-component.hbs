@@ -7,10 +7,160 @@
 <div class="panel">
 
   <h2><code>&#123;&#123;uic-context-menu&#125;&#125;</code></h2>
-  {{#uic-context-menu as |contextMenuParams|}}
+
+  <h2>Description</h2>
+
+  <p>The ContextMenuComponent can be used to provide a context menu for elements or components.</p>
+
+  {{#uic-context-menu tagName="div" as |contextMenuParams|}}
+
+      <menuitem {{action "edit"}}>Edit</menuitem>
+      {{#uic-sub-menu title="Sub Menu..." tagName="li"}}
+        <menuitem {{action "new"}}>New...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+        <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+      {{/uic-sub-menu}}
+      <menuitem {{action "edit"}} disabled>Disabled...</menuitem>
+      <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+
+
+    {{#if contextMenuParams.event.altKey}}
+      <hr />
+      <menuitem {{action "delete"}}>Delete</menuitem>
+    {{/if}}
+  {{else}}
+    <div class="panel">
+      <p>Right-click inside the panel.</p>
+      <p>Try right-click while holding ALT</p>
+    </div>
+  {{/uic-context-menu}}
+
+</div>
+
+<div class="panel">
+
+  <h3>Usage:</h3>
+
+  <p>
+    There are two ways to use the context menu.  The first places the trigger
+    content in the <code>else</code> block of the context menu component.
+  </p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
+
+  // context menu
+
+&#123;&#123;else&#125;&#125;
+
+  Right click here
+
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  <p>
+    The second is to add the context menu to the page and give it an `id`.. then
+    any any html element can use that context menu.
+  </p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu
+  id="my-context-menu"&#125;&#125;
+
+  // context menu
+
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  <p>
+    To open the context menu there is a helper called <code>open-context-menu</code> which
+    takes the <code>id</code> of the context menu as the first argument.
+    <code>&#123;&#123;open-context-menu "my-context-menu"&#125;&#125;</code>
+  </p>
+  <p>
+    The <code>open-context-menu</code> helper returns a function which can be used
+    in actions.
+  </p>
+  <div class="panel code">
+    <pre><code>&lt;div oncontextmenu=&#123;&#123;open-context-menu "my-context-menu"&#125;&#125;&gt;
+
+  Right click here
+
+&lt;/div&gt;</code></pre>
+  </div>
+
+  or..
+
+  <div class="panel code">
+    <pre><code>&lt;div &#123;&#123;action (open-context-menu "my-context-menu") on="contextMenu"&#125;&#125;&gt;
+
+  Right click here
+
+&lt;/div&gt;</code></pre>
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>Menu items</h2>
+
+  <p>You can create menu items using <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> list elements:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
+  &lt;ul>
+    &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/li>
+    &lt;li &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/li>
+  &lt;/ul>
+&#123;&#123;else&#125;&#125;
+  Right Click here
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-context-menu}}
+      <ul>
+        <li {{action "doSomething"}}>Do something...</li>
+        <li {{action "doSomething"}}>Do something...</li>
+      </ul>
+    {{else}}
+      Right Click here
+    {{/uic-context-menu}}
+
+  </div>
+
+  <p>or you can use <code>menuitem</code> elements:</p>
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
+  &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/menuitem>
+  &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/menuitem>
+&#123;&#123;else&#125;&#125;
+  Right Click here
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  <div class="panel output">
+
+    {{#uic-context-menu}}
+        <menuitem {{action "doSomething"}}>Do something...</menuitem>
+        <menuitem {{action "doSomething"}}>Do something...</menuitem>
+    {{else}}
+      Right Click here
+    {{/uic-context-menu}}
+
+  </div>
+</div>
+
+
+<div class="panel">
+
+  {{#uic-context-menu tagName="div" as |contextMenuParams|}}
     <ul>
       <li {{action "edit"}}>Edit</li>
-      {{#uic-sub-menu title="Sub Menu..."}}
+      {{#uic-sub-menu title="Sub Menu..." tagName="li"}}
         <ul>
           <li {{action "new"}}>New...</li>
           <li {{action "edit"}}>Do more stuff...</li>
@@ -18,7 +168,7 @@
           <li {{action "edit"}}>Do more stuff...</li>
         </ul>
       {{/uic-sub-menu}}
-      <li {{action "edit"}}>Do more stuff...</li>
+      <li {{action "edit"}} disabled>Disabled...</li>
       <li {{action "edit"}}>Do more stuff...</li>
 
     </ul>
@@ -51,4 +201,53 @@
       <p>Try right-click while holding ALT</p>
     </div>
   {{/uic-context-menu}}
+
+  <div class="panel" {{action (open-context-menu "c-menu") on="contextMenu"}}>
+    <p>Right-click inside the panel.</p>
+  </div>
+
+  <div class="panel" oncontextmenu={{open-context-menu "a-menu"}}>
+    <p>Right-click inside the panel.</p>
+  </div>
+
+  <div class="panel" oncontextmenu={{open-context-menu "b-menu"}}>
+    <p>Right-click inside the panel.</p>
+    <p>Try right-click while holding ALT</p>
+  </div>
+
 </div>
+
+{{#uic-context-menu id="a-menu"}}
+  <menuitem {{action "doSomething"}}>Do something</menuitem>
+  <hr />
+  {{#uic-sub-menu title="Sub Menu..."}}
+    <ul>
+      <li {{action "new"}}>New...</li>
+      <li {{action "edit"}}>Do more stuff...</li>
+      <li disabled>Disabled...</li>
+      <li {{action "edit"}}>Do more stuff...</li>
+    </ul>
+  {{/uic-sub-menu}}
+  <menuitem {{action "doSomethingElse"}}>Do something else</menuitem>
+{{/uic-context-menu}}
+
+{{#uic-context-menu id="b-menu" as |contextMenuParams|}}
+  <menuitem {{action "doSomething"}}>Do something</menuitem>
+  <hr />
+  {{#uic-sub-menu title="Sub Menu..."}}
+    <menuitem {{action "new"}}>New...</menuitem>
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+    <menuitem {{action "edit"}} disabled>Disabled...</menuitem>
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+  {{/uic-sub-menu}}
+  <menuitem {{action "doSomethingElse"}}>Do something else</menuitem>
+  {{#if contextMenuParams.event.altKey}}
+    <menuitem {{action "edit"}}>Do more stuff...</menuitem>
+  {{/if}}
+{{/uic-context-menu}}
+
+{{#uic-context-menu id="c-menu"}}
+  <ul>
+    <li {{action "edit" bubbles=true}}>Edit</li>
+  </ul>
+{{/uic-context-menu}}

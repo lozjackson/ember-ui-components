@@ -1,5 +1,18 @@
 # Change Log
 
+* [FEATURE] Add `OpenContextMenuHelper`
+
+* [FEATURE] Add `ContextMenuService`.
+
+* Change the default `tagName` for `SubMenuComponent` to `menuitem`.
+
+* Add `ContextMenuContainerComponent`.
+
+* Update `ContextMenuComponent`
+
+
+
+
 ### v0.4.0 2016-04-28
 
 * [FEATURE] Add `CloseButtonComponent`
