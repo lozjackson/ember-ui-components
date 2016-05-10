@@ -6,12 +6,22 @@ import ClickOutsideMixin from 'ember-ui-components/mixins/click-outside';
 import layout from '../templates/components/uic-context-menu-container';
 import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
 
+const { alias } = Ember.computed;
+
 /**
   @class ContextMenuContainerComponent
   @namespace Components
 */
 export default Ember.Component.extend(ClickOutsideMixin, {
   layout,
+
+  /**
+    Injected `contextMenu` service
+    @property contextMenuService
+    @type {Object}
+    @private
+  */
+  contextMenuService: Ember.inject.service('context-menu'),
 
   /**
     @property tagName
@@ -28,6 +38,13 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @default `['uic-context-menu-container', 'uic-menu-container']`
   */
   classNames: ['uic-context-menu-container', 'uic-menu-container'],
+
+  /**
+    @property contextMenuParams
+    @type {Object}
+    @private
+  */
+  contextMenuParams: alias('contextMenuService.contextMenuParams'),
 
   /**
     ## setPosition
@@ -70,13 +87,20 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     this.sendAction();
   },
 
+  /**
+    @method didInsertElement
+    @private
+  */
   didInsertElement() {
     this._super(...arguments);
-    this.setPosition(this.$());
+    this.setPosition(this.$(), getMousePosition(this.get('contextMenuParams.event')));
   },
 
+  /**
+    @method click
+    @private
+  */
   click() {
     this.sendAction();
   }
-
 });
