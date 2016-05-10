@@ -24,6 +24,15 @@ div.uic-check-box.toggle,
 select.uic-select {
   margin: 20px 0;
 }
+.panel hr {
+	background: none;
+	border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
 
 /*
   uic-button
@@ -31,14 +40,22 @@ select.uic-select {
 button.uic-button,
 button.uic-ok-button,
 button.uic-cancel-button {
+  display: inline-block;
   margin: 0;
   padding: 5px 20px;
   font-weight: 300;
   font-size: .9rem;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
   background: #FFF;
   border-radius: 2px;
   border: 1px solid #CDCDCD;
   transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 button.uic-button:hover,
 button.uic-ok-button:hover,
@@ -47,8 +64,9 @@ button.uic-cancel-button:hover {
 }
 button.uic-button[disabled]:hover,
 button.uic-ok-button[disabled]:hover,
-button.uic-cancel-button[disabled]:hover {
-  box-shadow: none;
+button.uic-cancel-button[disabled]:hover,
+.uic-button-group button.uic-button[disabled]:hover {
+  box-shadow: none!important;
 }
 button.uic-button:active,
 button.uic-ok-button:active,
@@ -67,43 +85,257 @@ button.uic-button.extra-small {
   padding: 1px 5px;
   font-size: .6rem;
 }
-button.uic-button.blue {
+button.uic-button.blue,
+.uic-button-group.blue button.uic-button {
   color: #fff;
   background: #388FFF;
   box-sizing: border-box;
   border: 1px solid transparent;
 }
-button.uic-button[disabled].blue {
+button.uic-button[disabled].blue,
+.uic-button-group.blue button.uic-button[disabled] {
   color: rgba(255, 255, 255, 0.5);
   background: rgba(56, 143, 255, 0.3);
 }
-button.uic-button.green {
+button.uic-button.green,
+.uic-button-group.green button.uic-button {
   color: #fff;
   background: #11D232;
   border: 1px solid transparent;
 }
-button.uic-button[disabled].green {
+button.uic-button[disabled].green,
+.uic-button-group.green button.uic-button[disabled] {
   color: rgba(255, 255, 255, 0.5);
   background: rgba(17, 210, 50, 0.3);
 }
-button.uic-button.yellow {
+button.uic-button.yellow,
+.uic-button-group.yellow button.uic-button {
   color: #000;
   background: #FFD128;
   border: 1px solid transparent;
 }
-button.uic-button[disabled].yellow {
+button.uic-button[disabled].yellow,
+.uic-button-group.yellow button.uic-button[disabled] {
   color: rgba(0, 0, 0, 0.35);
   background: rgba(255, 209, 40, 0.5);
 }
-button.uic-button.red {
+button.uic-button.red,
+.uic-button-group.red button.uic-button {
   color: #fff;
   background: #FF0202;
   border: 1px solid transparent;
 }
-button.uic-button[disabled].red{
+button.uic-button[disabled].red,
+.uic-button-group.red button.uic-button[disabled] {
   color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 2, 2, 0.5);
 }
+
+
+
+
+
+
+
+/*
+  ButtonGroup
+*/
+.uic-button-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.uic-button-group + .uic-button-group,
+.uic-button-group + .uic-button,
+.uic-button + .uic-button-group {
+  margin-left: 5px;
+}
+.uic-button-group button.uic-button {
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.uic-button-group > .uic-dropdown > button.uic-button {
+  padding: 5px 12px;
+}
+.uic-button-group button.uic-button:hover {
+  box-shadow: inset 0px 0px 1px #333;
+}
+.uic-button-group button.uic-button:active {
+  box-shadow: inset 0px 0px 5px #888;
+}
+.uic-button-group button.uic-button:focus {
+  background: #eee;
+  z-index: 2;
+}
+.uic-button-group button.uic-button.selected {
+  box-shadow: inset 0px 0px 3px #888;
+  background: #F9F9F9;
+}
+.uic-button-group > button.uic-button:first-child {
+  margin-left: 0;
+}
+.uic-button-group button.uic-button+button.uic-button,
+.uic-button-group button.uic-button+.uic-button-group,
+.uic-button-group .uic-button-group+button.uic-button,
+.uic-button-group .uic-button-group+.uic-button-group,
+.uic-button-group .uic-dropdown+button.uic-button,
+.uic-button-group button.uic-button+.uic-dropdown {
+  margin-left: -1px;
+}
+.uic-button-group > button.uic-button,
+.uic-button-group > .uic-dropdown {
+  position: relative;
+  float: left;
+}
+.uic-button-group > button.uic-button:first-child:not(:last-child),
+.uic-button-group > .uic-dropdown:not(:last-child) > button.uic-button {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.uic-button-group > button.uic-button:not(:first-child):not(:last-child):not(.uic-dropdown) {
+  border-radius: 0;
+}
+.uic-button-group > button.uic-button:last-child:not(:first-child),
+.uic-button-group > .uic-dropdown:not(:first-child) > button.uic-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*
+  button-group
+  large
+*/
+.uic-button-group.large button.uic-button {
+  padding: 8px 25px;
+  font-size: 1rem;
+}
+.uic-button-group.large > .uic-dropdown > button.uic-button {
+  padding: 8px 15px;
+  font-size: 1rem;
+}
+
+/*
+  button-group
+  small
+*/
+.uic-button-group.small button.uic-button,
+.uic-button-group.small > .uic-dropdown > button.uic-button {
+  padding: 3px 10px;
+  font-size: 0.8rem;
+}
+
+/*
+  button-group
+  extra-small
+*/
+.uic-button-group.extra-small button.uic-button,
+.uic-button-group.extra-small > .uic-dropdown > button.uic-button {
+  padding: 1px 8px;
+  font-size: 0.75rem;
+}
+
+/*
+  button-group
+  blue
+*/
+.uic-button-group button.uic-button.blue,
+.uic-button-group.blue button.uic-button {
+  border: 1px solid #697292;
+}
+.uic-button-group button.uic-button.blue:hover,
+.uic-button-group.blue button.uic-button:hover {
+  box-shadow: inset 0px 0px 2px #333;
+}
+.uic-button-group button.uic-button.blue:focus,
+.uic-button-group.blue button.uic-button:focus {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #277EEF;
+  color: #fff;
+}
+.uic-button-group button.uic-button.blue.selected,
+.uic-button-group.blue button.uic-button.selected {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #216AC7;
+  color: #fff;
+}
+
+/*
+  button-group
+  green
+*/
+.uic-button-group button.uic-button.green,
+.uic-button-group.green button.uic-button {
+  border: 1px solid #2BA03F;
+}
+.uic-button-group button.uic-button.green:hover,
+.uic-button-group.green button.uic-button:hover {
+  box-shadow: inset 0px 0px 1px #333;
+}
+.uic-button-group button.uic-button.green:focus,
+.uic-button-group.green button.uic-button:focus {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #12CC31;
+  color: #fff;
+}
+.uic-button-group button.uic-button.green.selected,
+.uic-button-group.green button.uic-button.selected {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #25CC11;
+  color: #fff;
+}
+
+/*
+  button-group
+  yellow
+*/
+.uic-button-group button.uic-button.yellow,
+.uic-button-group.yellow button.uic-button {
+  border: 1px solid #AEAF5D;
+}
+.uic-button-group button.uic-button.yellow:hover,
+.uic-button-group.yellow button.uic-button:hover {
+  box-shadow: inset 0px 0px 1px #333;
+}
+.uic-button-group button.uic-button.yellow:focus,
+.uic-button-group.yellow button.uic-button:focus {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #FFC800;
+}
+.uic-button-group button.uic-button.yellow.selected,
+.uic-button-group.yellow button.uic-button.selected {
+  box-shadow: inset 0px 0px 6px #888C65;
+  background: #FFCF1E;
+  color: #000;
+}
+
+/*
+  button-group
+  red
+*/
+.uic-button-group button.uic-button.red,
+.uic-button-group.red button.uic-button {
+  border: 1px solid #A53737;
+}
+.uic-button-group button.uic-button.red:hover,
+.uic-button-group.red button.uic-button:hover {
+  box-shadow: inset 0px 0px 2px #333;
+}
+.uic-button-group button.uic-button.red:focus,
+.uic-button-group.red button.uic-button:focus {
+  box-shadow: inset 0px 0px 2px #333;
+  background: #FF1A1A;
+}
+.uic-button-group button.uic-button.red.selected,
+.uic-button-group.red button.uic-button.selected {
+  box-shadow: inset 0px 0px 6px #544A4A;
+  background: #F51B1B;
+  color: #fff;
+}
+
+
+
+
+
 
 
 
@@ -748,6 +980,7 @@ button.uic-button[disabled].red{
   display: inline-block;
   position: relative;
   cursor: pointer;
+  white-space: normal;
 }
 .uic-dropdown-container, .uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container {
 	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.15);
@@ -860,7 +1093,7 @@ header.uic-modal-header h1 {
   margin-right: 20px;
   /*font-weight: normal;*/
 }
-header.uic-modal-header button.uic-close-button {
+button.uic-close-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -870,7 +1103,7 @@ header.uic-modal-header button.uic-close-button {
   border-radius: 2px;
   font-size: 1rem;
 }
-header.uic-modal-header button.uic-close-button:hover {
+button.uic-close-button:hover {
   border: 1px solid #DCDCDC;
   background: #fff;
   box-shadow: 0px 0px 1px #888888;

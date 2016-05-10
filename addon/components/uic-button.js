@@ -5,6 +5,12 @@ import Ember from 'ember';
 import layout from '../templates/components/uic-button';
 
 /**
+  # ButtonComponent
+
+  ```
+  {{uic-button action="actionName"}}
+  ```
+
   @class ButtonComponent
   @namespace Components
 */
@@ -26,6 +32,14 @@ export default Ember.Component.extend({
     @default `['uic-button']`
   */
   classNames: ['uic-button'],
+
+  /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['selected:selected']`
+  */
+  classNameBindings: ['selected:selected'],
 
   /**
     @property attributeBindings

@@ -6,14 +6,8 @@ moduleForComponent('uic-button', 'Integration | Component | uic button', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{uic-button}}`);
-
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
   this.render(hbs`
     {{#uic-button}}
       template block text
@@ -29,7 +23,6 @@ test('it has correct tagName and classNames', function(assert) {
       template block text
     {{/uic-button}}
   `);
-
   assert.equal(this.$('button.uic-button').length, 1);
 });
 
@@ -49,13 +42,32 @@ test('click', function(assert) {
   this.$('button.uic-button').click();
 });
 
-test('disabled', function(assert) {
-  assert.expect(1);
-  this.on('doSomething', () => assert.ok(true));
+test('selected', function(assert) {
+  assert.expect(3);
+  this.set('selected', false);
   this.render(hbs`
-    {{#uic-button disabled="true"}}
+    {{#uic-button selected=selected}}
       template block text
     {{/uic-button}}
   `);
+  assert.equal(this.$('button.uic-button.selected').length, 0);
+  this.set('selected', true);
+  assert.equal(this.$('button.uic-button.selected').length, 1);
+  this.set('selected', false);
+  assert.equal(this.$('button.uic-button.selected').length, 0);
+});
+
+test('disabled', function(assert) {
+  assert.expect(3);
+  this.set('disabled', false);
+  this.render(hbs`
+    {{#uic-button disabled=disabled}}
+      template block text
+    {{/uic-button}}
+  `);
+  assert.equal(this.$('button.uic-button[disabled]').length, 0);
+  this.set('disabled', true);
   assert.equal(this.$('button.uic-button[disabled]').length, 1);
+  this.set('disabled', false);
+  assert.equal(this.$('button.uic-button[disabled]').length, 0);
 });
