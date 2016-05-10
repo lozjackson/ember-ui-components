@@ -4,10 +4,11 @@ import { moduleFor, test } from 'ember-qunit';
 moduleFor('service:context-menu', 'Unit | Service | context menu');
 
 test('init() method shoud call reset', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
   let service = this.subject({
     reset: () => assert.ok(true)
   });
+  assert.ok(service);
 });
 
 test('initContextMenuParams() method', function(assert) {
