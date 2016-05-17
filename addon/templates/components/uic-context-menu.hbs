@@ -1,6 +1,8 @@
 {{yield to="inverse"}}
 {{#if showContextMenu}}
-  {{#uic-context-menu-container action="closeContextMenu"}}
+  {{#uic-content-mask active=true action="closeContextMenu" class="uic-menu-overlay"}}
+    {{#uic-context-menu-container action="closeContextMenu"}}
       {{yield contextMenuParams}}
-  {{/uic-context-menu-container}}
+    {{/uic-context-menu-container}}
+  {{/uic-content-mask}}
 {{/if}}
