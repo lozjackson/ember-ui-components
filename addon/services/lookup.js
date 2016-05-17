@@ -49,7 +49,7 @@ export default Ember.Service.extend({
     @return {Object}
   */
   componentById(id) {
-    if (id instanceOf HTMLElement) {
+    if (id instanceof HTMLElement) {
       id = id.id;
     }
     return getOwner(this).lookup('-view-registry:main')[id];
