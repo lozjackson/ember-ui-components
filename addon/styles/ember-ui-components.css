@@ -837,14 +837,27 @@ button.uic-button[disabled].red,
 
 
 /*
+  ContextMenuComponent
+*/
+.uic-context-menu menu menuitem,
+.uic-dropdown menu menuitem,
+.uic-dropdown-container menuitem {
+  display: block;
+}
+
+/*
   ContextMenuComponent & DropdownComponent
 */
-.uic-context-menu-container, .uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container,
-.uic-dropdown-container, .uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container {
+.uic-context-menu-container,
+.uic-context-menu-container menuitem > div > .uic-menu-container,
+.uic-context-menu-container .uic-sub-menu > div > .uic-menu-container,
+.uic-dropdown-container,
+.uic-dropdown-container menuitem > div > .uic-menu-container,
+.uic-dropdown-container .uic-sub-menu > div > .uic-menu-container {
 	display: inline-block;
 	margin: 0px;
 	background-color: rgb(255,255,255);
-	padding: 0px;
+	padding:4px 0;
 	position: fixed;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 	-moz-border-radius: 4px;
@@ -864,31 +877,50 @@ button.uic-button[disabled].red,
 .uic-dropdown .uic-sub-menu-title {
   margin-right: 15px;
 }
+.uic-context-menu-container menuitem.uic-sub-menu > div,
 .uic-context-menu-container li.uic-sub-menu > div,
+.uic-dropdown-container menuitem.uic-sub-menu > div,
 .uic-dropdown-container li.uic-sub-menu > div {
-  position: absolute;
   right: 15px;
 }
+.uic-context-menu-container menuitem.uic-sub-menu > div,
+.uic-context-menu-container li.uic-sub-menu > div,
+.uic-dropdown-container menuitem.uic-sub-menu > div,
+.uic-dropdown-container li.uic-sub-menu > div,
+.uic-dropdown-container .uic-sub-menu > div > .uic-menu-container {
+  position: absolute;
+}
+.uic-context-menu menu,
 .uic-context-menu-container ul,
+.uic-dropdown-container,
 .uic-dropdown-container ul {
 	margin: 0px;
 	margin-left:0px;
-	padding:4px 0px 4px 0px;
+	padding:4px 0;
   list-style: none;
 }
+.uic-context-menu-container ul,
+.uic-dropdown-container ul {
+  padding: 0px;
+}
+.uic-context-menu menu menuitem,
 .uic-context-menu-container li,
+.uic-dropdown-container menuitem,
 .uic-dropdown-container li {
 	padding:3px 20px 3px 20px;
 	white-space: nowrap;
 	overflow: hidden;
 }
+.uic-context-menu menu menuitem:hover,
 .uic-context-menu-container li:hover,
+.uic-dropdown-container menuitem:hover,
 .uic-dropdown-container li:hover {
 	background: #3A9FF4;
 	color:#ffffff;
 }
-
+.uic-context-menu menu menuitem > div > svg,
 .uic-context-menu-container li > div > svg,
+.uic-dropdown-container menuitem > div > svg,
 .uic-dropdown-container li > div > svg {
 	margin-left:10px;
 	margin-top:3px;
@@ -896,35 +928,44 @@ button.uic-button[disabled].red,
 .uic-context-menu-container hr,
 .uic-dropdown-container hr {
 	width: 100%;
-	margin:0px;
+	margin:4px 0;
 }
-.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li,
-.uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container > ul > li {
+.uic-context-menu menu menuitem,
+.uic-context-menu menu menuitem > div > .uic-menu-container > ul > li,
+.uic-context-menu-container li.uic-sub-menu > div > .uic-menu-container > ul > li,
+.uic-dropdown-container menu menuitem,
+.uic-dropdown-container menuitem.uic-sub-menu > div > .uic-menu-container > ul > li,
+.uic-dropdown-container li.uic-sub-menu > div > .uic-menu-container > ul > li {
 	color:#000000;
 }
-.uic-context-menu-container li.uic-sub-menu > div > div.uic-menu-container > ul > li:hover,
-.uic-dropdown-container li.uic-sub-menu > div > div.uic-menu-container > ul > li:hover {
+.uic-context-menu menu menuitem:hover,
+.uic-context-menu-container .uic-sub-menu > div > .uic-menu-container > ul > li:hover,
+.uic-dropdown-container li.uic-sub-menu > div > .uic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.uic-context-menu-container li.uic-sub-menu > div > svg.svg-triangle polygon,
-.uic-dropdown-container li.uic-sub-menu > div > svg.svg-triangle polygon {
+menuitem.uic-sub-menu > div > svg.svg-triangle polygon,
+li.uic-sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.uic-context-menu-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon,
-.uic-dropdown-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
+menuitem.uic-sub-menu:hover > div > svg.svg-triangle polygon,
+li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;
 }
+.uic-context-menu-container menuitem[disabled],
+.uic-context-menu-container li[disabled],
 .uic-context-menu-container li.context-menu-disabled,
 .uic-dropdown-container li.disabled {
-	color:#ccc;
+	color:#ccc !important;
 }
+.uic-context-menu-container menuitem[disabled]:hover,
+.uic-context-menu-container li[disabled]:hover,
 .uic-context-menu-container li.context-menu-disabled:hover,
 .uic-dropdown-container li.disabled:hover {
-	background: rgb(255,255,255);
+	background: rgb(255,255,255) !important;
 }
 .uic-context-menu-container > div,
 .uic-dropdown-container > div {

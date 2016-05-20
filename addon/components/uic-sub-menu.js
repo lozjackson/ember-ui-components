@@ -23,9 +23,9 @@ export default Ember.Component.extend( {
     @property tagName
     @type {String}
     @private
-    @default `li`
+    @default `menuitem`
   */
-  tagName: 'li',
+  tagName: 'menuitem',
 
   /**
     @property classNames

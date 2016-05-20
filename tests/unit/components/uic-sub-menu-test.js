@@ -23,7 +23,7 @@ test('tagName', function(assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('tagName'), 'li');
+  assert.equal(component.get('tagName'), 'menuitem');
 });
 
 

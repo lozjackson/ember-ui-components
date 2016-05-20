@@ -1,8 +1,12 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('uic-context-menu', 'Integration | Component | uic context menu', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    this.inject.service('context-menu', {as: 'contextMenuService'});
+  }
 });
 
 test('it renders', function(assert) {
@@ -89,6 +93,11 @@ test('menu opens', function(assert) {
 });
 
 test('contextmenu', function(assert) {
+  let next = Ember.run.next;
+  Ember.run.next = (fn) => {
+    assert.equal(typeof fn, 'function');
+    fn();
+  };
   this.render(hbs`
     {{#uic-context-menu}}
       context menu content
@@ -99,9 +108,6 @@ test('contextmenu', function(assert) {
 
   this.$('.uic-context-menu').contextmenu();
   assert.equal(this.$('.uic-context-menu-container').length, 1);
-  assert.equal(this.$('.uic-content-mask').length, 1);
 
-  this.$('.uic-content-mask').click();
-  assert.equal(this.$('.uic-context-menu-container').length, 0);
-  assert.equal(this.$('.uic-content-mask').length, 0);
+  Ember.run.next = next;
 });
