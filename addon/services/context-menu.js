@@ -3,12 +3,30 @@
 */
 import Ember from 'ember';
 
+const { computed } = Ember;
+
+let ContextMenuParams = Ember.Object.extend({
+  lookup: null,
+  event: null,
+  context: computed('event', function () {
+    let event = this.get('event');
+    if (!event) { return null; }
+    return this.getContext(event.currentTarget);
+  }),
+  getContext(target) {
+    let view = Ember.$(target).closest('.ember-view');
+    if (view.length) {
+      return this.get('lookup').componentById(view[0].id);
+    }
+  }
+});
+
 /**
   ## Context Menu Service
 
   This service provides methods for opening and closing a context menu.
 
-  To open a context menu, call the `open()` method passing in the `elementId` of 
+  To open a context menu, call the `open()` method passing in the `elementId` of
   the context menu component and the `event` that triggered the context menu.
 
   ```
@@ -27,6 +45,13 @@ import Ember from 'ember';
   @namespace Services
 */
 export default Ember.Service.extend({
+
+  /**
+    @property lookup
+    @type {Object}
+    @private
+  */
+  lookup: Ember.inject.service(),
 
   /**
     The id of the menu.
@@ -49,7 +74,7 @@ export default Ember.Service.extend({
   */
   init() {
     this._super(...arguments);
-    this.reset();
+    this.initContextMenuParams();
   },
 
   /**
@@ -57,7 +82,8 @@ export default Ember.Service.extend({
     @private
   */
   initContextMenuParams() {
-    this.set('contextMenuParams', Ember.Object.create({
+    this.set('contextMenuParams', ContextMenuParams.create({
+      lookup: this.get('lookup'),
       event: null
     }));
   },
@@ -92,6 +118,6 @@ export default Ember.Service.extend({
   */
   reset() {
     this.set('menu', null);
-    this.initContextMenuParams();
+    this.set('contextMenuParams.event', null);
   }
 });

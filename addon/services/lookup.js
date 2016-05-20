@@ -44,6 +44,18 @@ export default Ember.Service.extend({
   }),
 
   /**
+    @method componentById
+    @param {String|Object} id
+    @return {Object}
+  */
+  componentById(id) {
+    if (id instanceof HTMLElement) {
+      id = id.id;
+    }
+    return getOwner(this).lookup('-view-registry:main')[id];
+  },
+
+  /**
     @method hasTemplate
     @param templateName
     @return {Boolean}

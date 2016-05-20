@@ -943,14 +943,14 @@ button.uic-button[disabled].red,
 .uic-dropdown-container li.uic-sub-menu > div > .uic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
-.uic-context-menu-container li.uic-sub-menu > div > svg.svg-triangle polygon,
-.uic-dropdown-container li.uic-sub-menu > div > svg.svg-triangle polygon {
+menuitem.uic-sub-menu > div > svg.svg-triangle polygon,
+li.uic-sub-menu > div > svg.svg-triangle polygon {
   fill: rgb(0, 0, 0);
   stroke:#000000;
   stroke-width:1;
 }
-.uic-context-menu-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon,
-.uic-dropdown-container li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
+menuitem.uic-sub-menu:hover > div > svg.svg-triangle polygon,
+li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
   fill: rgb(255, 255, 255);
   stroke:#ffffff;
   stroke-width:1;

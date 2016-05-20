@@ -24,6 +24,25 @@ export default Ember.Component.extend({
   */
   classNames: ['uic-content-mask'],
 
+  /**
+    @property classNameBindings
+    @type {Array}
+    @default `['active']`
+    @private
+  */
+  classNameBindings: ['active'],
+
+  /**
+    @property active
+    @type {Boolean}
+    @default `false`
+  */
+  active: false,
+
+  /**
+    @method didInsertElement
+    @private
+  */
   didInsertElement() {
     this._super(...arguments);
     let didInsertMask = this.get('didInsertMask');
