@@ -58,6 +58,12 @@ test('parentRouteName 2 nested routes', function(assert) {
   assert.equal(service.get('parentRouteName'), 'top-level-route.parent-route');
 });
 
+// test('componentById() method', function(assert) {
+//   assert.expect(3);
+//   let service = this.subject();
+//   assert.equal(service.componentById('index'), true);
+// });
+
 test('hasTemplate', function(assert) {
   assert.expect(3);
   let service = this.subject();

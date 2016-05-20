@@ -5,7 +5,8 @@ const { run } = Ember;
 
 moduleForComponent('uic-context-menu', 'Unit | Component | uic context menu', {
   needs: [
-    'component:uic-context-menu-container'
+    'component:uic-context-menu-container',
+    'component:uic-content-mask'
   ],
   unit: true,
   beforeEach() {
@@ -94,7 +95,6 @@ test('contextMenu() event', function(assert) {
       }
     }
   });
-  // component.set('showContextMenu', false);
   this.render();
   component.contextMenu(event);
 });
