@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.5.0 2016-05-20
+
 * [FEATURE] Add `OpenContextMenuHelper`
 
 * [FEATURE] Add `ContextMenuService`.
