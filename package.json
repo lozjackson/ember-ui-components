@@ -45,6 +45,7 @@
     "ui",
     "user-interface",
     "button",
+    "button-group",
     "checkbox",
     "select",
     "context-menu",
