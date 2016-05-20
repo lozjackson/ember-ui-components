@@ -6,7 +6,7 @@ moduleFor('service:context-menu', 'Unit | Service | context menu');
 test('init() method shoud call reset', function(assert) {
   assert.expect(2);
   let service = this.subject({
-    reset: () => assert.ok(true)
+    initContextMenuParams: () => assert.ok(true)
   });
   assert.ok(service);
 });
@@ -47,11 +47,10 @@ test('close() method shoud call reset', function(assert) {
 
 test('reset() method', function(assert) {
   assert.expect(2);
-  let service = this.subject({
-    init: () => {},
-    initContextMenuParams: () => assert.ok(true)
-  });
+  let service = this.subject();
+  service.set('contextMenuParams.event', {target:1});
   service.set('menu', 'abc');
-  assert.equal(service.get('menu'), 'abc');
   service.reset();
+  assert.equal(service.get('menu'), null);
+  assert.equal(service.get('contextMenuParams.event'), null);
 });

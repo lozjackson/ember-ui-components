@@ -83,9 +83,9 @@ export default Ember.Service.extend({
   */
   initContextMenuParams() {
     this.set('contextMenuParams', ContextMenuParams.create({
-        lookup: this.get('lookup'),
-        event: null
-      }));
+      lookup: this.get('lookup'),
+      event: null
+    }));
   },
 
   /**
