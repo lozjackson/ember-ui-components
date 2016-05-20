@@ -1,6 +1,6 @@
 {
   "name": "ember-ui-components",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A collection of common user interface components",
   "directories": {
     "doc": "doc",
@@ -40,7 +40,22 @@
     "loader.js": "^4.0.0"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "components",
+    "ui",
+    "user-interface"
+    "button",
+    "checkbox",
+    "select",
+    "context-menu",
+    "dropdown",
+    "menu",
+    "sub-menu",
+    "alert",
+    "confirm",
+    "dialog",
+    "modal",
+    "panel"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
