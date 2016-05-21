@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.5.1 2016-05-21
+
 * [BUGFIX] Prevent Firefox from scrolling the page when the using the `ContextMenuComponent`.
 
 
