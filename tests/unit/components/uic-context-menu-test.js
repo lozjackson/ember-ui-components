@@ -30,37 +30,6 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[1], 'uic-context-menu');
 });
 
-test('attributeBindings', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('attributeBindings').length, 2);
-  assert.equal(component.get('attributeBindings')[1], 'tabindex');
-});
-
-test('classNameBindings', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNameBindings').length, 1);
-  assert.equal(component.get('classNameBindings')[0], 'hideOutline:no-outline');
-});
-
-test('tabindex', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('tabindex'), 1);
-});
-
-test('hideOutline', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('hideOutline'), true);
-});
-
-
 test('showContextMenu', function(assert) {
   assert.expect(1);
   var component = this.subject();
@@ -97,34 +66,6 @@ test('contextMenu() event', function(assert) {
   });
   this.render();
   component.contextMenu(event);
-});
-
-test('keyDown() event - enter', function(assert) {
-  assert.expect(2);
-  let event = {
-    preventDefault: () => assert.ok(false),
-    keyCode: 13
-  };
-  var component = this.subject();
-  component.set('showContextMenu', true);
-  component.set('_closeContextMenu', () => assert.ok(true));
-  this.render();
-  run(() => component.keyDown(event));
-  assert.ok(component);
-});
-
-test('keyDown() event - escape', function(assert) {
-  assert.expect(2);
-  let event = {
-    preventDefault: () => assert.ok(false),
-    keyCode: 27
-  };
-  var component = this.subject();
-  component.set('showContextMenu', true);
-  component.set('_closeContextMenu', () => assert.ok(true));
-  this.render();
-  run(() => component.keyDown(event));
-  assert.ok(component);
 });
 
 test('closeContextMenu action', function(assert) {
