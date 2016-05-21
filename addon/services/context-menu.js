@@ -5,14 +5,48 @@ import Ember from 'ember';
 
 const { computed } = Ember;
 
+/**
+  @class ContextMenuParams
+  @namespace Objects
+*/
 let ContextMenuParams = Ember.Object.extend({
+
+  /**
+    @property lookup
+    @type {Object}
+    @private
+  */
   lookup: null,
+
+  /**
+    This is the `event` object.
+
+    @property event
+    @type {Object}
+  */
   event: null,
+
+  /**
+    This is typically the component that opened the context-menu.
+
+    @property context
+    @type {Object}
+  */
   context: computed('event', function () {
     let event = this.get('event');
     if (!event) { return null; }
     return this.getContext(event.currentTarget);
   }),
+
+  /**
+    This method finds the closest `.ember-view` walking up the dom tree from
+    the target element and then returns the component for that view.
+
+    @method getContext
+    @param {Object} target
+    @private
+    @return {Object}
+  */
   getContext(target) {
     let view = Ember.$(target).closest('.ember-view');
     if (view.length) {
