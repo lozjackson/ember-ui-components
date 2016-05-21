@@ -100,7 +100,6 @@ export default Ember.Service.extend({
     Ember.run.next(() => {
       this.set('contextMenuParams.event', event);
       this.set('menu', menuId);
-      Ember.$(`#${menuId}`).focus(); // set focus so that keyUp/Down events can be recieved.
     });
     return false;
   },

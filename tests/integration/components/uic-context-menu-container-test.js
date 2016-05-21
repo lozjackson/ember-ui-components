@@ -31,3 +31,43 @@ test('it has correct tagName and classNames', function(assert) {
   `);
   assert.equal(this.$('menu.uic-context-menu-container.uic-menu-container').length, 1);
 });
+
+test('hideOutline', function(assert) {
+  this.set('hideOutline', true);
+  this.render(hbs`
+    {{#uic-context-menu-container hideOutline=hideOutline}}
+      context menu content
+    {{else}}
+      template block text
+    {{/uic-context-menu-container}}
+  `);
+  assert.equal(this.$('.uic-context-menu-container.no-outline').length, 1);
+  this.set('hideOutline', false);
+  assert.equal(this.$('.uic-context-menu-container').length, 1);
+  assert.equal(this.$('.uic-context-menu-container.no-outline').length, 0);
+});
+
+test('tabindex', function(assert) {
+  this.render(hbs`
+    {{#uic-context-menu-container}}
+      context menu content
+    {{else}}
+      template block text
+    {{/uic-context-menu-container}}
+  `);
+  assert.equal(this.$('.uic-context-menu-container').attr('tabindex'), 1);
+});
+
+test('tabindex', function(assert) {
+  this.set('tabindex', 2);
+  this.render(hbs`
+    {{#uic-context-menu-container tabindex=tabindex}}
+      context menu content
+    {{else}}
+      template block text
+    {{/uic-context-menu-container}}
+  `);
+  assert.equal(this.$('.uic-context-menu-container').attr('tabindex'), 2);
+  this.set('tabindex', 3);
+  assert.equal(this.$('.uic-context-menu-container').attr('tabindex'), 3);
+});

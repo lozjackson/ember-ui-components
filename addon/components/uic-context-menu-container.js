@@ -40,6 +40,41 @@ export default Ember.Component.extend(ClickOutsideMixin, {
   classNames: ['uic-context-menu-container', 'uic-menu-container'],
 
   /**
+    @property classNameBindings
+    @type {Array}
+    @private
+    @default `['hideOutline:no-outline']`
+  */
+  classNameBindings: ['hideOutline:no-outline'],
+
+  /**
+    @property attributeBindings
+    @type {Array}
+    @private
+    @default `['tabindex']`
+  */
+  attributeBindings: ['tabindex'],
+
+  /**
+    @property tabindex
+    @type {Integer}
+    @private
+    @default `1`
+  */
+  tabindex: 1,
+
+  /**
+    If this property is true the element will be given the `no-outline` css class
+    which will hide the outline that an element is given when it is focused.
+
+    @property hideOutline
+    @type {Boolean}
+    @private
+    @default `true`
+  */
+  hideOutline: true,
+
+  /**
     @property contextMenuParams
     @type {Object}
     @private
@@ -94,10 +129,27 @@ export default Ember.Component.extend(ClickOutsideMixin, {
   didInsertElement() {
     this._super(...arguments);
     this.setPosition(this.$(), getMousePosition(this.get('contextMenuParams.event')));
+    this.$().focus();
   },
 
   /**
-    @method click
+    @event keyDown
+    @param {Object} event
+    @private
+  */
+  keyDown(event) {
+    switch(event.keyCode) {
+      case 13: // enter
+        this.sendAction();
+        break;
+      case 27: // escape
+        this.sendAction();
+        break;
+    }
+  },
+
+  /**
+    @event click
     @private
   */
   click() {
