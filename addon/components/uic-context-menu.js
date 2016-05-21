@@ -16,6 +16,12 @@ export default Ember.Component.extend({
 
   layout,
 
+  /**
+    Injected `contextMenu` service
+    @property contextMenuService
+    @type {Object}
+    @private
+  */
   contextMenuService: Ember.inject.service('context-menu'),
 
   /**
@@ -25,39 +31,6 @@ export default Ember.Component.extend({
     @default `['uic-context-menu']`
   */
   classNames: ['uic-context-menu'],
-
-  /**
-    @property attributeBindings
-    @type {Array}
-    @private
-    @default `['tabindex']`
-  */
-  attributeBindings: ['tabindex'],
-
-  /**
-    @property classNameBindings
-    @type {Array}
-    @private
-    @default `['hideOutline:no-outline']`
-  */
-  classNameBindings: ['hideOutline:no-outline'],
-
-  /**
-    @property tabindex
-    @type {Integer}
-    @default `1`
-  */
-  tabindex: 1,
-
-  /**
-    If this property is true the element will be given the `no-outline` css class
-    which will hide the outline that an element is given when it is focused.
-
-    @property hideOutline
-    @type {Boolean}
-    @default `true`
-  */
-  hideOutline: true,
 
   /**
     @property showContextMenu
@@ -80,24 +53,6 @@ export default Ember.Component.extend({
   */
   _closeContextMenu() {
     this.get('contextMenuService').close();
-  },
-
-  /**
-    @event keyDown
-    @param {Object} event
-    @private
-  */
-  keyDown(event) {
-    if (this.get('showContextMenu')) {
-      switch(event.keyCode) {
-        case 13: // enter
-          this._closeContextMenu();
-          break;
-        case 27: // escape
-          this._closeContextMenu();
-          break;
-      }
-    }
   },
 
   /**
