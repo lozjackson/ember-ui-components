@@ -940,7 +940,8 @@ button.uic-button[disabled].red,
 }
 .uic-context-menu menu menuitem:hover,
 .uic-context-menu-container .uic-sub-menu > div > .uic-menu-container > ul > li:hover,
-.uic-dropdown-container li.uic-sub-menu > div > .uic-menu-container > ul > li:hover {
+.uic-dropdown menu menuitem:hover,
+.uic-dropdown-container .uic-sub-menu > div > .uic-menu-container > ul > li:hover {
 	color:#ffffff;
 }
 menuitem.uic-sub-menu > div > svg.svg-triangle polygon,
