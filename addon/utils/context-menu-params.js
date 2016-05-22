@@ -54,10 +54,10 @@ const { computed } = Ember;
   {{#each array as model}}
     {{list-item
       model=model
-      contextMenu=(open-context-menu "item-menu")}}
+      contextMenu=(open-context-menu "list-item-menu")}}
   {{/each}}
 
-  {{#uic-context-menu as |params|}}
+  {{#uic-context-menu id="list-item-menu" as |params|}}
     <menuitem {{action "edit" params.context.model}}>Edit</menuitem>
   {{/uic-context-menu}}
   ```
@@ -74,7 +74,7 @@ const { computed } = Ember;
     <div oncontextmenu={{open-context-menu "item-menu" model}}>{{model.name}}</div>
   {{/each}}
 
-  {{#uic-context-menu as |params|}}
+  {{#uic-context-menu id="item-menu" as |params|}}
     <menuitem {{action "edit" params.model}}>Edit</menuitem>
   {{/uic-context-menu}}
   ```
