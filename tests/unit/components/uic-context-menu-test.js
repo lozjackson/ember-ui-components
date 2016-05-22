@@ -55,14 +55,14 @@ test('contextMenu() event', function(assert) {
   let event = {
     preventDefault: () => assert.ok(true)
   };
-  var component = this.subject({
+  let component = this.subject({
     elementId: 'menu-1',
-    contextMenuService: {
-      open: (menu, e) => {
+    contextMenuService: Ember.Object.create({
+      toggle: (menu, e) => {
         assert.equal(menu, 'menu-1');
         assert.deepEqual(e, event);
       }
-    }
+    })
   });
   this.render();
   component.contextMenu(event);

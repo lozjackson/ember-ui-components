@@ -63,7 +63,7 @@ export default Ember.Component.extend({
   */
   contextMenu(event) {
     event.preventDefault();
-    this.get('contextMenuService').open(this.get('elementId'), event);
+    this.get('contextMenuService').toggle(this.get('elementId'), event);
     return false;
   },
 

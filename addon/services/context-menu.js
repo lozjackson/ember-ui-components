@@ -2,63 +2,15 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-
+import ContextMenuParams from 'ember-ui-components/utils/context-menu-params';
 const { computed } = Ember;
-
-/**
-  @class ContextMenuParams
-  @namespace Objects
-*/
-let ContextMenuParams = Ember.Object.extend({
-
-  /**
-    @property lookup
-    @type {Object}
-    @private
-  */
-  lookup: null,
-
-  /**
-    This is the `event` object.
-
-    @property event
-    @type {Object}
-  */
-  event: null,
-
-  /**
-    This is typically the component that opened the context-menu.
-
-    @property context
-    @type {Object}
-  */
-  context: computed('event', function () {
-    let event = this.get('event');
-    if (!event) { return null; }
-    return this.getContext(event.currentTarget);
-  }),
-
-  /**
-    This method finds the closest `.ember-view` walking up the dom tree from
-    the target element and then returns the component for that view.
-
-    @method getContext
-    @param {Object} target
-    @private
-    @return {Object}
-  */
-  getContext(target) {
-    let view = Ember.$(target).closest('.ember-view');
-    if (view.length) {
-      return this.get('lookup').componentById(view[0].id);
-    }
-  }
-});
 
 /**
   ## Context Menu Service
 
   This service provides methods for opening and closing a context menu.
+
+  ### Open
 
   To open a context menu, call the `open()` method passing in the `elementId` of
   the context menu component and the `event` that triggered the context menu.
@@ -69,10 +21,29 @@ let ContextMenuParams = Ember.Object.extend({
 
   NOTE: The `event` is needed for positioning the context-menu.
 
+  You can also pass in a `model` object as the third argument to the `open()` method.
+
+  ```
+  contextMenuService.open('menu-id', event, model);
+  ```
+
+  The `model` will then be available to the context-menu as the `contextMenuParams.model` property.
+
+  ### Close
+
   Call the `close()` method to close the currently open context menu.
 
   ```
   contextMenuService.close();
+  ```
+
+  ### Toggle
+
+  Call the `toggle()` method to toggle the `open()` and `close()` methods.  Pass
+  in the same arguments as you would the `open()` method.
+
+  ```
+  contextMenuService.toggle('menu-id', event, model);
   ```
 
   @class ContextMenuService
@@ -103,6 +74,14 @@ export default Ember.Service.extend({
   contextMenuParams: null,
 
   /**
+    @property menuIsOpen
+    @type {Boolean}
+    @private
+    @readonly
+  */
+  menuIsOpen: computed.bool('menu'),
+
+  /**
     @method init
     @private
   */
@@ -118,7 +97,8 @@ export default Ember.Service.extend({
   initContextMenuParams() {
     this.set('contextMenuParams', ContextMenuParams.create({
       lookup: this.get('lookup'),
-      event: null
+      event: null,
+      model: null
     }));
   },
 
@@ -126,13 +106,15 @@ export default Ember.Service.extend({
     @method open
     @param {String} menuId
     @param {Object} event
+    @param {Object} model
     @return {Boolean} `false`
   */
-  open(menuId, event) {
+  open(menuId, event, model) {
     event = event || window.event;
     this.set('menu', null);
     Ember.run.next(() => {
       this.set('contextMenuParams.event', event);
+      this.set('contextMenuParams.model', model);
       this.set('menu', menuId);
     });
     return false;
@@ -146,11 +128,28 @@ export default Ember.Service.extend({
   },
 
   /**
+    ## Toggle
+
+    Toggle the `open` or `close` methods.  The `toggle` method accepts the same
+    arguments as the `open` method.
+
+    @method toggle
+    @param {String} menuId
+    @param {Object} event
+    @param {Object} model
+    @return {Boolean}
+  */
+  toggle() {
+    return this.get('menuIsOpen') ? this.close() : this.open(...arguments);
+  },
+
+  /**
     @method reset
     @private
   */
   reset() {
     this.set('menu', null);
     this.set('contextMenuParams.event', null);
+    this.set('contextMenuParams.model', null);
   }
 });
