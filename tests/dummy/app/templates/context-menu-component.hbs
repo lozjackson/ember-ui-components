@@ -219,26 +219,60 @@
 
 <div class="panel">
 
-  <h2>Actions and Context</h2>
+  <h2>ContextMenuParams</h2>
 
   <p>
     The <code>ContextMenuComponent</code> template yields a block parameter
-    object that provides us with some useful properties:
+    object that provides us with some useful properties.
   </p>
-
-  <ul>
-    <li>event: the <code>event</code> object</li>
-    <li>context: the closest component to the <code>event.currentTarget</code> element.</li>
-  </ul>
 
   <p>
-    These context menu parameters are available to the block template.(<code>|</code>)
+    The following context menu parameters are available to the block template:
   </p>
+
+  <h3>Event</h3>
+
+  <p>This is the <code>event</code> object that triggered the context menu.</p>
 
   <div class="panel code">
     <pre><code>&#123;&#123;#uic-context-menu <b>as |params|</b>&#125;&#125;
-  &lt;menuitem &#123;&#123;action "doSomething" <b>params.event</b>&#125;&#125;>Do something...&lt;/menuitem>
-  &lt;menuitem &#123;&#123;action "doSomethingElse" <b>params.context</b>&#125;&#125;>Do something else...&lt;/menuitem>
+  &lt;menuitem &#123;&#123;action "edit" <b>params.event</b>&#125;&#125;>Edit&lt;/menuitem>
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  The following example uses the <code>params.event.altKey</code> property to
+  display an extra menu item when the Alt key is pressed.
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu <b>as |params|</b>&#125;&#125;
+  &lt;menuitem &#123;&#123;action "edit"&#125;&#125;>Edit&lt;/menuitem>
+
+  &#123;&#123;#if <b>params.event.altKey</b>}}
+    &lt;menuitem &#123;&#123;action "delete" &#125;&#125;>Delete&lt;/menuitem>
+  &#123;&#123;/if}}
+
+&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
+  </div>
+
+  {{#uic-context-menu as |contextMenuParams|}}
+    <menuitem {{action "edit"}}>Edit</menuitem>
+    {{#if contextMenuParams.event.altKey}}
+      <menuitem {{action "delete"}}>Delete</menuitem>
+    {{/if}}
+  {{else}}
+    <div class="panel">
+      <p>Right-click inside the panel.</p>
+      <p>Try right-click while holding ALT</p>
+    </div>
+  {{/uic-context-menu}}
+
+  <h3>Context</h3>
+
+  The <code>context</code> property is the closest component to the <code>event.currentTarget</code> element.
+
+  <div class="panel code">
+    <pre><code>&#123;&#123;#uic-context-menu <b>as |params|</b>&#125;&#125;
+  &lt;menuitem &#123;&#123;action "doSomething" <b>params.context</b>&#125;&#125;>Do something...&lt;/menuitem>
 &#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
   </div>
 
@@ -285,6 +319,31 @@ export default Ember.Component.extend({
 </code></pre>
   </div>
 
+  <h3>Model</h3>
+
+  <p>
+    If the element doesn't have a component, then the <code>context</code> property
+    will be less helpful.
+  </p>
+  <p>
+    In cases like this you can pass the <code>model</code> as the second argument
+    to the <code>open-context-menu</code> helper which will then be available to
+    the context menu as <code>params.model</code>.
+  </p>
+
+  <div class="panel code">
+    <pre><code>
+  &#123;&#123;#each array as <b>model</b>&#125;&#125;
+    &lt;div oncontextmenu=&#123;&#123;open-context-menu "item-menu" <b>model</b>&#125;&#125;>&#123;&#123;model.name&#125;&#125;&lt;/div>
+  &#123;&#123;/each&#125;&#125;
+
+  &#123;&#123;#uic-context-menu id="item-menu" as |params|&#125;&#125;
+    &lt;menuitem &#123;&#123;action "doSomething" <b>params.model</b>&#125;&#125;>Do something...&lt;/menuitem>
+  &#123;&#123;/uic-context-menu&#125;&#125;
+</code></pre>
+  </div>
+
+
 </div>
 
 <div class="panel">
@@ -303,23 +362,6 @@ export default Ember.Component.extend({
       <li {{action "edit"}} disabled>Disabled...</li>
       <li {{action "edit"}}>Do more stuff...</li>
 
-    </ul>
-    {{#if contextMenuParams.event.altKey}}
-      <hr />
-      <ul>
-        <li {{action "delete"}}>Delete</li>
-      </ul>
-    {{/if}}
-  {{else}}
-    <div class="panel">
-      <p>Right-click inside the panel.</p>
-      <p>Try right-click while holding ALT</p>
-    </div>
-  {{/uic-context-menu}}
-
-  {{#uic-context-menu as |contextMenuParams|}}
-    <ul>
-      <li {{action "edit" bubbles=true}}>Edit</li>
     </ul>
     {{#if contextMenuParams.event.altKey}}
       <hr />
