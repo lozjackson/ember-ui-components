@@ -69,5 +69,14 @@ test('contextmenu', function(assert) {
   this.$('.uic-context-menu').contextmenu();
   assert.equal(this.$('.uic-context-menu-container').length, 1);
 
+  this.$('.uic-context-menu').contextmenu();
+  assert.equal(this.$('.uic-context-menu-container').length, 0);
+
+  this.$('.uic-context-menu').contextmenu();
+  assert.equal(this.$('.uic-context-menu-container').length, 1);
+
+  this.$('.uic-context-menu').contextmenu();
+  assert.equal(this.$('.uic-context-menu-container').length, 0);
+
   Ember.run.next = next;
 });
