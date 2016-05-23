@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
 
@@ -8,6 +9,13 @@ export default Ember.Controller.extend({
   maskContent: true,
   showDefaultToggle: true,
   pushContentType: 'push-content',
-  disableScroll: true
+  disableScroll: true,
 
+  version: Ember.computed(function() {
+    const [version, git] = ENV.APP.version.split('+');
+    if ('development' === ENV.environment) {
+      Ember.Logger.debug(`${ENV.APP.name} v${version} ${git}`);
+    }
+    return version;
+  })
 });

@@ -1,8 +1,20 @@
 # Change Log
 
+### v0.6.0 2016-05-23
+
+* [FEATURE] Add `toggle` method to the `ContextMenuService`.
+
+* [BUGFIX] Fix a bug where the context-menu could have an incorrect context.
+
+* [FEATURE] Allow an object to be passed as a second argument to the `OpenContextMenuHelper`
+and then be available as the `ContextMenuParams.model` property.
+
+
+
+
 ### v0.5.1 2016-05-21
 
-* [BUGFIX] Prevent Firefox from scrolling the page when the using the `ContextMenuComponent`.
+* [BUGFIX] Prevent Firefox from scrolling the page when using the `ContextMenuComponent`.
 
 
 
