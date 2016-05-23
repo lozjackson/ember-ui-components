@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.6.0 2016-05-23
+
 * [FEATURE] Add `toggle` method to the `ContextMenuService`.
 
 * [BUGFIX] Fix a bug where the context-menu could have an incorrect context.
