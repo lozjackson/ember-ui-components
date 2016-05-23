@@ -20,6 +20,12 @@ h2 {
 h3 {
   margin-top: 40px;
 }
+p.version {
+  float: right;
+  font-size: 0.7rem;
+  margin: 10px;
+  padding: 0px;
+}
 div.panel.code {
   margin: 30px;
   padding: 0;
