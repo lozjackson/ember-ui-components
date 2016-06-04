@@ -15,7 +15,18 @@
 
   <p>
     Place a {{#link-to 'modal-dialog-component'}}<code>ModalDialogComponent</code>{{/link-to}} in the <code>application</code> template.
-    Then use the <code>DialogService</code> to render a modal dialog.
+  </p>
+  <div class="panel code">
+    <pre><code><span class="code-comment">&#123;&#123;! application.hbs &#125;&#125;</span>
+
+<b>&#123;&#123;uic-model-dialog&#125;&#125;</b>
+
+&#123;&#123;outlet&#125;&#125;
+</code></pre>
+  </div>
+
+  <p>
+    Then you can use the <code>DialogService</code> to render a modal dialog from any controller or component..
   </p>
   <p>Inject the <code>DialogService</code> into any controllers or components that need it.</p>
 
@@ -24,11 +35,23 @@
 
 export default Ember.Component.extend({
 
-  dialog: Ember.inject.service(), // inject the dialog service
+  <b>dialog: Ember.inject.service(),</b> <span class="code-comment">// inject the dialog service</span>
+
+});</code></pre>
+  </div>
+
+  <p>Then use the <code>dialog</code> service to render a modal.</p>
+
+  <div class="panel code">
+    <pre><code>import Ember from 'ember';
+
+export default Ember.Component.extend({
+
+  dialog: Ember.inject.service(), <span class="code-comment">// inject the dialog service</span>
 
   someMethod() {
 
-    this.get('dialog').alert('Something happened!');
+    <b>this.get('dialog').alert('Something happened!');</b>
 
   }
 });</code></pre>
@@ -45,7 +68,7 @@ export default Ember.Component.extend({
   </p>
 
   <div class="panel code">
-    <pre><code>this.get('dialog').alert('Something happened!');</code></pre>
+    <pre><code>this.get('dialog').<b>alert(</b>'Something happened!'<b>)</b>;</code></pre>
   </div>
 
   <div>
