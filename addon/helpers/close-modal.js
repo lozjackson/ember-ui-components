@@ -7,6 +7,34 @@ import Ember from 'ember';
 export default Ember.Helper.extend({
 
   /**
+    ## CloseModal
+
+    The `{{close-modal}}` helper can be used to close a modal that has been opened using the `ModalService`.
+
+    ```
+    {{close-modal}}
+    ```
+
+    The `{{close-modal}}` helper returns a function that can be used in actions:
+    
+    ```
+    <div {{action (close-modal)}}>
+      // ...
+    </div>
+    ```
+
+    ```
+    <div click={{close-modal}}>
+      // ...
+    </div>
+    ```
+
+    in a component:
+
+    ```
+    {{my-component action=(close-modal)}}
+    ```
+    
     @property modal
     @type {Object}
     @private
