@@ -32,8 +32,34 @@
 
   <h2>ModalWindow</h2>
   <div>
-    <button class="uic-button blue" {{action "toggle" "firstModal"}}>Click here</button>
-    {{#uic-modal-window title="Modal Window" showModal=firstModal modalClassNames="my-modal" closeModal=(action "toggle" "firstModal")}}
+    <button class="uic-button blue" {{action (open-modal "another-modal" "Foo")}}>Foo</button>
+    <button class="uic-button blue" {{action (open-modal "another-modal" "Bar")}}>Bar</button>
+    
+    {{#uic-modal-window 
+      id="another-modal"
+      title="A Modal"
+      modalClassNames="my-modal" 
+      closeModal=(close-modal) 
+      as |params|}}
+      <h2>Modal</h2>
+      <p>modal: {{params.model}}</p>
+      <div>
+        <button class="uic-button" {{action (close-modal)}}>Close</button>
+      </div>
+    {{/uic-modal-window}}
+  </div>
+</div>
+
+<div class="panel">
+
+  <h2>ModalWindow</h2>
+  <div>
+    <button class="uic-button blue" {{action "toggle" "firstModal"}}>Click here</button>  
+    {{#uic-modal-window 
+      title="Modal Window" 
+      showModal=firstModal 
+      modalClassNames="my-modal" 
+      closeModal=(action "toggle" "firstModal")}}
       <h2>Modal 1</h2>
       <div>
         <button class="uic-button" {{action "toggle" "firstModal"}}>Close</button>
