@@ -18,6 +18,24 @@ test('modalIsOpen', function(assert) {
   assert.equal(service.get('modalIsOpen'), false);
 });
 
+test('init() method shoud call initParams', function(assert) {
+  assert.expect(2);
+  let service = this.subject({
+    initParams: () => assert.ok(true)
+  });
+  assert.ok(service);
+});
+
+test('initParams() method', function(assert) {
+  assert.expect(2);
+  let service = this.subject({
+    init: () => {}
+  });
+  service.initParams();
+  assert.equal(typeof service.get('params'), 'object');
+  assert.equal(service.get('params.model'), null);
+});
+
 test('open() method', function(assert) {
   assert.expect(1);
   let service = this.subject();
