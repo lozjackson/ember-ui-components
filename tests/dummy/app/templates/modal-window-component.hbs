@@ -14,23 +14,27 @@
 <div class="panel">
 
   <h2>ModalWindow</h2>
-  <div>
-    <button class="uic-button blue" {{action (open-modal "my-modal-window")}}>Click here</button>
+  <p>This modal is opened using the <code>ModalService</code>.</p>
+  
+  
+  <button class="uic-button blue" {{action (open-modal "my-modal-window")}}>Click here</button>
+  
+  
+  {{#uic-modal-window id="my-modal-window" title="Modal Window" modalClassNames="my-modal" closeModal=(close-modal)}}
+    <h2>My Modal</h2>
+    <p>Opened using the <code>ModalService</code>.</p>
     
-    {{#uic-modal-window id="my-modal-window" title="Modal Window" modalClassNames="my-modal" closeModal=(close-modal)}}
-      <h2>My Modal</h2>
-      
-      <div>
-        <button class="uic-button" {{action (close-modal)}}>Close</button>
-      </div>
-    {{/uic-modal-window}}
+    <div>
+      <button class="uic-button" {{action (close-modal)}}>Close</button>
+    </div>
+  {{/uic-modal-window}}
 
-  </div>
 </div>
 
 <div class="panel">
 
   <h2>ModalWindow</h2>
+  <p>This modal is opened using the <code>ModalService</code> and is passed a <code>model</code>.</p>
   <div>
     <button class="uic-button blue" {{action (open-modal "another-modal" "Foo")}}>Foo</button>
     <button class="uic-button blue" {{action (open-modal "another-modal" "Bar")}}>Bar</button>
@@ -42,7 +46,7 @@
       closeModal=(close-modal) 
       as |params|}}
       <h2>Modal</h2>
-      <p>modal: {{params.model}}</p>
+      <p>model: {{params.model}}</p>
       <div>
         <button class="uic-button" {{action (close-modal)}}>Close</button>
       </div>
