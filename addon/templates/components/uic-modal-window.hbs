@@ -1,24 +1,26 @@
-{{#if maskContent}}
-  {{uic-content-mask class="active"}}
-{{/if}}
-{{#uic-modal class=modalClassNames}}
+{{#if showModal}}
+  {{#if maskContent}}
+    {{uic-content-mask class="active"}}
+  {{/if}}
+  {{#uic-modal class=modalClassNames}}
 
-  <header class="uic-modal-header">
-    {{#if title}}
-      <h1 class="ellipsis">{{title}}</h1>
-    {{/if}}
-
-    {{#if showCloseButton}}
-      {{#if closeModal}}
-        {{uic-close-button action="closeModal"}}
-      {{else}}
-        {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
+    <header class="uic-modal-header">
+      {{#if title}}
+        <h1 class="ellipsis">{{title}}</h1>
       {{/if}}
-    {{/if}}
-  </header>
 
-  <div class="uic-modal-body">
-    {{yield}}
-  </div>
+      {{#if showCloseButton}}
+        {{#if closeModal}}
+          {{uic-close-button action="closeModal"}}
+        {{else}}
+          {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
+        {{/if}}
+      {{/if}}
+    </header>
 
-{{/uic-modal}}
+    <div class="uic-modal-body">
+      {{yield modal.params}}
+    </div>
+
+  {{/uic-modal}}
+{{/if}}

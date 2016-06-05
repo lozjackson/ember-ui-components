@@ -2,11 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  actions: {
+  modal: Ember.inject.service(),
 
-    closeDialog() {
-      this.set('openDialog', false);
-    },
+  actions: {
 
     openRoutedDialog() {
       this.transitionToRoute('modal-window-component.modal');

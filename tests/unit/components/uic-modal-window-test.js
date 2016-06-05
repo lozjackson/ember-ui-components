@@ -1,4 +1,8 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
+
+const { run } = Ember;
+
 moduleForComponent('uic-modal-window', 'Unit | Component | uic modal window', {
   needs: [
     'component:uic-content-mask',
@@ -16,20 +20,33 @@ test('it renders', function(assert) {
 });
 
 test('classNames', function(assert) {
-  assert.expect(3);
+  assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-modal-window');
-  assert.equal(component.get('classNames')[2], 'uic-modal-container');
+  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-modal-window']);
 });
 
 test('classNameBindings', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('classNameBindings').length, 1);
-  assert.equal(component.get('classNameBindings')[0], 'disablePointerEvents:uic-disable-pointer-events');
+  assert.deepEqual(component.get('classNameBindings'), ['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container']);
+});
+
+test('showModal', function(assert) {
+  assert.expect(3);
+  var component = this.subject({
+    modal: {
+      modalId: null,
+    },
+    elementId: 'abc'
+  });
+  this.render();
+  assert.equal(component.get('showModal'), false);
+  run(() => component.set('modal.modalId', 'abc'));
+  assert.equal(component.get('showModal'), true);
+  run(() => component.set('modal.modalId', null));
+  assert.equal(component.get('showModal'), false);
 });
 
 test('disableScroll', function (assert) {

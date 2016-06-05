@@ -16,6 +16,14 @@ export default Ember.Component.extend({
   layout,
 
   /**
+    Injected ModalService
+    @property modal
+    @type {Object}
+    @private
+  */
+  modal: Ember.inject.service(),
+
+  /**
     Injected LookupService
     @property lookup
     @type {Object}
@@ -27,17 +35,17 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['uic-modal-window', 'uic-modal-container']`
+    @default `['uic-modal-window']`
   */
-  classNames: ['uic-modal-window', 'uic-modal-container'],
+  classNames: ['uic-modal-window'],
 
   /**
     @property classNameBindings
     @type {Array}
     @private
-    @default `['disablePointerEvents:uic-disable-pointer-events']`
+    @default `['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container']`
   */
-  classNameBindings: ['disablePointerEvents:uic-disable-pointer-events'],
+  classNameBindings: ['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container'],
 
   /**
     @property showCloseButton
@@ -81,6 +89,14 @@ export default Ember.Component.extend({
     @private
   */
   parentRouteName: alias('lookup.parentRouteName'),
+
+  /**
+    @property showModal
+    @type {Boolean}
+  */
+  showModal: computed('modal.modalId', 'elementId', function () {
+    return this.get('modal.modalId') === this.get('elementId');
+  }),
 
   /**
     @event didInsertElement
