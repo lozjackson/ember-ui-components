@@ -12,7 +12,11 @@ pre {
   /*white-space: pre-wrap;*/
   overflow-x: auto;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
+}
+div.panel.code .hljs {
+  background: none;
+  padding: 10px;
 }
 h2 {
   margin-top: 25px;
@@ -30,7 +34,7 @@ div.panel.code {
   margin: 30px;
   padding: 0;
   /*padding: 10px 20px;*/
-  background: #F5F7F7;
+  background: #F8F8F8;
   box-shadow: 0px 1px 2px #888888 inset;
 }
 span.code-comment {
