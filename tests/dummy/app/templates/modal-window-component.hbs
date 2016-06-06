@@ -149,25 +149,64 @@
 
 <div class="panel">
 
-  <h2>ModalWindow</h2>
-  <p>This modal is opened using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}} and is passed a <code>model</code>.</p>
-  <div>
-    <button class="uic-button blue" {{action (open-modal "another-modal" "Foo")}}>Foo</button>
-    <button class="uic-button blue" {{action (open-modal "another-modal" "Bar")}}>Bar</button>
+  <h2>Params</h2>
+  <p>
+    When using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}}
+    you can pass a <code>model</code> as the second argument to the <code>open-modal</code> helper.
+  </p>
 
-    {{#uic-modal-window
-      id="another-modal"
-      title="A Modal"
-      modalClassNames="my-modal"
-      closeModal=(close-modal)
-      as |params|}}
-      <h2>Modal</h2>
-      <p>model: {{params.model}}</p>
-      <div>
-        <button class="uic-button" {{action (close-modal)}}>Close</button>
-      </div>
-    {{/uic-modal-window}}
+  <div class="panel code">
+    {{code-snippet name="open-modal-with-model.hbs"}}
   </div>
+
+  <p>
+    The code example below shows how to pass the <code>model</code> as the second
+    parameter to the <code>open-modal</code> helper.  I'm using a simple array of strings, but could be an array of objects.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="array-of-items.js"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="pass-model-example.hbs"}}
+  </div>
+
+  <p>The <code>model</code> passed to the <code>open-modal</code> helper is available to the modal component as the property <code>params.model</code>.</p>
+
+  <div class="panel code">
+    {{code-snippet name="params-example.hbs"}}
+  </div>
+
+  <div class="panel output">
+
+    <p>
+      Click on one of the items in the list below.
+    </p>
+    {{! BEGIN-SNIPPET pass-model-example }}
+    <ul>
+      {{#each items as |model|}}
+        <li>
+          <a {{action (open-modal "item-details" model)}} href="">{{model}}</a>
+        </li>
+      {{/each}}
+    </ul>
+    {{! END-SNIPPET }}
+
+    <p>The same modal component is used, but with a different <code>model</code>.</p>
+
+{{! BEGIN-SNIPPET params-example}}
+{{#uic-modal-window
+  id="item-details"
+  closeModal=(close-modal)
+  as |params|}}
+
+  <p>model: {{params.model}}</p>
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+  </div>
+
 </div>
 
 <div class="panel">
