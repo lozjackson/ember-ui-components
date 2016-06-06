@@ -6,10 +6,6 @@ export default Ember.Controller.extend({
 
   actions: {
 
-    openRoutedDialog() {
-      this.transitionToRoute('modal-window-component.modal');
-    },
-
     toggle(propertyName) {
       this.toggleProperty(propertyName);
     }
