@@ -28,30 +28,14 @@
 
   <h2>Basic use:</h2>
 
-{{! BEGIN-SNIPPET basic-use }}
-{{#uic-modal-window}}
-
-  ...your modal content here...
-
-{{/uic-modal-window}}
-{{! END-SNIPPET }}
-
   <div class="panel code">
-    {{code-snippet name="basic-use.hbs"}}
+    {{code-snippet name="modal-window-basic.hbs"}}
   </div>
 
   <h2>Advanced use:</h2>
 
   <div class="panel code">
-    <pre><code>&#123;&#123;#uic-modal-window
-  id="modal-id"
-  showModal="true or false"
-  closeModal="action-name"
-  as |params|&#125;&#125;
-
-  ...your modal content here...
-
-&#123;&#123;/uic-modal-window&#125;&#125;</code></pre>
+    {{code-snippet name="modal-window-advanced.hbs"}}
   </div>
 
 </div>
@@ -211,19 +195,51 @@
 
 <div class="panel">
 
-  <h2>ModalWindow</h2>
+  <h2><code>showModal {Boolean}</code></h2>
+
+  <p>
+    You can also display the modal by overriding the <code>showModal</code> property of the
+    <code>ModalWindowComponent</code>.  This allows you to use the
+    <code>ModalWindowComponent</code> without the <code>ModalService</code>.
+    The <code>showModal</code> property should be a boolean value.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-example.hbs"}}
+  </div>
+
+  <p>The following example shows how you could toggle the modal.</p>
+
+  <div class="panel code">
+    {{code-snippet name="display-modal.js"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-component-example.hbs"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-button-example.hbs"}}
+  </div>
+
   <div>
-    <button class="uic-button blue" {{action "toggle" "firstModal"}}>Click here</button>
-    {{#uic-modal-window
-      title="Modal Window"
-      showModal=firstModal
-      modalClassNames="my-modal"
-      closeModal=(action "toggle" "firstModal")}}
-      <h2>Modal 1</h2>
-      <div>
-        <button class="uic-button" {{action "toggle" "firstModal"}}>Close</button>
-      </div>
-    {{/uic-modal-window}}
+
+{{! BEGIN-SNIPPET show-modal-component-example}}
+{{#uic-modal-window
+  showModal=displayModal
+  closeModal=(action "toggleModal")}}
+
+  <h2>Modal 1</h2>
+
+  {{uic-button action="toggleModal" text="Close"}}
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+
+{{! BEGIN-SNIPPET show-modal-button-example}}
+{{uic-button action="toggleModal" text="Click here" class="blue"}}
+{{! END-SNIPPET }}
+
   </div>
 </div>
 

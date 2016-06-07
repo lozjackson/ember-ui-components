@@ -8,10 +8,15 @@ export default Ember.Controller.extend({
   items: ['Foo', 'Bar', 'Baz'],
   // END-SNIPPET
 
+  // BEGIN-SNIPPET display-modal
+  // controller/component
+  displayModal: false,
+
   actions: {
 
-    toggle(propertyName) {
-      this.toggleProperty(propertyName);
+    toggleModal() {
+      this.toggleProperty('displayModal');
     }
   }
+  // END-SNIPPET
 });
