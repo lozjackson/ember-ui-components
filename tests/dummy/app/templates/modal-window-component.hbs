@@ -9,74 +9,250 @@
 
   <h2><code>&#123;&#123;uic-modal-window&#125;&#125;</code></h2>
 
-</div>
+  <h2>Description</h2>
 
-<div class="panel">
+  <p>The <code>ModalWindowComponent</code> can be used to create a modal.</p>
 
-  <h2>ModalWindow</h2>
-  <p>This modal is opened using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}}.</p>
-  
-  
-  <button class="uic-button blue" {{action (open-modal "my-modal-window")}}>Click here</button>
-  
-  
-  {{#uic-modal-window id="my-modal-window" title="Modal Window" modalClassNames="my-modal" closeModal=(close-modal)}}
-    <h2>My Modal</h2>
-    <p>Opened using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}}.</p>
-    <p>id: <code>my-modal-window</code></p>
-    <div>
-      <button class="uic-button" {{action (close-modal)}}>Close</button>
-    </div>
+  {{#uic-button action=(open-modal "demo-modal") class="blue"}}
+    Click here
+  {{/uic-button}}
+
+  {{#uic-modal-window id="demo-modal" closeModal=(close-modal)}}
+    <h2>Modal Window Component</h2>
+    <p>This is a <code>ModalWindowComponent</code>.</p>
   {{/uic-modal-window}}
 
 </div>
 
 <div class="panel">
 
-  <h2>ModalWindow</h2>
-  <p>This modal is opened using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}} and is passed a <code>model</code>.</p>
-  <div>
-    <button class="uic-button blue" {{action (open-modal "another-modal" "Foo")}}>Foo</button>
-    <button class="uic-button blue" {{action (open-modal "another-modal" "Bar")}}>Bar</button>
-    
-    {{#uic-modal-window 
-      id="another-modal"
-      title="A Modal"
-      modalClassNames="my-modal" 
-      closeModal=(close-modal) 
-      as |params|}}
-      <h2>Modal</h2>
-      <p>model: {{params.model}}</p>
-      <div>
-        <button class="uic-button" {{action (close-modal)}}>Close</button>
-      </div>
-    {{/uic-modal-window}}
+  <h2>Basic use:</h2>
+
+  <div class="panel code">
+    {{code-snippet name="modal-window-basic.hbs"}}
   </div>
+
+  <h2>Advanced use:</h2>
+
+  <div class="panel code">
+    {{code-snippet name="modal-window-advanced.hbs"}}
+  </div>
+
 </div>
 
 <div class="panel">
 
-  <h2>ModalWindow</h2>
+  <h2>Using the ModalService</h2>
+
+  <p>
+    You can use the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}}
+    to display the contents of the modal.  The <code>ModalService</code> comes
+    with two helpers - <code>open-modal</code> and <code>close-modal</code>.
+  </p>
+  <p>
+    When using the <code>ModalService</code> you need to set the <code>id</code> of the
+    <code>ModalWindowComponent</code> and also provide a method/action for the
+    <code>closeModal</code> action.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="basic-modal-window.hbs"}}
+  </div>
+
+{{! BEGIN-SNIPPET basic-modal-window }}
+{{#uic-modal-window id="basic-modal" closeModal=(close-modal)}}
+
+  <h2>Basic Modal</h2>
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+
+  <h3><code>open-modal</code></h3>
+  <p>
+    Open the modal using the <code>open-modal</code> helper, passing in the
+    <code>id</code> of the <code>ModalWindowComponent</code> as the first argument:
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="basic-modal-button.hbs"}}
+  </div>
+  <div class="panel output">
+    {{! BEGIN-SNIPPET basic-modal-button }}
+    {{#uic-button action=(open-modal "basic-modal")}}
+      Click here
+    {{/uic-button}}
+    {{! END-SNIPPET }}
+  </div>
+
+  <h3><code>close-modal</code></h3>
+  <p>
+    You can use the <code>close-modal</code> helper method to close a modal that
+    has been opened using the <code>ModalService</code>.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="close-modal-helper.hbs"}}
+  </div>
+
+{{! BEGIN-SNIPPET first-close-modal-helper }}
+{{#uic-modal-window closeModal=(close-modal)}}
+
+  ...modal content...
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+
+<p>
+  The following example uses the <code>close-modal</code> helper for the
+  <code>closeModal</code> action of the <code>ModalWindowComponent</code> and
+  also a close button inside the modal body.
+</p>
+
+<div class="panel code">
+  {{code-snippet name="second-close-modal-helper.hbs"}}
+</div>
+
+{{! BEGIN-SNIPPET second-close-modal-helper }}
+{{#uic-modal-window id="close-modal-helper-example" closeModal=(close-modal)}}
+
+  <p>...modal content...</p>
+
+  {{uic-button action=(close-modal) text="Close"}}
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+
+<div class="panel output">
+  {{#uic-button action=(open-modal "close-modal-helper-example")}}
+    Click here
+  {{/uic-button}}
+</div>
+
+
+</div>
+
+<div class="panel">
+
+  <h2>Params</h2>
+  <p>
+    When using the {{#link-to 'modal-service'}}<code>ModalService</code>{{/link-to}}
+    you can pass a <code>model</code> as the second argument to the <code>open-modal</code> helper.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="open-modal-with-model.hbs"}}
+  </div>
+
+  <p>
+    The code example below shows how to pass the <code>model</code> as the second
+    parameter to the <code>open-modal</code> helper.  I'm using a simple array of strings, but could be an array of objects.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="array-of-items.js"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="pass-model-example.hbs"}}
+  </div>
+
+  <p>The <code>model</code> passed to the <code>open-modal</code> helper is available to the modal component as the property <code>params.model</code>.</p>
+
+  <div class="panel code">
+    {{code-snippet name="params-example.hbs"}}
+  </div>
+
+  <div class="panel output">
+
+    <p>
+      Click on one of the items in the list below.
+    </p>
+    {{! BEGIN-SNIPPET pass-model-example }}
+    <ul>
+      {{#each items as |model|}}
+        <li>
+          <a {{action (open-modal "item-details" model)}} href="">{{model}}</a>
+        </li>
+      {{/each}}
+    </ul>
+    {{! END-SNIPPET }}
+
+    <p>The same modal component is used, but with a different <code>model</code>.</p>
+
+{{! BEGIN-SNIPPET params-example}}
+{{#uic-modal-window
+  id="item-details"
+  closeModal=(close-modal)
+  as |params|}}
+
+  <p>model: {{params.model}}</p>
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<div class="panel">
+
+  <h2><code>showModal {Boolean}</code></h2>
+
+  <p>
+    You can also display the modal by overriding the <code>showModal</code> property of the
+    <code>ModalWindowComponent</code>.  This allows you to use the
+    <code>ModalWindowComponent</code> without the <code>ModalService</code>.
+    The <code>showModal</code> property should be a boolean value.
+  </p>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-example.hbs"}}
+  </div>
+
+  <p>The following example shows how you could toggle the modal.</p>
+
+  <div class="panel code">
+    {{code-snippet name="display-modal.js"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-component-example.hbs"}}
+  </div>
+
+  <div class="panel code">
+    {{code-snippet name="show-modal-button-example.hbs"}}
+  </div>
+
   <div>
-    <button class="uic-button blue" {{action "toggle" "firstModal"}}>Click here</button>  
-    {{#uic-modal-window 
-      title="Modal Window" 
-      showModal=firstModal 
-      modalClassNames="my-modal" 
-      closeModal=(action "toggle" "firstModal")}}
-      <h2>Modal 1</h2>
-      <div>
-        <button class="uic-button" {{action "toggle" "firstModal"}}>Close</button>
-      </div>
-    {{/uic-modal-window}}
+
+{{! BEGIN-SNIPPET show-modal-component-example}}
+{{#uic-modal-window
+  showModal=displayModal
+  closeModal=(action "toggleModal")}}
+
+  <h2>Modal 1</h2>
+
+  {{uic-button action="toggleModal" text="Close"}}
+
+{{/uic-modal-window}}
+{{! END-SNIPPET }}
+
+{{! BEGIN-SNIPPET show-modal-button-example}}
+{{uic-button action="toggleModal" text="Click here" class="blue"}}
+{{! END-SNIPPET }}
+
   </div>
 </div>
 
 <div class="panel">
 
   <h2>Routed ModalWindow</h2>
+
+  <div class="panel code">
+    {{code-snippet name="routed-modal.hbs"}}
+  </div>
+
   <div>
-    <button class="uic-button blue" {{action "openRoutedDialog"}}>Click here</button>
+    {{link-to "Click here" "modal-window-component.modal" class="uic-button blue" tagName="button"}}
   </div>
 </div>
 
