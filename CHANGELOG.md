@@ -1,6 +1,6 @@
 # Change Log
 
-### v0.7.0
+### v0.7.0 2016-06-08
 
 * [FEATURE] Add `ModalService`.
 
