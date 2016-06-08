@@ -74,10 +74,8 @@ export default Ember.Helper.extend({
     @private
     @return {Function}
   */
-  compute(params/*, hash*/) {
+  compute([menuId, model]/*, hash*/) {
     let contextMenuService = this.get('contextMenuService');
-    let menuId = params[0];
-    let model = params[1];
     return function (event) {
       return contextMenuService.open(menuId, event, model);
     };

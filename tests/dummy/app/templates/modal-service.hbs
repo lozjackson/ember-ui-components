@@ -1,0 +1,33 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ModalService</h1>
+
+<div class="panel">
+  <h2>Description</h2>
+  <p>
+    The <code>ModalService</code> can be used with the {{#link-to 'modal-window-component'}}<code>ModalWindowComponent</code>{{/link-to}} to display a modal to the user.
+  </p>
+  
+</div>
+
+<div class="panel">
+  <h2><code>modalId</code></h2>
+  <p>
+    The <code>modalId</code> stores the id of the currently open <code>modal-window</code> component.
+  </p>
+  <p>
+    <code>modalId: {{modal.modalId}}</code>
+  </p>
+</div>
+
+<div class="panel">
+  <h2><code>modalIsOpen</code></h2>
+  <p>
+    The <code>modalIsOpen</code> property is a readonly boolean value that is true if a modal is currently open.
+  </p>
+  <p>
+    <code>modalIsOpen: {{modal.modalIsOpen}}</code>
+  </p>
+</div>

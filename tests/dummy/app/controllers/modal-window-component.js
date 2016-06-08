@@ -2,18 +2,21 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  modal: Ember.inject.service(),
+
+  // BEGIN-SNIPPET array-of-items
+  items: ['Foo', 'Bar', 'Baz'],
+  // END-SNIPPET
+
+  // BEGIN-SNIPPET display-modal
+  // controller/component
+  displayModal: false,
+
   actions: {
 
-    closeDialog() {
-      this.set('openDialog', false);
-    },
-
-    openRoutedDialog() {
-      this.transitionToRoute('modal-window-component.modal');
-    },
-
-    toggle(propertyName) {
-      this.toggleProperty(propertyName);
+    toggleModal() {
+      this.toggleProperty('displayModal');
     }
   }
+  // END-SNIPPET
 });

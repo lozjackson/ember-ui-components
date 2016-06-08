@@ -1,5 +1,20 @@
 # Change Log
 
+### v0.7.0
+
+* [FEATURE] Add `ModalService`.
+
+* [FEATURE] Add `open-modal` and `close-modal` helpers.
+
+* [FEATURE] Add `showModal` property to `ModalWindowComponent`.
+
+* Bind the `uic-modal-container` class name to the `showModal` property of the `ModalWindowComponent`.
+
+* Add ember-code-snippet.
+
+
+
+
 ### v0.6.0 2016-05-23
 
 * [FEATURE] Add `toggle` method to the `ContextMenuService`.

@@ -1,6 +1,6 @@
 {
   "name": "ember-ui-components",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A collection of common user interface components",
   "directories": {
     "doc": "doc",
@@ -29,6 +29,7 @@
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-code-snippet": "^1.3.0",
     "ember-data": "^2.4.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
