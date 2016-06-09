@@ -43,60 +43,33 @@
   <h2>Usage:</h2>
 
   <p>
-    Place a <code>ContextMenuComponent</code> in your template and give it a unique <code>id</code>:
+    Place a <code>&#123;&#123;uic-context-menu&#125;&#125;</code> component in your template and give it a unique <code>id</code>:
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu <b>id="my-context-menu"</b>&#125;&#125;
-
-  // context menu
-
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="context-menu-basic.hbs"}}
 
   <p>
-    To open the context menu there is a helper called <code>open-context-menu</code> which
+    To open the context menu there is a helper called <code>&#123;&#123;open-context-menu&#125;&#125;</code> which
     takes the <code>id</code> of the context menu as the first argument.
     <code>&#123;&#123;open-context-menu "my-context-menu"&#125;&#125;</code>
   </p>
   <p>
-    The <code>open-context-menu</code> helper returns a function which can be used
+    The <code>&#123;&#123;open-context-menu&#125;&#125;</code> helper returns a function which can be used
     in actions.
   </p>
-  <div class="panel code">
-    <pre><code>&lt;div <b>oncontextmenu=&#123;&#123;open-context-menu "my-context-menu"&#125;&#125;</b>&gt;
 
-  Right click here
-
-&lt;/div&gt;</code></pre>
-  </div>
+  {{code-panel name="context-menu-action-element.hbs"}}
 
   or in a component..
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#my-component <b>contextMenu=(open-context-menu "my-context-menu")</b>&#125;&#125;
-
-  Right click here
-
-&#123;&#123;/my-component&#125;&#125;</code></pre>
-  </div>
-
+  {{code-panel name="context-menu-action-component.hbs"}}
 
   <p>
     Alternatively, you can also place the trigger content in the <code>else</code> block of the <code>ContextMenuComponent</code>.
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
+  {{code-panel name="context-menu-trigger.hbs"}}
 
-  // context menu
-
-<b>&#123;&#123;else&#125;&#125;
-
-  Right click here</b>
-
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
 </div>
 
 <div class="panel">
@@ -105,67 +78,61 @@
 
   <p>You can use <code>menuitem</code> elements:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
-  <b>&lt;menuitem>Do something...&lt;/menuitem></b>
-  <b>&lt;menuitem>Do something else...&lt;/menuitem></b>
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="contextmenu-menuitem-example.hbs"}}
 
   <div class="panel output">
 
-    {{#uic-context-menu}}
-        <menuitem>Do something...</menuitem>
-        <menuitem>Do something else...</menuitem>
-    {{else}}
-      Right Click here
-    {{/uic-context-menu}}
+{{! BEGIN-SNIPPET contextmenu-menuitem-example }}
+{{#uic-context-menu}}
+
+  <menuitem>Do something...</menuitem>
+  <menuitem>Do something else...</menuitem>
+
+{{else}}
+  Right Click here
+{{/uic-context-menu}}
+{{! END-SNIPPET }}
 
   </div>
 
   <p>You can also create menu items using <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> elements:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
-  <b>&lt;ul>
-    &lt;li>Do something...&lt;/li>
-    &lt;li>Do something else...&lt;/li>
-  &lt;/ul></b>
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="contextmenu-li-example.hbs"}}
 
   <div class="panel output">
 
-    {{#uic-context-menu}}
-      <ul>
-        <li>Do something...</li>
-        <li>Do something...</li>
-      </ul>
-    {{else}}
-      Right Click here
-    {{/uic-context-menu}}
+{{! BEGIN-SNIPPET contextmenu-li-example }}
+{{#uic-context-menu}}
+
+  <ul>
+    <li>Do something...</li>
+    <li>Do something...</li>
+  </ul>
+
+{{else}}
+  Right Click here
+{{/uic-context-menu}}
+{{! END-SNIPPET }}
 
   </div>
 
   <p>You can add <code>hr</code> elements to divide the context menu into sections:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
-  &lt;menuitem>Do something...&lt;/menuitem>
-  <b>&lt;hr /></b>
-  &lt;menuitem>Do something else...&lt;/menuitem>
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="contextmenu-hr-example.hbs"}}
 
   <div class="panel output">
 
-    {{#uic-context-menu}}
-        <menuitem>Do something...</menuitem>
-        <hr />
-        <menuitem>Do something else...</menuitem>
-    {{else}}
-      Right Click here
-    {{/uic-context-menu}}
+{{! BEGIN-SNIPPET contextmenu-hr-example }}
+{{#uic-context-menu}}
+
+  <menuitem>Do something...</menuitem>
+  <hr />
+  <menuitem>Do something else...</menuitem>
+
+{{else}}
+  Right Click here
+{{/uic-context-menu}}
+{{! END-SNIPPET }}
 
   </div>
 

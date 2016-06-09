@@ -2,22 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  selectBoxValue: null,
+// BEGIN-SNIPPET array-of-strings
+selectedString: null,
 
-  selectBoxOptions: [
-    'Active',
-    'Complete'
-  ],
+arrayOfStrings: [
+  'Active',
+  'Complete'
+],
+// END-SNIPPET
 
-  selectBoxValue2: null,
 
-  selectBoxOptions2: [
-    {
-      value: 'active-value',
-      text: 'Active'
-    },{
-      value: 'complete-value',
-      text: 'Complete'
-    }
-  ]
+
+// BEGIN-SNIPPET array-of-objects
+selectedObject: null,
+
+arrayOfObjects: [
+  {
+    value: 'active-value',
+    text: 'Active'
+  },{
+    value: 'complete-value',
+    text: 'Complete'
+  }
+]
+// END-SNIPPET
 });

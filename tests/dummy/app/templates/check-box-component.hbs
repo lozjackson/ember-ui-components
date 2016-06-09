@@ -13,30 +13,30 @@
 
   <h3>Basic use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box checked="checkbox value"&#125;&#125;</code></pre>
-  </div>
-
+  {{code-panel name="check-box-basic.hbs"}}
 
   <h3>Advanced use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box
-  checked="checkbox value"
-  disabled="true or false"
-  checkboxId="add a unique ID here"
-  class="add CSS class names here"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-advanced.hbs"}}
 
   <div class="panel output">
     <div>
+      {{code-panel name="check-box.hbs"}}
+      {{! BEGIN-SNIPPET check-box}}
       {{uic-check-box}}
+      {{! END-SNIPPET}}
     </div>
     <div>
+      {{code-panel name="check-box-slider-light.hbs"}}
+      {{! BEGIN-SNIPPET check-box-slider-light}}
       {{uic-check-box class="slider light"}}
+      {{! END-SNIPPET}}
     </div>
     <div>
+      {{code-panel name="check-box-toggle-green.hbs"}}
+      {{! BEGIN-SNIPPET check-box-toggle-green}}
       {{uic-check-box class="toggle green"}}
+      {{! END-SNIPPET}}
     </div>
   </div>
 </div>
@@ -56,8 +56,8 @@
       <h4>{Boolean} disabled</h4>
       <p>Optional.</p>
       <p>
-        Disables the checkbox. In addition to disabling the `input` element, the
-        containing `div` is given the class name `disabled`.
+        Disables the checkbox. In addition to disabling the <code>input</code> element, the
+        containing <code>div</code> is given the class name <code>disabled</code>.
       </p>
     </li>
 
@@ -65,7 +65,7 @@
       <h4>{String} checkboxId</h4>
       <p>Optional.</p>
       <p>
-        The checkbox element's `id` attribute will be given this value.
+        The checkbox element's <code>id</code> attribute will be given this value.
       </p>
     </li>
 
@@ -73,7 +73,7 @@
       <h4>{String} class</h4>
       <p>Optional.</p>
       <p>
-        This is the `class` attribute of the checkbox element's container `div`.
+        This is the <code>class</code> attribute of the checkbox element's container <code>div</code>.
         There are some built-in CSS classes that can be applied, or you can set
         your own CSS class names here and define the class' properties in your
         stylesheet.
@@ -90,52 +90,39 @@
 
   <p>A basic check-box component can be created with the following code:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-example.hbs"}}
 
   <p>...which will produce the following HTML:</p>
 
-  <div class="panel code">
-    <pre><code>&lt;div class="ember-view uic-check-box"&gt;
-  &lt;input type="checkbox" class="ember-view ember-checkbox"&gt;
-&lt;/div&gt;</code></pre>
-  </div>
+  {{code-panel name="check-box-output.hbs"}}
 
   <p>...and will look like this:</p>
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET check-box-example}}
     {{uic-check-box}}
+    {{! END-SNIPPET}}
   </div>
 
   <p>The check-box component looks and behaves like a standard HTML checkbox element.</p>
   <p>
-    To make the checkbox do something usefull, assign a property to the `checked`
-    attribute of the `check-box` component like this:
+    To make the checkbox do something usefull, assign a property to the <code>checked</code>
+    attribute of the <code>check-box</code> component like this:
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box checked=checkboxValue&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-checked.hbs"}}
 
 </div>
 <div class="panel">
 
   <h2>checkboxId</h2>
   <p>
-    If you provide a value for the `checkboxId` property then that wil become the id of the checkbox element.
+    If you provide a value for the <code>checkboxId</code> property then that wil become the id of the checkbox element.
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box checkboxId="check-box-id"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-id.hbs"}}
 
-  <div class="panel code">
-    <pre><code>&lt;div class="ember-view check-box"&gt;
-  &lt;input id="check-box-id" type="checkbox" class="ember-view ember-checkbox"&gt;
-  &lt;label for="check-box-id"&gt;&lt;/label&gt;
-&lt;/div&gt;</code></pre>
-  </div>
+  {{code-panel name="check-box-id-output.hbs"}}
 
 </div>
 <div class="panel">
@@ -143,70 +130,63 @@
   <h2>Classes</h2>
 
   <p>Various classes can be added to the check-box component to style it. They
-    will be given the class name `check-box` by default.</p>
+    will be given the class name <code>check-box</code> by default.</p>
 
   <h3>slider</h3>
 
-  <p></p>
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="slider"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-slider.hbs"}}
 
 
   <div>
-    {{uic-check-box class="slider" checkboxId="check-box2"}}
-    <label for="check-box2">slider</label>
+    {{! BEGIN-SNIPPET check-box-slider }}
+    {{uic-check-box class="slider"}}
+    {{! END-SNIPPET }}
   </div>
 
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="slider dark"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-slider-dark.hbs"}}
 
   <div>
-    {{uic-check-box class="slider dark" checkboxId="check-box3"}}
-    <label for="check-box3">slider dark</label>
+    {{! BEGIN-SNIPPET check-box-slider-dark }}
+    {{uic-check-box class="slider dark"}}
+    {{! END-SNIPPET }}
   </div>
 
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="slider light"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-slider-light.hbs"}}
 
   <div>
-    {{uic-check-box class="slider light" checkboxId="check-box4"}}
-    <label for="check-box4">slider light</label>
+    {{! BEGIN-SNIPPET check-box-slider-light }}
+    {{uic-check-box class="slider light"}}
+    {{! END-SNIPPET }}
   </div>
 
   <h3>toggle</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="toggle"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-toggle.hbs"}}
 
   <div>
-    {{uic-check-box class="toggle" checkboxId="check-box5"}}
-    <label for="check-box5">toggle</label>
+    {{! BEGIN-SNIPPET check-box-toggle }}
+    {{uic-check-box class="toggle"}}
+    {{! END-SNIPPET }}
   </div>
 
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="toggle green"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-toggle-green.hbs"}}
 
   <div>
-    {{uic-check-box class="toggle green" checkboxId="check-box6"}}
-    <label for="check-box6">toggle green</label>
+    {{! BEGIN-SNIPPET check-box-toggle-green }}
+    {{uic-check-box class="toggle green"}}
+    {{! END-SNIPPET }}
   </div>
 
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-check-box class="toggle red"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="check-box-toggle-red.hbs"}}
 
   <div>
-    {{uic-check-box class="toggle red" checkboxId="check-box7"}}
-    <label for="check-box7">toggle red</label>
+    {{! BEGIN-SNIPPET check-box-toggle-red }}
+    {{uic-check-box class="toggle red"}}
+    {{! END-SNIPPET }}
   </div>
 
 
