@@ -144,42 +144,29 @@
 
   <p>To create a sub-menu, use the <code>SubMenuComponent</code>:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-sub-menu title="My Sub-menu"&#125;&#125;
-  &lt;menuitem &#123;&#123;action "doSomething"&#125;&#125;>Do something...&lt;/menuitem>
-  &lt;menuitem &#123;&#123;action "doSomethingElse"&#125;&#125;>Do something else...&lt;/menuitem>
-&#123;&#123;/uic-sub-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="contextmenu-submenu.hbs"}}
 
   <p>
     The <code>SubMenuComponent</code> example above should be placed inside a
     <code>ContextMenuComponent</code> in place of a menuitem.
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-context-menu&#125;&#125;
-  &lt;menuitem>Do something...&lt;/menuitem>
-  <b>&#123;&#123;#uic-sub-menu title="My Sub-menu"&#125;&#125;
-    &lt;menuitem>Sub-menu item...&lt;/menuitem>
-    &lt;menuitem>Another item&lt;/menuitem>
-  &#123;&#123;/uic-sub-menu&#125;&#125;</b>
-  &lt;menuitem>Do something else...&lt;/menuitem>
-&#123;&#123;/uic-context-menu&#125;&#125;</code></pre>
-  </div>
-
+  {{code-panel name="contextmenu-submenu-example.hbs"}}
   <div class="panel output">
 
-    {{#uic-context-menu}}
-        <menuitem>Do something...</menuitem>
-        {{#uic-sub-menu title="My Sub-menu"}}
-          <menuitem>Sub-menu item...</menuitem>
-          <menuitem>Another item</menuitem>
-        {{/uic-sub-menu}}
-        <menuitem>Do something else...</menuitem>
-    {{else}}
-      Right Click here
-    {{/uic-context-menu}}
+{{! BEGIN-SNIPPET contextmenu-submenu-example }}
+{{#uic-context-menu}}
+  <menuitem>Do something...</menuitem>
+  {{#uic-sub-menu title="My Sub-menu"}}
+    <menuitem>Sub-menu item...</menuitem>
+    <menuitem>Another item</menuitem>
+  {{/uic-sub-menu}}
+  <menuitem>Do something else...</menuitem>
+{{else}}
+  Right Click here
+{{/uic-context-menu}}
 
+{{! END-SNIPPET }}
   </div>
 
 </div>
