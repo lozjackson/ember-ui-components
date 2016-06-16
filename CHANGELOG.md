@@ -1,5 +1,10 @@
 # Change Log
 
+* Add ember-wormhole
+
+
+
+
 ### v0.7.0 2016-06-08
 
 * [FEATURE] Add `ModalService`.
