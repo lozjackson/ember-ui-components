@@ -1,5 +1,7 @@
 # Change Log
 
+* Add `DestinationElementMixin`.
+
 * Add ember-wormhole
 
 
