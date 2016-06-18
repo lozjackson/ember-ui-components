@@ -12,7 +12,7 @@
 
   <p>The ContextMenuComponent can be used to provide a context menu for elements or components.</p>
 
-  {{#uic-context-menu to="modal-container" tagName="div" as |contextMenuParams|}}
+  {{#uic-context-menu to="menu-container" tagName="div" as |contextMenuParams|}}
 
       <menuitem {{action "edit"}}>Edit</menuitem>
       {{#uic-sub-menu title="Sub Menu..."}}
@@ -298,6 +298,36 @@ export default Ember.Component.extend({
   </div>
 
 
+</div>
+
+<div class="panel">
+
+  <h2>Destination element</h2>
+
+  <p>
+    The <code>ContextMenuComponent</code> can be rendered into another DOM element
+    using <a href="https://github.com/yapplabs/ember-wormhole"><code>ember-wormhole</code></a>.
+  </p>
+  <p>Add a html element to the DOM and give it a unique <code>id</code></p>
+
+  {{code-panel name="menu-container.hbs"}}
+
+  <p>
+    Then specify the element id to the <code>to</code> property of the <code>ContextMenuComponent</code>.
+  </p>
+
+
+  {{code-panel name="menu-container-example.hbs"}}
+
+  {{#uic-context-menu to="menu-container"}}
+    <menuitem {{action "edit"}}>Edit</menuitem>
+  {{else}}
+    <p class="panel">Right-click inside the panel.</p>
+  {{/uic-context-menu}}
+
+  <p>
+    For more information on <code>ember-wormhole</code>, click <a href="https://github.com/yapplabs/ember-wormhole">here</a>.
+  </p>
 </div>
 
 <div class="panel">
