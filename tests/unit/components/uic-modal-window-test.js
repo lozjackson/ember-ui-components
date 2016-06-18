@@ -6,7 +6,8 @@ const { run } = Ember;
 moduleForComponent('uic-modal-window', 'Unit | Component | uic modal window', {
   needs: [
     'component:uic-content-mask',
-    'component:uic-modal'
+    'component:uic-modal',
+    'component:ember-wormhole'
   ],
   unit: true
 });
@@ -30,7 +31,7 @@ test('classNameBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.deepEqual(component.get('classNameBindings'), ['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container']);
+  assert.deepEqual(component.get('classNameBindings'), ['disablePointerEvents:uic-disable-pointer-events']);
 });
 
 test('showModal', function(assert) {

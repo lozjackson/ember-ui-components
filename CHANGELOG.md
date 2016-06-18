@@ -1,5 +1,18 @@
 # Change Log
 
+### v0.8.0 2016-06-18
+
+* [FEATURE] Use ember-wormhole to enable rendering the `ContextMenuComponent` to a specified DOM element.
+
+* [FEATURE] Use ember-wormhole to enable rendering the `ModalWindowComponent` to a specified DOM element.
+
+* Add `DestinationElementMixin`.
+
+* Add ember-wormhole dependency.
+
+
+
+
 ### v0.7.0 2016-06-08
 
 * [FEATURE] Add `ModalService`.

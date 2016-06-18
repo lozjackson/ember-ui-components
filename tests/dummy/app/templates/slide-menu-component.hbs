@@ -21,37 +21,11 @@
     Place the <code>SlideMenuComponent</code> in the <code>application</code> template.
     Place the page content inside the slide menu.
   </p>
-  <div class="panel code">
-    <pre><code>// application.hbs
-
-&#123;&#123;#uic-slide-menu&#125;&#125;
-
-  // ... page content goes here ...
-
-&#123;&#123;/uic-slide-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="slide-menu-basic.hbs"}}
 
   <h3>Advanced use:</h3>
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-slide-menu
-  menuOpen=true|false
-  menuTemplate="template-name"
-  menuTemplatePath="template-path"
-  staticTemplate=true|false
-  menuPosition="left|right|top|bottom"
-  pushContent=true|false
-  pushContentType="push-content|squeeze-content"
-  maskContent=true|false
-  disableScroll=true|false
-  showDefaultToggle=true|false
-  menuToggleClass="add css class names here"
-  as |menuOpen|
-  &#125;&#125;
 
-  // ... page content goes here ...
-
-&#123;&#123;/uic-slide-menu&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="slide-menu-advanced.hbs"}}
 
   <p>
     Check out the main menu for an example of this component - This demo application
@@ -248,18 +222,6 @@
     This is the template for the menu used by this application.
   </p>
 
-  <div class="panel code">
-    <pre><code>&lt;button class="close-button" &#123;&#123;action 'closeMenu'}}&gt;X&lt;/button&gt;
-&lt;ul &#123;&#123;action 'closeMenu'&#125;&#125;
-  &#123;&#123;link-to 'Home' 'index' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'CheckBoxComponent' 'check-box-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'SelectComponent' 'select-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'SlideMenuComponent' 'slide-menu-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'ContextMenuComponent' 'context-menu-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'ModalWindowComponent' 'modal-window-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'ModalDialogComponent' 'modal-dialog-component' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'DialogService' 'dialog-service' tagName="li"&#125;&#125;
-  &#123;&#123;link-to 'PanelClass' 'panel-class' tagName="li"&#125;&#125;
-&lt;/ul&gt;</code></pre>
-  </div>
+  {{code-panel name="application-menu.hbs"}}
+
 </div>

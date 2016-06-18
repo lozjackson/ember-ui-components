@@ -14,50 +14,12 @@
 
   <h3>Basic use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-select
-  selected="the selected item"
-  options="the options to select from"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="select-basic.hbs"}}
 
   <h3>Advanced use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-select
-  selected="the selected item"
-  options="the options to select from"
-  disabled="true or false"
-  placeholder="Please select..."
-  class="add CSS class names here"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="select-advanced.hbs"}}
 
-  <div class="panel output">
-
-
-    {{uic-select
-      selected=selectBoxValue
-      options=selectBoxOptions
-      placeholder="Please select..."}}
-
-    <label>Selected: {{selectBoxValue}}</label><br>
-
-
-    {{uic-select
-      class="light"
-      selected=selectBoxValue2
-      options=selectBoxOptions2
-      placeholder="Please select..."}}
-
-    <label>Selected: {{selectBoxValue2}}</label><br>
-
-    {{uic-select
-      class="dark"
-      selected=selectBoxValue3
-      options=selectBoxOptions2
-      placeholder="Please select..."}}
-
-    <label>Selected: {{selectBoxValue3}}</label>
-  </div>
 </div>
 <div class="panel">
   <h2>Parameters</h2>
@@ -129,4 +91,51 @@
     </li>
   </ul>
 
+</div>
+
+<div class="panel">
+  <h2>Examples:</h2>
+
+  <h3>Array of strings</h3>
+
+  <p>controller:</p>
+
+  {{code-panel name="array-of-strings.js"}}
+
+  <p>template:</p>
+
+  {{code-panel name="string-select-example.hbs"}}
+
+  <div class="panel output">
+{{! BEGIN-SNIPPET string-select-example }}
+{{uic-select
+  selected=selectedString
+  options=arrayOfStrings
+  placeholder="Please select..."}}
+
+<label>selected: {{selectedString}}</label>
+{{! END-SNIPPET }}
+  </div>
+
+  <hr />
+  <h3>Array of objects</h3>
+
+  <p>controller:</p>
+
+  {{code-panel name="array-of-objects.js"}}
+
+  <p>template:</p>
+
+  {{code-panel name="object-select-example.hbs"}}
+
+  <div class="panel output">
+{{! BEGIN-SNIPPET object-select-example }}
+{{uic-select
+  selected=selectedObject
+  options=arrayOfObjects
+  placeholder="Please select..."}}
+
+<label>selected: {{selectedObject}}</label>
+{{! END-SNIPPET }}
+  </div>
 </div>
