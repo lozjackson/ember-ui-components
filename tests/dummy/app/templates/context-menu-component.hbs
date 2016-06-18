@@ -12,10 +12,10 @@
 
   <p>The ContextMenuComponent can be used to provide a context menu for elements or components.</p>
 
-  {{#uic-context-menu tagName="div" as |contextMenuParams|}}
+  {{#uic-context-menu to="modal-container" tagName="div" as |contextMenuParams|}}
 
       <menuitem {{action "edit"}}>Edit</menuitem>
-      {{#uic-sub-menu title="Sub Menu..." tagName="li"}}
+      {{#uic-sub-menu title="Sub Menu..."}}
         <menuitem {{action "new"}}>New...</menuitem>
         <menuitem {{action "edit"}}>Do more stuff...</menuitem>
         <menuitem {{action "edit"}}>Do more stuff...</menuitem>

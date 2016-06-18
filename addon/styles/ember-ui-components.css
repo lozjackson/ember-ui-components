@@ -840,6 +840,7 @@ button.uic-button[disabled].red,
   ContextMenuComponent
 */
 .uic-context-menu menu menuitem,
+.uic-context-menu-container menuitem,
 .uic-dropdown menu menuitem,
 .uic-dropdown-container menuitem {
   display: block;
@@ -873,7 +874,7 @@ button.uic-button[disabled].red,
 .uic-dropdown-container ul {
 
 }*/
-.uic-context-menu .uic-sub-menu-title,
+.uic-context-menu-container .uic-sub-menu-title,
 .uic-dropdown .uic-sub-menu-title {
   margin-right: 15px;
 }
@@ -890,7 +891,7 @@ button.uic-button[disabled].red,
 .uic-dropdown-container .uic-sub-menu > div > .uic-menu-container {
   position: absolute;
 }
-.uic-context-menu menu,
+.uic-context-menu-container,
 .uic-context-menu-container ul,
 .uic-dropdown-container,
 .uic-dropdown-container ul {
@@ -903,22 +904,22 @@ button.uic-button[disabled].red,
 .uic-dropdown-container ul {
   padding: 0px;
 }
-.uic-context-menu menu menuitem,
+.uic-context-menu-container menuitem,
 .uic-context-menu-container li,
 .uic-dropdown-container menuitem,
 .uic-dropdown-container li {
-	padding:3px 20px 3px 20px;
+	padding:3px 25px 3px 25px;
 	white-space: nowrap;
 	overflow: hidden;
 }
-.uic-context-menu menu menuitem:hover,
+.uic-context-menu-container menuitem:hover,
 .uic-context-menu-container li:hover,
 .uic-dropdown-container menuitem:hover,
 .uic-dropdown-container li:hover {
 	background: #3A9FF4;
 	color:#ffffff;
 }
-.uic-context-menu menu menuitem > div > svg,
+.uic-context-menu-container menuitem > div > svg,
 .uic-context-menu-container li > div > svg,
 .uic-dropdown-container menuitem > div > svg,
 .uic-dropdown-container li > div > svg {
@@ -930,15 +931,15 @@ button.uic-button[disabled].red,
 	width: 100%;
 	margin:4px 0;
 }
-.uic-context-menu menu menuitem,
-.uic-context-menu menu menuitem > div > .uic-menu-container > ul > li,
+.uic-context-menu-container menuitem,
+.uic-context-menu-container menuitem > div > .uic-menu-container > ul > li,
 .uic-context-menu-container li.uic-sub-menu > div > .uic-menu-container > ul > li,
 .uic-dropdown-container menu menuitem,
 .uic-dropdown-container menuitem.uic-sub-menu > div > .uic-menu-container > ul > li,
 .uic-dropdown-container li.uic-sub-menu > div > .uic-menu-container > ul > li {
 	color:#000000;
 }
-.uic-context-menu menu menuitem:hover,
+.uic-context-menu-container menuitem:hover,
 .uic-context-menu-container .uic-sub-menu > div > .uic-menu-container > ul > li:hover,
 .uic-dropdown menu menuitem:hover,
 .uic-dropdown-container .uic-sub-menu > div > .uic-menu-container > ul > li:hover {
@@ -971,6 +972,18 @@ li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
 .uic-context-menu-container > div,
 .uic-dropdown-container > div {
   margin: 10px;
+}
+.uic-context-menu-container menuitem > span.icon,
+.uic-context-menu-container li > span.icon,
+.uic-dropdown-container menuitem > span.icon,
+.uic-dropdown-container li > span.icon {
+	position: absolute;
+	left: 5px;
+	margin-top: -1px;
+}
+menuitem:hover >span.icon > svg,
+li:hover >span.icon > svg {
+	fill: #fff;
 }
 
 

@@ -1,26 +1,30 @@
 {{#if showModal}}
-  {{#if maskContent}}
-    {{uic-content-mask class="active"}}
-  {{/if}}
-  {{#uic-modal class=modalClassNames}}
-
-    <header class="uic-modal-header">
-      {{#if title}}
-        <h1 class="ellipsis">{{title}}</h1>
+  {{#ember-wormhole to=destinationElementId renderInPlace=(unless destinationElementId true)}}
+    <div class="uic-modal-container">
+      {{#if maskContent}}
+        {{uic-content-mask class="active"}}
       {{/if}}
+      {{#uic-modal class=modalClassNames}}
 
-      {{#if showCloseButton}}
-        {{#if closeModal}}
-          {{uic-close-button action="closeModal"}}
-        {{else}}
-          {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
-        {{/if}}
-      {{/if}}
-    </header>
+        <header class="uic-modal-header">
+          {{#if title}}
+            <h1 class="ellipsis">{{title}}</h1>
+          {{/if}}
 
-    <div class="uic-modal-body">
-      {{yield modal.params}}
+          {{#if showCloseButton}}
+            {{#if closeModal}}
+              {{uic-close-button action="closeModal"}}
+            {{else}}
+              {{#link-to parentRouteName tagName="button" class="uic-close-button"}}&times;{{/link-to}}
+            {{/if}}
+          {{/if}}
+        </header>
+
+        <div class="uic-modal-body">
+          {{yield modal.params}}
+        </div>
+
+      {{/uic-modal}}
     </div>
-
-  {{/uic-modal}}
+  {{/ember-wormhole}}
 {{/if}}

@@ -3,6 +3,7 @@
 */
 import Ember from 'ember';
 import layout from '../templates/components/uic-modal-window';
+import DestinationElementMixin from 'ember-ui-components/mixins/destination-element';
 
 const computed = Ember.computed;
 const alias = computed.alias;
@@ -10,8 +11,9 @@ const alias = computed.alias;
 /**
   @class ModalWindowComponent
   @namespace Components
+  @uses Mixins.DestinationElementMixin
 */
-export default Ember.Component.extend({
+export default Ember.Component.extend(DestinationElementMixin, {
 
   layout,
 
@@ -43,9 +45,9 @@ export default Ember.Component.extend({
     @property classNameBindings
     @type {Array}
     @private
-    @default `['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container']`
+    @default `['disablePointerEvents:uic-disable-pointer-events']`
   */
-  classNameBindings: ['disablePointerEvents:uic-disable-pointer-events', 'showModal:uic-modal-container'],
+  classNameBindings: ['disablePointerEvents:uic-disable-pointer-events'],
 
   /**
     @property showCloseButton
