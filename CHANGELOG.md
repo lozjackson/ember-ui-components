@@ -1,8 +1,12 @@
 # Change Log
 
+* Update `ContextMenuComponent` - Use ember-wormhole to enable rendering the context-menu to a specified destination element.
+
+* Update `ModalWindowComponent` - Use ember-wormhole to enable rendering the modal to a specified destination element.
+
 * Add `DestinationElementMixin`.
 
-* Add ember-wormhole
+* Add ember-wormhole dependency.
 
 
 
