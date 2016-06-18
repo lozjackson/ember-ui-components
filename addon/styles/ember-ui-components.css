@@ -8,6 +8,7 @@ label {
   margin: 10px;
   vertical-align: middle;
 }
+p.panel,
 div.panel,
 div.uic-panel {
   margin: 10px;
