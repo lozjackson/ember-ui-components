@@ -1,0 +1,19 @@
+// application.hbs
+
+{{#uic-slide-menu
+  menuOpen=true|false
+  menuTemplate="template-name"
+  menuTemplatePath="template-path"
+  staticTemplate=true|false
+  menuPosition="left|right|top|bottom"
+  pushContent=true|false
+  pushContentType="push-content|squeeze-content"
+  maskContent=true|false
+  disableScroll=true|false
+  showDefaultToggle=true|false
+  menuToggleClass="add css class names here"
+  as |menuOpen|}}
+
+  ...page content goes here...
+
+{{/uic-slide-menu}}

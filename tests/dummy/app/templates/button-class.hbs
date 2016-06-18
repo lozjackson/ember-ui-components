@@ -12,43 +12,36 @@
 
   <p>Add the class name <code>uic-button</code> to a button element to get a styled button.</p>
 
-  <div class="panel code">
-    <pre><code>&lt;button class="uic-button"&gt;My Button&lt;/button&gt;</code></pre>
-  </div>
+  {{code-panel name="button-class-basic.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-class-basic}}
     <button class="uic-button">My Button</button>
+    {{! END-SNIPPET }}
   </div>
 
   <p>On top of the base style there are a few other styles that can be used...</p>
 
-  <div class="panel code">
-    <pre><code>&lt;button class="uic-button"&gt;My Button&lt;/button&gt;        // default
-&lt;button class="uic-button blue"&gt;My Button&lt;/button&gt;   // blue
-&lt;button class="uic-button green"&gt;My Button&lt;/button&gt;  // green
-&lt;button class="uic-button yellow"&gt;My Button&lt;/button&gt; // yellow
-&lt;button class="uic-button red"&gt;My Button&lt;/button&gt;    // red</code></pre>
-  </div>
+  {{code-panel name="button-class-color.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-class-color }}
     <button class="uic-button">My Button</button>
     <button class="uic-button blue">My Button</button>
     <button class="uic-button green">My Button</button>
     <button class="uic-button yellow">My Button</button>
     <button class="uic-button red">My Button</button>
+    {{! END-SNIPPET }}
   </div>
 
-  <div class="panel code">
-    <pre><code>&lt;button class="uic-button large"&gt;My Button&lt;/button&gt;       // large
-&lt;button class="uic-button"&gt;My Button&lt;/button&gt;             // default
-&lt;button class="uic-button small"&gt;My Button&lt;/button&gt;       // small
-&lt;button class="uic-button extra-small"&gt;My Button&lt;/button&gt; // extra-small</code></pre>
-  </div>
+  {{code-panel name="button-class-size.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-class-size }}
     <button class="uic-button large">My Button</button>
     <button class="uic-button">My Button</button>
     <button class="uic-button small">My Button</button>
     <button class="uic-button extra-small">My Button</button>
+    {{! END-SNIPPET }}
   </div>
 </div>

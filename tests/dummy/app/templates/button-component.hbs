@@ -17,29 +17,16 @@
 
   <h3>Basic use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;uic-button
-  text="My Button"
-  action="doSomething"&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-basic.hbs"}}
 
 
   <h3>Advanced use:</h3>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button
-  action="doSomething"
-  disabled="true or false"
-  class="add css class names here"&#125;&#125;
-
-  My Button
-
-&#123;&#123;/uic-button&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-advanced.hbs"}}
 
   <div class="panel output">
     {{#uic-button}}
-      My Button
+      Button Text
     {{/uic-button}}
   </div>
 
@@ -51,32 +38,18 @@
 
   <p>Pass an action to the button component:</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button action="doSomething"&#125;&#125;
-  My Button
-&#123;&#123;/uic-button&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-action-example.hbs"}}
 
   <p>Handle the action in your controller/component:</p>
 
-  <div class="panel code">
-    <pre><code>import Ember from 'ember';
-
-export default Ember.Controller.extend({
-  actions: {
-
-    doSomething() {
-      // ...
-    }
-
-  }
-});</code></pre>
-</div>
+  {{code-panel name="button-action.js"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-action-example }}
     {{#uic-button action="doSomething"}}
       My Button
     {{/uic-button}}
+    {{! END-SNIPPET }}
   </div>
 
 
@@ -86,16 +59,18 @@ export default Ember.Controller.extend({
 
   <h2>Disable</h2>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button disabled="true"&#125;&#125;
-  My Button
-&#123;&#123;/uic-button&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-disable-example.hbs"}}
 
   <div class="panel output">
-    {{#uic-button disabled="true"}}
+    {{! BEGIN-SNIPPET button-disable-example }}
+    {{#uic-button
+      disabled=true}}
+
       My Button
+
     {{/uic-button}}
+    {{! END-SNIPPET }}
+
   </div>
 
 
@@ -106,33 +81,26 @@ export default Ember.Controller.extend({
   <h2>Styles</h2>
   <p>On top of the base style there are a few other styles that can be used...</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;                // default
-&#123;&#123;#uic-button class="blue"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;   // blue
-&#123;&#123;#uic-button class="green"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;  // green
-&#123;&#123;#uic-button class="yellow"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125; // yellow
-&#123;&#123;#uic-button class="red"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;    // red</code></pre>
-  </div>
+  {{code-panel name="button-style-colors.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-style-colors }}
     {{#uic-button}}My Button{{/uic-button}}
     {{#uic-button class="blue"}}My Button{{/uic-button}}
     {{#uic-button class="green"}}My Button{{/uic-button}}
     {{#uic-button class="yellow"}}My Button{{/uic-button}}
     {{#uic-button class="red"}}My Button{{/uic-button}}
+    {{! END-SNIPPET }}
   </div>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button class="large"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;       // large
-&#123;&#123;#uic-button&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;                     // default
-&#123;&#123;#uic-button class="small"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125;       // small
-&#123;&#123;#uic-button class="extra-small"&#125;&#125;My Button&#123;&#123;/uic-button&#125;&#125; // extra-small</code></pre>
-  </div>
+  {{code-panel name="button-style-size.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-style-size }}
     {{#uic-button class="large"}}My Button{{/uic-button}}
     {{#uic-button}}My Button{{/uic-button}}
     {{#uic-button class="small"}}My Button{{/uic-button}}
     {{#uic-button class="extra-small"}}My Button{{/uic-button}}
+    {{! END-SNIPPET }}
   </div>
 </div>
