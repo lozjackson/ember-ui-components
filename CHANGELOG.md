@@ -1,5 +1,9 @@
 # Change Log
 
+* When button components become active the css box-shadow is inset.
+
+* Change the OK button for alert and confirm modal dialog components to blue background with white text.
+
 * Use ButtonComponent instead of button elements in the built in model dialog components.
 
 

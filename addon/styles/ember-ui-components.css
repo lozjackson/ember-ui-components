@@ -72,7 +72,14 @@ button.uic-cancel-button[disabled]:hover,
 button.uic-button:active,
 button.uic-ok-button:active,
 button.uic-cancel-button:active {
+  box-shadow: 1px 1px 1px #888 inset;
+}
+button.uic-button:active,
+button.uic-cancel-button:active {
   color: #000;
+}
+button.uic-ok-button:active {
+  color: #FFF;
 }
 button.uic-button.large {
   padding: 10px 30px;
@@ -87,14 +94,16 @@ button.uic-button.extra-small {
   font-size: .6rem;
 }
 button.uic-button.blue,
-.uic-button-group.blue button.uic-button {
+.uic-button-group.blue button.uic-button,
+button.uic-ok-button {
   color: #fff;
   background: #388FFF;
   box-sizing: border-box;
   border: 1px solid transparent;
 }
 button.uic-button[disabled].blue,
-.uic-button-group.blue button.uic-button[disabled] {
+.uic-button-group.blue button.uic-button[disabled],
+button.uic-ok-button[disabled] {
   color: rgba(255, 255, 255, 0.5);
   background: rgba(56, 143, 255, 0.3);
 }
