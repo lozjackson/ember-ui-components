@@ -2,7 +2,9 @@ import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
 moduleForComponent('uic-modal', 'Unit | Component | uic modal', {
-  // needs: [],
+  needs: [
+    'component:uic-button'
+  ],
   unit: true
 });
 

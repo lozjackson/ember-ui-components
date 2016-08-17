@@ -1,5 +1,16 @@
 # Change Log
 
+### v0.8.1 2016-08-17
+
+* When button components become active the css box-shadow is inset.
+
+* Change the OK button for alert and confirm modal dialog components to blue background with white text.
+
+* Use ButtonComponent instead of button elements in the built in model dialog components.
+
+
+
+
 ### v0.8.0 2016-06-18
 
 * [FEATURE] Use ember-wormhole to enable rendering the `ContextMenuComponent` to a specified DOM element.

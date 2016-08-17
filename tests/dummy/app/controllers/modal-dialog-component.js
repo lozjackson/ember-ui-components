@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
       }).then(() => {
         this.set('result', 'Confirmed');
       }, () => {
-        this.set('result', 'Canceled');
+        this.set('result', 'Cancelled');
       });
     },
 
