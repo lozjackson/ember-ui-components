@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.8.1 2016-08-17
+
 * When button components become active the css box-shadow is inset.
 
 * Change the OK button for alert and confirm modal dialog components to blue background with white text.
