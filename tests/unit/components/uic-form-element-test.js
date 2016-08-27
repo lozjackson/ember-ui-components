@@ -1,0 +1,49 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
+
+const run = Ember.run;
+
+moduleForComponent('uic-form-element', 'Unit | Component | uic form element', {
+  needs: [
+    'component:uic-input'
+  ],
+  unit: true
+});
+
+test('it renders', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  assert.equal(component._state, 'preRender');
+  this.render();
+  assert.equal(component._state, 'inDOM');
+});
+
+test('classNames', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('classNames').length, 2);
+  assert.equal(component.get('classNames')[1], 'uic-form-element');
+});
+
+test('classNameBindings', function(assert) {
+  assert.expect(3);
+  var component = this.subject();
+  this.render();
+  assert.equal(component.get('classNameBindings').length, 2);
+  assert.equal(component.get('classNameBindings')[0], 'disabled');
+  assert.equal(component.get('classNameBindings')[1], 'readOnly');
+});
+
+test('_formElementId', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  component.set('formElementId', 1);
+
+  this.render();
+  assert.equal(component.get('_formElementId'), 1);
+
+  run(() => component.set('formElementId', 2));
+  assert.equal(component.get('_formElementId'), 2);
+});

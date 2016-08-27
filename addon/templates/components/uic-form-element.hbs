@@ -1,0 +1,13 @@
+{{#if label}}
+  <label for={{_formElementId}}>{{label}}</label>
+{{/if}}
+{{#if hasBlock}}
+  {{yield (hash id=_formElementId)}}
+{{else}}
+  {{uic-input
+    value=value
+    id=_formElementId
+    disabled=disabled
+    readonly=readonly
+    placeholder=placeholder}}
+{{/if}}
