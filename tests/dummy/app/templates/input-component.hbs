@@ -1,0 +1,35 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>InputComponent</h1>
+
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-input&#125;&#125;</code></h2>
+
+  <h2>Description</h2>
+
+  <p>
+    Use the <code>&#123;&#123;uic-input&#125;&#125;</code> component to render an
+    <code>input</code> element.  This component behaves much the same as Ember's
+    <code>&#123;&#123;input&#125;&#125;</code> component.
+  </p>
+
+  {{code-panel name="input-component-basic.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET input-component-basic}}
+      {{uic-input}}
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="input-component-example.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET input-component-example}}
+      {{uic-input value=value placeholder="Enter some text..."}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>

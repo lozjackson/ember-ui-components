@@ -1,0 +1,57 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>FormElementClass</h1>
+
+<h2><code>.uic-form-element</code></h2>
+
+<div class="panel">
+
+  <h2>Description</h2>
+
+  <p>
+    You can use the <code>uic-form-element</code> css class with <code>input</code>,
+    <code>select</code>, <code>textarea</code> and <code>div</code> html elements.
+  </p>
+
+  {{code-panel name="form-element-class-input.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-class-input}}
+    <input class="uic-form-element" />
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="form-element-class-select.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-class-select}}
+    <select class="uic-form-element">
+      <option>One</option>
+      <option>Two</option>
+      <option>Three</option>
+    </select>
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="form-element-class-textarea.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-class-textarea}}
+    <textarea class="uic-form-element"></textarea>
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="form-element-class-div.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-class-div}}
+    <div class="uic-form-element">
+      <input />
+    </div>
+    {{! END-SNIPPET }}
+  </div>
+
+
+</div>
