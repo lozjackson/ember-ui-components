@@ -27,12 +27,21 @@ div.uic-form-element textarea {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  display: block;
+  display: inline-block;
   font-size: 16px;
   line-height: 1.57143;
   color: #555;
   box-sizing: border-box;
 }
+
+div.uic-form-element .uic-button {
+  line-height: 1.57143;
+  height: 39px;
+  padding: 6px 30px;
+  vertical-align: top;
+  border-radius: 3px;
+}
+
 div.uic-form-element input,
 div.uic-form-element select,
 div.uic-form-element textarea,
@@ -45,6 +54,7 @@ label {
   line-height: 1.57143;
 }
 .uic-form-element:focus,
+div.uic-form-element input:focus,
 div.uic-form-element select:focus,
 div.uic-form-element textarea:focus {
   outline: none;
@@ -76,7 +86,7 @@ label + .uic-form-element {
 
 }
 .uic-form-element > .uic-check-box {
-  vertical-align: bottom;
+  vertical-align: -webkit-baseline-middle;
 }
 .uic-fieldset {
   border: none;
