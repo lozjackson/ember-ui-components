@@ -1,3 +1,8 @@
+@charset "UTF-8";
+
+@import 'uic-panel.css';
+@import 'uic-form-element.css';
+
 body.modal-dialog-is-open,
 body.modal-window-is-open,
 .uic-disable-scroll {
@@ -8,17 +13,7 @@ label {
   margin: 10px;
   vertical-align: middle;
 }
-p.panel,
-div.panel,
-div.uic-panel {
-  margin: 10px;
-  margin-bottom: 20px;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #EEF1F5;
-  border-radius: 4px;
-  box-shadow: 0px 1px 2px #888888;
-}
+
 
 div.uic-check-box.slider,
 div.uic-check-box.toggle,
@@ -361,6 +356,10 @@ button.uic-button[disabled].red,
 .uic-check-box.slider.disabled,
 .uic-check-box.toggle.disabled {
   opacity: 0.4;
+}
+.uic-check-box input[type=checkbox] {
+  width: auto;
+  height: auto;
 }
 .uic-check-box input + label {
   display: block;
