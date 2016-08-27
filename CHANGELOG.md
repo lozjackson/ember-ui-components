@@ -1,5 +1,16 @@
 # Change Log
 
+* [FEATURE] Add `InputComponent`.
+
+* [FEATURE] Add `FormElementComponent` and `FormElementClass`.
+
+* [FEATURE] Add `FieldsetClass`.
+
+* Add the `FormElementClass` to the `SelectComponent`.
+
+
+
+
 ### v0.8.1 2016-08-17
 
 * When button components become active the css box-shadow is inset.
