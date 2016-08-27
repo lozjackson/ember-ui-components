@@ -1,0 +1,16 @@
+.panel,
+.uic-panel {
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #EEF1F5;
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px #888888;
+}
+
+fieldset.uic-fieldset.panel,
+fieldset.uic-fieldset.uic-panel {
+  margin: 10px 0;
+  box-shadow: 0px 0px 1px #888888;
+}
