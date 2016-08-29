@@ -1,5 +1,7 @@
 # Change Log
 
+* [BUGFIX] Check the component still exists before handling event listeners on the `ClickOutsideMixin`.
+
 * [FEATURE] Add `InputComponent`.
 
 * [FEATURE] Add `FormElementComponent` and `FormElementClass`.
