@@ -6,7 +6,7 @@
 
 * [FEATURE] Add `FormElementComponent` and `FormElementClass`.
 
-* [FEATURE] Add `FieldsetClass`.
+* [FEATURE] Add `FieldsetComponent` and `FieldsetClass`.
 
 * Add the `FormElementClass` to the `SelectComponent`.
 
