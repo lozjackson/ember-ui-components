@@ -15,11 +15,21 @@ div.uic-form-element select,
 select.uic-form-element {
   height: 39px;
 }
+input.uic-input {
+  width: 100%;
+}
+div.uic-form-element {
+  text-align: left;
+}
+div.uic-form-element div.uic-check-box.toggle {
+  margin: 10px 0;
+}
 .uic-form-element,
 div.uic-form-element input,
 div.uic-form-element select,
 div.uic-form-element textarea {
-  width: 100%;
+  /*width: 100%;*/
+  width: calc(70% - 10px);
   max-width: 500px;
   background-image: none;
   border: 1px solid #ccc;
@@ -33,7 +43,15 @@ div.uic-form-element textarea {
   color: #555;
   box-sizing: border-box;
 }
-
+.uic-fieldset.disabled > label,
+label.uic-form-element.disabled,
+div.uic-form-element.disabled > label,
+.uic-form-element.disabled,
+div.uic-form-element input[disabled],
+div.uic-form-element select[disabled],
+div.uic-form-element textarea[disabled] {
+  color: #ABABAB;
+}
 div.uic-form-element .uic-button {
   line-height: 1.57143;
   height: 39px;
@@ -80,7 +98,7 @@ div.uic-form-element > label {
 label + .uic-form-element {
   width: 67%;
 }
-.uic-fieldset > .uic-form-element,
+.uic-fieldset .uic-form-element,
 label + .uic-form-element {
   float: left;
 
