@@ -32,7 +32,7 @@ test('classNameBindings', function(assert) {
   this.render();
   assert.equal(component.get('classNameBindings').length, 2);
   assert.equal(component.get('classNameBindings')[0], 'disabled');
-  assert.equal(component.get('classNameBindings')[1], 'readOnly');
+  assert.equal(component.get('classNameBindings')[1], 'readonly');
 });
 
 test('_formElementId', function(assert) {
