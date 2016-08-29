@@ -31,18 +31,18 @@ export function getMousePosition(event, page) {
         position = {
           x: event.pageX,
           y: event.pageY
-        }
+        };
       } else if (!isNaN(event.clientX) || !isNaN(event.clientY)) {
         position = {
           x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft,
           y: event.clientY + document.body.scrollTop + document.documentElement.scrollTop
-        }
+        };
       }
     } else {
       position = {
         x: event.clientX,
         y: event.clientY
-      }
+      };
     }
   }
   return Ember.Object.create(position);
