@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/ember-ui-components',
+    rootURL: '/ember-ui-components',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
