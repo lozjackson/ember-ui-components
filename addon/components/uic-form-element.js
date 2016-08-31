@@ -45,5 +45,16 @@ export default Ember.Component.extend({
       formElementId = 'uic-form-element-' + this.get('elementId');
     }
     return formElementId;
+  }),
+
+  /**
+    @property _params
+    @type {Object}
+    @private
+  */
+  _params: computed('_formElementId', function () {
+    return {
+      id: this.get('_formElementId')
+    };
   })
 });

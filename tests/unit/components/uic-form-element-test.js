@@ -47,3 +47,17 @@ test('_formElementId', function(assert) {
   run(() => component.set('formElementId', 2));
   assert.equal(component.get('_formElementId'), 2);
 });
+
+test('_params', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject({ _formElementId: '' });
+
+  this.render();
+
+  run(() => component.set('_formElementId', 'foo'));
+  assert.deepEqual(component.get('_params'), { id: 'foo' });
+
+  run(() => component.set('_formElementId', 'bar'));
+  assert.deepEqual(component.get('_params'), { id: 'bar' });
+});

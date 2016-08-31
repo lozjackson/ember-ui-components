@@ -2,7 +2,7 @@
   <label for={{_formElementId}}>{{label}}</label>
 {{/if}}
 {{#if hasBlock}}
-  {{yield (hash id=_formElementId)}}
+  {{yield _params}}
 {{else}}
   {{uic-input
     type=type
