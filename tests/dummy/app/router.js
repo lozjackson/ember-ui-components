@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('context-menu-component');
   this.route('dropdown-component');
   this.route('form-element-component');
+  this.route('fieldset-component');
   this.route('input-component');
   this.route('modal-window-component', function () {
     this.route('modal');
