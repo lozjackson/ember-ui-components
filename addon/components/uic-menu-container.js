@@ -42,7 +42,7 @@ export default Ember.Component.extend({
     let rect;
     let parent = this.getParentMenu();
     let css = {
-      top: calculatePosition( element.position().top, el.height, window.innerHeight - 5)
+      top: calculatePosition( element.position().top, el.height, windowHeight - 5)
     };
 
     if (element) {

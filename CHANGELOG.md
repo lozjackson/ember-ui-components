@@ -1,5 +1,24 @@
 # Change Log
 
+* [BUGFIX] Check the component still exists before handling event listeners on the `ClickOutsideMixin`.
+
+* [FEATURE] Add `InputComponent`.
+
+* [FEATURE] Add `FormElementComponent` and `FormElementClass`.
+
+* [FEATURE] Add `FieldsetComponent` and `FieldsetClass`.
+
+* Add the `FormElementClass` to the `SelectComponent`.
+
+* Add Phantomjs dev-dependency.
+
+* Configure Ember-try to include Ember ~2.4.0 (LTS).
+
+* Update to Ember-cli 2.7.0
+
+
+
+
 ### v0.8.1 2016-08-17
 
 * When button components become active the css box-shadow is inset.

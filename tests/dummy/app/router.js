@@ -2,7 +2,8 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType
+  location: config.locationType,
+  rootURL: config.rootURL
 });
 
 Router.map(function() {
@@ -13,6 +14,9 @@ Router.map(function() {
   this.route('slide-menu-component');
   this.route('context-menu-component');
   this.route('dropdown-component');
+  this.route('form-element-component');
+  this.route('fieldset-component');
+  this.route('input-component');
   this.route('modal-window-component', function () {
     this.route('modal');
   });
@@ -22,6 +26,8 @@ Router.map(function() {
   this.route('button-class');
   this.route('button-group-class');
   this.route('panel-class');
+  this.route('form-element-class');
+  this.route('fieldset-class');
 });
 
 export default Router;

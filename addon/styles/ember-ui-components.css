@@ -1,3 +1,8 @@
+@charset "UTF-8";
+
+@import 'uic-panel.css';
+@import 'uic-form-element.css';
+
 body.modal-dialog-is-open,
 body.modal-window-is-open,
 .uic-disable-scroll {
@@ -8,17 +13,7 @@ label {
   margin: 10px;
   vertical-align: middle;
 }
-p.panel,
-div.panel,
-div.uic-panel {
-  margin: 10px;
-  margin-bottom: 20px;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #EEF1F5;
-  border-radius: 4px;
-  box-shadow: 0px 1px 2px #888888;
-}
+
 
 div.uic-check-box.slider,
 div.uic-check-box.toggle,
@@ -50,7 +45,7 @@ button.uic-cancel-button {
   vertical-align: middle;
   white-space: nowrap;
   background: #FFF;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #CDCDCD;
   transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-user-select: none;
@@ -58,10 +53,16 @@ button.uic-cancel-button {
   -ms-user-select: none;
   user-select: none;
 }
+button.uic-button:focus,
+button.uic-ok-button:focus,
+button.uic-cancel-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 1px #b0dafb;
+}
 button.uic-button:hover,
 button.uic-ok-button:hover,
 button.uic-cancel-button:hover {
-  box-shadow: 1px 1px 1px #888;
+  box-shadow: 0px 0px 1px #888;
 }
 button.uic-button[disabled]:hover,
 button.uic-ok-button[disabled]:hover,
@@ -72,7 +73,7 @@ button.uic-cancel-button[disabled]:hover,
 button.uic-button:active,
 button.uic-ok-button:active,
 button.uic-cancel-button:active {
-  box-shadow: 1px 1px 1px #888 inset;
+  box-shadow: 0px 0px 1px #888 inset;
 }
 button.uic-button:active,
 button.uic-cancel-button:active {
@@ -361,6 +362,10 @@ button.uic-button[disabled].red,
 .uic-check-box.slider.disabled,
 .uic-check-box.toggle.disabled {
   opacity: 0.4;
+}
+.uic-check-box input[type=checkbox] {
+  width: auto;
+  height: auto;
 }
 .uic-check-box input + label {
   display: block;

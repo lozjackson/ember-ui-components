@@ -106,7 +106,7 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     if (!position) {
       position = getMousePosition(window.event || window._event);
     }
-    let scrollBarWidth = (window.innerWidth - $(window).width());
+    let scrollBarWidth = (window.innerWidth - Ember.$(window).width());
     let el = getDimensions(element);
     element.css({
       'left': calculatePosition( position.get('x') + 2, el.width, window.innerWidth - ( margin + scrollBarWidth)),

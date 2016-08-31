@@ -23,11 +23,10 @@ test('classNames', function(assert) {
 });
 
 test('attributeBindings', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('attributeBindings').length, 2);
-  assert.equal(component.get('attributeBindings')[1], 'tabindex');
+  assert.ok(component.get('attributeBindings').indexOf('tabindex') !== -1);
 });
 
 test('classNameBindings', function(assert) {
