@@ -10,6 +10,12 @@
 
 * Add the `FormElementClass` to the `SelectComponent`.
 
+* Add Phantomjs dev-dependency.
+
+* Configure Ember-try to include Ember ~2.4.0 (LTS).
+
+* Update to Ember-cli 2.7.0
+
 
 
 
