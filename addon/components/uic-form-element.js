@@ -7,6 +7,28 @@ import layout from '../templates/components/uic-form-element';
 const { computed } = Ember;
 
 /**
+  # FormElementComponent
+
+  The foillowing markup will render an input element.
+
+  ```
+  {{uic-form-element
+    value=value
+    label="Property name"}}
+  ```
+
+  To use a custom element, provide a template block.
+
+  ```
+  {{#uic-form-element
+    value=value
+    label="Property name"}}
+
+    ... custom element ...
+
+  {{/uic-form-element}}
+  ```
+
 
 
   @class FormElementComponent

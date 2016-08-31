@@ -5,6 +5,17 @@ import Ember from 'ember';
 import layout from '../templates/components/uic-fieldset';
 
 /**
+
+  # FieldsetComponent
+
+  ```
+  {{#uic-fieldset}}
+
+    ... form elements ...
+
+  {/#uic-fieldset}}
+  ```
+
   @class FieldsetComponent
   @namespace Components
 */
