@@ -1,5 +1,12 @@
 # Change Log
 
+### v0.9.1 2016-09-03
+
+* [BUGFIX] Fix issue that was preventing the consuming app to build for production environment.
+
+
+
+
 ### v0.9.0 2016-09-03
 
 * [BUGFIX] Check the component still exists before handling event listeners on the `ClickOutsideMixin`.
