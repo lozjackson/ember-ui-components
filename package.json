@@ -1,6 +1,6 @@
 {
   "name": "ember-ui-components",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A collection of common user interface components",
   "directories": {
     "doc": "doc",
