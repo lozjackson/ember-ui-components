@@ -17,6 +17,9 @@ http://lozjackson.github.io/ember-ui-components/
 * CheckBox
 * ContextMenu
 * Dropdown
+* FormElement
+* Fieldset
+* Input
 * ModalDialog
 * ModalWindow
 * Select
@@ -31,4 +34,6 @@ http://lozjackson.github.io/ember-ui-components/
 
 * Button
 * ButtonGroup
+* FormElement
+* Fieldset
 * Panel

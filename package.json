@@ -1,6 +1,6 @@
 {
   "name": "ember-ui-components",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "A collection of common user interface components",
   "directories": {
     "doc": "doc",
@@ -45,7 +45,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.1",
-    "ember-svg-shapes": "^0.1.0",
+    "ember-svg-shapes": "^0.1.1",
     "ember-wormhole": "0.4.0"
   },
   "keywords": [
@@ -53,10 +53,14 @@
     "components",
     "ui",
     "user-interface",
+    "css",
     "button",
     "button-group",
     "checkbox",
     "select",
+    "input",
+    "form-element",
+    "fieldset",
     "context-menu",
     "dropdown",
     "menu",

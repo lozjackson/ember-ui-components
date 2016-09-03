@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.9.0 2016-09-03
+
 * [BUGFIX] Check the component still exists before handling event listeners on the `ClickOutsideMixin`.
 
 * [FEATURE] Add `InputComponent`.
