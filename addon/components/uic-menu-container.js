@@ -3,7 +3,8 @@
 */
 import Ember from 'ember';
 import layout from '../templates/components/uic-menu-container';
-import { getDimensions, calculatePosition } from 'ember-ui-components/lib/fn';
+import getDimensions from 'ember-ui-components/utils/get-dimensions';
+import calculatePosition from 'ember-ui-components/utils/calculate-position';
 
 /**
   @class MenuContainerComponent
