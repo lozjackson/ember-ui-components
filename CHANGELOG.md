@@ -1,6 +1,6 @@
 # Change Log
 
-* [#5](https://github.com/lozjackson/ember-ui-components/pull/5) Add util methods.
+* [#6](https://github.com/lozjackson/ember-ui-components/pull/6) Add util methods.
 
 ### v0.9.1 2016-09-03
 
