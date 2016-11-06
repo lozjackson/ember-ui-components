@@ -1,5 +1,7 @@
 # Change Log
 
+* [#5](https://github.com/lozjackson/ember-ui-components/pull/5) Add util methods.
+
 ### v0.9.1 2016-09-03
 
 * [BUGFIX] Fix issue that was preventing the consuming app to build for production environment.
