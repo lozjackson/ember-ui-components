@@ -48,23 +48,6 @@ export function getMousePosition(event, page) {
   return Ember.Object.create(position);
 }
 
-/**
-  @method getDimensions
-  @param {String|Object} element
-  @return {Object}
-*/
-export function getDimensions(element) {
-  if (typeof element === 'string') {
-    element = Ember.$(element);
-  }
-  let el = { width: 0, height: 0 };
-  if (element.length) {
-    el.width = element[0].offsetWidth;
-    el.height = element[0].offsetHeight;
-  }
-  return el;
-}
-
 export function calculatePosition(position, element, container) {
   return ((container - position) < element) ? container - element : position;
 }
