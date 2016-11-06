@@ -4,8 +4,8 @@
 import Ember from 'ember';
 
 /**
-  @class fn
-  @namespace lib
+  @class Utilities
+  @namespace Utils
 */
 
 /**
@@ -17,9 +17,10 @@ import Ember from 'ember';
   @method getMousePosition
   @param {Object} event
   @param {Boolean} page
+  @private
   @return {Object} An Ember.Object is returned.
 */
-export function getMousePosition(event, page) {
+export default function getMousePosition(event, page) {
   let position = { x: null, y: null };
   if (!event) {
     event = window.event;
