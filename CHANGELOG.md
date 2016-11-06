@@ -1,8 +1,13 @@
 # Change Log
 
+### v0.9.2 2016-11-06
+
 * [#6](https://github.com/lozjackson/ember-ui-components/pull/6) Add util methods.
 
 * [#7](https://github.com/lozjackson/ember-ui-components/pull/7) Update to Ember-cli 2.8.0
+
+
+
 
 ### v0.9.1 2016-09-03
 
