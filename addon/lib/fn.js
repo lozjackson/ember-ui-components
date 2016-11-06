@@ -47,7 +47,3 @@ export function getMousePosition(event, page) {
   }
   return Ember.Object.create(position);
 }
-
-export function calculatePosition(position, element, container) {
-  return ((container - position) < element) ? container - element : position;
-}
