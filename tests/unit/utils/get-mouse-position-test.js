@@ -22,8 +22,8 @@ test('it works - page=true', function(assert) {
   let event = {
     clientX: 10,
     clientY: 20,
-    clientX: 30,
-    clientY: 40
+    pageX: 30,
+    pageY: 40
   };
 
   // window.event = event;
