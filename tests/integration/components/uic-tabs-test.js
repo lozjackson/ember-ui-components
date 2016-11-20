@@ -5,20 +5,7 @@ moduleForComponent('uic-tabs', 'Integration | Component | uic tabs', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
+test('it has the correct class names', function(assert) {
   this.render(hbs`{{uic-tabs}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#uic-tabs}}
-      template block text
-    {{/uic-tabs}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.uic-tabs.tabs').length, 1);
 });

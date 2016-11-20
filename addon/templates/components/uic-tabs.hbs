@@ -1,1 +1,16 @@
-{{yield}}
+<ul class="tab-header row">
+  {{#each tabs as |tab|}}
+    <li {{action selectTab tab}} class="{{if (is-equal tab activeTab) 'active'}}">
+      {{if tab.name tab.name defaultName}}
+    </li>
+  {{/each}}
+</ul>
+{{#each tabs as |tab|}}
+  <div class="tab-body {{if (is-equal tab activeTab) 'active'}}">
+    {{#if hasBlock}}
+      {{yield tab}}
+    {{else if tab.template}}
+        {{partial tab.template}}
+    {{/if}}
+  </div>
+{{/each}}
