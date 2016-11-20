@@ -1110,6 +1110,13 @@ li.uic-sub-menu:hover > div > svg.svg-triangle polygon {
   stroke:#ffffff;
   stroke-width:1;
 }
+menuitem[disabled].uic-sub-menu > div > svg.svg-triangle polygon,
+li[disabled].uic-sub-menu > div > svg.svg-triangle polygon,
+menuitem[disabled].uic-sub-menu:hover > div > svg.svg-triangle polygon,
+li[disabled].uic-sub-menu:hover > div > svg.svg-triangle polygon {
+	fill: #ccc !important;
+  stroke:#ccc !important;
+}
 .uic-context-menu-container menuitem[disabled],
 .uic-context-menu-container li[disabled],
 .uic-context-menu-container li.context-menu-disabled,
