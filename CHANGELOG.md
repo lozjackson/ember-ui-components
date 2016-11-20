@@ -1,5 +1,7 @@
 # Change Log
 
+* [#11](https://github.com/lozjackson/ember-ui-components/pull/11) [BUGFIX] The `SubMenuComponent` now supports the `disabled` attribute.
+
 * [#10](https://github.com/lozjackson/ember-ui-components/pull/10) [FEATURE] Add `TabsComponent`.
 
 ### v0.9.2 2016-11-06

@@ -35,6 +35,20 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[1], 'uic-sub-menu');
 });
 
+test('attributeBindings', function(assert) {
+  assert.expect(1);
+  let component = this.subject();
+  this.render();
+  assert.deepEqual(component.get('attributeBindings'), ['disabled']);
+});
+
+test('disabled should be false', function(assert) {
+  assert.expect(1);
+  let component = this.subject();
+  this.render();
+  assert.equal(component.get('disabled'), false);
+});
+
 test('showMenu', function(assert) {
   assert.expect(1);
   var component = this.subject();
@@ -56,6 +70,18 @@ test('mouseEnter', function(assert) {
   this.render();
   run(() => component.mouseEnter());
   assert.equal(component.get('showMenu'), true);
+});
+
+test('mouseEnter - disabled', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.setProperties({
+    showMenu: false,
+    disabled: true
+  });
+  this.render();
+  run(() => component.mouseEnter());
+  assert.equal(component.get('showMenu'), false);
 });
 
 test('mouseLeave', function(assert) {

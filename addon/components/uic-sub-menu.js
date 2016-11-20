@@ -36,6 +36,21 @@ export default Ember.Component.extend( {
   classNames: ['uic-sub-menu'],
 
   /**
+    @property attributeBindings
+    @type {Array}
+    @private
+    @default `['disabled']`
+  */
+  attributeBindings: ['disabled'],
+
+  /**
+    @property disabled
+    @type {Boolean}
+    @default `false`
+  */
+  disabled: false,
+
+  /**
     @property showMenu
     @type {Boolean}
     @default `false`
@@ -67,7 +82,9 @@ export default Ember.Component.extend( {
   */
   mouseEnter() {
     run.cancel(this.get('_event'));
-    this.set('showMenu', true);
+    if (!this.get('disabled')) {
+      this.set('showMenu', true);
+    }
   },
 
   /**
