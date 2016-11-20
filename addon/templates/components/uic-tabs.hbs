@@ -1,0 +1,37 @@
+<ul class="tab-header">
+  {{#each tabs as |tab|}}
+    <li {{action selectTab tab}} class="{{if (is-equal tab activeTab) 'active'}}">
+      {{if tab.tabName tab.tabName defaultTabName}}
+    </li>
+  {{/each}}
+</ul>
+
+{{#if renderAllTabs}}
+
+  {{#each tabs as |tab|}}
+
+    <div class="tab-body {{if (is-equal tab activeTab) 'active'}}">
+      {{#if hasBlock}}
+        {{yield tab}}
+      {{else if tab.tabComponent}}
+        {{component tab.tabComponent tab=tab}}
+      {{else if tab.tabTemplate}}
+        {{partial tab.tabTemplate}}
+      {{/if}}
+    </div>
+
+  {{/each}}
+
+{{else}}
+
+  <div class="tab-body {{if (is-equal tab activeTab) 'active'}}">
+    {{#if hasBlock}}
+      {{yield tab}}
+    {{else if tab.tabComponent}}
+      {{component tab.tabComponent tab=tab}}
+    {{else if tab.tabTemplate}}
+      {{partial tab.tabTemplate}}
+    {{/if}}
+  </div>
+
+{{/if}}

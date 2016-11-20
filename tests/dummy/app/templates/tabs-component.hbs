@@ -1,0 +1,105 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>TabsComponent</h1>
+
+<h2><code>&#123;&#123;uic-tabs&#125;&#125;</code></h2>
+
+<h2>Description</h2>
+
+<p>
+  The <code>&#123;&#123;uic-tabs&#125;&#125;</code> component can be used to
+  render an array of models or objects in a tab layout.
+</p>
+
+<h2>Tabs</h2>
+
+<p>
+  Store an array of objects, one for each tab.  The tab objects can be <code>Ember.Object</code>s,
+  <code>DS.Model</code>s, or POJOs.
+</p>
+
+{{code-panel name="tabs-array-example.js"}}
+
+<p>
+  Then pass the array to the tabs component.
+</p>
+
+{{code-panel name="tabs-inline-example.hbs"}}
+
+<p>
+  The <code>TabsComponent</code> can be used inline, or with a template block.
+  When used with a template block the tab object is available in the template block
+  params.
+</p>
+
+{{code-panel name="tabs-block-example.hbs"}}
+
+<hr>
+
+<h3>tabName</h3>
+
+<p>
+  Each tab object should have a <code>tabName</code> property which will be used
+  for the tab name.
+</p>
+
+{{code-panel name="tab-names.js"}}
+
+{{code-panel name="tabs-component-example.hbs"}}
+
+<div>
+  {{! BEGIN-SNIPPET tabs-component-example}}
+    {{uic-tabs tabs=tabs}}
+  {{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>tabComponent</h3>
+
+<p>
+  If you want to render each tab with a different component then provide a
+  <code>tabComponent</code> property for each tab object.
+</p>
+
+{{code-panel name="array-of-components.js"}}
+
+<p>
+  Then use the <code>TabsComponent</code> inline, without a template block.
+</p>
+
+{{code-panel name="tabs-component-inline-example.hbs"}}
+
+<div>
+  {{! BEGIN-SNIPPET tabs-component-inline-example}}
+    {{uic-tabs tabs=tabComponents}}
+  {{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>tabTemplate</h3>
+
+<p>
+  You can provide a <code>tabTemplate</code> property for each tab object instead
+  of <code>tabComponent</code>.  In this case the template will be rendered using
+  the <code>&#123;&#123;partial&#125;&#125;</code> helper.
+</p>
+
+{{code-panel name="array-of-templates.js"}}
+
+<p>
+  Then, using the <code>TabsComponent</code> inline, the <code>tabTemplate</code>
+  will be used for the tab's template, but the context will be the same as the
+  parent template.
+</p>
+
+{{code-panel name="tabs-template-inline-example.hbs"}}
+
+<div>
+  {{! BEGIN-SNIPPET tabs-template-inline-example}}
+    {{uic-tabs tabs=tabTemplates}}
+  {{! END-SNIPPET }}
+</div>

@@ -21,6 +21,7 @@ Router.map(function() {
     this.route('modal');
   });
   this.route('modal-dialog-component');
+  this.route('tabs-component');
   this.route('dialog-service');
   this.route('modal-service');
   this.route('button-class');
