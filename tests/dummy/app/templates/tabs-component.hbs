@@ -1,0 +1,30 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>TabsComponent</h1>
+
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-tabs&#125;&#125;</code></h2>
+
+  <h2>Description</h2>
+
+  <p>
+    The <code>&#123;&#123;uic-tabs&#125;&#125;</code> component can be used to
+    render an array of models or objects in a tab layout.
+  </p>
+
+  {{code-panel name="array-of-pojos.js"}}
+
+  {{code-panel name="tabs-component-example.hbs"}}
+
+  <div style="width: 500px;">
+    {{! BEGIN-SNIPPET tabs-component-example}}
+      {{#uic-tabs tabs=tabs as |tab|}}
+        {{tab.data}}
+      {{/uic-tabs}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
