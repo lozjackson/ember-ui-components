@@ -1,5 +1,7 @@
 # Change Log
 
+* [#10](https://github.com/lozjackson/ember-ui-components/pull/10) [FEATURE] Add `TabsComponent`.
+
 ### v0.9.2 2016-11-06
 
 * [#6](https://github.com/lozjackson/ember-ui-components/pull/6) Add util methods.
