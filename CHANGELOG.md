@@ -4,6 +4,8 @@
 
 * [#10](https://github.com/lozjackson/ember-ui-components/pull/10) [FEATURE] Add `TabsComponent`.
 
+* [#12](https://github.com/lozjackson/ember-ui-components/pull/12) Update Ember-wormhole dependency to v0.5.1
+
 ### v0.9.2 2016-11-06
 
 * [#6](https://github.com/lozjackson/ember-ui-components/pull/6) Add util methods.
