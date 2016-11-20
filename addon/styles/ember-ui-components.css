@@ -1299,6 +1299,65 @@ button.uic-close-button:hover {
 }
 
 
+/*
+  Tabs
+*/
+.uic-tabs {
+  position: relative;
+}
+.uic-tabs > ul {
+	position: relative;
+	margin:0px;
+	padding: 0 10px;
+	white-space: nowrap;
+  overflow-x: auto;
+}
+.uic-tabs > ul > li {
+	display:inline-block;
+	margin:0px;
+	padding:7px 10px;
+	height: 16px;
+	background: rgba(0,0,0,0.1);
+	cursor:pointer;
+	color:#999;
+	position:relative;
+	border-top: 1px solid rgb(197, 212, 226);
+	border-left: 1px solid rgb(197, 212, 226);
+	border-right: 1px solid rgb(197, 212, 226);
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius:4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+.uic-tabs > ul > li.active {
+	background: #f9f9f9;
+	z-index:2;
+	color:#000;
+}
+.uic-tabs > div {
+	display:none;
+  position: relative;
+	top: -1px;
+	padding: 5px;
+	z-index:1;
+}
+.uic-tabs > div .uic-tabs > div {
+	padding: 5px 0;
+}
+.uic-tabs > div div.panel {
+	margin: 2px;
+	margin-bottom: 12px;
+}
+.uic-tabs > div.active {
+	display:block;
+	border: 1px solid rgba(197, 212, 226, 0);
+	border-top: 1px solid rgba(197, 212, 226, 0.5);
+	background: #f9f9f9;
+}
 
 
 
