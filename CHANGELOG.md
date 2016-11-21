@@ -1,10 +1,15 @@
 # Change Log
 
+### v0.10.0 2016-11-21
+
 * [#11](https://github.com/lozjackson/ember-ui-components/pull/11) [BUGFIX] The `SubMenuComponent` now supports the `disabled` attribute.
 
 * [#10](https://github.com/lozjackson/ember-ui-components/pull/10) [FEATURE] Add `TabsComponent`.
 
 * [#12](https://github.com/lozjackson/ember-ui-components/pull/12) Update Ember-wormhole dependency to v0.5.1
+
+
+
 
 ### v0.9.2 2016-11-06
 
