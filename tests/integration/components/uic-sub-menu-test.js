@@ -25,6 +25,6 @@ test('disabled', function(assert) {
   this.set('disabled', true);
   this.render(hbs`{{uic-sub-menu disabled=disabled}}`);
   assert.equal(this.$('menuitem[disabled].uic-sub-menu').length, 1);
-  this.set('disabled', false);
+  this.set('disabled', null);
   assert.equal(this.$('menuitem[disabled].uic-sub-menu').length, 0);
 });

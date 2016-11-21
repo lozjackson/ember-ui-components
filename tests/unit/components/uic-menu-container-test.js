@@ -20,16 +20,6 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[1], 'uic-menu-container');
 });
 
-test('getParentMenu() method', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-
-  component.getParentMenu();
-
-  assert.equal(component.get('classNames')[1], 'uic-menu-container');
-});
-
 test('didInsertElement', function(assert) {
   assert.expect(2);
   var component = this.subject();

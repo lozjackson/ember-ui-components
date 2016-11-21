@@ -35,13 +35,6 @@ test('classNames', function(assert) {
   assert.equal(component.get('classNames')[1], 'uic-sub-menu');
 });
 
-test('attributeBindings', function(assert) {
-  assert.expect(1);
-  let component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('attributeBindings'), ['disabled']);
-});
-
 test('disabled should be false', function(assert) {
   assert.expect(1);
   let component = this.subject();
