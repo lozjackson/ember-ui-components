@@ -49,6 +49,19 @@ test('init() method', function(assert) {
   assert.deepEqual(component.get('activeTab'), tab);
 });
 
+test('tabsChanged observer should call setDefaultTab if tabs does not include activeTab', function(assert) {
+  assert.expect(1);
+  let tab1 = { id: 1 };
+  let tab2 = { id: 2 };
+  let component = this.subject({
+    activeTab: tab1,
+    tabs: Ember.A([ tab1, tab2 ]),
+    setDefaultTab: () => assert.ok(true)
+  });
+  this.render();
+  run(() => component.get('tabs').removeObject(tab1));
+});
+
 test('setDefaultTab() method - pass an enumerable ember array of ember objects', function(assert) {
   assert.expect(2);
   let tab = Ember.Object.create({ id: 1 });
