@@ -22,6 +22,7 @@ Router.map(function() {
   });
   this.route('modal-dialog-component');
   this.route('tabs-component');
+  this.route('switch-component');
   this.route('dialog-service');
   this.route('modal-service');
   this.route('button-class');

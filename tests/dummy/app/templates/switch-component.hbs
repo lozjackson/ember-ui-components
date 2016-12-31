@@ -1,0 +1,72 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>SwitchComponent</h1>
+
+<h2><code>\{{uic-switch}}</code></h2>
+
+<h2>Description</h2>
+
+<p>
+  The <code>\{{uic-switch}}</code> component can be used to render a button with
+  switch-like behaviour.  When the button is clicked the <code>property</code> will
+  be set to the <code>value</code> assigned to the switch.
+</p>
+
+{{code-panel name="switch-example.hbs"}}
+
+{{! BEGIN-SNIPPET switch-example}}
+  {{uic-switch label="Some property" property=someProperty value="theValue"}}
+{{! END-SNIPPET }}
+
+{{code-panel name="multiple-switch-example.hbs"}}
+
+{{! BEGIN-SNIPPET multiple-switch-example}}
+  {{uic-switch label="Bar" property=foo value="bar"}}
+  {{uic-switch label="Baz" property=foo value="baz"}}
+{{! END-SNIPPET }}
+
+<p>foo: {{foo}}</p>
+
+<hr>
+<h2>Switch groups</h2>
+<p>The <code>SwitchComponent</code> works well with the <code>{{link-to "ButtonGroupComponent" 'button-group-component'}}</code></p>
+
+{{code-panel name="group-switch-example.hbs"}}
+
+{{! BEGIN-SNIPPET group-switch-example}}
+{{#uic-button-group}}
+  {{uic-switch label="Foo" property=prop value="foo"}}
+  {{uic-switch label="Bar" property=prop value="bar"}}
+  {{uic-switch label="Baz" property=prop value="baz"}}
+{{/uic-button-group}}
+{{! END-SNIPPET }}
+<p>prop: {{prop}}</p>
+
+<hr>
+<h2>Attributes</h2>
+<ul>
+  <li>
+    <h3><code>label</code></h3>
+    <p>
+      The <code>label</code> attribute of the <code>SwitchComponent</code> will be
+      used as the display name of the button element.
+    </p>
+  </li>
+  <li>
+    <h3><code>property</code></h3>
+    <p>
+      Set the <code>property</code> attribute of the <code>SwitchComponent</code> to
+      the property that you want to modify.
+    </p>
+
+  </li>
+  <li>
+    <h3><code>value</code></h3>
+    <p>
+      Set the <code>value</code> attribute of the <code>SwitchComponent</code> to
+      the value that the <code>property</code> should be set to when this switch is clicked.
+    </p>
+  </li>
+</ul>
