@@ -322,7 +322,7 @@ button.uic-button[disabled].red,
   background: #eee;
   z-index: 2;
 }
-.uic-button-group button.uic-button.selected {
+button.uic-button.selected {
   box-shadow: inset 0px 0px 3px #888;
   background: #F9F9F9;
 }
