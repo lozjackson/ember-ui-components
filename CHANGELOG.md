@@ -1,5 +1,7 @@
 # Change Log
 
+* [#14](https://github.com/lozjackson/ember-ui-components/pull/14) Remove deprecated Ember.K
+
 ### v0.10.0 2016-11-21
 
 * [#11](https://github.com/lozjackson/ember-ui-components/pull/11) [BUGFIX] The `SubMenuComponent` now supports the `disabled` attribute.
