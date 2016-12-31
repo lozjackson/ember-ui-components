@@ -18,10 +18,3 @@ test('tagName', function(assert) {
   this.render();
   assert.equal(component.get('tagName'), ['button']);
 });
-
-test('classNames', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-close-button']);
-});

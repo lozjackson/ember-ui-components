@@ -22,15 +22,6 @@ test('tagName', function(assert) {
   assert.equal(component.get('tagName'), 'select');
 });
 
-test('classNames', function(assert) {
-  assert.expect(3);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-select');
-  assert.equal(component.get('classNames')[2], 'uic-form-element');
-});
-
 test('options should be empty array', function(assert) {
   assert.expect(1);
   var component = this.subject();

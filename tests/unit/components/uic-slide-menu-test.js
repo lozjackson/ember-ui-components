@@ -39,15 +39,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  component.set('lookup', lookup);
-  this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'uic-slide-menu');
-});
-
 test('classNameBindings', function(assert) {
   assert.expect(2);
   var component = this.subject();

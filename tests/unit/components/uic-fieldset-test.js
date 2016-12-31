@@ -18,11 +18,3 @@ test('tagName should be fieldset', function(assert) {
   this.render();
   assert.equal(component.get('tagName'), 'fieldset');
 });
-
-test('classNames', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'uic-fieldset');
-});

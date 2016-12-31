@@ -20,13 +20,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-modal-window']);
-});
-
 test('classNameBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();

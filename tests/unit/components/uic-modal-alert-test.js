@@ -16,16 +16,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(3);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-modal');
-  assert.equal(component.get('classNames')[2], 'uic-modal-alert');
-
-});
-
 test('_ok() method', function(assert) {
   assert.expect(1);
   var component = this.subject();

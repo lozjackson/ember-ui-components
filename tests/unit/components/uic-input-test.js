@@ -19,13 +19,3 @@ test('tagName', function(assert) {
   this.render();
   assert.equal(component.get('tagName'), 'input');
 });
-
-test('classNames', function(assert) {
-  assert.expect(4);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 4);
-  assert.equal(component.get('classNames')[1], 'ember-text-field');
-  assert.equal(component.get('classNames')[2], 'uic-input');
-  assert.equal(component.get('classNames')[3], 'uic-form-element');
-});
