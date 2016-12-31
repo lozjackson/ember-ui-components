@@ -20,15 +20,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(3);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-modal-dialog');
-  assert.equal(component.get('classNames')[2], 'no-outline');
-});
-
 test('classNameBindings', function(assert) {
   assert.expect(3);
   var component = this.subject();

@@ -26,15 +26,6 @@ test('tagName', function(assert) {
   assert.equal(component.get('tagName'), 'menuitem');
 });
 
-
-test('classNames', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'uic-sub-menu');
-});
-
 test('disabled should be false', function(assert) {
   assert.expect(1);
   let component = this.subject();
