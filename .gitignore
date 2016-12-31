@@ -16,7 +16,3 @@
 npm-debug.log
 testem.log
 /docs
-
-.vscodeignore
-jsconfig.json
-/typings/*

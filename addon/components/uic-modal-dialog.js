@@ -5,7 +5,6 @@ import Ember from 'ember';
 import layout from '../templates/components/uic-modal-dialog';
 
 const computed = Ember.computed;
-const alias = computed.alias;
 
 /**
   @class ModalDialogComponent

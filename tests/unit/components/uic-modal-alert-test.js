@@ -2,7 +2,9 @@ import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
 moduleForComponent('uic-modal-alert', 'Unit | Component | uic modal alert', {
-  // needs: [],
+  needs: [
+    'component:uic-button'
+  ],
   unit: true
 });
 
@@ -12,16 +14,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'preRender');
   this.render();
   assert.equal(component._state, 'inDOM');
-});
-
-test('classNames', function(assert) {
-  assert.expect(3);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-modal');
-  assert.equal(component.get('classNames')[2], 'uic-modal-alert');
-
 });
 
 test('_ok() method', function(assert) {

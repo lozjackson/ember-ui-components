@@ -1,8 +1,10 @@
 {{yield to="inverse"}}
 {{#if showContextMenu}}
-  {{#uic-content-mask active=true action="closeContextMenu" class="uic-menu-overlay"}}
-    {{#uic-context-menu-container action="closeContextMenu"}}
-      {{yield contextMenuParams}}
-    {{/uic-context-menu-container}}
-  {{/uic-content-mask}}
+  {{#ember-wormhole to=destinationElementId renderInPlace=(unless destinationElementId true)}}
+    {{#uic-content-mask active=true action="closeContextMenu" class="uic-menu-overlay"}}
+      {{#uic-context-menu-container action="closeContextMenu"}}
+        {{yield contextMenuParams}}
+      {{/uic-context-menu-container}}
+    {{/uic-content-mask}}
+  {{/ember-wormhole}}
 {{/if}}

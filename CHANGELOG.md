@@ -1,5 +1,81 @@
 # Change Log
 
+* [#15](https://github.com/lozjackson/ember-ui-components/pull/15) [BUGFIX] Prevent active tab becoming blank
+
+* [#14](https://github.com/lozjackson/ember-ui-components/pull/14) Remove deprecated Ember.K
+
+### v0.10.0 2016-11-21
+
+* [#11](https://github.com/lozjackson/ember-ui-components/pull/11) [BUGFIX] The `SubMenuComponent` now supports the `disabled` attribute.
+
+* [#10](https://github.com/lozjackson/ember-ui-components/pull/10) [FEATURE] Add `TabsComponent`.
+
+* [#12](https://github.com/lozjackson/ember-ui-components/pull/12) Update Ember-wormhole dependency to v0.5.1
+
+
+
+
+### v0.9.2 2016-11-06
+
+* [#6](https://github.com/lozjackson/ember-ui-components/pull/6) Add util methods.
+
+* [#7](https://github.com/lozjackson/ember-ui-components/pull/7) Update to Ember-cli 2.8.0
+
+
+
+
+### v0.9.1 2016-09-03
+
+* [BUGFIX] Fix issue that was preventing the consuming app to build for production environment.
+
+
+
+
+### v0.9.0 2016-09-03
+
+* [BUGFIX] Check the component still exists before handling event listeners on the `ClickOutsideMixin`.
+
+* [FEATURE] Add `InputComponent`.
+
+* [FEATURE] Add `FormElementComponent` and `FormElementClass`.
+
+* [FEATURE] Add `FieldsetComponent` and `FieldsetClass`.
+
+* Add the `FormElementClass` to the `SelectComponent`.
+
+* Add Phantomjs dev-dependency.
+
+* Configure Ember-try to include Ember ~2.4.0 (LTS).
+
+* Update to Ember-cli 2.7.0
+
+
+
+
+### v0.8.1 2016-08-17
+
+* When button components become active the css box-shadow is inset.
+
+* Change the OK button for alert and confirm modal dialog components to blue background with white text.
+
+* Use ButtonComponent instead of button elements in the built in model dialog components.
+
+
+
+
+### v0.8.0 2016-06-18
+
+* [FEATURE] Use ember-wormhole to enable rendering the `ContextMenuComponent` to a specified DOM element.
+
+* [FEATURE] Use ember-wormhole to enable rendering the `ModalWindowComponent` to a specified DOM element.
+
+* Add `DestinationElementMixin`.
+
+* Add ember-wormhole dependency.
+
+
+
+
 ### v0.7.0 2016-06-08
 
 * [FEATURE] Add `ModalService`.

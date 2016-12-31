@@ -2,8 +2,9 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import openContextMenu from 'ember-ui-components/helpers/open-context-menu';
+// import openContextMenu from 'ember-ui-components/helpers/open-context-menu';
 import layout from '../templates/components/uic-context-menu';
+import DestinationElementMixin from 'ember-ui-components/mixins/destination-element';
 
 const { computed } = Ember;
 const { alias } = computed;
@@ -11,8 +12,9 @@ const { alias } = computed;
 /**
   @class ContextMenuComponent
   @namespace Components
+  @uses Mixins.DestinationElementMixin
 */
-export default Ember.Component.extend({
+export default Ember.Component.extend(DestinationElementMixin, {
 
   layout,
 

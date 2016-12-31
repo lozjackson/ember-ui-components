@@ -26,13 +26,11 @@ test('tagName', function(assert) {
   assert.equal(component.get('tagName'), 'menuitem');
 });
 
-
-test('classNames', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
+test('disabled should be false', function(assert) {
+  assert.expect(1);
+  let component = this.subject();
   this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'uic-sub-menu');
+  assert.equal(component.get('disabled'), false);
 });
 
 test('showMenu', function(assert) {
@@ -56,6 +54,18 @@ test('mouseEnter', function(assert) {
   this.render();
   run(() => component.mouseEnter());
   assert.equal(component.get('showMenu'), true);
+});
+
+test('mouseEnter - disabled', function(assert) {
+  assert.expect(1);
+  var component = this.subject();
+  component.setProperties({
+    showMenu: false,
+    disabled: true
+  });
+  this.render();
+  run(() => component.mouseEnter());
+  assert.equal(component.get('showMenu'), false);
 });
 
 test('mouseLeave', function(assert) {

@@ -15,19 +15,11 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
+test('attributeBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-context-menu-container', 'uic-menu-container']);
-});
-
-test('attributeBindings', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('attributeBindings').length, 2);
-  assert.equal(component.get('attributeBindings')[1], 'tabindex');
+  assert.ok(component.get('attributeBindings').indexOf('tabindex') !== -1);
 });
 
 test('classNameBindings', function(assert) {

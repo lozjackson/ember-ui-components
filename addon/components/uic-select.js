@@ -50,9 +50,9 @@ export default Ember.Component.extend({
     @property classNames
     @type {Array}
     @private
-    @default `['uic-select']`
+    @default `['uic-select', 'uic-form-element']`
   */
-  classNames: ['uic-select'],
+  classNames: ['uic-select', 'uic-form-element'],
 
   /**
     @property attributeBindings

@@ -11,7 +11,19 @@ moduleForComponent('uic-select', 'Integration | Component | uic select', {
 test('it renders', function(assert) {
   assert.expect(1);
   this.render(hbs`{{uic-select}}`);
-  assert.equal(this.$('select.uic-select').length, 1);
+  assert.equal(this.$('select').length, 1);
+});
+
+test('it has the .uic-select class name', function(assert) {
+  assert.expect(1);
+  this.render(hbs`{{uic-select}}`);
+  assert.equal(this.$('select.uic-select.uic-form-element').length, 1);
+});
+
+test('it has the .uic-form-element class name', function(assert) {
+  assert.expect(1);
+  this.render(hbs`{{uic-select}}`);
+  assert.equal(this.$('select.uic-form-element').length, 1);
 });
 
 test('disabled', function(assert) {

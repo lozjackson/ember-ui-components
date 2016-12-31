@@ -12,13 +12,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('classNames'), ['ember-view', 'uic-button']);
-});
-
 test('classNameBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();
@@ -31,5 +24,5 @@ test('attributeBindings', function(assert) {
   assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.deepEqual(component.get('attributeBindings'), ['ariaRole:role', 'disabled']);
+  assert.ok(component.get('attributeBindings').indexOf('disabled') !== -1);
 });

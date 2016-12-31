@@ -1,0 +1,222 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>FormElementComponent</h1>
+
+<h2><code>&#123;&#123;uic-form-element&#125;&#125;</code></h2>
+
+<div>
+
+  <h2>Description</h2>
+
+  <p>
+    The <code>uic-form-element</code> component renders a <code>div</code> element
+    containing a form element (<code>input</code> by default) and optionally
+    adds a <code>label</code> element.
+  </p>
+
+  {{code-panel name="form-element-component-basic.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-basic}}
+    {{uic-form-element value=value}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+<hr />
+<div>
+
+  <h2>Label</h2>
+
+  <p>
+    You can provide a label to the form element by adding a <code>label</code> attribute.
+  </p>
+
+  {{code-panel name="form-element-component-label.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-label}}
+    {{uic-form-element
+      label="Property name"}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<hr />
+<div>
+
+  <h2>Type</h2>
+
+  <p>
+    You can provide a <code>type</code> attribute and it will be passed to the <code>input</code> element.
+  </p>
+
+  {{code-panel name="form-element-component-input-type.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-input-type}}
+    {{uic-form-element
+      label="Property name"
+      type="number"}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<hr />
+<div>
+
+  <h2>Placeholder</h2>
+
+  <p>
+    Placeholder attribute is supported.  You can provide a <code>placeholder</code>
+    attribute and it will be passed to the <code>input</code> element.
+  </p>
+
+  {{code-panel name="form-element-component-placeholder.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-placeholder}}
+    {{uic-form-element
+      label="Property name"
+      placeholder="Enter some text..."}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<hr />
+
+<div>
+
+  <h2>Disabled</h2>
+
+  <p>
+    If you set the <code>disabled</code> attribute to true the <code>input</code>
+    element will be disabled and the <code>disabled</code> class will be applied
+    to the form-element component.
+  </p>
+
+  {{code-panel name="form-element-component-disabled.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-disabled}}
+    {{uic-form-element
+      disabled=true
+      label="Property name"
+      placeholder="This element is disabled!"}}
+    {{! END-SNIPPET }}
+  </div>
+</div>
+
+<hr />
+
+<div>
+
+  <h2>Read-only</h2>
+
+  <p>
+    If you set the <code>readOnly</code> attribute to true the <code>input</code>
+    element will be disabled and the <code>read-only</code> class will be applied
+    to the form-element component.
+  </p>
+
+  {{code-panel name="form-element-component-readonly.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-readonly}}
+    {{uic-form-element
+      readonly=true
+      label="Property name"
+      placeholder="This element is readonly..."}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<hr />
+
+<div>
+
+  <h2>Form Element ID</h2>
+
+  <p>
+    If you provide a value to the <code>formElementId</code> attribute this will
+    be used for the <code>id</code> attribute of the <code>input</code> element.
+  </p>
+
+  {{code-panel name="form-element-component-id.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-id}}
+    {{uic-form-element
+      form-element-id="my-unique-element-id"
+      label="Property name"
+      placeholder="Enter some text..."}}
+    {{! END-SNIPPET }}
+  </div>
+
+</div>
+
+<div class="panel">
+
+  <h2>Template block</h2>
+  <p>
+    By default, the <code>uic-form-element</code> component will render an
+    <code>input</code> element.  If you want to render a custom element, you
+    can pass a template block to the component.
+  </p>
+
+  {{code-panel name="form-element-component-checkbox.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-checkbox}}
+    {{#uic-form-element label="Property Name"}}
+      {{uic-check-box}}
+    {{/uic-form-element}}
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="form-element-component-select.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-select}}
+
+    {{#uic-form-element label="Property Name"}}
+      <select>
+        <option>One</option>
+        <option>Two</option>
+        <option>Three</option>
+      </select>
+    {{/uic-form-element}}
+    {{! END-SNIPPET }}
+  </div>
+
+  {{code-panel name="form-element-component-textarea.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET form-element-component-textarea}}
+    {{#uic-form-element label="Property Name" readOnly=readOnly}}
+      <textarea></textarea>
+    {{/uic-form-element}}
+    {{! END-SNIPPET }}
+  </div>
+
+  <h2>Block params</h2>
+
+  <p>
+    The block template has an object available to it that provides the following parameters.
+  </p>
+
+  <ul>
+    <li>
+      <code>id</code>: This is the value of the <code>formElementId</code> attribute if provided, or an auto-generated id value.
+    </li>
+  </ul>
+
+  {{code-panel name="form-element-component-params.hbs"}}
+
+</div>

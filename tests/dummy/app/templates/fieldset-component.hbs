@@ -1,0 +1,90 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>FieldsetComponent</h1>
+
+<div class="panel">
+
+  <h2><code>&#123;&#123;uic-fieldset&#125;&#125;</code></h2>
+
+  <h2>Description</h2>
+
+  <p>Use the <code>uic-fieldset</code> component to group a set form elements.</p>
+
+  {{code-panel name="fieldset-component-basic.hbs"}}
+
+  {{code-panel name="fieldset-component-example.hbs"}}
+
+  <div>
+    {{! BEGIN-SNIPPET fieldset-component-example}}
+    {{#uic-fieldset}}
+
+      {{uic-form-element value=value label="Field 1" placeholder="Field 1"}}
+      {{uic-form-element value=value label="Field 2" placeholder="Field 2"}}
+
+    {{/uic-fieldset}}
+    {{! END-SNIPPET }}
+  </div>
+
+  <p>The <code>uic-fieldset</code> component can be combined with the <code>uic-panel</code> class.</p>
+
+  {{code-panel name="fieldset-component-panel.hbs"}}
+
+  <div>
+{{! BEGIN-SNIPPET fieldset-component-panel}}
+{{#uic-fieldset class="uic-panel"}}
+
+  {{uic-form-element value=value label="Field 1" placeholder="Field 1"}}
+  {{uic-form-element value=value label="Field 2" placeholder="Field 2"}}
+
+{{/uic-fieldset}}
+{{! END-SNIPPET }}
+  </div>
+
+  <p>You can add a <code>legend</code> element inside the <code>fieldset</code> component if you want to give that fieldset a title.</p>
+  {{code-panel name="fieldset-component-legend.hbs"}}
+
+  <div>
+{{! BEGIN-SNIPPET fieldset-component-legend}}
+{{#uic-fieldset class="uic-panel"}}
+
+  <legend class="white">Part 1</legend>
+
+  {{uic-form-element value=value label="Field 1" placeholder="Field 1"}}
+  {{uic-form-element value=value label="Field 2" placeholder="Field 2"}}
+
+{{/uic-fieldset}}
+
+{{#uic-fieldset class="uic-panel"}}
+
+  <legend class="white">Part 2</legend>
+
+  {{uic-form-element value=value label="Field 3" placeholder="Field 3"}}
+
+  {{uic-form-element value=value label="Field 4" placeholder="Field 4"}}
+
+  {{#uic-form-element label="Property Name"}}
+    {{uic-check-box}}
+  {{/uic-form-element}}
+
+  {{uic-form-element value=value label="Field 5" placeholder="Field 5"}}
+
+  {{#uic-form-element value=value label="Property Name"}}
+    <select>
+      <option>One</option>
+      <option>Two</option>
+      <option>Three</option>
+    </select>
+  {{/uic-form-element}}
+
+  {{#uic-form-element value=value label="Property Name" readOnly=readOnly}}
+    <textarea></textarea>
+  {{/uic-form-element}}
+
+{{/uic-fieldset}}
+{{! END-SNIPPET }}
+  </div>
+
+
+</div>

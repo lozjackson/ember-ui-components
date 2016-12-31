@@ -22,14 +22,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 2);
-  assert.equal(component.get('classNames')[1], 'uic-context-menu');
-});
-
 test('showContextMenu', function(assert) {
   assert.expect(1);
   var component = this.subject();

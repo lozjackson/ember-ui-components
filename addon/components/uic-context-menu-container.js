@@ -4,7 +4,8 @@
 import Ember from 'ember';
 import ClickOutsideMixin from 'ember-ui-components/mixins/click-outside';
 import layout from '../templates/components/uic-context-menu-container';
-import { getDimensions, getMousePosition, calculatePosition } from 'ember-ui-components/lib/fn';
+import setPosition from 'ember-ui-components/utils/set-position';
+import getMousePosition from 'ember-ui-components/utils/get-mouse-position';
 
 const { alias } = Ember.computed;
 
@@ -98,21 +99,7 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @param {String|Object} element
     @param {Object} position
   */
-  setPosition(element, position) {
-    let margin = 5;
-    if (typeof element === 'string') {
-      element = Ember.$(element);
-    }
-    if (!position) {
-      position = getMousePosition(window.event || window._event);
-    }
-    let scrollBarWidth = (window.innerWidth - $(window).width());
-    let el = getDimensions(element);
-    element.css({
-      'left': calculatePosition( position.get('x') + 2, el.width, window.innerWidth - ( margin + scrollBarWidth)),
-      'top': calculatePosition( position.get('y'), el.height, window.innerHeight - margin)
-    });
-  },
+  setPosition,
 
   /**
     @method handleClickOutside

@@ -12,15 +12,20 @@ http://lozjackson.github.io/ember-ui-components/
 
 ## Components
 
-* CheckBox
-* Select
 * Button
 * ButtonGroup
-* SlideMenu
+* CheckBox
 * ContextMenu
 * Dropdown
-* ModalWindow
+* FormElement
+* Fieldset
+* Input
 * ModalDialog
+* ModalWindow
+* Select
+* SlideMenu
+* Tabs
+
 
 ## Services
 
@@ -30,4 +35,6 @@ http://lozjackson.github.io/ember-ui-components/
 
 * Button
 * ButtonGroup
+* FormElement
+* Fieldset
 * Panel

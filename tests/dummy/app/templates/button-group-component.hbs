@@ -15,71 +15,43 @@
     used to visually groups together a collection of buttons.
   </p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button-group&#125;&#125;
-
-  // ... uic-button ...
-
-&#123;&#123;/uic-button-group&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-group-basic.hbs"}}
 
   <p>Inside the button group you can place <code>uic-button</code> elements/components,
     or <code>uic-dropdown</code> components.</p>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button-group&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;One&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Two&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Three&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Four&#123;&#123;/uic-button&#125;&#125;
-&#123;&#123;/uic-button-group&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-group-example.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-group-example }}
     {{#uic-button-group}}
       {{#uic-button}}One{{/uic-button}}
       {{#uic-button}}Two{{/uic-button}}
       {{#uic-button}}Three{{/uic-button}}
       {{#uic-button}}Four{{/uic-button}}
     {{/uic-button-group}}
+    {{! END-SNIPPET }}
   </div>
 
-  <div class="panel code">
-    <pre><code>&#123;&#123;#uic-button-group&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;One&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Two&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Three&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-button&#125;&#125;Four&#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;#uic-dropdown&#125;&#125;
-    &lt;ul>
-      &lt;li>Edit&lt;/li>
-      &lt;li>More...&lt;/li>
-    &lt;/ul>
-  &#123;&#123;else&#125;&#125;
-    &#123;&#123;#uic-button&#125;&#125;
-      &#123;&#123;svg-triangle direction="down" fill="#999"&#125;&#125;
-    &#123;&#123;/uic-button&#125;&#125;
-  &#123;&#123;/uic-dropdown}}
-&#123;&#123;/uic-button-group&#125;&#125;</code></pre>
-  </div>
+  {{code-panel name="button-group-dropdown-example.hbs"}}
 
   <div class="panel output">
+    {{! BEGIN-SNIPPET button-group-dropdown-example }}
     {{#uic-button-group}}
       {{#uic-button}}One{{/uic-button}}
       {{#uic-button}}Two{{/uic-button}}
       {{#uic-button}}Three{{/uic-button}}
       {{#uic-button}}Four{{/uic-button}}
       {{#uic-dropdown}}
-        <ul>
-          <li>Edit</li>
-          <li>More...</li>
-        </ul>
+        <menuitem>Edit</menuitem>
+        <menuitem>More...</menuitem>
       {{else}}
         {{#uic-button}}
           {{svg-triangle direction="down" fill="#999"}}
         {{/uic-button}}
       {{/uic-dropdown}}
     {{/uic-button-group}}
+    {{! END-SNIPPET }}
   </div>
 
 </div>

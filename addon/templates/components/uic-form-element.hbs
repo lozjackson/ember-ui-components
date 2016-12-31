@@ -1,0 +1,15 @@
+{{#if label}}
+  <label for={{_formElementId}}>{{label}}</label>
+{{/if}}
+{{#if hasBlock}}
+  {{yield _params}}
+{{else}}
+  {{uic-input
+    type=type
+    value=value
+    id=_formElementId
+    disabled=disabled
+    readonly=readonly
+    autofocus=autofocus
+    placeholder=placeholder}}
+{{/if}}

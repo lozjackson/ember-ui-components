@@ -2,7 +2,6 @@
   @module ember-ui-components
 */
 import ModalComponent from 'ember-ui-components/components/uic-modal';
-import Ember from 'ember';
 import layout from '../templates/components/uic-modal-alert';
 
 /**

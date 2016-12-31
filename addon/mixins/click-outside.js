@@ -32,7 +32,7 @@ export default Ember.Mixin.create({
 
     @method handleClickOutside
   */
-  handleClickOutside: Ember.K,
+  handleClickOutside() {},
 
   /**
     ## Target Element
@@ -64,6 +64,7 @@ export default Ember.Mixin.create({
     let _window = Ember.$(window);
     let handler = (event) => {
       if (event.target !== targetElement && !Ember.$.contains( targetElement, event.target )) {
+        if (this.get('isDestroyed') || this.get('isDestroying')) { return; }
         this.handleClickOutside(event);
       }
     };

@@ -6,7 +6,8 @@ const run = Ember.run;
 moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
     'component:uic-content-mask',
-    'component:uic-modal'
+    'component:uic-modal',
+    'component:uic-button'
   ],
   unit: true
 });
@@ -19,15 +20,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('classNames', function(assert) {
-  assert.expect(3);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('classNames').length, 3);
-  assert.equal(component.get('classNames')[1], 'uic-modal-dialog');
-  assert.equal(component.get('classNames')[2], 'no-outline');
-});
-
 test('classNameBindings', function(assert) {
   assert.expect(3);
   var component = this.subject();
@@ -38,11 +30,10 @@ test('classNameBindings', function(assert) {
 });
 
 test('attributeBindings', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   var component = this.subject();
   this.render();
-  assert.equal(component.get('attributeBindings').length, 2);
-  assert.equal(component.get('attributeBindings')[1], 'tabindex');
+  assert.ok(component.get('attributeBindings').indexOf('tabindex') !== -1);
 });
 
 test('tabindex', function(assert) {

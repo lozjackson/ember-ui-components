@@ -24,11 +24,30 @@ h2 {
 h3 {
   margin-top: 40px;
 }
+hr {
+  border: 0;
+  border-top: 1px solid #efefef;
+  margin: 2em 0;
+  padding: 0;
+}
 p.version {
   float: right;
   font-size: 0.7rem;
   margin: 10px;
   padding: 0px;
+}
+p {
+  line-height: 1.5;
+  vertical-align: baseline;
+}
+code {
+  color: #333;
+  background: rgba(0,0,0,0.04);
+  padding: 3px;
+  border-radius: 5px;
+}
+div.panel.code code {
+  background: none;
 }
 div.panel.code {
   margin: 30px;

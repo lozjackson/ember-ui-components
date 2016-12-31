@@ -4,8 +4,8 @@
 import Ember from 'ember';
 
 /**
-  @class fn
-  @namespace lib
+  @class Utilities
+  @namespace Utils
 */
 
 /**
@@ -17,9 +17,10 @@ import Ember from 'ember';
   @method getMousePosition
   @param {Object} event
   @param {Boolean} page
+  @private
   @return {Object} An Ember.Object is returned.
 */
-export function getMousePosition(event, page) {
+export default function getMousePosition(event, page) {
   let position = { x: null, y: null };
   if (!event) {
     event = window.event;
@@ -31,40 +32,19 @@ export function getMousePosition(event, page) {
         position = {
           x: event.pageX,
           y: event.pageY
-        }
+        };
       } else if (!isNaN(event.clientX) || !isNaN(event.clientY)) {
         position = {
           x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft,
           y: event.clientY + document.body.scrollTop + document.documentElement.scrollTop
-        }
+        };
       }
     } else {
       position = {
         x: event.clientX,
         y: event.clientY
-      }
+      };
     }
   }
   return Ember.Object.create(position);
-}
-
-/**
-  @method getDimensions
-  @param {String|Object} element
-  @return {Object}
-*/
-export function getDimensions(element) {
-  if (typeof element === 'string') {
-    element = Ember.$(element);
-  }
-  let el = { width: 0, height: 0 };
-  if (element.length) {
-    el.width = element[0].offsetWidth;
-    el.height = element[0].offsetHeight;
-  }
-  return el;
-}
-
-export function calculatePosition(position, element, container) {
-  return ((container - position) < element) ? container - element : position;
 }

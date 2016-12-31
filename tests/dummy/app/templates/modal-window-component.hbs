@@ -17,7 +17,7 @@
     Click here
   {{/uic-button}}
 
-  {{#uic-modal-window id="demo-modal" closeModal=(close-modal)}}
+  {{#uic-modal-window to="modal-container" id="demo-modal" closeModal=(close-modal)}}
     <h2>Modal Window Component</h2>
     <p>This is a <code>ModalWindowComponent</code>.</p>
   {{/uic-modal-window}}
@@ -28,9 +28,7 @@
 
   <h2>Basic use:</h2>
 
-  <div class="panel code">
-    {{code-snippet name="modal-window-basic.hbs"}}
-  </div>
+  {{code-panel name="modal-window-basic.hbs"}}
 
   <h2>Advanced use:</h2>
 
@@ -241,6 +239,34 @@
 {{! END-SNIPPET }}
 
   </div>
+</div>
+
+<div class="panel">
+
+  <h2>Destination element</h2>
+
+  <p>
+    The <code>ModalWindowComponent</code> can be rendered into another DOM element
+    using <a href="https://github.com/yapplabs/ember-wormhole"><code>ember-wormhole</code></a>.
+  </p>
+  <p>Add a html element to the DOM and give it a unique <code>id</code></p>
+
+  {{code-panel name="modal-container.hbs"}}
+
+  <p>
+    Then specify the element id to the <code>to</code> property of the <code>ModalWindowComponent</code>.
+  </p>
+
+  {{code-panel name="modal-container-example.hbs"}}
+
+  {{#uic-button action=(open-modal "demo-modal") class="blue"}}
+    Click here
+  {{/uic-button}}
+
+  <p>
+    For more information on <code>ember-wormhole</code>, click <a href="https://github.com/yapplabs/ember-wormhole">here</a>.
+  </p>
+
 </div>
 
 <div class="panel">
