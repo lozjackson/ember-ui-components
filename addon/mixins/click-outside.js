@@ -32,7 +32,7 @@ export default Ember.Mixin.create({
 
     @method handleClickOutside
   */
-  handleClickOutside: Ember.K,
+  handleClickOutside() {},
 
   /**
     ## Target Element
