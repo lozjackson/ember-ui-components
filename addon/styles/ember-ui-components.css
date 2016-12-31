@@ -48,6 +48,10 @@ fieldset.uic-fieldset.uic-panel {
 /*
   Form elements
 */
+.uic-form-element {
+	white-space: nowrap;
+	display: block;
+}
 .uic-fieldset > label,
 label.uic-form-element,
 div.uic-form-element > label,
@@ -279,7 +283,9 @@ button.uic-button[disabled].red,
   color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 2, 2, 0.5);
 }
-
+.uic-button > svg {
+	vertical-align: middle;
+}
 
 
 
@@ -1229,6 +1235,7 @@ li:hover >span.icon > svg {
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
   overflow: auto;
   z-index: 310;
+  max-height: calc(100% - 40px);
 }
 .uic-modal-container {
   position: fixed;
@@ -1276,6 +1283,7 @@ button.uic-close-button {
   background: transparent;
   border-radius: 2px;
   font-size: 1rem;
+  z-index:1;
 }
 button.uic-close-button:hover {
   border: 1px solid #DCDCDC;
@@ -1304,7 +1312,13 @@ button.uic-close-button:hover {
   resize: both;
   overflow: auto;
 }
-
+.uic-modal.full-screen {
+	height: calc(100% - 40px);
+	width: calc(100% - 40px);
+}
+.uic-modal.full-screen > .uic-modal-body {
+	height: calc(100% - 18px);
+}
 
 /*
   Tabs
