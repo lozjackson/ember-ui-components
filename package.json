@@ -68,7 +68,8 @@
     "confirm",
     "dialog",
     "modal",
-    "panel"
+    "panel",
+    "tabs"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
