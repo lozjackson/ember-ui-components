@@ -24,6 +24,7 @@ http://lozjackson.github.io/ember-ui-components/
 * ModalWindow
 * Select
 * SlideMenu
+* Switch
 * Tabs
 
 
