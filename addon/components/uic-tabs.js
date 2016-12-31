@@ -4,7 +4,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-tabs';
 
-const { computed: { alias }, get } = Ember;
+const { computed: { alias }, get, observer } = Ember;
 
 /**
   @class TabsComponent
@@ -84,8 +84,9 @@ export default Ember.Component.extend({
   */
   tab: alias('activeTab'),
 
-  tabsChanged: Ember.observer('tabs.[]', function() {
-    if (!this.get('activeTab')) {
+  tabsChanged: observer('tabs.[]', function() {
+    let { activeTab, tabs } = this.getProperties('activeTab', 'tabs');
+    if (!activeTab || !tabs.includes(activeTab)) {
       this.setDefaultTab();
     }
   }),
