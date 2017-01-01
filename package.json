@@ -60,6 +60,7 @@
     "input",
     "form-element",
     "fieldset",
+    "list",
     "context-menu",
     "dropdown",
     "menu",
@@ -69,7 +70,8 @@
     "dialog",
     "modal",
     "panel",
-    "tabs"
+    "tabs",
+    "switch"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
