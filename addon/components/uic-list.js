@@ -24,8 +24,8 @@ export default Ember.Component.extend({
   layout,
 
   /**
-    @property classNames
-    @type {Array}
+    @property tagName
+    @type {String}
     @default `ul`
   */
   tagName: 'ul',
