@@ -93,3 +93,9 @@ section.toc ul li {
   width: 400px;
   /*height: 300px;*/
 }
+.my-custom-list-item {
+  list-style: none;
+  box-shadow: 0px 0px 2px #888 inset;
+  border-radius: 8px;
+  padding: 20px
+}

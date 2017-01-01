@@ -82,3 +82,41 @@
   {{uic-list class="inset-border default" model=array}}
 {{! END-SNIPPET }}
 </div>
+
+<hr>
+
+<h3>selectItem</h3>
+
+<p>
+  You can provide an action to the <code>selectItem</code> attribute.  This action
+  will be called when a list item is clicked with the list-item as the first argument.
+</p>
+
+{{code-panel name="list-select-example.hbs"}}
+
+{{code-panel name="list-select-action-example.js"}}
+
+<h3>List-item Component</h3>
+
+<p>
+  You can provide a component to be used for each list item by setting the
+  <code>listItemComponent</code> attribute of the list component.
+</p>
+
+{{code-panel name="list-item-component-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-item-component-example}}
+  {{uic-list listItemComponent="my-custom-list-item" model=array}}
+{{! END-SNIPPET }}
+</div>
+
+{{code-panel name="list-item-component-block-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-item-component-block-example}}
+  {{#uic-list listItemComponent="my-custom-list-item" model=array as |item|}}
+    {{uic-check-box}} {{item.name}}
+  {{/uic-list}}
+{{! END-SNIPPET }}
+</div>
