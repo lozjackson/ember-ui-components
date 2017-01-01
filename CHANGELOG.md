@@ -1,4 +1,7 @@
 # Change Log
+
+* [#19](https://github.com/lozjackson/ember-ui-components/pull/19) [FEATURE] Add `ListComponent`.
+
 * [#18](https://github.com/lozjackson/ember-ui-components/pull/18) [FEATURE] Add `SwitchComponent`.
 
 * [#15](https://github.com/lozjackson/ember-ui-components/pull/15) [BUGFIX] Prevent active tab becoming blank
