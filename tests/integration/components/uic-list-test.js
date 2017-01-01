@@ -17,7 +17,22 @@ test('it renders a list', function(assert) {
     { name: 'bar' },
     { name: 'baz' }
   ]);
-  
+
   this.render(hbs`{{uic-list model=array}}`);
   assert.equal(this.$('ul.uic-list li').length, 3);
+});
+
+test('selectItem', function(assert) {
+  assert.expect(1);
+  this.on('select', (item) => {
+    assert.equal(item.name, 'foo');
+  });
+  this.set('array', [
+    { name: 'foo' },
+    { name: 'bar' },
+    { name: 'baz' }
+  ]);
+
+  this.render(hbs`{{uic-list model=array selectItem="select"}}`);
+  this.$('ul.uic-list li:first').click();
 });
