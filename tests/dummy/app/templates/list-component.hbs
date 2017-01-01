@@ -1,0 +1,122 @@
+<div class="go-back-link">
+  {{#link-to 'index'}}Back to index{{/link-to}}
+</div>
+
+<h1>ListComponent</h1>
+
+<h2><code>\{{uic-list}}</code></h2>
+
+<h2>Description</h2>
+
+<p>
+  The <code>\{{uic-list}}</code> component can be used to render a list of models or objects.
+</p>
+
+{{code-panel name="list-model-example.js"}}
+
+{{code-panel name="list-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-example}}
+  {{uic-list model=array}}
+{{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>tagName</h3>
+
+<p>
+  By default the list is rendered into a <code>&lt;ul&gt;</code> element.  You can
+  easily change that by setting the <code>tagName</code> attribute of the list
+  component
+</p>
+
+{{code-panel name="ordered-list-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET ordered-list-example}}
+  {{uic-list tagName="ol" model=array}}
+{{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>Template Block</h3>
+
+<p>
+  If you want to customise the list item  you can provide a template block to the
+  list component.
+</p>
+
+{{code-panel name="list-block-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-block-example}}
+  {{#uic-list model=array as |item|}}
+    ... {{item.name}} ...
+  {{/uic-list}}
+{{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>Class</h3>
+
+<p>There are some built-in class names that can be applied to the list component.</p>
+
+{{uic-list model=builtInClassNames}}
+
+{{code-panel name="list-class-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-class-example}}
+  {{uic-list class="default" model=array}}
+{{! END-SNIPPET }}
+</div>
+
+{{code-panel name="list-inset-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-inset-example}}
+  {{uic-list class="inset-border default" model=array}}
+{{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>selectItem</h3>
+
+<p>
+  You can provide an action to the <code>selectItem</code> attribute.  This action
+  will be called when a list item is clicked with the list-item as the first argument.
+</p>
+
+{{code-panel name="list-select-example.hbs"}}
+
+{{code-panel name="list-select-action-example.js"}}
+
+<h3>List-item Component</h3>
+
+<p>
+  You can provide a component to be used for each list item by setting the
+  <code>listItemComponent</code> attribute of the list component.
+</p>
+
+{{code-panel name="list-item-component-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-item-component-example}}
+  {{uic-list listItemComponent="my-custom-list-item" model=array}}
+{{! END-SNIPPET }}
+</div>
+
+{{code-panel name="list-item-component-block-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET list-item-component-block-example}}
+  {{#uic-list listItemComponent="my-custom-list-item" model=array as |item|}}
+    {{uic-check-box}} {{item.name}}
+  {{/uic-list}}
+{{! END-SNIPPET }}
+</div>

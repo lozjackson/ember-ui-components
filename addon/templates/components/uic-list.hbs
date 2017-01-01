@@ -1,0 +1,19 @@
+{{#each model as |item|}}
+  {{#if listItemComponent}}
+    {{#if hasBlock}}
+      {{#component listItemComponent model=item click=(action select item) as |item|}}
+        {{yield item}}
+      {{/component}}
+    {{else}}
+      {{component listItemComponent model=item click=(action select item)}}
+    {{/if}}
+  {{else}}
+    <li {{action select item}}>
+      {{#if hasBlock}}
+        {{yield item}}
+      {{else}}
+        {{if item.name item.name "Untitled..."}}
+      {{/if}}
+    </li>
+  {{/if}}
+{{/each}}
