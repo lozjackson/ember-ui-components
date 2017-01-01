@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.11.0 2017-01-01
+
 * [#19](https://github.com/lozjackson/ember-ui-components/pull/19) [FEATURE] Add `ListComponent`.
 
 * [#18](https://github.com/lozjackson/ember-ui-components/pull/18) [FEATURE] Add `SwitchComponent`.
@@ -7,6 +9,9 @@
 * [#15](https://github.com/lozjackson/ember-ui-components/pull/15) [BUGFIX] Prevent active tab becoming blank
 
 * [#14](https://github.com/lozjackson/ember-ui-components/pull/14) Remove deprecated Ember.K
+
+
+
 
 ### v0.10.0 2016-11-21
 
