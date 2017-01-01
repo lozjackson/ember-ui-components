@@ -1,0 +1,9 @@
+{{#each model as |item|}}
+  <li>
+    {{#if hasBlock}}
+      {{yield item}}
+    {{else}}
+      {{if item.name item.name "Untitled..."}}
+    {{/if}}
+  </li>
+{{/each}}
