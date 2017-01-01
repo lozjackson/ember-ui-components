@@ -163,7 +163,7 @@ label + .uic-form-element {
   border: none;
 }
 .uic-fieldset > legend {
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 2px 6px;
 }
 .uic-fieldset > legend.white {
@@ -412,6 +412,10 @@ button.uic-button.selected {
   box-shadow: inset 0px 0px 2px #333;
   background: #216AC7;
   color: #fff;
+}
+.uic-button-group button.uic-button.blue[disabled],
+.uic-button-group.blue button.uic-button[disabled] {
+  border: 1px solid #bbbbbb;
 }
 
 /*
