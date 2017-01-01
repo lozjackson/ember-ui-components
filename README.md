@@ -20,6 +20,7 @@ http://lozjackson.github.io/ember-ui-components/
 * FormElement
 * Fieldset
 * Input
+* List
 * ModalDialog
 * ModalWindow
 * Select
