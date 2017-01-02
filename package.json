@@ -74,6 +74,7 @@
     "switch"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://lozjackson.github.io/ember-ui-components/"
   }
 }
