@@ -75,6 +75,9 @@
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://lozjackson.github.io/ember-ui-components/"
+    "demoURL": "http://lozjackson.github.io/ember-ui-components/",
+    "versionCompatibility": {
+      "ember": ">=1.13.0"
+    }
   }
 }
