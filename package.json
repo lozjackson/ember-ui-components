@@ -43,7 +43,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.1.1",
-    "ember-svg-shapes": "^0.1.1",
+    "ember-svg-shapes": "^1.0.0",
     "ember-wormhole": "^0.5.1"
   },
   "devDependencies": {
