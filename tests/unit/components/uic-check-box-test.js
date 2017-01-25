@@ -27,8 +27,7 @@ test('checked should be false', function(assert) {
 
 test('_checkboxId should have a default value if slider', function(assert) {
   assert.expect(2);
-  var component = this.subject();
-  component.get('classNames').push('slider');
+  let component = this.subject({ classNames: ['slider'] });
   this.render();
   assert.equal(typeof component.get('_checkboxId'), 'string');
   assert.equal(component.get('_checkboxId').indexOf('uic-check-box-'), 0);
@@ -36,8 +35,7 @@ test('_checkboxId should have a default value if slider', function(assert) {
 
 test('_checkboxId should have a default value if toggle', function(assert) {
   assert.expect(2);
-  var component = this.subject();
-  component.get('classNames').push('toggle');
+  let component = this.subject({ classNames: ['toggle'] });
   this.render();
   assert.equal(typeof component.get('_checkboxId'), 'string');
   assert.equal(component.get('_checkboxId').indexOf('uic-check-box-'), 0);
