@@ -1,5 +1,7 @@
 # Change Log
 
+* [#23](https://github.com/lozjackson/ember-ui-components/pull/23) Update Ember-svg-shapes to `^1.0.0`
+
 * [#22](https://github.com/lozjackson/ember-ui-components/pull/22) Update to Ember-cli 2.11.0
 
 ### v0.11.0 2017-01-01
