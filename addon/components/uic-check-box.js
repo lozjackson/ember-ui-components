@@ -65,7 +65,7 @@ export default Ember.Component.extend({
     @type {String}
     @private
   */
-  _checkboxId: computed('checkboxId', 'classNames.[]', function () {
+  _checkboxId: computed('checkboxId', function () {
     let checkboxId = this.get('checkboxId');
     if (!checkboxId) {
       checkboxId = 'uic-check-box-' + this.get('elementId');
