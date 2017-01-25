@@ -1,5 +1,7 @@
 # Change Log
 
+* [#22](https://github.com/lozjackson/ember-ui-components/pull/22) Update to Ember-cli 2.11.0
+
 ### v0.11.0 2017-01-01
 
 * [#19](https://github.com/lozjackson/ember-ui-components/pull/19) [FEATURE] Add `ListComponent`.
