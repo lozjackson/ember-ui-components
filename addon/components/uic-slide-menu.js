@@ -292,6 +292,10 @@ export default Ember.Component.extend({
     this.set('menuOpen', false);
   },
 
+  willDestroyElement() {
+    Ember.$('body').removeClass('menu-is-open uic-disable-scroll');
+  },
+
   actions: {
 
     /**
