@@ -1,3 +1,14 @@
+{{#uic-slide-menu
+  menuTemplate="menus/application"
+  menuOpen=menuOpen
+  menuPosition=menuPosition
+  pushContent=pushContent
+  pushContentType=pushContentType
+  disableScroll=disableScroll
+  maskContent=maskContent
+  showDefaultToggle=showDefaultToggle
+  as |menuOpen|}}
+
 <div class="go-back-link">
   {{#link-to 'index'}}Back to index{{/link-to}}
 </div>
@@ -28,38 +39,36 @@
   {{code-panel name="slide-menu-advanced.hbs"}}
 
   <p>
-    Check out the main menu for an example of this component - This demo application
-    uses it for navigation.  You can change some of the parameters below to see
-    how they affect the menu.
+    You can change some of the parameters below to see how they affect the menu.
   </p>
 
   <ul>
     <li>
-      {{uic-check-box class="toggle" checkboxId="menuOpen" checked=application.menuOpen}}
+      {{uic-check-box class="toggle" checkboxId="menuOpen" checked=menuOpen}}
       <label for="menuOpen">menuOpen</label>
     </li>
     <li>
-      {{uic-select selected=application.menuPosition options=menuPositions}}
+      {{uic-select selected=menuPosition options=menuPositions}}
       menuPosition
     </li>
     <li>
-      {{uic-check-box class="toggle" checkboxId="pushContent" checked=application.pushContent}}
+      {{uic-check-box class="toggle" checkboxId="pushContent" checked=pushContent}}
       <label for="pushContent">pushContent</label>
     </li>
     <li>
-      {{uic-select selected=application.pushContentType options=pushContentTypeOptions disabled=(unless application.pushContent true)}}
+      {{uic-select selected=pushContentType options=pushContentTypeOptions disabled=(unless pushContent true)}}
       pushContentType
     </li>
     <li>
-      {{uic-check-box class="toggle" checkboxId="maskContent" checked=application.maskContent}}
+      {{uic-check-box class="toggle" checkboxId="maskContent" checked=maskContent}}
       <label for="maskContent">maskContent</label>
     </li>
     <li>
-      {{uic-check-box class="toggle" checkboxId="disableScroll" checked=application.disableScroll}}
+      {{uic-check-box class="toggle" checkboxId="disableScroll" checked=disableScroll}}
       <label for="disableScroll">disableScroll</label>
     </li>
     <li>
-      {{uic-check-box class="toggle" checkboxId="showDefaultToggle" checked=application.showDefaultToggle}}
+      {{uic-check-box class="toggle" checkboxId="showDefaultToggle" checked=showDefaultToggle}}
       <label for="showDefaultToggle">showDefaultToggle</label>
     </li>
   </ul>
@@ -225,3 +234,5 @@
   {{code-panel name="application-menu.hbs"}}
 
 </div>
+
+{{/uic-slide-menu}}

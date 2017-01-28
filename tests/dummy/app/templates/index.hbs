@@ -1,100 +1,143 @@
-<h1 id="title">ember-ui-components</h1>
 
-<p>
-  This is an <a href="http://ember-cli.com/">Ember-cli</a> addon to be used
-  with <a href="http://emberjs.com/">Ember.js</a>, which is a Javascript application
-  framework.
-</p>
+<header class="ember-ui-components">
 
-<p>
-  Ember-ui-components, is a collection of common user interface components and CSS
-  classes.
-</p>
+  <div class="demo">
 
-<h2>Install</h2>
+    {{#uic-fieldset class="demo-form panel top-border green"}}
+      {{uic-close-button}}
+      {{#uic-button-group}}
+        {{uic-button text="Cancel"}}
+        {{uic-button text="Send" class="blue"}}
+      {{/uic-button-group}}
+      {{uic-form-element label="Name"}}
+      {{#uic-form-element label="Comment"}}
+        {{textarea}}
+      {{/uic-form-element}}
+    {{/uic-fieldset}}
 
-The package can be installed from <a href="https://www.npmjs.com/package/ember-ui-components" class="npm-link" target="_blank">npm</a>.
+    {{uic-modal-confirm
+      dialog=(hash
+        title="Ember-ui-components"
+        body=(concat "v" version)
+        resolve=(action ok)
+        reject=(action cancel)
+      )}}
 
-<div class="panel code">
-  <pre><code>ember install ember-ui-components</code></pre>
+      {{uic-check-box checked=checked class="slider light"}}
+
+      {{#uic-button-group class="demo-button-group"}}
+        {{#uic-button class="red"}}Ember{{/uic-button}}
+        {{#uic-button}}ui{{/uic-button}}
+        {{#uic-button}}components{{/uic-button}}
+        {{#uic-dropdown}}
+          <menuitem>Edit</menuitem>
+          <menuitem>More...</menuitem>
+        {{else}}
+          {{#uic-button}}
+            {{svg-triangle direction="down" fill="#999"}}
+          {{/uic-button}}
+        {{/uic-dropdown}}
+      {{/uic-button-group}}
+  </div>
+
+  <h1 id="title">{{uic-button text="Ember" class="blue"}}{{uic-button text="ui"}}{{uic-button text="components"}}</h1>
+</header>
+
+
+<div class="body ember-ui-components">
+
+  <p>
+    Ember-ui-components, is an <a href="http://ember-cli.com/">Ember-cli</a> addon
+    that provides a collection of common user interface components and CSS
+    classes for building <a href="http://emberjs.com/">Ember</a> applications.
+  </p>
+
+  <h2>Install</h2>
+
+  The package can be installed from <a href="https://www.npmjs.com/package/ember-ui-components" class="npm-link" target="_blank">npm</a>.
+
+  <div class="panel code">
+    <pre><code>ember install ember-ui-components</code></pre>
+  </div>
+
+  <h2>Source code</h2>
+  The source code can be found on <a href="https://github.com/lozjackson/ember-ui-components" class="github-link" target="_blank">Github</a>.
+
+  <section class="toc">
+    <h2>Components</h2>
+    <ul>
+      <li>
+        {{link-to 'Button' 'button-component'}}
+      </li>
+      <li>
+        {{link-to 'ButtonGroup' 'button-group-component'}}
+      </li>
+      <li>
+        {{link-to 'CheckBox' 'check-box-component'}}
+      </li>
+      <li>
+        {{link-to 'ContextMenu' 'context-menu-component'}}
+      </li>
+      <li>
+        {{link-to 'Dropdown' 'dropdown-component'}}
+      </li>
+      <li>
+        {{link-to 'FormElement' 'form-element-component'}}
+      </li>
+      <li>
+        {{link-to 'Fieldset' 'fieldset-component'}}
+      </li>
+      <li>
+        {{link-to 'Input' 'input-component'}}
+      </li>
+      <li>
+        {{link-to 'List' 'list-component'}}
+      </li>
+      <li>
+        {{link-to 'ModalDialog' 'modal-dialog-component'}}
+      </li>
+      <li>
+        {{link-to 'ModalWindow' 'modal-window-component'}}
+      </li>
+      <li>
+        {{link-to 'Select' 'select-component'}}
+      </li>
+      <li>
+        {{link-to 'SlideMenu' 'slide-menu-component'}}
+      </li>
+      <li>
+        {{link-to 'Switch' 'switch-component'}}
+      </li>
+      <li>
+        {{link-to 'Tabs' 'tabs-component'}}
+      </li>
+    </ul>
+    <h2>Services</h2>
+    <ul>
+      <li>
+        {{link-to 'Dialog' 'dialog-service'}}
+      </li>
+    </ul>
+    <h2>CSS Classes</h2>
+    <ul>
+      <li>
+        {{link-to 'Button' 'button-class'}}
+      </li>
+      <li>
+        {{link-to 'ButtonGroup' 'button-group-class'}}
+      </li>
+      <li>
+        {{link-to 'Fieldset' 'fieldset-class'}}
+      </li>
+      <li>
+        {{link-to 'FormElement' 'form-element-class'}}
+      </li>
+      <li>
+        {{link-to 'Panel' 'panel-class'}}
+      </li>
+    </ul>
+  </section>
+
 </div>
-
-<h2>Source code</h2>
-The source code can be found on <a href="https://github.com/lozjackson/ember-ui-components" class="github-link" target="_blank">Github</a>.
-
-<section class="toc">
-  <h2>Components</h2>
-  <ul>
-    <li>
-      {{link-to 'Button' 'button-component'}}
-    </li>
-    <li>
-      {{link-to 'ButtonGroup' 'button-group-component'}}
-    </li>
-    <li>
-      {{link-to 'CheckBox' 'check-box-component'}}
-    </li>
-    <li>
-      {{link-to 'ContextMenu' 'context-menu-component'}}
-    </li>
-    <li>
-      {{link-to 'Dropdown' 'dropdown-component'}}
-    </li>
-    <li>
-      {{link-to 'FormElement' 'form-element-component'}}
-    </li>
-    <li>
-      {{link-to 'Fieldset' 'fieldset-component'}}
-    </li>
-    <li>
-      {{link-to 'Input' 'input-component'}}
-    </li>
-    <li>
-      {{link-to 'List' 'list-component'}}
-    </li>
-    <li>
-      {{link-to 'ModalDialog' 'modal-dialog-component'}}
-    </li>
-    <li>
-      {{link-to 'ModalWindow' 'modal-window-component'}}
-    </li>
-    <li>
-      {{link-to 'Select' 'select-component'}}
-    </li>
-    <li>
-      {{link-to 'SlideMenu' 'slide-menu-component'}}
-    </li>
-    <li>
-      {{link-to 'Switch' 'switch-component'}}
-    </li>
-    <li>
-      {{link-to 'Tabs' 'tabs-component'}}
-    </li>
-  </ul>
-  <h2>Services</h2>
-  <ul>
-    <li>
-      {{link-to 'Dialog' 'dialog-service'}}
-    </li>
-  </ul>
-  <h2>CSS Classes</h2>
-  <ul>
-    <li>
-      {{link-to 'Button' 'button-class'}}
-    </li>
-    <li>
-      {{link-to 'ButtonGroup' 'button-group-class'}}
-    </li>
-    <li>
-      {{link-to 'Fieldset' 'fieldset-class'}}
-    </li>
-    <li>
-      {{link-to 'FormElement' 'form-element-class'}}
-    </li>
-    <li>
-      {{link-to 'Panel' 'panel-class'}}
-    </li>
-  </ul>
-</section>
 
 {{outlet}}

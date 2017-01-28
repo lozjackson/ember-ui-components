@@ -1,10 +1,96 @@
 body {
   font-family: sans-serif;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
 }
 a, a:visited {
   color: #275CBD;
   text-decoration: none;
 }
+
+header.ember-ui-components {
+  background: rgb(47, 53, 56);
+  color: #ddd;
+  font-family: sans-serif;
+  height: 280px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.body.ember-ui-components {
+  margin-top: 330px;
+}
+header.ember-ui-components h1 {
+  margin: auto;
+  margin-top: -50px;
+  padding: 20px;
+  max-width: 1000px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 2px rgba(222, 231, 247, 0.3);
+  vertical-align: middle;
+  z-index: 4;
+}
+header.ember-ui-components h1.title {
+  position: relative;
+  transform: rotate(-5deg) scale(0.6);
+  margin-top: -120px;
+  left: 0px;
+  z-index: 1;
+}
+header.ember-ui-components > div.demo {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  left: -150px;
+  height: 100%;
+  min-width: 500px;
+}
+header.ember-ui-components .demo fieldset.uic-fieldset.demo-form {
+  position: absolute;
+  width: 500px;
+  transform: rotate(-5deg) scale(0.6);
+  z-index: 3;
+}
+header.ember-ui-components .demo .uic-check-box.slider {
+  position: absolute;
+  top: 115px;
+  left: 335px;
+  transform: scale(2.5);
+  box-shadow: 0 2px 6px 0 rgba(40, 107, 35, 0.52), 0 3px 1px 1px rgba(0, 0, 0, 0.56);
+  border: 1px solid #59c558;
+  z-index: 4;
+}
+header.ember-ui-components h1 .uic-check-box {
+  transform: scale(2);
+  box-shadow: 0 2px 6px 0 rgba(177, 96, 57, 0.52), 0 25px 50px 0 rgba(140, 66, 4, 0.13);
+}
+header.ember-ui-components .demo .demo-button-group {
+  position: absolute;
+  top: 105px;
+  left: 200px;
+  border-radius: 4px;
+  transform: rotate(-25deg) scale(0.8);
+  box-shadow: 0 2px 6px 0 rgba(177, 96, 57, 0.52), 0 25px 50px 0 rgba(140, 66, 4, 0.13);
+  z-index: 5;
+}
+header.ember-ui-components .demo .uic-modal-confirm {
+  top: 20px;
+  left: 280px;
+  height: 200px;
+  width: 500px;
+  position: absolute;
+  transform: rotate(10deg) scale(0.6);
+  color: #4b88a7;
+  z-index: 2;
+}
+header.ember-ui-components .demo .uic-modal-confirm h1 {
+  margin: 0px;
+}
+
 h4 {
   margin: 30px 0 10px 0;
 }

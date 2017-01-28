@@ -2,15 +2,4 @@
 <div id="menu-container"></div>
 <div id="modal-container"></div>
 {{uic-modal-dialog}}
-{{#uic-slide-menu
-  menuTemplate="menus/application"
-  menuOpen=menuOpen
-  menuPosition=menuPosition
-  pushContent=pushContent
-  pushContentType=pushContentType
-  disableScroll=disableScroll
-  maskContent=maskContent
-  showDefaultToggle=showDefaultToggle
-  as |menuOpen|}}
-  {{outlet}}
-{{/uic-slide-menu}}
+{{outlet}}
