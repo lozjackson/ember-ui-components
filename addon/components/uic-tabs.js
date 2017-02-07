@@ -4,7 +4,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-tabs';
 
-const { computed: { alias }, get, observer } = Ember;
+const { computed, get, on } = Ember;
+const { alias } = computed;
 
 /**
   @class TabsComponent
@@ -60,7 +61,6 @@ export default Ember.Component.extend({
   /**
     @property activeTab
     @type {Object}
-    @private
   */
   activeTab: null,
 
@@ -79,49 +79,43 @@ export default Ember.Component.extend({
   renderAllTabs: false,
 
   /**
+    Computed property.
     @property tab
     @type {Object}
   */
   tab: alias('activeTab'),
 
-  tabsChanged: observer('tabs.[]', function() {
-    let { activeTab, tabs } = this.getProperties('activeTab', 'tabs');
-    if (!activeTab || !tabs.includes(activeTab)) {
-      this.setDefaultTab();
-    }
-  }),
-
   /**
-    @method init
+    Returns the default tab.  The first tab in the list, or `undefined`
+    if there are no tabs
+
+    @method getDefaultTab
+    @return {Object}
     @private
   */
-  init() {
-    this._super(...arguments);
-    if (!this.get('activeTab')) {
-      this.setDefaultTab();
-    }
-  },
-
-  /**
-    @method setDefaultTab
-    @private
-  */
-  setDefaultTab() {
+  getDefaultTab() {
     let tabs = get(this, 'tabs');
     if (tabs && get(tabs, 'length')) {
-      let tab = get(tabs, 'firstObject') || tabs[0];
-      if (tab) {
-        this.selectTab(tab);
-      }
+      return get(tabs, 'firstObject') || tabs[0];
     }
   },
 
   /**
-    @method selectTab
+    @method setActiveTab
     @param {Object} tab
-    @private
   */
-  selectTab(tab) {
+  setActiveTab(tab) {
     this.set('activeTab', tab);
-  }
+  },
+
+  _confirmActiveTab() {
+    let { activeTab, tabs } = this.getProperties('activeTab', 'tabs');
+    return activeTab && tabs.includes(activeTab);
+  },
+
+  _initActiveTab: on('didRender', function () {
+    if (!this._confirmActiveTab()) {
+      this.setActiveTab(this.getDefaultTab());
+    }
+  })
 });
