@@ -1,5 +1,7 @@
 # Change Log
 
+* [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Refactor tabs component to remove observer.
+
 ### v0.11.1 2017-01-25
 
 * [#23](https://github.com/lozjackson/ember-ui-components/pull/23) Update Ember-svg-shapes to `^1.0.0`
