@@ -4,37 +4,84 @@
 
 <h1>ModalDialogComponent</h1>
 
-<div class="panel">
 
-  <h2><code>&#123;&#123;uic-modal-dialog&#125;&#125;</code></h2>
+<h2><code>\{{uic-modal-dialog}}</code></h2>
 
+<p>
+  You can open a modal dialog using the {{#link-to 'dialog-service'}}<code>DialogService</code>{{/link-to}}.
+  There are two built-in modal dialog types - <code>alert</code> and <code>confirm</code>.
+</p>
+
+<hr>
+
+<h2>Alert</h2>
+
+<p>
+  To open an <code>alert</code> dialog using the {{#link-to 'dialog-service'}}<code>DialogService</code>{{/link-to}}
+  call <code>DialogService.alert("Your message...")</code>.
+</p>
+
+{{code-panel name="modal-dialog-alert.js"}}
+
+<div>
+  <button class="uic-button blue" {{action openAlert}}>Click here</button>
 </div>
 
-<div class="panel">
+<p>
+  From a template you can use the <code>\{{alert "Your message..."}}</code> helper
+  with an <code>action</code>.
+</p>
 
-  <h2>Alert</h2>
+{{#uic-button action=(alert "Something happened")}}action=(alert "Something happened"){{/uic-button}}
+<button class="uic-button" {{action (alert "Something happened")}}>\{{action (alert "Something happened")}}</button>
 
-  <div>
-    <button class="uic-button blue" {{action "openAlert"}}>Click here</button>
-  </div>
+<hr>
+
+
+<h2>Confirm</h2>
+
+<p>
+  To open a <code>confirm</code> dialog using the {{#link-to 'dialog-service'}}<code>DialogService</code>{{/link-to}}
+  call <code>DialogService.confirm("Your message...")</code>.
+</p>
+
+{{code-panel name="modal-dialog-confirm.js"}}
+
+<p>
+  The <code>confirm</code> method returns a promise which resolves when the user
+  clicks <code>ok</code>, and rejects when the user clicks <code>cancel</code>.
+</p>
+
+<div>
+  <button class="uic-button blue" {{action openConfirm}}>Click here</button>
+  <p>Result of confirmation: {{result}}</p>
 </div>
+<p>You can use the <code>\{{confirm}}</code> helper inside a template.</p>
 
-<div class="panel">
+{{code-panel name="confirm-helper-example.hbs"}}
 
-  <h2>Confirm</h2>
-  <div>
-    <button class="uic-button blue" {{action "openConfirm"}}>Click here</button>
+<p>
+  The helper takes three arguments.
+</p>
+<ul>
+  <li>your message.</li>
+  <li>method to call if the user clicks `ok`</li>
+  <li>method to call if the user clicks `cancel`</li>
+</ul>
+<div>
 
-    Result of confirmation: {{result}}
-  </div>
+  <button class="uic-button blue" {{action (confirm "something?" doSomething cancelSomething)}}>Confirm</button>
+  <button class="uic-button blue" {{action (confirm (hash title="Something BIG" body="happened?") doSomething cancelSomething)}}>Confirm</button>
+  {{uic-button
+    text="click me"
+    action=(confirm "You clicked me!" (action set "result" "Confirmed") (action set "result" "Cancelled"))}}
+
 </div>
+<hr>
 
-<div class="panel">
-
-  <h2>openModal</h2>
-  <div>
-    <button class="uic-button blue" {{action "openDialog"}}>Click here</button>
-  </div>
+<h2>openModal</h2>
+<div>
+  <button class="uic-button blue" {{action openDialog}}>Click here</button>
 </div>
 
 

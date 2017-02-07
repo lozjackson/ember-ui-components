@@ -1,5 +1,7 @@
 # Change Log
 
+* [#26](https://github.com/lozjackson/ember-ui-components/pull/26) Add `AlertHelper` and `ConfirmHelper`.
+
 * [#25](https://github.com/lozjackson/ember-ui-components/pull/25) Refactor ModalDialogComponent to remove observer.
 
 * [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Refactor TabsComponent to remove observer.
