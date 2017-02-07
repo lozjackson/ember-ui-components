@@ -4,13 +4,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-modal-dialog';
 
-const computed = Ember.computed;
+const { computed, on, inject: { service }, typeOf, $, Component } = Ember;
 
 /**
   @class ModalDialogComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   layout,
 
@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     @type {Object}
     @private
   */
-  dialog: Ember.inject.service(),
+  dialog: service(),
 
   /**
     @property classNames
@@ -68,7 +68,7 @@ export default Ember.Component.extend({
   */
   _maskContent: computed('dialog.maskContent', 'maskContent', function () {
     let maskContent = this.get('dialog.maskContent');
-    if (Ember.typeOf(maskContent) === 'undefined') {
+    if (typeOf(maskContent) === 'undefined') {
       maskContent = this.get('maskContent');
     }
     return maskContent;
@@ -107,7 +107,7 @@ export default Ember.Component.extend({
   */
   _clickOutsideModal: computed('dialog.clickOutsideModal', 'clickOutsideModal', function () {
     let clickOutsideModal = this.get('dialog.clickOutsideModal');
-    if (Ember.typeOf(clickOutsideModal) === 'undefined') {
+    if (typeOf(clickOutsideModal) === 'undefined') {
       clickOutsideModal = this.get('clickOutsideModal');
     }
     return clickOutsideModal;
@@ -122,7 +122,7 @@ export default Ember.Component.extend({
   */
   _disablePointerEvents: computed('_clickOutsideModal', function () {
     let _clickOutsideModal = this.get('_clickOutsideModal');
-    return Ember.typeOf(_clickOutsideModal) === 'string' && _clickOutsideModal === 'disable-pointer-events';
+    return typeOf(_clickOutsideModal) === 'string' && _clickOutsideModal === 'disable-pointer-events';
   }),
 
   /**
@@ -139,7 +139,7 @@ export default Ember.Component.extend({
   */
   _disableScroll: computed('dialog.disableScroll', 'disableScroll', '_disablePointerEvents', function () {
     let disableScroll = this.get('dialog.disableScroll');
-    if (Ember.typeOf(disableScroll) === 'undefined') {
+    if (typeOf(disableScroll) === 'undefined') {
       disableScroll = this.get('disableScroll');
     }
     return disableScroll && !this.get('_disablePointerEvents');
@@ -151,8 +151,17 @@ export default Ember.Component.extend({
     @readonly
     @private
   */
-  displayModal: computed('dialog.open', 'dialog.type', function () {
-    return (this.get('dialog.open') && typeof this.get('dialog.type') === 'string');
+  displayModal: computed('dialog.open', 'dialog.type', '_disableScroll', function () {
+    if (this.get('dialog.open') && typeOf(this.get('dialog.type')) === 'string') {
+      $(this.get('element')).focus();
+      if (this.get('_disableScroll')) {
+        $('body').addClass('modal-dialog-is-open');
+      }
+      return true;
+    } else {
+      $('body').removeClass('modal-dialog-is-open');
+      return false;
+    }
   }),
 
   /**
@@ -205,19 +214,8 @@ export default Ember.Component.extend({
     element.animate({ left: 0 }, interval);
   },
 
-  /**
-    @event dialogOpenChanged
-    @private
-  */
-  dialogOpenChanged: Ember.observer('dialog.open', '_disableScroll', function() {
-    if (this.get('dialog.open')) {
-      Ember.$(this.get('element')).focus();
-      if (this.get('_disableScroll')) {
-        Ember.$('body').addClass('modal-dialog-is-open');
-      }
-    }else {
-      Ember.$('body').removeClass('modal-dialog-is-open');
-    }
+  _removeModalClassName: on('willDestroyElement', function () {
+    $('body').removeClass('modal-dialog-is-open');
   }),
 
   /**
@@ -244,11 +242,11 @@ export default Ember.Component.extend({
   click(event) {
     if (event.target === this.get('element')) {
       let clickOutsideModal = this.get('_clickOutsideModal');
-      if (Ember.typeOf(clickOutsideModal) === 'boolean') {
+      if (typeOf(clickOutsideModal) === 'boolean') {
         this[ clickOutsideModal ? '_confirm' : '_cancel' ]();
-      } else if (Ember.typeOf(clickOutsideModal) === 'string' && Ember.typeOf(this[clickOutsideModal]) === 'function') {
+      } else if (typeOf(clickOutsideModal) === 'string' && typeOf(this[clickOutsideModal]) === 'function') {
         this[clickOutsideModal]();
-      } else if (Ember.typeOf(clickOutsideModal) === 'function') {
+      } else if (typeOf(clickOutsideModal) === 'function') {
         clickOutsideModal();
       }
     }
