@@ -11,6 +11,7 @@ a, a:visited {
 
 header.ember-ui-components {
   background: rgb(47, 53, 56);
+  /*background: #3584ab;*/
   color: #ddd;
   font-family: sans-serif;
   height: 280px;
@@ -48,6 +49,7 @@ header.ember-ui-components > div.demo {
   left: -150px;
   height: 100%;
   min-width: 500px;
+  perspective: 50em;
 }
 header.ember-ui-components .demo fieldset.uic-fieldset.demo-form {
   position: absolute;
@@ -70,9 +72,11 @@ header.ember-ui-components h1 .uic-check-box {
 }
 header.ember-ui-components .demo .demo-button-group {
   position: absolute;
+  /*display: none;*/
   top: 105px;
   left: 200px;
   border-radius: 4px;
+  -webkit-transform: rotate(-25deg) scale(0.8);
   transform: rotate(-25deg) scale(0.8);
   box-shadow: 0 2px 6px 0 rgba(177, 96, 57, 0.52), 0 25px 50px 0 rgba(140, 66, 4, 0.13);
   z-index: 5;

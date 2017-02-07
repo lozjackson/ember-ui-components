@@ -1,6 +1,6 @@
 <ul class="tab-header">
   {{#each tabs as |tab|}}
-    <li {{action selectTab tab}} class="{{if (is-equal tab activeTab) 'active'}}">
+    <li {{action setActiveTab tab}} class="{{if (is-equal tab activeTab) 'active'}}">
       {{if tab.tabName tab.tabName defaultTabName}}
     </li>
   {{/each}}

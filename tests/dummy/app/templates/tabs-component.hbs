@@ -36,6 +36,21 @@
 
 {{code-panel name="tabs-block-example.hbs"}}
 
+{{#uic-button-group}}
+  {{uic-button text="Add Tab" id="add-tab-button" action=(action addTab)}}
+  {{uic-button text="Remove Tab" id="remove-tab-button" action=(action removeTab)}}
+{{/uic-button-group}}
+
+<div class="can-add-remove-tabs">
+  {{#uic-tabs
+    tabs=tabObjects
+    setActiveTab=(action set "_activeTab")
+    activeTab=_activeTab
+    as |tab|}}
+    <p>{{tab.someData}}</p>
+  {{/uic-tabs}}
+</div>
+
 <hr>
 
 <h3>tabName</h3>
@@ -102,4 +117,29 @@
   {{! BEGIN-SNIPPET tabs-template-inline-example}}
     {{uic-tabs tabs=tabTemplates}}
   {{! END-SNIPPET }}
+</div>
+
+<hr>
+
+<h3>activeTab</h3>
+
+You can pass in the active tab.
+
+{{code-panel name="tabs-activetab-example.hbs"}}
+
+<hr>
+
+<h3>setActiveTab</h3>
+
+Clicking on the tab name will trigger the <code>setActiveTab</code> action.  You
+can provide an action if you want to handle setting the active tab.
+
+{{code-panel name="select-tab-example.hbs"}}
+
+<div>
+{{! BEGIN-SNIPPET select-tab-example}}
+{{uic-tabs tabs=tabComponents setActiveTab=(action set "activeTab") activeTab=activeTab}}
+
+<p>Active tab: {{activeTab.tabName}}</p>
+{{! END-SNIPPET }}
 </div>
