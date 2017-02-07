@@ -1,35 +1,46 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { inject: { service }, Controller } = Ember;
 
-  dialog: Ember.inject.service(),
+export default Controller.extend({
+
+  dialog: service(),
 
   result: null,
 
-  actions: {
-    openConfirm() {
-      this.get('dialog').confirm({
-        title: 'Are you sure?',
-        body: 'Do you really want to do this?'
-      }).then(() => {
-        this.set('result', 'Confirmed');
-      }, () => {
-        this.set('result', 'Cancelled');
-      });
-    },
+  doSomething() {
+    this.set('result', 'Confirmed');
+  },
+  cancelSomething() {
+    this.set('result', 'Cancelled');
+  },
 
-    openAlert() {
-      this.get('dialog').alert({
-        title: 'An event has happened',
-        body: 'You clicked a button!'
-      });
-    },
+  openBasicAlert() {
+    this.get('dialog').alert("Your message!");
+  },
 
-    openDialog() {
-      this.get('dialog').openModal({
-        title: 'Custom Modal',
-        body: 'My custom modal'
-      }, 'my-custom-modal');
-    }
+  openAlert() {
+    this.get('dialog').alert({
+      title: 'An event has happened',
+      body: 'You clicked a button!'
+    });
+  },
+
+  openConfirm() {
+    this.get('dialog').confirm({
+      title: 'Are you sure?',
+      body: 'Do you really want to do this?'
+    }).then(() => {
+      this.set('result', 'Confirmed');
+    }, () => {
+      this.set('result', 'Cancelled');
+    });
+  },
+
+  openDialog() {
+    this.get('dialog').openModal({
+      title: 'Custom Modal',
+      body: 'My custom modal'
+    }, 'my-custom-modal');
   }
 });
