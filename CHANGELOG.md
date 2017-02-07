@@ -1,6 +1,8 @@
 # Change Log
 
-* [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Refactor tabs component to remove observer.
+* [#25](https://github.com/lozjackson/ember-ui-components/pull/25) Refactor ModalDialogComponent to remove observer.
+
+* [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Refactor TabsComponent to remove observer.
 
 ### v0.11.1 2017-01-25
 
