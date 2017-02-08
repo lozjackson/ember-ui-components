@@ -40,12 +40,13 @@ test('it renders', function(assert) {
 });
 
 test('classNameBindings', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
   var component = this.subject();
   component.set('lookup', lookup);
   this.render();
-  assert.equal(component.get('classNameBindings').length, 1);
+  assert.equal(component.get('classNameBindings').length, 2);
   assert.equal(component.get('classNameBindings')[0], 'menuPosition');
+  assert.equal(component.get('classNameBindings')[1], '_menuOpen:uic-slide-menu-open');
 });
 
 test('menuPosition should be left', function (assert) {
