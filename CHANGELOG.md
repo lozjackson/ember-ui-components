@@ -1,10 +1,12 @@
 # Change Log
 
+* [#27](https://github.com/lozjackson/ember-ui-components/pull/27) Remove observer from `SlideMenuComponent`.
+
 * [#26](https://github.com/lozjackson/ember-ui-components/pull/26) Add `AlertHelper` and `ConfirmHelper`.
 
-* [#25](https://github.com/lozjackson/ember-ui-components/pull/25) Refactor ModalDialogComponent to remove observer.
+* [#25](https://github.com/lozjackson/ember-ui-components/pull/25) Remove observer from `ModalDialogComponent`.
 
-* [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Refactor TabsComponent to remove observer.
+* [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Remove observer from `TabsComponent`.
 
 ### v0.11.1 2017-01-25
 

@@ -4,14 +4,14 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-slide-menu';
 
-const computed = Ember.computed;
-const alias = computed.alias;
+const { computed, inject: { service }, $, Component } = Ember;
+const { alias } = computed;
 
 /**
   @class SlideMenuComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   layout,
 
@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     @type {Object}
     @private
   */
-  lookup: Ember.inject.service(),
+  lookup: service(),
 
   /**
     @property classNames
@@ -37,7 +37,7 @@ export default Ember.Component.extend({
     @private
     @default `['menuPosition']`
   */
-  classNameBindings: ['menuPosition'],
+  classNameBindings: ['menuPosition', '_menuOpen:uic-slide-menu-open'],
 
   /**
     This is the position of the menu on the window.
@@ -257,18 +257,21 @@ export default Ember.Component.extend({
   }),
 
   /**
-    @event menuOpenChanged
-    @private
+    Computed property
+    @property _menuOpen
+    @type {Boolean}
   */
-  menuOpenChanged: Ember.observer('menuOpen', function() {
+  _menuOpen: computed('menuOpen', function () {
     if (this.get('menuOpen')) {
       let classNames = ['menu-is-open'];
       if (this.get('disableScroll')) {
         classNames.push('uic-disable-scroll');
       }
-      Ember.$('body').addClass(classNames.join(' '));
+      $('body').addClass(classNames.join(' '));
+      return true;
     } else {
-      Ember.$('body').removeClass('menu-is-open uic-disable-scroll');
+      $('body').removeClass('menu-is-open uic-disable-scroll');
+      return false;
     }
   }),
 
@@ -293,7 +296,7 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement() {
-    Ember.$('body').removeClass('menu-is-open uic-disable-scroll');
+    $('body').removeClass('menu-is-open uic-disable-scroll');
   },
 
   actions: {
