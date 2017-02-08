@@ -64,6 +64,21 @@ test('menuOpen should be false', function (assert) {
   assert.equal(component.get('menuOpen'), false, `'menuOpen' should be false`);
 });
 
+test('_menuOpen', function (assert) {
+  assert.expect(3);
+  var component = this.subject();
+  component.set('lookup', lookup);
+  this.render();
+
+  assert.equal(component.get('_menuOpen'), false, `'menuOpen' should be false`);
+
+  run(() => component.set('menuOpen', true));
+  assert.equal(component.get('_menuOpen'), true, `'menuOpen' should be true`);
+
+  run(() => component.set('menuOpen', false));
+  assert.equal(component.get('_menuOpen'), false, `'menuOpen' should be false`);
+});
+
 test('pushContent should be false', function (assert) {
   assert.expect(1);
   var component = this.subject();
