@@ -2,10 +2,9 @@
   @module ember-ui-components
 */
 import Ember from 'ember';
-import getOwner from 'ember-getowner-polyfill';
 
-const computed = Ember.computed;
-const alias = computed.alias;
+const { computed, getOwner } = Ember;
+const { alias } = computed;
 
 /**
   @class LookupService
