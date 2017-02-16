@@ -1,5 +1,7 @@
 # Change Log
 
+* [#28](https://github.com/lozjackson/ember-ui-components/pull/28) Fix Ember version compatibility.
+
 * [#27](https://github.com/lozjackson/ember-ui-components/pull/27) Remove observer from `SlideMenuComponent`.
 
 * [#26](https://github.com/lozjackson/ember-ui-components/pull/26) Add `AlertHelper` and `ConfirmHelper`.

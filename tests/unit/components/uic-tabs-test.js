@@ -51,7 +51,7 @@ test('tab should be an alias of activeTab', function(assert) {
   assert.deepEqual(component.get('tab'), tab2);
 });
 
-test('the first tab is set as active tab', function(assert) {
+test('getDefaultTab() method returns the first tab', function(assert) {
   assert.expect(1);
   let tab1 = { id: 1 };
   let tab2 = { id: 1 };
@@ -59,85 +59,31 @@ test('the first tab is set as active tab', function(assert) {
     tabs: Ember.A([ tab1, tab2 ])
   });
   this.render();
-  assert.deepEqual(component.get('tab'), tab1);
+  assert.deepEqual(component.getDefaultTab(), tab1);
 });
 
-test('tabs computed property should getDefaultTab if tabs does not include activeTab', function(assert) {
-  assert.expect(3);
-  let tab1 = { id: 1 };
-  let tab2 = { id: 2 };
-  let tab3 = { id: 3 };
-  let component = this.subject({
-    tabs: Ember.A([ tab1, tab2, tab3 ])
-  });
-  this.render();
-  run(() => component.set('activeTab', tab3));
-  assert.deepEqual(component.get('tab'), tab3);
-  run(() => component.get('tabs').removeObject(tab3));
-  assert.deepEqual(component.get('tab'), tab1);
-  run(() => component.get('tabs').removeObject(tab1));
-  assert.deepEqual(component.get('tab'), tab2);
-});
-
-test('setDefaultTab - pass an enumerable ember array of ember objects', function(assert) {
+test('getDefaultTab() - pass an enumerable ember array of ember objects', function(assert) {
   assert.expect(1);
   let tab = Ember.Object.create({ id: 1 });
   let component = this.subject({
     tabs: Ember.A([ tab ])
   });
   this.render();
-  assert.deepEqual(component.get('tab'), tab);
+  assert.deepEqual(component.getDefaultTab(), tab);
 });
 
-test('setDefaultTab - pass a vanilla array of ember objects', function(assert) {
+test('getDefaultTab() - pass a vanilla array of ember objects', function(assert) {
   assert.expect(1);
   let tab = Ember.Object.create({ id: 1 });
   let component = this.subject({
     tabs: [ tab ]
   });
   this.render();
-  assert.deepEqual(component.get('tab'), tab);
+  assert.deepEqual(component.getDefaultTab(), tab);
 });
 
-test('setDefaultTab pass an enumerable ember array of pojos', function(assert) {
-  assert.expect(1);
-  let tab = { id: 1 };
-  let component = this.subject({
-    tabs: Ember.A([ tab ])
-  });
-  this.render();
-  assert.deepEqual(component.get('tab'), tab);
-});
 
-test('setDefaultTab - pass a vanilla array of pojos', function(assert) {
-  assert.expect(1);
-  let tab = { id: 1 };
-  let component = this.subject({
-    tabs: [ tab ]
-  });
-  this.render();
-  assert.deepEqual(component.get('tab'), tab);
-});
-
-test('setDefaultTab - pass an empty vanilla js array', function(assert) {
-  assert.expect(1);
-  let component = this.subject({
-    tabs: []
-  });
-  this.render();
-  assert.deepEqual(component.get('tab'), undefined);
-});
-
-test('setDefaultTab - tabs = null', function(assert) {
-  assert.expect(1);
-  let component = this.subject({
-    tabs: null
-  });
-  this.render();
-  assert.deepEqual(component.get('tab'), undefined);
-});
-
-test('getDefaultTab() - Ember array', function(assert) {
+test('getDefaultTab() pass an enumerable ember array of pojos', function(assert) {
   assert.expect(1);
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
@@ -146,7 +92,7 @@ test('getDefaultTab() - Ember array', function(assert) {
   assert.deepEqual(component.getDefaultTab(), tab1);
 });
 
-test('getDefaultTab() - vanilla array', function(assert) {
+test('getDefaultTab() - pass a vanilla array of pojos', function(assert) {
   assert.expect(1);
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
@@ -155,15 +101,56 @@ test('getDefaultTab() - vanilla array', function(assert) {
   assert.deepEqual(component.getDefaultTab(), tab1);
 });
 
+test('getDefaultTab() - pass an empty vanilla js array', function(assert) {
+  assert.expect(1);
+  let component = this.subject({
+    tabs: []
+  });
+  this.render();
+  assert.deepEqual(component.getDefaultTab(), undefined);
+});
+
+test('getDefaultTab() - tabs = null', function(assert) {
+  assert.expect(1);
+  let component = this.subject({
+    tabs: null
+  });
+  this.render();
+  assert.deepEqual(component.getDefaultTab(), undefined);
+});
+
 test('setActiveTab() method sets activeTab', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
-  let component = this.subject({ tabs: [tab1, tab2] });
+  let component = this.subject({
+    initActiveTab() {},
+    tabs: [tab1, tab2]
+  });
   this.render();
-  assert.deepEqual(component.get('activeTab'), tab1);
   run(() => component.setActiveTab(tab2));
   assert.deepEqual(component.get('activeTab'), tab2);
+});
+
+test('_initActiveTab() method sets activeTab', function(assert) {
+  assert.expect(1);
+  let tab1 = { id: 1 };
+  let tab2 = { id: 2 };
+  let component = this.subject({
+    initActiveTab() {},
+    tabs: [tab1, tab2]
+  });
+  this.render();
+  run(() => component.setActiveTab(tab2));
+  assert.deepEqual(component.get('activeTab'), tab2);
+});
+
+test('_initActiveTab is run on didRender', function(assert) {
+  assert.expect(1);
+  this.subject({
+    _initActiveTab: () => assert.ok(true)
+  });
+  this.render();
 });
 
 test('_confirmActiveTab() method', function(assert) {
