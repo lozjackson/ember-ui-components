@@ -1,5 +1,7 @@
 # Change Log
 
+### v0.12.0 2017-02-16
+
 * [#28](https://github.com/lozjackson/ember-ui-components/pull/28) Fix Ember version compatibility.
 
 * [#27](https://github.com/lozjackson/ember-ui-components/pull/27) Remove observer from `SlideMenuComponent`.
@@ -9,6 +11,9 @@
 * [#25](https://github.com/lozjackson/ember-ui-components/pull/25) Remove observer from `ModalDialogComponent`.
 
 * [#24](https://github.com/lozjackson/ember-ui-components/pull/24) Remove observer from `TabsComponent`.
+
+
+
 
 ### v0.11.1 2017-01-25
 
