@@ -4,7 +4,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/uic-tabs';
 
-const { computed, get, on } = Ember;
+const { computed, get, on, run: { next } } = Ember;
 const { alias } = computed;
 
 /**
@@ -105,17 +105,30 @@ export default Ember.Component.extend({
     @param {Object} tab
   */
   setActiveTab(tab) {
+    if (this.isDestroyed || this.isDestroying) { return; }
     this.set('activeTab', tab);
   },
 
+  /**
+    @method _confirmActiveTab
+    @private
+  */
   _confirmActiveTab() {
     let { activeTab, tabs } = this.getProperties('activeTab', 'tabs');
-    return activeTab && tabs.includes(activeTab);
+    return activeTab && tabs.indexOf(activeTab) !== -1;
   },
 
-  _initActiveTab: on('didRender', function () {
+  /**
+    @method _initActiveTab
+    @private
+  */
+  _initActiveTab() {
     if (!this._confirmActiveTab()) {
-      this.setActiveTab(this.getDefaultTab());
+      next(() => this.setActiveTab(this.getDefaultTab()));
     }
+  },
+
+  initActiveTab: on('didRender', function () {
+    this._initActiveTab();
   })
 });
