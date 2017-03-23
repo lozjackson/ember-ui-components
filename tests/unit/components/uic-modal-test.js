@@ -3,7 +3,8 @@ import Ember from 'ember';
 
 moduleForComponent('uic-modal', 'Unit | Component | uic modal', {
   needs: [
-    'component:uic-button'
+    'component:uic-button',
+    'service:dialog'
   ],
   unit: true
 });

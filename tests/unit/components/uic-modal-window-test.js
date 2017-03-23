@@ -7,7 +7,10 @@ moduleForComponent('uic-modal-window', 'Unit | Component | uic modal window', {
   needs: [
     'component:uic-content-mask',
     'component:uic-modal',
-    'component:ember-wormhole'
+    'component:ember-wormhole',
+    'service:modal',
+    'service:lookup',
+    'service:dialog'
   ],
   unit: true
 });

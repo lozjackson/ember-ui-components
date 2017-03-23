@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('service:context-menu', 'Unit | Service | context menu');
+moduleFor('service:context-menu', 'Unit | Service | context menu', {
+  needs: ['service:lookup']
+});
 
 test('menuIsOpen', function(assert) {
   assert.expect(3);

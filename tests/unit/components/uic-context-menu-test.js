@@ -6,7 +6,9 @@ const { run } = Ember;
 moduleForComponent('uic-context-menu', 'Unit | Component | uic context menu', {
   needs: [
     'component:uic-context-menu-container',
-    'component:uic-content-mask'
+    'component:uic-content-mask',
+    'service:context-menu',
+    'service:lookup'
   ],
   unit: true,
   beforeEach() {
