@@ -3,7 +3,8 @@ import Ember from 'ember';
 
 moduleForComponent('uic-modal-alert', 'Unit | Component | uic modal alert', {
   needs: [
-    'component:uic-button'
+    'component:uic-button',
+    'service:dialog'
   ],
   unit: true
 });

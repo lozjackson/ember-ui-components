@@ -1,5 +1,7 @@
 # Change Log
 
+* [#29](https://github.com/lozjackson/ember-ui-components/pull/29) Update to Ember-cli 2.12.1
+
 ### v0.12.0 2017-02-16
 
 * [#28](https://github.com/lozjackson/ember-ui-components/pull/28) Fix Ember version compatibility.

@@ -4,6 +4,10 @@ import { moduleForComponent, test } from 'ember-qunit';
 const { run } = Ember;
 
 moduleForComponent('uic-context-menu-container', 'Unit | Component | uic context menu container', {
+  needs: [
+    'service:context-menu',
+    'service:lookup'
+  ],
   unit: true
 });
 

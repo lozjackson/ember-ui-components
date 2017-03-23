@@ -16,7 +16,8 @@ moduleForComponent('uic-slide-menu', 'Unit | Component | uic slide menu', {
     'component:uic-content-mask',
     'template:menus.application',
     'template:menus.index',
-    'template:menus.check-box-component.index'
+    'template:menus.check-box-component.index',
+    'service:lookup'
   ],
   unit: true,
   beforeEach: function () {

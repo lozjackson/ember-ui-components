@@ -7,7 +7,8 @@ moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
     'component:uic-content-mask',
     'component:uic-modal',
-    'component:uic-button'
+    'component:uic-button',
+    'service:dialog'
   ],
   unit: true
 });
