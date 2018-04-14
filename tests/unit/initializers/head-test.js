@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Application from '@ember/application';
+import { run } from '@ember/runloop';
 import HeadInitializer from 'dummy/initializers/head';
 import { module, test } from 'qunit';
 
@@ -6,8 +8,8 @@ let application;
 
 module('Unit | Initializer | head', {
   beforeEach() {
-    Ember.run(function() {
-      application = Ember.Application.create();
+    run(function() {
+      application = Application.create();
       application.deferReadiness();
     });
   }
@@ -15,5 +17,5 @@ module('Unit | Initializer | head', {
 
 test('viewport is correctly modified', function(assert) {
   HeadInitializer.initialize(application);
-  assert.equal(Ember.$('head meta[name=viewport]').attr('content'), "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
+  assert.equal($('head meta[name=viewport]').attr('content'), "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0");
 });

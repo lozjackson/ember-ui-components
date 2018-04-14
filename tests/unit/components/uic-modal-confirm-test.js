@@ -1,5 +1,5 @@
+import EmberObject from '@ember/object';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleForComponent('uic-modal-confirm', 'Unit | Component | uic modal confirm', {
   needs: [
@@ -20,7 +20,7 @@ test('it renders', function(assert) {
 test('_confirm() method', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     resolve: () => assert.ok(true)
   }));
   this.render();
@@ -30,7 +30,7 @@ test('_confirm() method', function(assert) {
 test('_cancel() method', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     reject: () => assert.ok(true)
   }));
   this.render();

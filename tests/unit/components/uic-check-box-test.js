@@ -1,7 +1,5 @@
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const run = Ember.run;
 
 moduleForComponent('uic-check-box', 'Unit | Component | uic check box', {
   // needs: ['component:foo', 'helper:bar'],

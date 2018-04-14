@@ -1,7 +1,6 @@
+import EmberObject from '@ember/object';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const { run } = Ember;
 
 moduleForComponent('uic-context-menu', 'Unit | Component | uic context menu', {
   needs: [
@@ -51,7 +50,7 @@ test('contextMenu() event', function(assert) {
   };
   let component = this.subject({
     elementId: 'menu-1',
-    contextMenuService: Ember.Object.create({
+    contextMenuService: EmberObject.create({
       toggle: (menu, e) => {
         assert.equal(menu, 'menu-1');
         assert.deepEqual(e, event);

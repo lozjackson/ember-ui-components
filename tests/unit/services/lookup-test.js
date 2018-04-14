@@ -1,5 +1,5 @@
+import EmberObject from '@ember/object';
 import { moduleFor, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleFor('service:lookup', 'Unit | Service | lookup', {
   needs: [
@@ -16,7 +16,7 @@ test('it exists', function(assert) {
 test('currentPath', function(assert) {
   assert.expect(1);
   let service = this.subject();
-  service.set('application', Ember.Object.create({
+  service.set('application', EmberObject.create({
     currentPath: 'index'
   }));
   assert.equal(service.get('currentPath'), 'index');
@@ -25,7 +25,7 @@ test('currentPath', function(assert) {
 test('currentRouteName', function(assert) {
   assert.expect(1);
   let service = this.subject();
-  service.set('application', Ember.Object.create({
+  service.set('application', EmberObject.create({
     currentRouteName: 'index'
   }));
   assert.equal(service.get('currentRouteName'), 'index');
@@ -34,7 +34,7 @@ test('currentRouteName', function(assert) {
 test('parentRouteName top-level route', function(assert) {
   assert.expect(1);
   var service = this.subject();
-  service.set('application', Ember.Object.create({
+  service.set('application', EmberObject.create({
     currentRouteName: 'child-route'
   }));
   assert.equal(service.get('parentRouteName'), 'index');
@@ -43,7 +43,7 @@ test('parentRouteName top-level route', function(assert) {
 test('parentRouteName 1 nested route', function(assert) {
   assert.expect(1);
   var service = this.subject();
-  service.set('application', Ember.Object.create({
+  service.set('application', EmberObject.create({
     currentRouteName: 'parent-route.child-route'
   }));
   assert.equal(service.get('parentRouteName'), 'parent-route');
@@ -52,7 +52,7 @@ test('parentRouteName 1 nested route', function(assert) {
 test('parentRouteName 2 nested routes', function(assert) {
   assert.expect(1);
   var service = this.subject();
-  service.set('application', Ember.Object.create({
+  service.set('application', EmberObject.create({
     currentRouteName: 'top-level-route.parent-route.child-route'
   }));
   assert.equal(service.get('parentRouteName'), 'top-level-route.parent-route');

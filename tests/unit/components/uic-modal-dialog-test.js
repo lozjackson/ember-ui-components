@@ -1,7 +1,6 @@
+import EmberObject from '@ember/object';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const run = Ember.run;
 
 moduleForComponent('uic-modal-dialog', 'Unit | Component | uic modal dialog', {
   needs: [
@@ -61,7 +60,7 @@ test('_maskContent', function(assert) {
 test('_maskContent - dialog.maskContent has priority', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     maskContent: false
   }));
   this.render();
@@ -112,7 +111,7 @@ test('_disableScroll', function (assert) {
 test('_disableScroll - dialog.disableScroll has priority', function (assert) {
   assert.expect(2);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     disableScroll: undefined
   }));
   component.set('disableScroll', true);
@@ -135,7 +134,7 @@ test('_disableScroll should be false if disablePointerEvents is true', function 
 test('displayModal', function(assert) {
   assert.expect(4);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     open: false,
     type: null
   }));
@@ -155,7 +154,7 @@ test('displayModal', function(assert) {
 test('_confirm() method', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     resolve: () => assert.ok(true)
   }));
   this.render();
@@ -165,7 +164,7 @@ test('_confirm() method', function(assert) {
 test('_cancel() method', function(assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('dialog', Ember.Object.create({
+  component.set('dialog', EmberObject.create({
     reject: () => assert.ok(true)
   }));
   this.render();

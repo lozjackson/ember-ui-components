@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 import setPosition from 'dummy/utils/set-position';
 import { module, test } from 'qunit';
 
@@ -16,7 +16,7 @@ test('it works', function(assert) {
     }
   };
 
-  let position = Ember.Object.create({
+  let position = EmberObject.create({
     x: 10,
     y: 20
   });
