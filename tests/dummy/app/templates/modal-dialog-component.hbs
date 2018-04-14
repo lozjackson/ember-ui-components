@@ -32,7 +32,7 @@
   with an <code>action</code>.
 </p>
 
-{{#uic-button action=(alert "Something happened")}}action=(alert "Something happened"){{/uic-button}}
+{{#uic-button click=(alert "Something happened")}}click=(alert "Something happened"){{/uic-button}}
 <button class="uic-button" {{action (alert "Something happened")}}>\{{action (alert "Something happened")}}</button>
 
 <hr>
@@ -74,7 +74,7 @@
   <button class="uic-button blue" {{action (confirm (hash title="Something BIG" body="happened?") doSomething cancelSomething)}}>Confirm</button>
   {{uic-button
     text="click me"
-    action=(confirm "You clicked me!" (action set "result" "Confirmed") (action set "result" "Cancelled"))}}
+    click=(confirm "You clicked me!" (action set "result" "Confirmed") (action set "result" "Cancelled"))}}
 
 </div>
 <hr>
