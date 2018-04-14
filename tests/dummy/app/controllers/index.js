@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
+import Controller, { inject as controller } from '@ember/controller';
 
-const { computed: { alias }, inject: { controller } } = Ember;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   application: controller(),
   version: alias('application.version'),
   checked: true,

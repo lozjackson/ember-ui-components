@@ -1,7 +1,8 @@
-import Ember from 'ember';
-export default Ember.Controller.extend({
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
+export default Controller.extend({
 
-  dialog: Ember.inject.service(),
+  dialog: service(),
 
   result: null,
 

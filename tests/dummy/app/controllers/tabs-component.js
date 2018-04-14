@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Controller from '@ember/controller';
 
 let n = 0;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   // BEGIN-SNIPPET tab-names
   tabs: [
@@ -25,7 +26,7 @@ export default Ember.Controller.extend({
   ],
   // END-SNIPPET
 
-  tabObjects: Ember.A([]),
+  tabObjects: A([]),
 
   addTab() {
     this.get('tabObjects').pushObject({ tabName: `Tab ${ ++n }`, someData: `... some data for tab ${ n } ...` });

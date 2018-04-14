@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -53,8 +53,8 @@ test('menu opens', function(assert) {
 });
 
 test('contextmenu', function(assert) {
-  let next = Ember.run.next;
-  Ember.run.next = (fn) => {
+  const next = run.next;
+  run.next = (fn) => {
     assert.equal(typeof fn, 'function');
     fn();
   };
@@ -78,5 +78,5 @@ test('contextmenu', function(assert) {
   this.$('.uic-context-menu').contextmenu();
   assert.equal(this.$('.uic-context-menu-container').length, 0);
 
-  Ember.run.next = next;
+  run.next = next;
 });
