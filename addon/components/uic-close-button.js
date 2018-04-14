@@ -31,12 +31,5 @@ export default Component.extend({
     @private
     @default `['uic-close-button']`
   */
-  classNames: ['uic-close-button'],
-
-  /**
-    @event click
-  */
-  click() {
-    this.sendAction();
-  }
+  classNames: ['uic-close-button']
 });
