@@ -5,7 +5,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/uic-modal-window';
 import DestinationElementMixin from 'ember-ui-components/mixins/destination-element';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { computed, get } from '@ember/object';
 import { alias } from '@ember/object/computed';
 import $ from 'jquery';
 
@@ -126,7 +126,10 @@ export default Component.extend(DestinationElementMixin, {
     @private
   */
   _closeModal() {
-    this.sendAction('closeModal');
+    const closeModal = get(this, 'closeModal');
+    if (closeModal) {
+      closeModal();
+    }
   },
 
   actions: {
