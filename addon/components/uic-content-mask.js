@@ -49,12 +49,5 @@ export default Component.extend({
     if (typeof didInsertMask === 'function') {
       didInsertMask.call(this);
     }
-  },
-
-  /**
-    @event click
-  */
-  click() {
-    this.sendAction();
   }
 });
