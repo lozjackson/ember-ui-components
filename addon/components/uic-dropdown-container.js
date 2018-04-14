@@ -4,6 +4,7 @@
 import Component from '@ember/component';
 import ClickOutsideMixin from 'ember-ui-components/mixins/click-outside';
 import layout from '../templates/components/uic-dropdown-container';
+import { get } from '@ember/object';
 import { alias } from '@ember/object/computed';
 
 /**
@@ -49,7 +50,7 @@ export default Component.extend(ClickOutsideMixin, {
     @private
   */
   handleClickOutside() {
-    this.sendAction();
+    get(this, 'hide')();
   },
 
   /**
