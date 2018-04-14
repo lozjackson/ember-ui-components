@@ -1,7 +1,10 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
+import { later } from '@ember/runloop';
+import { alias } from '@ember/object/computed';
+import $ from 'jquery';
 
 /**
   # Click Outside Mixin
@@ -25,7 +28,7 @@ import Ember from 'ember';
   @class ClickOutsideMixin
   @namespace Mixins
 */
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   /**
     Override this method to handle the click outside event.
@@ -53,7 +56,7 @@ export default Ember.Mixin.create({
     @property targetElement
     @type {Object}
   */
-  targetElement: Ember.computed.alias('element'),
+  targetElement: alias('element'),
 
   /**
     @method _attachEventListeners
@@ -61,14 +64,14 @@ export default Ember.Mixin.create({
   */
   _attachEventListeners() {
     let { targetElement, elementId }  = this.getProperties('targetElement', 'elementId');
-    let _window = Ember.$(window);
+    let _window = $(window);
     let handler = (event) => {
-      if (event.target !== targetElement && !Ember.$.contains( targetElement, event.target )) {
+      if (event.target !== targetElement && !$.contains( targetElement, event.target )) {
         if (this.get('isDestroyed') || this.get('isDestroying')) { return; }
         this.handleClickOutside(event);
       }
     };
-    Ember.run.later(this, () => {
+    later(this, () => {
       _window.on(`click.${elementId}`, handler);
       _window.on(`touchend.${elementId}`, handler);
     }, 300);
@@ -80,7 +83,7 @@ export default Ember.Mixin.create({
   */
   _removeEventListeners() {
     let elementId = this.get('elementId');
-    let _window = Ember.$(window);
+    let _window = $(window);
     _window.off(`click.${elementId}`);
     _window.off(`touchend.${elementId}`);
   },

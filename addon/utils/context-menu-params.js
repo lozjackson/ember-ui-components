@@ -1,6 +1,5 @@
-import Ember from 'ember';
-
-const { computed } = Ember;
+import EmberObject, { computed } from '@ember/object';
+import $ from 'jquery';
 
 /**
   ## Context Menu Params
@@ -82,7 +81,7 @@ const { computed } = Ember;
   @class ContextMenuParams
   @namespace Utils
 */
-export default Ember.Object.extend({
+export default EmberObject.extend({
 
   /**
     @property lookup
@@ -127,7 +126,7 @@ export default Ember.Object.extend({
     @return {Object}
   */
   getContext(target) {
-    let view = Ember.$(target).closest('.ember-view');
+    let view = $(target).closest('.ember-view');
     if (view.length) {
       return this.get('lookup').componentById(view[0].id);
     }

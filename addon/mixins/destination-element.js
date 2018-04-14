@@ -1,15 +1,14 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
-
-const { alias } = Ember.computed;
+import Mixin from '@ember/object/mixin';
+import { alias } from '@ember/object/computed';
 
 /**
   @class DestinationElementMixin
   @namespace Mixins
 */
-export default Ember.Mixin.create({
+export default Mixin.create({
 
   /**
     @property destinationElementId
@@ -22,5 +21,5 @@ export default Ember.Mixin.create({
     @property to
     @type {String}
   */
-  to: alias('destinationElementId'),
+  to: alias('destinationElementId')
 });

@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service';
 
 /**
   ## OpenModal
@@ -14,7 +15,7 @@ import Ember from 'ember';
   ```
 
   The `{{open-modal}}` helper returns a function that can be used in actions:
-  
+
   ```
   <div {{action (open-modal "modal-id")}}>
     // ...
@@ -52,18 +53,18 @@ import Ember from 'ember';
   In the example above, the `model` property passed as the second argument to
   the `{{open-modal}}` helper is available in the `{{uic-modal-window}}`
   component as the `params.model` property.
-  
+
   @class OpenModalHelper
   @namespace Helpers
 */
-export default Ember.Helper.extend({
+export default Helper.extend({
 
   /**
     @property modal
     @type {Object}
     @private
   */
-  modal: Ember.inject.service(),
+  modal: service(),
 
   /**
     @method compute

@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import $ from 'jquery';
 import getDimensions from 'ember-ui-components/utils/get-dimensions';
 import calculatePosition from 'ember-ui-components/utils/calculate-position';
 import getMousePosition from 'ember-ui-components/utils/get-mouse-position';
@@ -32,12 +32,12 @@ import getMousePosition from 'ember-ui-components/utils/get-mouse-position';
 export default function setPosition(element, position) {
   let margin = 5;
   if (typeof element === 'string') {
-    element = Ember.$(element);
+    element = $(element);
   }
   if (!position) {
     position = getMousePosition(window.event || window._event);
   }
-  let scrollBarWidth = (window.innerWidth - Ember.$(window).width());
+  let scrollBarWidth = (window.innerWidth - $(window).width());
   let el = getDimensions(element);
   element.css({
     'left': calculatePosition( position.get('x') + 2, el.width, window.innerWidth - ( margin + scrollBarWidth)),

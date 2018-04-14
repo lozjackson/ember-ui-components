@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 
 /**
   @class Utilities
@@ -46,5 +46,5 @@ export default function getMousePosition(event, page) {
       };
     }
   }
-  return Ember.Object.create(position);
+  return EmberObject.create(position);
 }

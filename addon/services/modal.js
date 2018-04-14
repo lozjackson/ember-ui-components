@@ -1,9 +1,9 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
-
-const { computed } = Ember;
+import EmberObject from '@ember/object';
+import Service from '@ember/service';
+import { bool } from '@ember/object/computed';
 
 /**
 
@@ -35,7 +35,7 @@ const { computed } = Ember;
   ```
   modalService.close();
   ```
-  
+
   NOTE: The `close()` method will only close modals that have been opened using the `ModalService`.
 
   ### Toggle
@@ -46,11 +46,11 @@ const { computed } = Ember;
   ```
   modalService.toggle('modal-id', model);
   ```
-  
+
   @class ModalService
   @namespace Services
 */
-export default Ember.Service.extend({
+export default Service.extend({
 
   /**
     The id of the menu.
@@ -59,22 +59,22 @@ export default Ember.Service.extend({
     @private
   */
   modalId: null,
-  
+
   /**
     @property modalIsOpen
     @type {Boolean}
     @private
     @readonly
   */
-  modalIsOpen: computed.bool('modalId'),
-  
+  modalIsOpen: bool('modalId'),
+
   /**
     @property params
     @type {Object}
     @private
   */
   params: null,
-  
+
    /**
     @method init
     @private
@@ -89,7 +89,7 @@ export default Ember.Service.extend({
     @private
   */
   initParams() {
-    this.set('params', Ember.Object.create({
+    this.set('params', EmberObject.create({
       model: null
     }));
   },
@@ -111,7 +111,7 @@ export default Ember.Service.extend({
   close() {
     this.reset();
   },
-  
+
   /**
     ## Toggle
 
@@ -125,7 +125,7 @@ export default Ember.Service.extend({
   toggle() {
     return this.get('modalIsOpen') ? this.close() : this.open(...arguments);
   },
-  
+
   /**
     @method reset
     @private
