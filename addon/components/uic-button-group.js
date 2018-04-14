@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-button-group';
 
 /**
@@ -16,7 +16,7 @@ import layout from '../templates/components/uic-button-group';
   @class ButtonGroupComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**

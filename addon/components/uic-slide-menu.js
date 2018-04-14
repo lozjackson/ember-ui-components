@@ -1,11 +1,13 @@
 /**
   @module ember-ui-components
 */
+import Component from '@ember/component';
 import Ember from 'ember';
 import layout from '../templates/components/uic-slide-menu';
-
-const { computed, inject: { service }, $, Component } = Ember;
-const { alias } = computed;
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import $ from 'jquery';
 
 /**
   @class SlideMenuComponent

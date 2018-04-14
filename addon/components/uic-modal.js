@@ -1,14 +1,15 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-modal';
+import { inject as service } from '@ember/service';
 
 /**
   @class ModalComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**
@@ -16,7 +17,7 @@ export default Ember.Component.extend({
     @type {Object}
     @private
   */
-  dialog: Ember.inject.service(),
+  dialog: service(),
 
   /**
     @property classNames

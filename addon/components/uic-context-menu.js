@@ -1,20 +1,20 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 // import openContextMenu from 'ember-ui-components/helpers/open-context-menu';
 import layout from '../templates/components/uic-context-menu';
 import DestinationElementMixin from 'ember-ui-components/mixins/destination-element';
-
-const { computed } = Ember;
-const { alias } = computed;
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
 
 /**
   @class ContextMenuComponent
   @namespace Components
   @uses Mixins.DestinationElementMixin
 */
-export default Ember.Component.extend(DestinationElementMixin, {
+export default Component.extend(DestinationElementMixin, {
 
   layout,
 
@@ -24,7 +24,7 @@ export default Ember.Component.extend(DestinationElementMixin, {
     @type {Object}
     @private
   */
-  contextMenuService: Ember.inject.service('context-menu'),
+  contextMenuService: service('context-menu'),
 
   /**
     @property classNames

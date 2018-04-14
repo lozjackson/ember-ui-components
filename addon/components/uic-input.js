@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import TextField from '@ember/component/text-field';
 
 /**
 
@@ -16,6 +16,6 @@ import Ember from 'ember';
   @class InputComponent
   @namespace Components
 */
-export default Ember.TextField.extend({
+export default TextField.extend({
   classNames: ['uic-input', 'uic-form-element']
 });

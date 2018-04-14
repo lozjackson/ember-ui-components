@@ -1,10 +1,13 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-modal-dialog';
-
-const { computed, on, inject: { service }, typeOf, $, Component } = Ember;
+import { computed } from '@ember/object';
+import { on } from '@ember/object/evented';
+import { inject as service } from '@ember/service';
+import { typeOf } from '@ember/utils';
+import $ from 'jquery';
 
 /**
   @class ModalDialogComponent

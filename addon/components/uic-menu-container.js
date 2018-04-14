@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-menu-container';
 import getDimensions from 'ember-ui-components/utils/get-dimensions';
 import calculatePosition from 'ember-ui-components/utils/calculate-position';
@@ -10,7 +10,7 @@ import calculatePosition from 'ember-ui-components/utils/calculate-position';
   @class MenuContainerComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   layout,
 

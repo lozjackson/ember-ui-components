@@ -1,17 +1,18 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-tabs';
-
-const { computed, get, on, run: { next } } = Ember;
-const { alias } = computed;
+import { get } from '@ember/object';
+import { on } from '@ember/object/evented';
+import { next } from '@ember/runloop';
+import { alias } from '@ember/object/computed';
 
 /**
   @class TabsComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**

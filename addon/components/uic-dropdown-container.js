@@ -1,16 +1,17 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import ClickOutsideMixin from 'ember-ui-components/mixins/click-outside';
 import layout from '../templates/components/uic-dropdown-container';
+import { alias } from '@ember/object/computed';
 
 /**
   @class DropdownContainerComponent
   @namespace Components
   @uses Mixins.ClickOutsideMixin
 */
-export default Ember.Component.extend(ClickOutsideMixin, {
+export default Component.extend(ClickOutsideMixin, {
 
   layout,
 
@@ -41,7 +42,7 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @type {Object}
     @private
   */
-  targetElement: Ember.computed.alias('element.parentElement'),
+  targetElement: alias('element.parentElement'),
 
   /**
     @method handleClickOutside

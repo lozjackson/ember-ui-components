@@ -1,19 +1,20 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-modal-window';
 import DestinationElementMixin from 'ember-ui-components/mixins/destination-element';
-
-const computed = Ember.computed;
-const alias = computed.alias;
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import $ from 'jquery';
 
 /**
   @class ModalWindowComponent
   @namespace Components
   @uses Mixins.DestinationElementMixin
 */
-export default Ember.Component.extend(DestinationElementMixin, {
+export default Component.extend(DestinationElementMixin, {
 
   layout,
 
@@ -23,7 +24,7 @@ export default Ember.Component.extend(DestinationElementMixin, {
     @type {Object}
     @private
   */
-  modal: Ember.inject.service(),
+  modal: service(),
 
   /**
     Injected LookupService
@@ -31,7 +32,7 @@ export default Ember.Component.extend(DestinationElementMixin, {
     @type {Object}
     @private
   */
-  lookup: Ember.inject.service(),
+  lookup: service(),
 
   /**
     @property classNames
@@ -107,7 +108,7 @@ export default Ember.Component.extend(DestinationElementMixin, {
   didInsertElement() {
     this._super(...arguments);
     if (this.get('disableScroll')) {
-      Ember.$('body').addClass('modal-window-is-open');
+      $('body').addClass('modal-window-is-open');
     }
   },
 
@@ -117,7 +118,7 @@ export default Ember.Component.extend(DestinationElementMixin, {
   */
   didDestroyElement() {
     this._super(...arguments);
-    Ember.$('body').removeClass('modal-window-is-open');
+    $('body').removeClass('modal-window-is-open');
   },
 
   /**

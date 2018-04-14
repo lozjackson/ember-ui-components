@@ -1,12 +1,10 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
 import ButtonComponent from 'ember-ui-components/components/uic-button';
 import layout from '../templates/components/uic-switch';
-
-const { computed } = Ember;
-const { alias } = computed;
+import { computed } from '@ember/object';
+import { alias } from '@ember/object/computed';
 
 /**
   ## SwitchComponent
