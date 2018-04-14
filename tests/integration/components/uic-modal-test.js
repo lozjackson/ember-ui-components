@@ -1,13 +1,13 @@
+import EmberObject from '@ember/object';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
 
 moduleForComponent('uic-modal', 'Integration | Component | uic modal', {
   integration: true
 });
 
 test('it renders', function(assert) {
-  this.set('dialog', Ember.Object.create({
+  this.set('dialog', EmberObject.create({
     title: 'The Title',
     body: 'An interesting story.'
   }));

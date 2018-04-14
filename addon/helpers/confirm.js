@@ -1,6 +1,6 @@
-import Ember from 'ember';
-
-const { inject: { service }, typeOf, Helper } = Ember;
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service';
+import { typeOf } from '@ember/utils';
 
 export default Helper.extend({
 

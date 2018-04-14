@@ -1,8 +1,9 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-list';
+import { get } from '@ember/object';
 
 /**
   ## List Component
@@ -20,7 +21,7 @@ import layout from '../templates/components/uic-list';
   @class ListComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**
@@ -60,6 +61,6 @@ export default Ember.Component.extend({
     @private
   */
   select() {
-    this.sendAction('selectItem', ...arguments);
+    get(this, 'selectItem')(...arguments);
   }
 });

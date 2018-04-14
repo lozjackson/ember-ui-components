@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-select';
 
 /**
@@ -29,7 +29,7 @@ import layout from '../templates/components/uic-select';
   @class SelectComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   /**
     @property layout
@@ -98,7 +98,6 @@ export default Ember.Component.extend({
     @property options
     @type {Array}
   */
-  options: [],
 
   /**
     Set the `selected` value when the element changes.

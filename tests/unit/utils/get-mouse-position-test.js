@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 import getMousePosition from 'dummy/utils/get-mouse-position';
 import { module, test } from 'qunit';
 
@@ -14,7 +14,7 @@ test('it works', function(assert) {
   // window.event = event;
 
   let result = getMousePosition(event);
-  assert.deepEqual(result, Ember.Object.create({ x: 10, y: 20 }));
+  assert.deepEqual(result, EmberObject.create({ x: 10, y: 20 }));
 });
 
 test('it works - page=true', function(assert) {
@@ -29,5 +29,5 @@ test('it works - page=true', function(assert) {
   // window.event = event;
 
   let result = getMousePosition(event, true);
-  assert.deepEqual(result, Ember.Object.create({ x: 30, y: 40 }));
+  assert.deepEqual(result, EmberObject.create({ x: 30, y: 40 }));
 });

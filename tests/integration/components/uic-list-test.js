@@ -33,6 +33,6 @@ test('selectItem', function(assert) {
     { name: 'baz' }
   ]);
 
-  this.render(hbs`{{uic-list model=array selectItem="select"}}`);
+  this.render(hbs`{{uic-list model=array selectItem=(action "select")}}`);
   this.$('ul.uic-list li:first').click();
 });

@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import $ from 'jquery';
 
 /**
   @class Utilities
@@ -16,7 +16,7 @@ import Ember from 'ember';
 */
 export default function getDimensions(element) {
   if (typeof element === 'string') {
-    element = Ember.$(element);
+    element = $(element);
   }
   let el = { width: 0, height: 0 };
   if (element && element.length) {

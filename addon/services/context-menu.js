@@ -1,9 +1,10 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
 import ContextMenuParams from 'ember-ui-components/utils/context-menu-params';
-const { computed } = Ember;
+import Service, { inject as service } from '@ember/service';
+import { bool } from '@ember/object/computed';
+import { next } from '@ember/runloop';
 
 /**
   ## Context Menu Service
@@ -49,14 +50,14 @@ const { computed } = Ember;
   @class ContextMenuService
   @namespace Services
 */
-export default Ember.Service.extend({
+export default Service.extend({
 
   /**
     @property lookup
     @type {Object}
     @private
   */
-  lookup: Ember.inject.service(),
+  lookup: service(),
 
   /**
     The id of the menu.
@@ -79,7 +80,7 @@ export default Ember.Service.extend({
     @private
     @readonly
   */
-  menuIsOpen: computed.bool('menu'),
+  menuIsOpen: bool('menu'),
 
   /**
     @method init
@@ -112,7 +113,7 @@ export default Ember.Service.extend({
   open(menuId, event, model) {
     event = event || window.event;
     this.set('menu', null);
-    Ember.run.next(() => {
+    next(() => {
       this.set('contextMenuParams.event', event);
       this.set('contextMenuParams.model', model);
       this.set('menu', menuId);

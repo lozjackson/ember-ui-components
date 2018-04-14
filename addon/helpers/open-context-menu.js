@@ -1,7 +1,8 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service';
 
 /**
   ## OpenContextMenu
@@ -59,14 +60,14 @@ import Ember from 'ember';
   @class OpenContextMenuHelper
   @namespace Helpers
 */
-export default Ember.Helper.extend({
+export default Helper.extend({
 
   /**
     @property contextMenuService
     @type {Object}
     @private
   */
-  contextMenuService: Ember.inject.service('context-menu'),
+  contextMenuService: service('context-menu'),
 
   /**
     @method compute

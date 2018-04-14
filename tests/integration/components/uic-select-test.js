@@ -1,8 +1,8 @@
+import { A } from '@ember/array';
+import EmberObject, { set } from '@ember/object';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
-
-const {set, run} = Ember;
 
 moduleForComponent('uic-select', 'Integration | Component | uic select', {
   integration: true
@@ -45,7 +45,7 @@ test('options - pass in array of strings', function(assert) {
 });
 
 test('options - pass in Ember.Array of strings', function(assert) {
-  let options = Ember.A(['Active', 'Complete']);
+  let options = A(['Active', 'Complete']);
   this.set('options', options);
   this.render(hbs`{{uic-select options=options}}`);
 
@@ -79,11 +79,11 @@ test('options - pass in array of objects', function(assert) {
 
 test('options - pass in array of Ember.Objects', function(assert) {
   let options = [
-    Ember.Object.create({
+    EmberObject.create({
       value: 'active-value',
       text: 'Active'
     }),
-    Ember.Object.create({
+    EmberObject.create({
       value: 'complete-value',
       text: 'Complete'
     })
@@ -99,12 +99,12 @@ test('options - pass in array of Ember.Objects', function(assert) {
 });
 
 test('options - pass in Ember.Array of Ember.Objects', function(assert) {
-  let options = Ember.A([
-    Ember.Object.create({
+  let options = A([
+    EmberObject.create({
       value: 'active-value',
       text: 'Active'
     }),
-    Ember.Object.create({
+    EmberObject.create({
       value: 'complete-value',
       text: 'Complete'
     })
@@ -117,7 +117,7 @@ test('options - pass in Ember.Array of Ember.Objects', function(assert) {
   run(() => set(options[0], 'value', 'AnotherValue'));
   assert.equal(this.$('select.uic-select option[value=active-value]').length, 0);
   assert.equal(this.$('select.uic-select option[value=AnotherValue]').length, 1);
-  run(() => options.pushObject(Ember.Object.create({
+  run(() => options.pushObject(EmberObject.create({
     value: 'closed-value',
     text: 'Closed'
   })));

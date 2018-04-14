@@ -1,12 +1,16 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
-
-  modal: Ember.inject.service(),
-
+const example = {
   // BEGIN-SNIPPET array-of-items
   items: ['Foo', 'Bar', 'Baz'],
   // END-SNIPPET
+}
+export default Controller.extend({
+
+  modal: service(),
+
+  items: example.items,
 
   // BEGIN-SNIPPET display-modal
   // controller/component

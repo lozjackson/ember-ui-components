@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import { run } from '@ember/runloop';
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:context-menu', 'Unit | Service | context menu', {
@@ -39,19 +40,19 @@ test('initContextMenuParams() method', function(assert) {
 
 test('open() method', function(assert) {
   assert.expect(4);
-  let next = Ember.run.next;
-  Ember.run.next = (fn) => {
+  const next = run.next;
+  run.next = (fn) => {
     assert.equal(typeof fn, 'function');
     fn();
   };
   let event = { type: 'contextmenu' };
-  let model = Ember.Object.create({id:1});
+  let model = EmberObject.create({id:1});
   let service = this.subject();
   service.open('menu-id', event, model);
   assert.deepEqual(service.get('contextMenuParams.event'), event);
   assert.deepEqual(service.get('contextMenuParams.model'), model);
   assert.equal(service.get('menu'), 'menu-id');
-  Ember.run.next = next;
+  run.next = next;
 });
 
 test('close() method shoud call reset', function(assert) {
@@ -66,7 +67,7 @@ test('close() method shoud call reset', function(assert) {
 test('toggle() method - menuIsOpen false', function(assert) {
   assert.expect(3);
   let event = { type: 'contextmenu' };
-  let model = Ember.Object.create({id:1});
+  let model = EmberObject.create({id:1});
   let service = this.subject({
     menuIsOpen: false,
     open: (id, e, m) => {
@@ -84,7 +85,7 @@ test('toggle() method - menuIsOpen false', function(assert) {
 test('toggle() method - menuIsOpen true', function(assert) {
   assert.expect(1);
   let event = { type: 'contextmenu' };
-  let model = Ember.Object.create({id:1});
+  let model = EmberObject.create({id:1});
   let service = this.subject({
     menuIsOpen: true,
     open: () => {

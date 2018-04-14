@@ -13,7 +13,7 @@
 
   <p>The <code>ModalWindowComponent</code> can be used to create a modal.</p>
 
-  {{#uic-button action=(open-modal "demo-modal") class="blue"}}
+  {{#uic-button click=(open-modal "demo-modal") class="blue"}}
     Click here
   {{/uic-button}}
 
@@ -76,7 +76,7 @@
   </div>
   <div class="panel output">
     {{! BEGIN-SNIPPET basic-modal-button }}
-    {{#uic-button action=(open-modal "basic-modal")}}
+    {{#uic-button click=(open-modal "basic-modal")}}
       Click here
     {{/uic-button}}
     {{! END-SNIPPET }}
@@ -115,13 +115,13 @@
 
   <p>...modal content...</p>
 
-  {{uic-button action=(close-modal) text="Close"}}
+  {{uic-button click=(close-modal) text="Close"}}
 
 {{/uic-modal-window}}
 {{! END-SNIPPET }}
 
 <div class="panel output">
-  {{#uic-button action=(open-modal "close-modal-helper-example")}}
+  {{#uic-button click=(open-modal "close-modal-helper-example")}}
     Click here
   {{/uic-button}}
 </div>
@@ -229,13 +229,13 @@
 
   <h2>Modal 1</h2>
 
-  {{uic-button action="toggleModal" text="Close"}}
+  {{uic-button click=(action "toggleModal") text="Close"}}
 
 {{/uic-modal-window}}
 {{! END-SNIPPET }}
 
 {{! BEGIN-SNIPPET show-modal-button-example}}
-{{uic-button action="toggleModal" text="Click here" class="blue"}}
+{{uic-button click=(action "toggleModal") text="Click here" class="blue"}}
 {{! END-SNIPPET }}
 
   </div>
@@ -259,7 +259,7 @@
 
   {{code-panel name="modal-container-example.hbs"}}
 
-  {{#uic-button action=(open-modal "demo-modal") class="blue"}}
+  {{#uic-button click=(open-modal "demo-modal") class="blue"}}
     Click here
   {{/uic-button}}
 

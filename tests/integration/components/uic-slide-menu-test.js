@@ -1,6 +1,6 @@
+import $ from 'jquery';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
 
 moduleForComponent('uic-slide-menu', 'Integration | Component | uic slide menu', {
   integration: true,
@@ -102,13 +102,13 @@ test('menuOpenChanged', function (assert) {
   assert.expect(3);
   this.set('menuOpen', false);
   this.render(hbs`{{uic-slide-menu menuOpen=menuOpen}}`);
-  assert.equal(Ember.$('body.menu-is-open').length, 0);
+  assert.equal($('body.menu-is-open').length, 0);
 
   this.set('menuOpen', true);
-  assert.equal(Ember.$('body.menu-is-open').length, 1);
+  assert.equal($('body.menu-is-open').length, 1);
 
   this.set('menuOpen', false);
-  assert.equal(Ember.$('body.menu-is-open').length, 0);
+  assert.equal($('body.menu-is-open').length, 0);
 });
 
 test('disableScroll when menu is open', function (assert) {
@@ -116,11 +116,11 @@ test('disableScroll when menu is open', function (assert) {
   this.set('menuOpen', false);
   this.set('disableScroll', true);
   this.render(hbs`{{uic-slide-menu menuOpen=menuOpen disableScroll=disableScroll}}`);
-  assert.equal(Ember.$('body.uic-disable-scroll').length, 0);
+  assert.equal($('body.uic-disable-scroll').length, 0);
 
   this.set('menuOpen', true);
-  assert.equal(Ember.$('body.uic-disable-scroll').length, 1);
+  assert.equal($('body.uic-disable-scroll').length, 1);
 
   this.set('menuOpen', false);
-  assert.equal(Ember.$('body.uic-disable-scroll').length, 0);
+  assert.equal($('body.uic-disable-scroll').length, 0);
 });

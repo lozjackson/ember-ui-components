@@ -1,10 +1,9 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uic-check-box';
-
-const computed = Ember.computed;
 
 /**
   # CheckBoxComponent
@@ -16,7 +15,7 @@ const computed = Ember.computed;
   @class CheckBoxComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
 
   layout: layout,
 

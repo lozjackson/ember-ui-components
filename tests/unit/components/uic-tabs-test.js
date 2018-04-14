@@ -1,7 +1,7 @@
+import EmberObject from '@ember/object';
+import { A } from '@ember/array';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const { run } = Ember;
 
 moduleForComponent('uic-tabs', 'Unit | Component | uic tabs', {
   needs: [
@@ -16,13 +16,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'preRender');
   this.render();
   assert.equal(component._state, 'inDOM');
-});
-
-test('tabs should be []', function(assert) {
-  assert.expect(1);
-  let component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('tabs'), []);
 });
 
 test('defaultTabName should be Untitled', function(assert) {
@@ -44,7 +37,7 @@ test('tab should be an alias of activeTab', function(assert) {
   let tab1 = { id: 1 };
   let tab2 = { id: 1 };
   let component = this.subject({
-    tabs: Ember.A([ tab1, tab2 ])
+    tabs: A([ tab1, tab2 ])
   });
   this.render();
   run(() => component.set('activeTab', tab2));
@@ -56,7 +49,7 @@ test('getDefaultTab() method returns the first tab', function(assert) {
   let tab1 = { id: 1 };
   let tab2 = { id: 1 };
   let component = this.subject({
-    tabs: Ember.A([ tab1, tab2 ])
+    tabs: A([ tab1, tab2 ])
   });
   this.render();
   assert.deepEqual(component.getDefaultTab(), tab1);
@@ -64,9 +57,9 @@ test('getDefaultTab() method returns the first tab', function(assert) {
 
 test('getDefaultTab() - pass an enumerable ember array of ember objects', function(assert) {
   assert.expect(1);
-  let tab = Ember.Object.create({ id: 1 });
+  let tab = EmberObject.create({ id: 1 });
   let component = this.subject({
-    tabs: Ember.A([ tab ])
+    tabs: A([ tab ])
   });
   this.render();
   assert.deepEqual(component.getDefaultTab(), tab);
@@ -74,7 +67,7 @@ test('getDefaultTab() - pass an enumerable ember array of ember objects', functi
 
 test('getDefaultTab() - pass a vanilla array of ember objects', function(assert) {
   assert.expect(1);
-  let tab = Ember.Object.create({ id: 1 });
+  let tab = EmberObject.create({ id: 1 });
   let component = this.subject({
     tabs: [ tab ]
   });
@@ -87,7 +80,7 @@ test('getDefaultTab() pass an enumerable ember array of pojos', function(assert)
   assert.expect(1);
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
-  let component = this.subject({ tabs: Ember.A([tab1, tab2]) });
+  let component = this.subject({ tabs: A([tab1, tab2]) });
   this.render();
   assert.deepEqual(component.getDefaultTab(), tab1);
 });
@@ -158,7 +151,7 @@ test('_confirmActiveTab() method', function(assert) {
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
   let component = this.subject({
-    tabs: Ember.A([tab1, tab2]),
+    tabs: A([tab1, tab2]),
     _initActiveTab: () => {},
     activeTab: null
   });
@@ -183,7 +176,7 @@ test('_initActiveTab - stub confirmActiveTab method', function(assert) {
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
   let component = this.subject({
-    tabs: Ember.A([tab1, tab2]),
+    tabs: A([tab1, tab2]),
     _confirmActiveTab: () => {
       assert.ok(true);
       return true;
@@ -199,7 +192,7 @@ test('_initActiveTab - stub all the methods', function(assert) {
   let tab1 = { id: 1 };
   let tab2 = { id: 2 };
   this.subject({
-    tabs: Ember.A([tab1, tab2]),
+    tabs: A([tab1, tab2]),
     setActiveTab: (tab) => assert.deepEqual(tab, tab2),
     getDefaultTab: () => {
       assert.ok(true);

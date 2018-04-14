@@ -1,20 +1,20 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-button';
 
 /**
   # ButtonComponent
 
   ```
-  {{uic-button action="actionName"}}
+  {{uic-button click=(action "actionName")}}
   ```
 
   @class ButtonComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**
@@ -54,13 +54,5 @@ export default Ember.Component.extend({
     @type {Boolean}
     @default `false`
   */
-  disabled: false,
-
-  /**
-    @event click
-    @private
-  */
-  click() {
-    this.sendAction();
-  }
+  disabled: false
 });

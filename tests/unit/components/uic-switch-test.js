@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-
-const { run } = Ember;
 
 moduleForComponent('uic-switch', 'Unit | Component | uic switch', {
   unit: true

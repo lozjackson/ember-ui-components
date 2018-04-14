@@ -1,9 +1,9 @@
+import EmberObject from '@ember/object';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
 import Ember from 'ember';
 
-const run = Ember.run;
-
-const lookup = Ember.Object.create({
+const lookup = EmberObject.create({
   hasTemplate() {
     return false;
   }
@@ -168,7 +168,7 @@ test('maskIsActive should be true when menu is open', function (assert) {
 test('currentRouteName', function (assert) {
   assert.expect(1);
   var component = this.subject();
-  component.set('lookup', Ember.Object.create({
+  component.set('lookup', EmberObject.create({
     currentRouteName: 'index',
     hasTemplate() {
       return false;
@@ -379,7 +379,7 @@ test('lookupTemplate returns true if lookup.hasTemplate is true', function (asse
   assert.expect(3);
   var component = this.subject();
   component.set('staticTemplate', true);
-  component.set('lookup', Ember.Object.create({
+  component.set('lookup', EmberObject.create({
     hasTemplate(templateName) {
       assert.equal(templateName, 'template-name');
       return true;
@@ -396,7 +396,7 @@ test('lookupTemplate returns false if lookup.hasTemplate is false', function (as
   assert.expect(3);
   var component = this.subject();
   component.set('staticTemplate', true);
-  component.set('lookup', Ember.Object.create({
+  component.set('lookup', EmberObject.create({
     hasTemplate(templateName) {
       assert.equal(templateName, 'template-name');
       return false;

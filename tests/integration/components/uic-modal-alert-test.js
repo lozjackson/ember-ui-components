@@ -1,6 +1,6 @@
+import $ from 'jquery';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
 
 moduleForComponent('uic-modal-alert', 'Integration | Component | uic modal alert', {
   integration: true
@@ -12,5 +12,5 @@ test('it has correct class names', function(assert) {
 
   this.render(hbs`{{uic-modal-alert}}`);
 
-  assert.equal(Ember.$('.uic-modal.uic-modal-alert').length, 1);
+  assert.equal($('.uic-modal.uic-modal-alert').length, 1);
 });

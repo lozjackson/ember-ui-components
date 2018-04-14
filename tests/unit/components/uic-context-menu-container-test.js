@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-
-const { run } = Ember;
 
 moduleForComponent('uic-context-menu-container', 'Unit | Component | uic context menu container', {
   needs: [
@@ -56,7 +54,7 @@ test('keyDown() event - enter', function(assert) {
   };
   var component = this.subject();
   // component.set('showContextMenu', true);
-  component.set('action', () => assert.ok(true));
+  component.set('closeContextMenu', () => assert.ok(true));
   this.render();
   run(() => component.keyDown(event));
   assert.ok(component);
@@ -70,7 +68,7 @@ test('keyDown() event - escape', function(assert) {
   };
   var component = this.subject();
   // component.set('showContextMenu', true);
-  component.set('action', () => assert.ok(true));
+  component.set('closeContextMenu', () => assert.ok(true));
   this.render();
   run(() => component.keyDown(event));
   assert.ok(component);

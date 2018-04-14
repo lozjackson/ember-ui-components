@@ -1,16 +1,16 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
-
-const { computed, getOwner } = Ember;
+import Service from '@ember/service';
+import { computed } from '@ember/object';
+import { getOwner } from '@ember/application';
 const { alias } = computed;
 
 /**
   @class LookupService
   @namespace Services
 */
-export default Ember.Service.extend({
+export default Service.extend({
 
   /**
     Alias of `application.currentPath`

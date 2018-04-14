@@ -1,7 +1,9 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Service from '@ember/service';
+import { typeOf } from '@ember/utils';
+import { defer } from 'rsvp';
 
 /**
   # Dialog Service
@@ -41,7 +43,7 @@ import Ember from 'ember';
   @class DialogService
   @namespace Services
 */
-export default Ember.Service.extend({
+export default Service.extend({
 
   /**
     @property open
@@ -160,8 +162,8 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   openModal(message, type) {
-    let deferred = Ember.RSVP.defer();
-    if (Ember.typeOf(message) !== 'object') {
+    let deferred = defer();
+    if (typeOf(message) !== 'object') {
       message = this.convertMessageToObject(message);
     }
 
@@ -213,10 +215,10 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   alert(message) {
-    if (Ember.typeOf(message) !== 'object') {
+    if (typeOf(message) !== 'object') {
       message = this.convertMessageToObject(message);
     }
-    if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
+    if (typeOf(message.clickOutsideModal) === 'undefined') {
       message.clickOutsideModal = null;
     }
     return this.openModal(message, 'uic-modal-alert');
@@ -262,10 +264,10 @@ export default Ember.Service.extend({
     @return {Object} Promise
   */
   confirm(message) {
-    if (Ember.typeOf(message) !== 'object') {
+    if (typeOf(message) !== 'object') {
       message = this.convertMessageToObject(message);
     }
-    if (Ember.typeOf(message.clickOutsideModal) === 'undefined') {
+    if (typeOf(message.clickOutsideModal) === 'undefined') {
       message.clickOutsideModal = 'shake';
     }
     return this.openModal(message, 'uic-modal-confirm');

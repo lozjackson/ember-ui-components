@@ -22,7 +22,7 @@ test('it has correct tagName and classNames', function(assert) {
 test('click - sendAction', function(assert) {
   assert.expect(1);
   this.on('close', () => assert.ok(true));
-  this.render(hbs`{{uic-close-button action="close"}}`);
+  this.render(hbs`{{uic-close-button click=(action "close")}}`);
   this.$('button.uic-close-button').click();
 });
 

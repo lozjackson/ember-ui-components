@@ -1,14 +1,14 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-content-mask';
 
 /**
   @class ContentMaskComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   /**
     @property layout
     @type {String}
@@ -49,12 +49,5 @@ export default Ember.Component.extend({
     if (typeof didInsertMask === 'function') {
       didInsertMask.call(this);
     }
-  },
-
-  /**
-    @event click
-  */
-  click() {
-    this.sendAction();
   }
 });

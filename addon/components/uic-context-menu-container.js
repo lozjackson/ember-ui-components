@@ -1,19 +1,20 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import ClickOutsideMixin from 'ember-ui-components/mixins/click-outside';
 import layout from '../templates/components/uic-context-menu-container';
 import setPosition from 'ember-ui-components/utils/set-position';
 import getMousePosition from 'ember-ui-components/utils/get-mouse-position';
-
-const { alias } = Ember.computed;
+import { get } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 /**
   @class ContextMenuContainerComponent
   @namespace Components
 */
-export default Ember.Component.extend(ClickOutsideMixin, {
+export default Component.extend(ClickOutsideMixin, {
   layout,
 
   /**
@@ -22,7 +23,7 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @type {Object}
     @private
   */
-  contextMenuService: Ember.inject.service('context-menu'),
+  contextMenuService: service('context-menu'),
 
   /**
     @property tagName
@@ -106,7 +107,7 @@ export default Ember.Component.extend(ClickOutsideMixin, {
     @private
   */
   handleClickOutside() {
-    this.sendAction();
+    get(this, 'closeContextMenu')();
   },
 
   /**
@@ -127,19 +128,15 @@ export default Ember.Component.extend(ClickOutsideMixin, {
   keyDown(event) {
     switch(event.keyCode) {
       case 13: // enter
-        this.sendAction();
+        get(this, 'closeContextMenu')();
         break;
       case 27: // escape
-        this.sendAction();
+        get(this, 'closeContextMenu')();
         break;
     }
   },
 
-  /**
-    @event click
-    @private
-  */
   click() {
-    this.sendAction();
+    get(this, 'closeContextMenu')();
   }
 });

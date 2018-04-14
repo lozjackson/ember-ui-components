@@ -1,10 +1,9 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/uic-form-element';
-
-const { computed } = Ember;
 
 /**
   # FormElementComponent
@@ -34,7 +33,7 @@ const { computed } = Ember;
   @class FormElementComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   classNames: ['uic-form-element'],

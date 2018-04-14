@@ -1,16 +1,15 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
+import { run } from '@ember/runloop';
 import layout from '../templates/components/uic-sub-menu';
-
-const run = Ember.run;
 
 /**
   @class SubMenuComponent
   @namespace Components
 */
-export default Ember.Component.extend( {
+export default Component.extend( {
 
   /**
     @property layout

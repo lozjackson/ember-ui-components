@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+const example = {
 
   builtInClassNames: [
     { name: 'default' },
@@ -14,7 +14,9 @@ export default Ember.Controller.extend({
     { name: 'baz' }
   ]
   // END-SNIPPET
+}
 
-
-
+export default Controller.extend({
+  builtInClassNames: example.builtInClassNames,
+  array: example.array
 });

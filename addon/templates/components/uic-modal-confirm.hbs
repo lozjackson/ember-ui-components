@@ -5,6 +5,6 @@
   <p>{{dialog.body}}</p>
 {{/if}}
 <div class="uic-modal-button-container">
-  {{#uic-button class="uic-cancel-button" action="cancel"}}Cancel{{/uic-button}}
-  {{#uic-button class="uic-ok-button" action="confirm"}}OK{{/uic-button}}
+  {{#uic-button class="uic-cancel-button" click=(action "cancel")}}Cancel{{/uic-button}}
+  {{#uic-button class="uic-ok-button" click=(action "confirm")}}OK{{/uic-button}}
 </div>

@@ -1,8 +1,8 @@
 {{yield to="inverse"}}
 {{#if showContextMenu}}
   {{#ember-wormhole to=destinationElementId renderInPlace=(unless destinationElementId true)}}
-    {{#uic-content-mask active=true action="closeContextMenu" class="uic-menu-overlay"}}
-      {{#uic-context-menu-container action="closeContextMenu"}}
+    {{#uic-content-mask active=true click=(action "closeContextMenu") class="uic-menu-overlay"}}
+      {{#uic-context-menu-container closeContextMenu=(action "closeContextMenu")}}
         {{yield contextMenuParams}}
       {{/uic-context-menu-container}}
     {{/uic-content-mask}}

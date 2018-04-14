@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service';
 
 /**
   @class CloseModalHelper
   @namespace Helpers
 */
-export default Ember.Helper.extend({
+export default Helper.extend({
 
   /**
     ## CloseModal
@@ -16,7 +17,7 @@ export default Ember.Helper.extend({
     ```
 
     The `{{close-modal}}` helper returns a function that can be used in actions:
-    
+
     ```
     <div {{action (close-modal)}}>
       // ...
@@ -34,12 +35,12 @@ export default Ember.Helper.extend({
     ```
     {{my-component action=(close-modal)}}
     ```
-    
+
     @property modal
     @type {Object}
     @private
   */
-  modal: Ember.inject.service(),
+  modal: service(),
 
   /**
     @method compute

@@ -1,7 +1,7 @@
 /**
   @module ember-ui-components
 */
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/uic-close-button';
 
 /**
@@ -14,7 +14,7 @@ import layout from '../templates/components/uic-close-button';
   @class CloseButtonComponent
   @namespace Components
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   /**
@@ -31,12 +31,5 @@ export default Ember.Component.extend({
     @private
     @default `['uic-close-button']`
   */
-  classNames: ['uic-close-button'],
-
-  /**
-    @event click
-  */
-  click() {
-    this.sendAction();
-  }
+  classNames: ['uic-close-button']
 });

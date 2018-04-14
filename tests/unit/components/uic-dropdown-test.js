@@ -1,7 +1,5 @@
+import { run } from '@ember/runloop';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const run = Ember.run;
 
 moduleForComponent('uic-dropdown', 'Unit | Component | uic dropdown', {
   needs: [
