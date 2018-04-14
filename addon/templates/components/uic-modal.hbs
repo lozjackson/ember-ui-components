@@ -3,5 +3,5 @@
 {{else}}
   <h2>{{dialog.title}}</h2>
   <p>{{dialog.body}}</p>
-  {{#uic-button action='closeModal'}}Close{{/uic-button}}
+  {{#uic-button click=(action 'closeModal')}}Close{{/uic-button}}
 {{/if}}
