@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default Controller.extend({
+const params = {
 
   menuOpen: false,
   menuPosition: "left",
@@ -13,4 +13,6 @@ export default Controller.extend({
   menuPositions: ['left', 'right', 'top', 'bottom'],
 
   pushContentTypeOptions: ['push-content', 'squeeze-content']
-});
+}
+
+export default Controller.extend(params);

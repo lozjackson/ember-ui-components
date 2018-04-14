@@ -35,7 +35,7 @@ test('click', function(assert) {
   assert.expect(1);
   this.on('doSomething', () => assert.ok(true));
   this.render(hbs`
-    {{#uic-button action="doSomething"}}
+    {{#uic-button click=(action "doSomething")}}
       template block text
     {{/uic-button}}
   `);

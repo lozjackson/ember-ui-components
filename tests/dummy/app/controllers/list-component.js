@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default Controller.extend({
+const example = {
 
   builtInClassNames: [
     { name: 'default' },
@@ -14,7 +14,9 @@ export default Controller.extend({
     { name: 'baz' }
   ]
   // END-SNIPPET
+}
 
-
-
+export default Controller.extend({
+  builtInClassNames: example.builtInClassNames,
+  array: example.array
 });

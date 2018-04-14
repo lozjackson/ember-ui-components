@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-
+const example = {
 // BEGIN-SNIPPET array-of-strings
 selectedString: null,
 
@@ -26,4 +25,11 @@ arrayOfObjects: [
   }
 ]
 // END-SNIPPET
+}
+
+export default Controller.extend({
+  selectedString: example.selectedString,
+  arrayOfStrings: example.arrayOfStrings,
+  selectedObject: example.selectedObject,
+  arrayOfObjects: example.arrayOfObjects
 });

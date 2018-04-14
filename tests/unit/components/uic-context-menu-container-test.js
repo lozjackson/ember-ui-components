@@ -54,7 +54,7 @@ test('keyDown() event - enter', function(assert) {
   };
   var component = this.subject();
   // component.set('showContextMenu', true);
-  component.set('action', () => assert.ok(true));
+  component.set('closeContextMenu', () => assert.ok(true));
   this.render();
   run(() => component.keyDown(event));
   assert.ok(component);
@@ -68,7 +68,7 @@ test('keyDown() event - escape', function(assert) {
   };
   var component = this.subject();
   // component.set('showContextMenu', true);
-  component.set('action', () => assert.ok(true));
+  component.set('closeContextMenu', () => assert.ok(true));
   this.render();
   run(() => component.keyDown(event));
   assert.ok(component);

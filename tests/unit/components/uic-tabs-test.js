@@ -18,13 +18,6 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('tabs should be []', function(assert) {
-  assert.expect(1);
-  let component = this.subject();
-  this.render();
-  assert.deepEqual(component.get('tabs'), []);
-});
-
 test('defaultTabName should be Untitled', function(assert) {
   assert.expect(1);
   let component = this.subject();

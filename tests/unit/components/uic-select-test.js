@@ -22,13 +22,6 @@ test('tagName', function(assert) {
   assert.equal(component.get('tagName'), 'select');
 });
 
-test('options should be empty array', function(assert) {
-  assert.expect(1);
-  var component = this.subject();
-  this.render();
-  assert.equal(component.get('options.length'), 0);
-});
-
 test('change() method', function(assert) {
   assert.expect(1);
   var component = this.subject();

@@ -23,7 +23,7 @@ test('it renders', function(assert) {
 test('click triggers sendAction', function(assert) {
   assert.expect(1);
   this.on('closeMenu', () => assert.ok(true));
-  this.render(hbs`{{uic-content-mask action="closeMenu"}}`);
+  this.render(hbs`{{uic-content-mask click=(action "closeMenu")}}`);
   this.$('div.uic-content-mask').click();
 });
 
