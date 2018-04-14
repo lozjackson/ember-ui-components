@@ -3,6 +3,7 @@
 */
 import Component from '@ember/component';
 import layout from '../templates/components/uic-list';
+import { get } from '@ember/object';
 
 /**
   ## List Component
@@ -60,6 +61,6 @@ export default Component.extend({
     @private
   */
   select() {
-    this.sendAction('selectItem', ...arguments);
+    get(this, 'selectItem')(...arguments);
   }
 });
