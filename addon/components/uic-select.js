@@ -98,7 +98,6 @@ export default Component.extend({
     @property options
     @type {Array}
   */
-  options: [],
 
   /**
     Set the `selected` value when the element changes.
