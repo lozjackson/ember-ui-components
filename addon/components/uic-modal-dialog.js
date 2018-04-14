@@ -4,7 +4,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/uic-modal-dialog';
 import { computed } from '@ember/object';
-import { on } from '@ember/object/evented';
 import { inject as service } from '@ember/service';
 import { typeOf } from '@ember/utils';
 import $ from 'jquery';
@@ -154,7 +153,7 @@ export default Component.extend({
     @readonly
     @private
   */
-  displayModal: computed('dialog.open', 'dialog.type', '_disableScroll', function () {
+  displayModal: computed('dialog.{open,type}', '_disableScroll', function () {
     if (this.get('dialog.open') && typeOf(this.get('dialog.type')) === 'string') {
       $(this.get('element')).focus();
       if (this.get('_disableScroll')) {
@@ -217,9 +216,10 @@ export default Component.extend({
     element.animate({ left: 0 }, interval);
   },
 
-  _removeModalClassName: on('willDestroyElement', function () {
+  willDestroyElement() {
+    this._super(...arguments);
     $('body').removeClass('modal-dialog-is-open');
-  }),
+  },
 
   /**
     @event keyDown
