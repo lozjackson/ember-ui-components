@@ -8,7 +8,7 @@ import layout from '../templates/components/uic-button';
   # ButtonComponent
 
   ```
-  {{uic-button action="actionName"}}
+  {{uic-button click=(action "actionName")}}
   ```
 
   @class ButtonComponent
@@ -54,13 +54,5 @@ export default Component.extend({
     @type {Boolean}
     @default `false`
   */
-  disabled: false,
-
-  /**
-    @event click
-    @private
-  */
-  click() {
-    this.sendAction();
-  }
+  disabled: false
 });
