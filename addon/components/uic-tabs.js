@@ -4,7 +4,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/uic-tabs';
 import { get } from '@ember/object';
-import { on } from '@ember/object/evented';
 import { next } from '@ember/runloop';
 import { alias } from '@ember/object/computed';
 
@@ -45,7 +44,6 @@ export default Component.extend({
     @property tabs
     @type {Array}
   */
-  tabs: [],
 
   /**
     ## Default Tab Name
@@ -129,7 +127,7 @@ export default Component.extend({
     }
   },
 
-  initActiveTab: on('didRender', function () {
+  didRender() {
     this._initActiveTab();
-  })
+  }
 });
