@@ -1,6 +1,6 @@
 {{yield to="inverse"}}
 {{#if showDropdown}}
-  {{#uic-dropdown-container autoClose=autoClose action="hideDropdown"}}
+  {{#uic-dropdown-container autoClose=autoClose hide=(action "hideDropdown")}}
     {{yield}}
   {{/uic-dropdown-container}}
 {{/if}}
