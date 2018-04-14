@@ -157,7 +157,6 @@ export default Component.extend({
     @type {Array} Array of Strings
     @private
   */
-  _menuTemplates: [],
 
   /**
     Alias of `menuOpen`
